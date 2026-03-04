@@ -12,34 +12,31 @@
 ## Технический стек
 - React + Tailwind CSS + shadcn/ui
 - framer-motion (веб-анимации)
-- **@react-pdf/renderer** (PDF-генерация, заменил html2canvas + jsPDF)
+- **@react-pdf/renderer** (PDF-генерация)
 - Шрифт Inter (с кириллицей) для PDF
 
-## Структура проекта
+## Структура
 ```
 /app/frontend/src/
 ├── components/
 │   ├── PdfGenerator.jsx       ← PDF-генерация (@react-pdf/renderer)
-│   ├── slides/                ← Веб-слайды (14 компонентов)
-│   └── ui/                    ← shadcn компоненты
+│   ├── slides/                ← Веб-слайды
+│   └── ui/                    ← shadcn
 ├── pages/
 │   └── Presentation.jsx       ← Основной компонент
 /app/docs/
 │   └── WEB_TO_PDF_STYLE_GUIDE.md  ← Style guide: веб → PDF
-/app/design_guidelines.json        ← Дизайн-гайд от дизайн-агента
+/app/design_guidelines.json        ← Дизайн-гайд
 ```
 
 ## Выполнено
 - [x] Веб-презентация 14 слайдов (hop.agency стиль)
-- [x] PDF-генерация через @react-pdf/renderer (Premium дизайн)
-- [x] Дизайн-система PDF: консолидированная тема, переиспользуемые компоненты
-- [x] Кириллица (шрифт Inter с полной поддержкой)
-- [x] SVG-декорации (титульный слайд)
-- [x] Style guide: WEB_TO_PDF_STYLE_GUIDE.md
-- [x] Design guidelines: design_guidelines.json
+- [x] PDF через @react-pdf/renderer (Premium дизайн, дизайн-система)
+- [x] Сбалансированный layout: натуральная высота карточек + вертикальное центрирование
+- [x] Кириллица (Inter)
+- [x] Style guide: WEB_TO_PDF_STYLE_GUIDE.md (включая раздел о балансировке layout)
 - [x] Удалён бэйдж "Made with Emergent"
-- [x] Текст "В том числе НДС 5%" обновлён
-- [x] Убрана зависимость от html2canvas + jsPDF
+- [x] Текст "В том числе НДС 5%"
 
 ## Задачи
 Нет открытых задач.
