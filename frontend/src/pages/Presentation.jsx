@@ -38,9 +38,9 @@ const slideVariants = {
 // A4 landscape dimensions in mm and the rendering pixel size
 const A4_W_MM = 297;
 const A4_H_MM = 210;
-// Render each slide at 1920×1080 so it looks crisp when scaled into A4 landscape
+// Render at A4 landscape aspect ratio (297:210 ≈ 1.414:1) so content maps 1:1 to the page
 const RENDER_W = 1920;
-const RENDER_H = 1080;
+const RENDER_H = Math.round(1920 * (210 / 297)); // ≈ 1358
 
 export default function Presentation() {
   const [current, setCurrent] = useState(0);
