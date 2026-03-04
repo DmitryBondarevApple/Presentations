@@ -20,6 +20,7 @@ import TeamSlide from '@/components/slides/TeamSlide';
 import RoadmapSlide from '@/components/slides/RoadmapSlide';
 import PricingSlide from '@/components/slides/PricingSlide';
 import ContactSlide from '@/components/slides/ContactSlide';
+import { pdfSlides } from '@/components/slides/PdfSlides';
 
 const allSlides = [
   TitleSlide, ContextSlide, SubjectSlide, GoalSlide, TasksSlide,
@@ -282,7 +283,7 @@ export default function Presentation() {
           zIndex: -1,
         }}
       >
-        {allSlides.map((SlideComp, i) => (
+        {pdfSlides.map((PdfSlideComp, i) => (
           <div
             key={i}
             data-pdf-slide={i}
@@ -293,7 +294,7 @@ export default function Presentation() {
               position: 'relative',
             }}
           >
-            <SlideComp />
+            <PdfSlideComp />
           </div>
         ))}
       </div>
