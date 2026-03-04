@@ -127,3 +127,8 @@ body {
         display: contents !important;
     }
 }
+
+/* Hide external badge */
+#emergent-badge {
+    display: none !important;
+}
