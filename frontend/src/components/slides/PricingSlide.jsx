@@ -34,7 +34,7 @@ const PricingSlide = () => (
 
       {/* Notes */}
       <p className="animate-item stagger-6 mt-6 font-body text-sm text-muted-foreground">
-        НДС 5% включён в стоимость
+        В том числе НДС 5%
       </p>
       <p className="animate-item stagger-7 mt-2 font-body text-xs text-muted-foreground/50">
         Предложение действительно 2 месяца
