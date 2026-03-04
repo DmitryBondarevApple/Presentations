@@ -76,49 +76,65 @@ export default function Presentation() {
     }
   }, []);
 
-  /* ───── PDF generation via html2canvas + jsPDF ───── */
+  /* ───── PDF generation — render each slide ON-SCREEN behind overlay ───── */
   const generatePdf = useCallback(async () => {
     if (pdfBusy) return;
     setPdfBusy(true);
     setPdfProgress('Подготовка…');
 
     try {
-      // jsPDF: 'l' = landscape, units mm, A4
       const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
 
-      const container = offscreenRef.current;
-      if (!container) return;
+      // Create a temporary on-screen container (behind the loading overlay z-50)
+      const tmpContainer = document.createElement('div');
+      tmpContainer.style.cssText = `
+        position: fixed; top: 0; left: 0; z-index: 40;
+        width: ${RENDER_W}px; height: ${RENDER_H}px;
+        overflow: hidden; pointer-events: none;
+      `;
+      document.body.appendChild(tmpContainer);
 
-      // render all slides offscreen
-      container.style.display = 'block';
-
-      // Wait for layout reflow
-      await new Promise(r => setTimeout(r, 600));
-
-      const slideEls = container.querySelectorAll('[data-pdf-slide]');
-
-      for (let i = 0; i < slideEls.length; i++) {
+      for (let i = 0; i < pdfSlides.length; i++) {
         setPdfProgress(`Слайд ${i + 1} из ${TOTAL}…`);
-        const el = slideEls[i];
 
-        const canvas = await html2canvas(el, {
+        // Get the pre-rendered slide from the offscreen container
+        const offscreen = offscreenRef.current;
+        if (!offscreen) continue;
+
+        // Move the specific slide into the visible container
+        offscreen.style.display = 'block';
+        const slideEl = offscreen.querySelector(`[data-pdf-slide="${i}"]`);
+        if (!slideEl) continue;
+
+        // Clone the slide and place it on-screen for proper layout computation
+        const clone = slideEl.cloneNode(true);
+        clone.style.width = `${RENDER_W}px`;
+        clone.style.height = `${RENDER_H}px`;
+        clone.style.overflow = 'hidden';
+        clone.style.position = 'relative';
+        tmpContainer.innerHTML = '';
+        tmpContainer.appendChild(clone);
+
+        // Wait for browser to compute layout (fonts, flexbox, etc.)
+        await new Promise(r => setTimeout(r, 300));
+
+        const canvas = await html2canvas(clone, {
           width: RENDER_W,
           height: RENDER_H,
-          scale: 2,                // 2× for sharpness
+          scale: 2,
           useCORS: true,
-          backgroundColor: null,   // keep actual bg
+          backgroundColor: null,
           logging: false,
         });
 
         const imgData = canvas.toDataURL('image/jpeg', 0.92);
-
         if (i > 0) pdf.addPage();
-
-        // Fill the entire A4 landscape page with the slide image
         pdf.addImage(imgData, 'JPEG', 0, 0, A4_W_MM, A4_H_MM);
       }
 
-      container.style.display = 'none';
+      // Cleanup
+      document.body.removeChild(tmpContainer);
+      if (offscreenRef.current) offscreenRef.current.style.display = 'none';
 
       setPdfProgress('Сохранение…');
       pdf.save('Презентация_Ростелеком_HopAgency.pdf');
