@@ -210,18 +210,20 @@ const focusAreas = [
 const S3 = () => (
   <Page size={[PW, PH]} style={s.page}>
     <Header label="Предмет предложения" num={3} />
-    <Text style={[s.h2, { fontSize: 30, marginBottom: 20 }]}>
-      Три фокуса <Text style={{ color: T.accent }}>сотрудничества</Text>
-    </Text>
-    <View style={{ flexDirection: "row", gap: 14, flex: 1 }}>
-      {focusAreas.map((a, i) => (
-        <Card key={i} style={{ flex: 1 }}>
-          <NumBadge n={i + 1} />
-          <Text style={[s.h3, { marginBottom: 4 }]}>{a.title}</Text>
-          <Text style={{ fontSize: 10, color: T.accent, marginBottom: 16 }}>{a.sub}</Text>
-          <Text style={[s.body, { marginTop: "auto" }]}>{a.desc}</Text>
-        </Card>
-      ))}
+    <View style={{ flex: 1, justifyContent: "center" }}>
+      <Text style={[s.h2, { fontSize: 30, marginBottom: 32 }]}>
+        Три фокуса <Text style={{ color: T.accent }}>сотрудничества</Text>
+      </Text>
+      <View style={{ flexDirection: "row", gap: 14 }}>
+        {focusAreas.map((a, i) => (
+          <Card key={i} style={{ flex: 1 }}>
+            <NumBadge n={i + 1} />
+            <Text style={[s.h3, { marginBottom: 4 }]}>{a.title}</Text>
+            <Text style={{ fontSize: 10, color: T.accent, marginBottom: 16 }}>{a.sub}</Text>
+            <Text style={s.body}>{a.desc}</Text>
+          </Card>
+        ))}
+      </View>
     </View>
     <Brand />
   </Page>
@@ -268,26 +270,28 @@ const tasks = [
 const S5 = () => (
   <Page size={[PW, PH]} style={s.page}>
     <Header label="Задачи" num={5} />
-    <Text style={[s.h2, { fontSize: 30, marginBottom: 24 }]}>
-      Задачи <Text style={{ color: T.accent }}>программы</Text>
-    </Text>
-    <View style={{ flexDirection: "row", gap: 40, flex: 1 }}>
-      <View style={{ flex: 1, gap: 14 }}>
-        {tasks.slice(0, 4).map((t, i) => (
-          <View key={i} style={{ flexDirection: "row", gap: 12, alignItems: "flex-start" }}>
-            <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent, width: 26 }}>{String(i + 1).padStart(2, "0")}</Text>
-            <Text style={{ fontSize: 12, color: T.fg2, lineHeight: 1.5, flex: 1 }}>{t}</Text>
-          </View>
-        ))}
-      </View>
-      <VSep />
-      <View style={{ flex: 1, gap: 14 }}>
-        {tasks.slice(4).map((t, i) => (
-          <View key={i} style={{ flexDirection: "row", gap: 12, alignItems: "flex-start" }}>
-            <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent, width: 26 }}>{String(i + 5).padStart(2, "0")}</Text>
-            <Text style={{ fontSize: 12, color: T.fg2, lineHeight: 1.5, flex: 1 }}>{t}</Text>
-          </View>
-        ))}
+    <View style={{ flex: 1, justifyContent: "center" }}>
+      <Text style={[s.h2, { fontSize: 30, marginBottom: 32 }]}>
+        Задачи <Text style={{ color: T.accent }}>программы</Text>
+      </Text>
+      <View style={{ flexDirection: "row", gap: 40 }}>
+        <View style={{ flex: 1, gap: 14 }}>
+          {tasks.slice(0, 4).map((t, i) => (
+            <View key={i} style={{ flexDirection: "row", gap: 12, alignItems: "flex-start" }}>
+              <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent, width: 26 }}>{String(i + 1).padStart(2, "0")}</Text>
+              <Text style={{ fontSize: 12, color: T.fg2, lineHeight: 1.5, flex: 1 }}>{t}</Text>
+            </View>
+          ))}
+        </View>
+        <VSep />
+        <View style={{ flex: 1, gap: 14 }}>
+          {tasks.slice(4).map((t, i) => (
+            <View key={i} style={{ flexDirection: "row", gap: 12, alignItems: "flex-start" }}>
+              <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent, width: 26 }}>{String(i + 5).padStart(2, "0")}</Text>
+              <Text style={{ fontSize: 12, color: T.fg2, lineHeight: 1.5, flex: 1 }}>{t}</Text>
+            </View>
+          ))}
+        </View>
       </View>
     </View>
     <Brand />
@@ -311,22 +315,24 @@ const results = [
 const S6 = () => (
   <Page size={[PW, PH]} style={s.page}>
     <Header label="Результаты" num={6} />
-    <Text style={[s.h2, { marginBottom: 4 }]}>Пакет готовности <Text style={{ color: T.accent }}>к рынку</Text></Text>
-    <Text style={[s.body, { marginBottom: 16 }]}>По каждому продукту — до 5 продуктов на цикл</Text>
-    <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10, flex: 1 }}>
-      {results.map((r, i) => (
-        <View key={i} style={{
-          width: "31.5%", backgroundColor: T.bg2, borderRadius: 8, padding: "12 14",
-          borderWidth: 1, borderColor: T.border,
-          flexDirection: "row", gap: 10, alignItems: "flex-start",
-        }}>
-          <Dot size={6} />
-          <View style={{ flex: 1 }}>
-            <Text style={{ fontSize: 11, fontWeight: 600, color: T.fg }}>{r.l}</Text>
-            <Text style={[s.caption, { marginTop: 3 }]}>{r.d}</Text>
+    <View style={{ flex: 1, justifyContent: "center" }}>
+      <Text style={[s.h2, { marginBottom: 4 }]}>Пакет готовности <Text style={{ color: T.accent }}>к рынку</Text></Text>
+      <Text style={[s.body, { marginBottom: 24 }]}>По каждому продукту — до 5 продуктов на цикл</Text>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
+        {results.map((r, i) => (
+          <View key={i} style={{
+            width: "31.5%", backgroundColor: T.bg2, borderRadius: 8, padding: "12 14",
+            borderWidth: 1, borderColor: T.border,
+            flexDirection: "row", gap: 10, alignItems: "flex-start",
+          }}>
+            <Dot size={6} />
+            <View style={{ flex: 1 }}>
+              <Text style={{ fontSize: 11, fontWeight: 600, color: T.fg }}>{r.l}</Text>
+              <Text style={[s.caption, { marginTop: 3 }]}>{r.d}</Text>
+            </View>
           </View>
-        </View>
-      ))}
+        ))}
+      </View>
     </View>
     <Brand />
   </Page>
@@ -343,17 +349,19 @@ const summary = [
 const S7 = () => (
   <Page size={[PW, PH]} style={s.page}>
     <Header label="Сводные результаты" num={7} />
-    <Text style={[s.h2, { fontSize: 30, marginBottom: 24 }]}>
-      Сводные результаты <Text style={{ color: T.accent }}>программы</Text>
-    </Text>
-    <View style={{ flexDirection: "row", gap: 14, flex: 1 }}>
-      {summary.map((item, i) => (
-        <Card key={i} style={{ flex: 1 }}>
-          <NumBadge n={i + 1} />
-          <Text style={[s.h3, { fontSize: 15, marginBottom: 10 }]}>{item.t}</Text>
-          <Text style={[s.body, { marginTop: "auto" }]}>{item.d}</Text>
-        </Card>
-      ))}
+    <View style={{ flex: 1, justifyContent: "center" }}>
+      <Text style={[s.h2, { fontSize: 30, marginBottom: 32 }]}>
+        Сводные результаты <Text style={{ color: T.accent }}>программы</Text>
+      </Text>
+      <View style={{ flexDirection: "row", gap: 14 }}>
+        {summary.map((item, i) => (
+          <Card key={i} style={{ flex: 1 }}>
+            <NumBadge n={i + 1} />
+            <Text style={[s.h3, { fontSize: 15, marginBottom: 10 }]}>{item.t}</Text>
+            <Text style={s.body}>{item.d}</Text>
+          </Card>
+        ))}
+      </View>
     </View>
     <Brand />
   </Page>
@@ -419,17 +427,19 @@ const ScopeCard = ({ num, title, tasks: t, results: r }) => (
 const S9 = () => (
   <Page size={[PW, PH]} style={s.page}>
     <Header label="Содержание работ · 1/2" num={9} />
-    <Text style={[s.h2, { fontSize: 26, marginBottom: 16 }]}>
-      Содержание работ <Text style={{ color: T.muted, fontWeight: 400, fontSize: 16 }}>(этапы 1–4)</Text>
-    </Text>
-    <View style={{ flex: 1, gap: 10 }}>
-      <View style={{ flexDirection: "row", gap: 10, flex: 1 }}>
-        <ScopeCard num="01" title="Запуск и процедурные решения" tasks="Список продуктов, рабочий календарь, правила работы с данными, шаблоны" results="Паспорт программы, матрица ролей, чек-лист ограничений" />
-        <ScopeCard num="02" title="Отбор и приоритезация продуктов" tasks="Критерии выхода, экспресс-оценка готовности, выбор до 5 продуктов" results="Карта показателей, финальный список, карта зависимостей" />
-      </View>
-      <View style={{ flexDirection: "row", gap: 10, flex: 1 }}>
-        <ScopeCard num="03" title="Диагностика продукта и ценность" tasks="Сбор фактуры, сценарии применения, эффекты, позиционирование" results="JTBD/сценарии, ценностное предложение, профиль клиента" />
-        <ScopeCard num="04" title="Анализ рынка и конкурентов" tasks="Кабинетное исследование, конкурентная карта, анализ аналогов" results="Карта конкурентов, сегментация, гипотезы дифференциации" />
+    <View style={{ flex: 1, justifyContent: "center" }}>
+      <Text style={[s.h2, { fontSize: 26, marginBottom: 20 }]}>
+        Содержание работ <Text style={{ color: T.muted, fontWeight: 400, fontSize: 16 }}>(этапы 1–4)</Text>
+      </Text>
+      <View style={{ gap: 10 }}>
+        <View style={{ flexDirection: "row", gap: 10 }}>
+          <ScopeCard num="01" title="Запуск и процедурные решения" tasks="Список продуктов, рабочий календарь, правила работы с данными, шаблоны" results="Паспорт программы, матрица ролей, чек-лист ограничений" />
+          <ScopeCard num="02" title="Отбор и приоритезация продуктов" tasks="Критерии выхода, экспресс-оценка готовности, выбор до 5 продуктов" results="Карта показателей, финальный список, карта зависимостей" />
+        </View>
+        <View style={{ flexDirection: "row", gap: 10 }}>
+          <ScopeCard num="03" title="Диагностика продукта и ценность" tasks="Сбор фактуры, сценарии применения, эффекты, позиционирование" results="JTBD/сценарии, ценностное предложение, профиль клиента" />
+          <ScopeCard num="04" title="Анализ рынка и конкурентов" tasks="Кабинетное исследование, конкурентная карта, анализ аналогов" results="Карта конкурентов, сегментация, гипотезы дифференциации" />
+        </View>
       </View>
     </View>
     <Brand />
@@ -442,17 +452,19 @@ const S9 = () => (
 const S10 = () => (
   <Page size={[PW, PH]} style={s.page}>
     <Header label="Содержание работ · 2/2" num={10} />
-    <Text style={[s.h2, { fontSize: 26, marginBottom: 16 }]}>
-      Содержание работ <Text style={{ color: T.muted, fontWeight: 400, fontSize: 16 }}>(этапы 5–8)</Text>
-    </Text>
-    <View style={{ flex: 1, gap: 10 }}>
-      <View style={{ flexDirection: "row", gap: 10, flex: 1 }}>
-        <ScopeCard num="05" title="Коммерческая упаковка" tasks="Набор материалов, структура предложения, экономический эффект, возражения" results="Одностраничник, презентация, FAQ, шаблоны, калькулятор эффекта" />
-        <ScopeCard num="06" title="Проверка внешнего спроса" tasks="Интервью, встречи, фиксация сигналов интереса и условий пилота" results="Реестр контактов, протоколы, карта интереса, список для пилотов" />
-      </View>
-      <View style={{ flexDirection: "row", gap: 10, flex: 1 }}>
-        <ScopeCard num="07" title="Проектирование пилотов" tasks="Дизайн пилота, критерии успеха, роли сторон, требования по безопасности" results="Паспорт пилота, KPI, план-график, реестр рисков" />
-        <ScopeCard num="08" title="Финальная защита и план" tasks="Итоговая сессия, фиксация решений, рекомендации по следующей волне" results="Итоговый отчёт, решения по продуктам, дорожная карта" />
+    <View style={{ flex: 1, justifyContent: "center" }}>
+      <Text style={[s.h2, { fontSize: 26, marginBottom: 20 }]}>
+        Содержание работ <Text style={{ color: T.muted, fontWeight: 400, fontSize: 16 }}>(этапы 5–8)</Text>
+      </Text>
+      <View style={{ gap: 10 }}>
+        <View style={{ flexDirection: "row", gap: 10 }}>
+          <ScopeCard num="05" title="Коммерческая упаковка" tasks="Набор материалов, структура предложения, экономический эффект, возражения" results="Одностраничник, презентация, FAQ, шаблоны, калькулятор эффекта" />
+          <ScopeCard num="06" title="Проверка внешнего спроса" tasks="Интервью, встречи, фиксация сигналов интереса и условий пилота" results="Реестр контактов, протоколы, карта интереса, список для пилотов" />
+        </View>
+        <View style={{ flexDirection: "row", gap: 10 }}>
+          <ScopeCard num="07" title="Проектирование пилотов" tasks="Дизайн пилота, критерии успеха, роли сторон, требования по безопасности" results="Паспорт пилота, KPI, план-график, реестр рисков" />
+          <ScopeCard num="08" title="Финальная защита и план" tasks="Итоговая сессия, фиксация решений, рекомендации по следующей волне" results="Итоговый отчёт, решения по продуктам, дорожная карта" />
+        </View>
       </View>
     </View>
     <Brand />
@@ -471,22 +483,24 @@ const team = [
 const S11 = () => (
   <Page size={[PW, PH]} style={s.page}>
     <Header label="Команда" num={11} />
-    <Text style={[s.h2, { fontSize: 30, marginBottom: 20 }]}>
-      Команда <Text style={{ color: T.accent }}>проекта</Text>
-    </Text>
-    <View style={{ flexDirection: "row", gap: 12, flex: 1 }}>
-      {team.map((m, i) => (
-        <Card key={i} style={{ flex: 1 }}>
-          <NumBadge n={i + 1} />
-          <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg }}>{m.role}</Text>
-          <Text style={{ fontSize: 10, color: T.accent, marginTop: 3, marginBottom: 14 }}>{m.count}</Text>
-          <Text style={[s.body, { marginTop: "auto" }]}>{m.desc}</Text>
-        </Card>
-      ))}
-    </View>
-    <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginTop: 14, flexShrink: 0 }}>
-      <Text style={{ fontSize: 12, color: T.muted }}>Итого:</Text>
-      <Text style={{ fontSize: 18, fontWeight: 700, color: T.fg }}>5 специалистов</Text>
+    <View style={{ flex: 1, justifyContent: "center" }}>
+      <Text style={[s.h2, { fontSize: 30, marginBottom: 28 }]}>
+        Команда <Text style={{ color: T.accent }}>проекта</Text>
+      </Text>
+      <View style={{ flexDirection: "row", gap: 12 }}>
+        {team.map((m, i) => (
+          <Card key={i} style={{ flex: 1 }}>
+            <NumBadge n={i + 1} />
+            <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg }}>{m.role}</Text>
+            <Text style={{ fontSize: 10, color: T.accent, marginTop: 3, marginBottom: 14 }}>{m.count}</Text>
+            <Text style={s.body}>{m.desc}</Text>
+          </Card>
+        ))}
+      </View>
+      <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginTop: 20 }}>
+        <Text style={{ fontSize: 12, color: T.muted }}>Итого:</Text>
+        <Text style={{ fontSize: 18, fontWeight: 700, color: T.fg }}>5 специалистов</Text>
+      </View>
     </View>
     <Brand />
   </Page>
