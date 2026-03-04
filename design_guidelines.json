@@ -1,184 +1,71 @@
 {
-  "overview": {
-    "project": "Rostelecom Commercial Proposal PDF",
-    "style_direction": "Premium Tech / Dark Mode / Corporate Innovation",
-    "primary_goal": "Transform the current flat PDF into a polished, high-end document that mirrors the web version's quality using @react-pdf/renderer capabilities.",
-    "constraints": {
-      "renderer": "@react-pdf/renderer",
-      "format": "A4 Landscape (841.89 x 595.28 pt)",
-      "fonts": ["Inter (Regular, Medium, Bold)"],
-      "limitations": [
-        "No CSS Grid (use Flexbox)",
-        "No z-index (use render order)",
-        "No complex CSS filters/gradients (use SVG or simulated opacity)",
-        "No HTML/CSS styling (use StyleSheet.create)"
-      ]
-    }
+  "project_context": {
+    "identity": "E1: The Anti-AI Designer",
+    "mission": "Create balanced, high-impact PDF layouts for Rostelecom corporate proposal.",
+    "core_principles": [
+      "Fusion over Imitation",
+      "Emotion First",
+      "Content is King",
+      "Negative Space",
+      "Contrast"
+    ]
   },
   "design_system": {
-    "colors": {
-      "background": {
-        "primary": "#0a0a2e",
-        "secondary": "#141442",
-        "tertiary": "#1a1a4f"
-      },
-      "text": {
-        "primary": "#fafafa",
-        "secondary": "#8b92ab",
-        "tertiary": "#6b7190",
-        "accent": "#e8663c"
-      },
-      "accents": {
-        "primary": "#e8663c",
-        "secondary": "#ff8b66",
-        "muted": "rgba(232, 102, 60, 0.2)"
-      },
-      "borders": {
-        "subtle": "#2a2a5c",
-        "strong": "#3d3d75",
-        "accent": "#e8663c"
-      }
-    },
     "typography": {
       "font_family": "Inter",
-      "hierarchy": {
-        "h1": { "fontSize": 34, "fontWeight": 700, "leading": 1.2, "tracking": -0.5 },
-        "h2": { "fontSize": 28, "fontWeight": 700, "leading": 1.2, "tracking": -0.5 },
-        "h3": { "fontSize": 18, "fontWeight": 600, "leading": 1.3 },
-        "body": { "fontSize": 11, "fontWeight": 400, "leading": 1.5, "color": "#8b92ab" },
-        "caption": { "fontSize": 9, "fontWeight": 400, "color": "#6b7190" },
-        "label": { "fontSize": 8, "fontWeight": 700, "tracking": 1.5, "textTransform": "uppercase" }
-      }
+      "usage": "Use Inter for all text. Headings (Bold/700), Body (Regular/400). Tight tracking for headings."
     },
-    "spacing": {
-      "page_padding": 40,
-      "card_padding": 20,
-      "gap_small": 8,
-      "gap_medium": 16,
-      "gap_large": 32,
-      "gap_xl": 48
+    "colors": {
+      "bg": "#0a0a2e",
+      "bg2": "#141442",
+      "fg": "#fafafa",
+      "accent": "#e8663c",
+      "muted": "#8b92ab",
+      "border": "#2a2a5c"
     },
-    "components": {
-      "card": {
-        "backgroundColor": "#141442",
-        "borderRadius": 8,
-        "borderWidth": 1,
-        "borderColor": "#2a2a5c"
-      },
-      "badge": {
-        "backgroundColor": "rgba(232, 102, 60, 0.1)",
-        "padding": "4 8",
-        "borderRadius": 4,
-        "color": "#e8663c"
-      }
+    "layout_strategy": {
+      "vertical_centering": "Wrap main content in a container with { flex: 1, justifyContent: 'center' } to balance empty space.",
+      "card_sizing": "Remove { flex: 1 } from card rows/grids to prevent unnatural vertical stretching. Allow cards to size based on content."
     }
   },
-  "visual_enhancers": {
-    "svg_patterns": [
-      {
-        "name": "GridBackground",
-        "description": "Subtle dot grid or line grid to add texture to the dark background",
-        "implementation": "SVG Pattern with small circles opacity 0.1"
-      },
-      {
-        "name": "TechCorners",
-        "description": "Corner accents for cards to give a technical/blueprint feel",
-        "implementation": "Path drawing L-shapes at corners"
-      },
-      {
-        "name": "GradientLine",
-        "description": "Divider line that fades out on ends",
-        "implementation": "Rect with linearGradient (if supported) or multiple opacity steps"
-      }
-    ],
-    "icons": "Use simple geometric SVG paths (circles, rectangles, combinations) or standard SVG paths for common icons (Check, Arrow, User)."
-  },
-  "slide_specific_instructions": {
-    "S1_Title": {
-      "action": "Redesign",
-      "instructions": [
-        "Add a subtle large geometric shape (circle outline) in the background with low opacity (0.05) to break the flatness.",
-        "Increase spacing between 'HOP.AGENCY' and the main title.",
-        "Use a 'Tag' or 'Badge' style for the year '2025'.",
-        "Ensure 'Rostelecom' and 'Hop.Agency' have equal visual weight but distinct styling."
-      ]
+  "files_to_modify": [
+    "/app/frontend/src/components/PdfGenerator.jsx"
+  ],
+  "pdf_fixes": {
+    "S3": {
+      "component_name": "S3",
+      "problem": "Cards stretch to full page height (flex: 1 on container + flex: 1 on cards).",
+      "solution_instruction": "Wrap the Title (H2) and the Cards Row in a centering container. Remove 'flex: 1' from the Row style.",
+      "code_snippet": "const S3 = () => (\n  <Page size={[PW, PH]} style={s.page}>\n    <Header label=\"Предмет предложения\" num={3} />\n    <View style={{ flex: 1, justifyContent: \"center\" }}>\n      <Text style={[s.h2, { fontSize: 30, marginBottom: 32 }]}>\n        Три фокуса <Text style={{ color: T.accent }}>сотрудничества</Text>\n      </Text>\n      <View style={{ flexDirection: \"row\", gap: 14 }}>\n        {focusAreas.map((a, i) => (\n          <Card key={i} style={{ flex: 1 }}>\n            <NumBadge n={i + 1} />\n            <Text style={[s.h3, { marginBottom: 4 }]}>{a.title}</Text>\n            <Text style={{ fontSize: 10, color: T.accent, marginBottom: 16 }}>{a.sub}</Text>\n            <Text style={[s.body, { marginTop: \"auto\" }]}>{a.desc}</Text>\n          </Card>\n        ))}\n      </View>\n    </View>\n    <Brand />\n  </Page>\n);"
     },
-    "S2_Context": {
-      "action": "Enhance Layout",
-      "instructions": [
-        "Use a 2-column layout with a vertical divider line (opacity 0.2).",
-        "Style the bullet points as custom SVG checkmarks in accent color.",
-        "Wrap the 'Context' text in a container with a subtle left border (accent color)."
-      ]
+    "S5": {
+      "component_name": "S5",
+      "problem": "Content pushed to top, empty bottom.",
+      "solution_instruction": "Wrap Title (H2) and Columns Row in a centering container. Remove 'flex: 1' from Row style.",
+      "code_snippet": "const S5 = () => (\n  <Page size={[PW, PH]} style={s.page}>\n    <Header label=\"Задачи\" num={5} />\n    <View style={{ flex: 1, justifyContent: \"center\" }}>\n      <Text style={[s.h2, { fontSize: 30, marginBottom: 32 }]}>\n        Задачи <Text style={{ color: T.accent }}>программы</Text>\n      </Text>\n      <View style={{ flexDirection: \"row\", gap: 40 }}>\n        <View style={{ flex: 1, gap: 14 }}>\n          {tasks.slice(0, 4).map((t, i) => (\n            <View key={i} style={{ flexDirection: \"row\", gap: 12, alignItems: \"flex-start\" }}>\n              <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent, width: 26 }}>{String(i + 1).padStart(2, \"0\")}</Text>\n              <Text style={{ fontSize: 12, color: T.fg2, lineHeight: 1.5, flex: 1 }}>{t}</Text>\n            </View>\n          ))}\n        </View>\n        <VSep />\n        <View style={{ flex: 1, gap: 14 }}>\n          {tasks.slice(4).map((t, i) => (\n            <View key={i} style={{ flexDirection: \"row\", gap: 12, alignItems: \"flex-start\" }}>\n              <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent, width: 26 }}>{String(i + 5).padStart(2, \"0\")}</Text>\n              <Text style={{ fontSize: 12, color: T.fg2, lineHeight: 1.5, flex: 1 }}>{t}</Text>\n            </View>\n          ))}\n        </View>\n      </View>\n    </View>\n    <Brand />\n  </Page>\n);"
     },
-    "S8_WhyHop": {
-      "action": "High Impact",
-      "instructions": [
-        "Make the numbers HUGE (fontSize: 72+).",
-        "Add a decorative under-glow or shapes behind the numbers.",
-        "Arrange in a horizontal grid with vertical separators between stats."
-      ]
+    "S6": {
+      "component_name": "S6",
+      "problem": "Grid items pushed to top.",
+      "solution_instruction": "Wrap Title, Desc, and Grid in centering container. Remove 'flex: 1' from Grid container.",
+      "code_snippet": "const S6 = () => (\n  <Page size={[PW, PH]} style={s.page}>\n    <Header label=\"Результаты\" num={6} />\n    <View style={{ flex: 1, justifyContent: \"center\" }}>\n      <Text style={[s.h2, { marginBottom: 4 }]}>Пакет готовности <Text style={{ color: T.accent }}>к рынку</Text></Text>\n      <Text style={[s.body, { marginBottom: 24 }]}>По каждому продукту — до 5 продуктов на цикл</Text>\n      <View style={{ flexDirection: \"row\", flexWrap: \"wrap\", gap: 10 }}>\n        {results.map((r, i) => (\n          <View key={i} style={{\n            width: \"31.5%\", backgroundColor: T.bg2, borderRadius: 8, padding: \"12 14\",\n            borderWidth: 1, borderColor: T.border,\n            flexDirection: \"row\", gap: 10, alignItems: \"flex-start\",\n          }}>\n            <Dot size={6} />\n            <View style={{ flex: 1 }}>\n              <Text style={{ fontSize: 11, fontWeight: 600, color: T.fg }}>{r.l}</Text>\n              <Text style={[s.caption, { marginTop: 3 }]}>{r.d}</Text>\n            </View>\n          </View>\n        ))}\n      </View>\n    </View>\n    <Brand />\n  </Page>\n);"
     },
-    "S12_Roadmap": {
-      "action": "Visual Upgrade",
-      "instructions": [
-        "Replace solid bars with rounded bars.",
-        "Add vertical grid lines for weeks (dashed, opacity 0.1).",
-        "Add a 'Current Status' marker if applicable (or just start marker).",
-        "Ensure text contrast on labels."
-      ]
+    "S7": {
+      "component_name": "S7",
+      "problem": "Cards stretch to full page height.",
+      "solution_instruction": "Wrap Title and Cards Row in centering container. Remove 'flex: 1' from Row.",
+      "code_snippet": "const S7 = () => (\n  <Page size={[PW, PH]} style={s.page}>\n    <Header label=\"Сводные результаты\" num={7} />\n    <View style={{ flex: 1, justifyContent: \"center\" }}>\n      <Text style={[s.h2, { fontSize: 30, marginBottom: 32 }]}>\n        Сводные результаты <Text style={{ color: T.accent }}>программы</Text>\n      </Text>\n      <View style={{ flexDirection: \"row\", gap: 14 }}>\n        {summary.map((item, i) => (\n          <Card key={i} style={{ flex: 1 }}>\n            <NumBadge n={i + 1} />\n            <Text style={[s.h3, { fontSize: 15, marginBottom: 10 }]}>{item.t}</Text>\n            <Text style={[s.body, { marginTop: \"auto\" }]}>{item.d}</Text>\n          </Card>\n        ))}\n      </View>\n    </View>\n    <Brand />\n  </Page>\n);"
     },
-    "S13_Pricing": {
-      "action": "Focus",
-      "instructions": [
-        "Create a 'Pricing Card' in the center, floating.",
-        "Highlight the Discount badge with a solid accent background (white text).",
-        "Make the final price white and huge.",
-        "Dim the old price significantly."
-      ]
-    }
-  },
-  "implementation_plan": {
-    "step_1": "Setup Theme Object: Consolidate all colors/fonts in a single theme object for easy reuse.",
-    "step_2": "Create Reusable Primitives: Badge, Card, Divider, SectionHeader, BackgroundPattern.",
-    "step_3": "Refactor Slide Layouts: Apply flexbox grids and padding consistency.",
-    "step_4": "Apply Visual Polish: Add SVGs for decoration and better typography hierarchy."
-  },
-  "web_to_pdf_style_guide": {
-    "principles": [
-      {
-        "concept": "Painter's Algorithm",
-        "web_equivalent": "z-index",
-        "pdf_rule": "Elements defined later in the document tree render ON TOP of earlier elements. No z-index property."
-      },
-      {
-        "concept": "Flexbox Only",
-        "web_equivalent": "CSS Grid / Float",
-        "pdf_rule": "Use View with flexDirection row/column. No 'grid-template-columns'. Use percentage widths (flex: 1 or width: '33%')."
-      },
-      {
-        "concept": "Font Loading",
-        "web_equivalent": "@font-face",
-        "pdf_rule": "Must register fonts explicitly with Font.register(). Only TTF/WOFF usually supported. No system fonts fallback reliability."
-      },
-      {
-        "concept": "Absolute Positioning",
-        "web_equivalent": "absolute",
-        "pdf_rule": "Works similar to web, relative to nearest relative parent. Great for background decorations."
-      }
-    ],
-    "typography_scale": {
-      "web_h1_64px": "pdf_h1_34px",
-      "web_h2_48px": "pdf_h2_28px",
-      "web_p_16px": "pdf_p_11px",
-      "rule": "PDF points (pt) are physical units. Screen pixels (px) are relative. Generally, scale down Web px by 0.6-0.7x for PDF pt."
+    "S11": {
+      "component_name": "S11",
+      "problem": "Team cards stretch.",
+      "solution_instruction": "Wrap Title, Cards Row, and Total Count in centering container. Remove 'flex: 1' from Row.",
+      "code_snippet": "const S11 = () => (\n  <Page size={[PW, PH]} style={s.page}>\n    <Header label=\"Команда\" num={11} />\n    <View style={{ flex: 1, justifyContent: \"center\" }}>\n      <Text style={[s.h2, { fontSize: 30, marginBottom: 28 }]}>\n        Команда <Text style={{ color: T.accent }}>проекта</Text>\n      </Text>\n      <View style={{ flexDirection: \"row\", gap: 12 }}>\n        {team.map((m, i) => (\n          <Card key={i} style={{ flex: 1 }}>\n            <NumBadge n={i + 1} />\n            <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg }}>{m.role}</Text>\n            <Text style={{ fontSize: 10, color: T.accent, marginTop: 3, marginBottom: 14 }}>{m.count}</Text>\n            <Text style={[s.body, { marginTop: \"auto\" }]}>{m.desc}</Text>\n          </Card>\n        ))}\n      </View>\n      <View style={{ flexDirection: \"row\", alignItems: \"center\", gap: 8, marginTop: 14, flexShrink: 0 }}>\n        <Text style={{ fontSize: 12, color: T.muted }}>Итого:</Text>\n        <Text style={{ fontSize: 18, fontWeight: 700, color: T.fg }}>5 специалистов</Text>\n      </View>\n    </View>\n    <Brand />\n  </Page>\n);"
     }
   },
   "universal_guidelines": [
-    "All interactive and key informational elements MUST include a `data-testid` attribute (e.g., `data-testid='slide-title'`).",
-    "Always check for text overflow. PDF Text doesn't auto-scale.",
-    "Use View for layout structure, Text only for leaf nodes.",
-    "Images/SVGs must have explicit dimensions.",
-    "Test with different content lengths."
+    "Use data-testid attributes on all interactive elements.",
+    "Do not use transparent backgrounds where content might overlap.",
+    "Maintain 'Inter' font consistency."
   ]
 }
