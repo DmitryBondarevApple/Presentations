@@ -13,7 +13,7 @@ const ContactSlide = () => (
       style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 60%, hsl(15 88% 56%), transparent)' }}
     />
 
-    <h2 className="animate-item stagger-1 font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-12">
+    <h2 className="animate-item stagger-1 font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-12">
       Спасибо за внимание
     </h2>
 

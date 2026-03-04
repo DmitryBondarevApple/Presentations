@@ -15,7 +15,7 @@ const TitleSlide = () => {
       </div>
 
       {/* Main title */}
-      <h1 className="animate-item stagger-2 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-center max-w-5xl leading-tight px-6">
+      <h1 className="animate-item stagger-2 font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground text-center max-w-6xl leading-tight px-6">
         Сопровождение вывода внутренних продуктов{' '}
         <span className="text-accent">ПАО «Ростелеком»</span>{' '}
         на общероссийский рынок

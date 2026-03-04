@@ -3,7 +3,7 @@ import { SlideContainer } from "./SlideContainer";
 const PricingSlide = () => (
   <SlideContainer number={13} label="Стоимость">
     <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
-      <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-12 md:mb-16">
+      <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-12 md:mb-16">
         Стоимость <span className="text-accent">проекта</span>
       </h2>
 
@@ -23,9 +23,9 @@ const PricingSlide = () => (
 
       {/* New price */}
       <div className="animate-item stagger-4 mt-6">
-        <span className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-foreground">
+        <span className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-foreground">
           2 975 000
-          <span className="text-2xl md:text-3xl text-muted-foreground ml-2">₽</span>
+          <span className="text-3xl md:text-4xl text-muted-foreground ml-2">₽</span>
         </span>
       </div>
 

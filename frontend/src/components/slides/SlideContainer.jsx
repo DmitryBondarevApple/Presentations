@@ -31,7 +31,7 @@ export const SlideContainer = ({ children, number, total = 14, label, className 
       </div>
 
       {/* Main content area */}
-      <div className="flex-1 flex flex-col justify-center px-8 md:px-14 lg:px-20 pb-14">
+      <div className="flex-1 flex flex-col justify-center px-8 md:px-14 lg:px-16 pb-14">
         {children}
       </div>
 

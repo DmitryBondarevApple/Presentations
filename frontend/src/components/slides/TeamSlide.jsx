@@ -10,11 +10,11 @@ const team = [
 
 const TeamSlide = () => (
   <SlideContainer number={11} label="Команда">
-    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-10 md:mb-14">
+    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 md:mb-14">
       Команда <span className="text-accent">проекта</span>
     </h2>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 max-w-5xl">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
       {team.map((m, i) => (
         <div
           key={i}

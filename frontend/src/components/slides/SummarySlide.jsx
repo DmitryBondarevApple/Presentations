@@ -21,11 +21,11 @@ const results = [
 
 const SummarySlide = () => (
   <SlideContainer number={7} label="Сводные результаты">
-    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-10 md:mb-14">
+    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 md:mb-14">
       Сводные результаты <span className="text-accent">программы</span>
     </h2>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 max-w-5xl">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
       {results.map((r, i) => (
         <div
           key={i}

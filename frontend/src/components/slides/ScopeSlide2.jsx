@@ -29,12 +29,12 @@ const stages = [
 
 const ScopeSlide2 = () => (
   <SlideContainer number={10} label="Содержание работ · 2/2">
-    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-10">
+    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 md:mb-10">
       Содержание работ{' '}
       <span className="text-muted-foreground font-normal text-lg md:text-2xl">(этапы 5–8)</span>
     </h2>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 max-w-5xl">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 lg:gap-6">
       {stages.map((s, i) => (
         <div
           key={i}
@@ -45,12 +45,12 @@ const ScopeSlide2 = () => (
             <span className="font-heading text-[11px] font-bold text-accent bg-accent/10 px-2.5 py-1 rounded">
               {s.num}
             </span>
-            <h3 className="font-heading text-sm md:text-base font-semibold text-foreground">{s.title}</h3>
+            <h3 className="font-heading text-base md:text-lg font-semibold text-foreground">{s.title}</h3>
           </div>
-          <p className="font-body text-xs text-muted-foreground mb-2">
+          <p className="font-body text-xs md:text-sm text-muted-foreground mb-2">
             <span className="text-foreground/60 font-medium">Задачи: </span>{s.tasks}
           </p>
-          <p className="font-body text-xs text-muted-foreground">
+          <p className="font-body text-xs md:text-sm text-muted-foreground">
             <span className="text-foreground/60 font-medium">Результаты: </span>{s.results}
           </p>
         </div>

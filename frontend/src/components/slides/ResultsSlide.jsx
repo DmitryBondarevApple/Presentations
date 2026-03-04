@@ -18,24 +18,24 @@ const items = [
 
 const ResultsSlide = () => (
   <SlideContainer number={6} label="Результаты">
-    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">
+    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3">
       Пакет готовности <span className="text-accent">к рынку</span>
     </h2>
     <p className="animate-item stagger-2 font-body text-sm text-muted-foreground mb-8">
       По каждому продукту — до 5 продуктов на цикл
     </p>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-5xl">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-5">
       {items.map((item, i) => (
         <div
           key={i}
           className="animate-item flex items-start gap-3 bg-card/50 rounded-lg p-3.5 md:p-4 border border-border/30"
           style={{ animationDelay: `${(i + 3) * 0.06}s` }}
         >
-          <item.icon className="h-5 w-5 text-accent shrink-0 mt-0.5" strokeWidth={1.5} />
+          <item.icon className="h-6 w-6 text-accent shrink-0 mt-0.5" strokeWidth={1.5} />
           <div>
-            <p className="font-heading text-sm font-medium text-foreground">{item.label}</p>
-            <p className="font-body text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+            <p className="font-heading text-sm md:text-base font-medium text-foreground">{item.label}</p>
+            <p className="font-body text-xs md:text-sm text-muted-foreground mt-0.5">{item.desc}</p>
           </div>
         </div>
       ))}

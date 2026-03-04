@@ -24,23 +24,23 @@ const areas = [
 
 const SubjectSlide = () => (
   <SlideContainer number={3} label="Предмет предложения">
-    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-10 md:mb-14">
+    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 md:mb-14">
       Три фокуса <span className="text-accent">сотрудничества</span>
     </h2>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 max-w-5xl">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
       {areas.map((area, i) => (
         <div
           key={i}
           className="animate-item bg-card rounded-xl p-6 md:p-8 border border-border/50 flex flex-col"
           style={{ animationDelay: `${(i + 2) * 0.1}s` }}
         >
-          <area.icon className="h-8 w-8 text-accent mb-5" strokeWidth={1.5} />
-          <h3 className="font-heading text-lg md:text-xl font-semibold text-foreground mb-1">
+          <area.icon className="h-9 w-9 text-accent mb-5" strokeWidth={1.5} />
+          <h3 className="font-heading text-xl md:text-2xl font-semibold text-foreground mb-1">
             {area.title}
           </h3>
           <p className="font-heading text-sm text-accent/80 mb-4">{area.subtitle}</p>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed mt-auto">
+          <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed mt-auto">
             {area.desc}
           </p>
         </div>

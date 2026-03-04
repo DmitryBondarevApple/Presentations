@@ -9,13 +9,13 @@ const bullets = [
 
 const ContextSlide = () => (
   <SlideContainer number={2} label="Контекст">
-    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-8 md:mb-10">
+    <h2 className="animate-item stagger-1 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 md:mb-10">
       Контекст и основание<br />
       <span className="text-accent">для предложения</span>
     </h2>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl">
-      <p className="animate-item stagger-2 font-body text-sm md:text-base text-muted-foreground leading-relaxed">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+      <p className="animate-item stagger-2 font-body text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
         Предложение подготовлено по итогам рабочей встречи команд
         Hop.Agency и ПАО «Ростелеком», на которой обсуждались
         практические форматы сотрудничества и отдельный трек по проверке
