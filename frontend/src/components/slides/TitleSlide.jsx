@@ -1,6 +1,6 @@
 const TitleSlide = () => {
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-center relative overflow-hidden bg-background">
+    <div className="w-full h-full flex flex-col items-center justify-center relative overflow-hidden bg-background">
       {/* Background radial glow */}
       <div
         className="absolute inset-0 opacity-[0.07] pointer-events-none"

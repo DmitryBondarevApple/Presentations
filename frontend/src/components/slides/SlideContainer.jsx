@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 export const SlideContainer = ({ children, number, total = 14, label, className }) => {
   return (
     <div className={cn(
-      "w-full h-screen flex flex-col relative overflow-hidden bg-background",
+      "w-full h-full flex flex-col relative overflow-hidden bg-background",
       className
     )}>
       {/* Decorative radial glow */}

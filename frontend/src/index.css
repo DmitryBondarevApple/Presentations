@@ -132,3 +132,10 @@ body {
 #emergent-badge {
     display: none !important;
 }
+
+/* Disable animations in PDF offscreen renderer */
+.pdf-offscreen .animate-item {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+}
