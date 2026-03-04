@@ -1,11 +1,8 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, Download, Maximize, Minimize, Loader2 } from 'lucide-react';
-import html2canvas from 'html2canvas';
-import { jsPDF } from 'jspdf';
-
 import TitleSlide from '@/components/slides/TitleSlide';
 import ContextSlide from '@/components/slides/ContextSlide';
 import SubjectSlide from '@/components/slides/SubjectSlide';
@@ -20,7 +17,7 @@ import TeamSlide from '@/components/slides/TeamSlide';
 import RoadmapSlide from '@/components/slides/RoadmapSlide';
 import PricingSlide from '@/components/slides/PricingSlide';
 import ContactSlide from '@/components/slides/ContactSlide';
-import { pdfSlides } from '@/components/slides/PdfSlides';
+import { generatePresentationPdf } from '@/components/PdfGenerator';
 
 const allSlides = [
   TitleSlide, ContextSlide, SubjectSlide, GoalSlide, TasksSlide,
@@ -36,13 +33,6 @@ const slideVariants = {
   exit: (dir) => ({ x: dir > 0 ? -120 : 120, opacity: 0 }),
 };
 
-// A4 landscape dimensions in mm and the rendering pixel size
-const A4_W_MM = 297;
-const A4_H_MM = 210;
-// Render at A4 landscape aspect ratio (297:210 ≈ 1.414:1) so content maps 1:1 to the page
-const RENDER_W = 1920;
-const RENDER_H = Math.round(1920 * (210 / 297)); // ≈ 1358
-
 export default function Presentation() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -51,7 +41,6 @@ export default function Presentation() {
   const [touchX, setTouchX] = useState(null);
   const [pdfBusy, setPdfBusy] = useState(false);
   const [pdfProgress, setPdfProgress] = useState('');
-  const offscreenRef = useRef(null);
 
   const goNext = useCallback(() => {
     if (current < TOTAL - 1) { setDirection(1); setCurrent(c => c + 1); }
@@ -76,73 +65,20 @@ export default function Presentation() {
     }
   }, []);
 
-  /* ───── PDF generation — render each slide ON-SCREEN behind overlay ───── */
+  /* ───── PDF generation — direct @react-pdf/renderer, no html2canvas ───── */
   const generatePdf = useCallback(async () => {
     if (pdfBusy) return;
     setPdfBusy(true);
-    setPdfProgress('Подготовка…');
+    setPdfProgress('Генерация PDF…');
 
     try {
-      const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
-
-      // Create a temporary on-screen container (behind the loading overlay z-50)
-      const tmpContainer = document.createElement('div');
-      tmpContainer.style.cssText = `
-        position: fixed; top: 0; left: 0; z-index: 40;
-        width: ${RENDER_W}px; height: ${RENDER_H}px;
-        overflow: hidden; pointer-events: none;
-      `;
-      document.body.appendChild(tmpContainer);
-
-      for (let i = 0; i < pdfSlides.length; i++) {
-        setPdfProgress(`Слайд ${i + 1} из ${TOTAL}…`);
-
-        // Get the pre-rendered slide from the offscreen container
-        const offscreen = offscreenRef.current;
-        if (!offscreen) continue;
-
-        // Move the specific slide into the visible container
-        offscreen.style.display = 'block';
-        const slideEl = offscreen.querySelector(`[data-pdf-slide="${i}"]`);
-        if (!slideEl) continue;
-
-        // Clone the slide and place it on-screen for proper layout computation
-        const clone = slideEl.cloneNode(true);
-        clone.style.width = `${RENDER_W}px`;
-        clone.style.height = `${RENDER_H}px`;
-        clone.style.overflow = 'hidden';
-        clone.style.position = 'relative';
-        tmpContainer.innerHTML = '';
-        tmpContainer.appendChild(clone);
-
-        // Wait for browser to compute layout (fonts, flexbox, etc.)
-        await new Promise(r => setTimeout(r, 300));
-
-        const canvas = await html2canvas(clone, {
-          width: RENDER_W,
-          height: RENDER_H,
-          scale: 2,
-          useCORS: true,
-          backgroundColor: null,
-          logging: false,
-        });
-
-        const imgData = canvas.toDataURL('image/jpeg', 0.92);
-        if (i > 0) pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', 0, 0, A4_W_MM, A4_H_MM);
-      }
-
-      // Cleanup
-      document.body.removeChild(tmpContainer);
-      if (offscreenRef.current) offscreenRef.current.style.display = 'none';
-
-      setPdfProgress('Сохранение…');
-      pdf.save('Презентация_Ростелеком_HopAgency.pdf');
+      await generatePresentationPdf((msg) => setPdfProgress(msg));
+      setPdfProgress('Готово!');
     } catch (err) {
       console.error('PDF generation error:', err);
-      setPdfProgress('Ошибка');
+      setPdfProgress('Ошибка при генерации');
     } finally {
-      setTimeout(() => { setPdfBusy(false); setPdfProgress(''); }, 600);
+      setTimeout(() => { setPdfBusy(false); setPdfProgress(''); }, 800);
     }
   }, [pdfBusy]);
 
@@ -286,34 +222,6 @@ export default function Presentation() {
           <p className="font-body text-sm text-muted-foreground mt-1">Не закрывайте страницу</p>
         </div>
       )}
-
-      {/* ──── Hidden offscreen container for PDF rendering ──── */}
-      <div
-        ref={offscreenRef}
-        className="pdf-offscreen"
-        style={{
-          display: 'none',
-          position: 'fixed',
-          top: 0,
-          left: '-9999px',
-          zIndex: -1,
-        }}
-      >
-        {pdfSlides.map((PdfSlideComp, i) => (
-          <div
-            key={i}
-            data-pdf-slide={i}
-            style={{
-              width: `${RENDER_W}px`,
-              height: `${RENDER_H}px`,
-              overflow: 'hidden',
-              position: 'relative',
-            }}
-          >
-            <PdfSlideComp />
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
