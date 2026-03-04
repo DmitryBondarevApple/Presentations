@@ -1,0 +1,184 @@
+{
+  "overview": {
+    "project": "Rostelecom Commercial Proposal PDF",
+    "style_direction": "Premium Tech / Dark Mode / Corporate Innovation",
+    "primary_goal": "Transform the current flat PDF into a polished, high-end document that mirrors the web version's quality using @react-pdf/renderer capabilities.",
+    "constraints": {
+      "renderer": "@react-pdf/renderer",
+      "format": "A4 Landscape (841.89 x 595.28 pt)",
+      "fonts": ["Inter (Regular, Medium, Bold)"],
+      "limitations": [
+        "No CSS Grid (use Flexbox)",
+        "No z-index (use render order)",
+        "No complex CSS filters/gradients (use SVG or simulated opacity)",
+        "No HTML/CSS styling (use StyleSheet.create)"
+      ]
+    }
+  },
+  "design_system": {
+    "colors": {
+      "background": {
+        "primary": "#0a0a2e",
+        "secondary": "#141442",
+        "tertiary": "#1a1a4f"
+      },
+      "text": {
+        "primary": "#fafafa",
+        "secondary": "#8b92ab",
+        "tertiary": "#6b7190",
+        "accent": "#e8663c"
+      },
+      "accents": {
+        "primary": "#e8663c",
+        "secondary": "#ff8b66",
+        "muted": "rgba(232, 102, 60, 0.2)"
+      },
+      "borders": {
+        "subtle": "#2a2a5c",
+        "strong": "#3d3d75",
+        "accent": "#e8663c"
+      }
+    },
+    "typography": {
+      "font_family": "Inter",
+      "hierarchy": {
+        "h1": { "fontSize": 34, "fontWeight": 700, "leading": 1.2, "tracking": -0.5 },
+        "h2": { "fontSize": 28, "fontWeight": 700, "leading": 1.2, "tracking": -0.5 },
+        "h3": { "fontSize": 18, "fontWeight": 600, "leading": 1.3 },
+        "body": { "fontSize": 11, "fontWeight": 400, "leading": 1.5, "color": "#8b92ab" },
+        "caption": { "fontSize": 9, "fontWeight": 400, "color": "#6b7190" },
+        "label": { "fontSize": 8, "fontWeight": 700, "tracking": 1.5, "textTransform": "uppercase" }
+      }
+    },
+    "spacing": {
+      "page_padding": 40,
+      "card_padding": 20,
+      "gap_small": 8,
+      "gap_medium": 16,
+      "gap_large": 32,
+      "gap_xl": 48
+    },
+    "components": {
+      "card": {
+        "backgroundColor": "#141442",
+        "borderRadius": 8,
+        "borderWidth": 1,
+        "borderColor": "#2a2a5c"
+      },
+      "badge": {
+        "backgroundColor": "rgba(232, 102, 60, 0.1)",
+        "padding": "4 8",
+        "borderRadius": 4,
+        "color": "#e8663c"
+      }
+    }
+  },
+  "visual_enhancers": {
+    "svg_patterns": [
+      {
+        "name": "GridBackground",
+        "description": "Subtle dot grid or line grid to add texture to the dark background",
+        "implementation": "SVG Pattern with small circles opacity 0.1"
+      },
+      {
+        "name": "TechCorners",
+        "description": "Corner accents for cards to give a technical/blueprint feel",
+        "implementation": "Path drawing L-shapes at corners"
+      },
+      {
+        "name": "GradientLine",
+        "description": "Divider line that fades out on ends",
+        "implementation": "Rect with linearGradient (if supported) or multiple opacity steps"
+      }
+    ],
+    "icons": "Use simple geometric SVG paths (circles, rectangles, combinations) or standard SVG paths for common icons (Check, Arrow, User)."
+  },
+  "slide_specific_instructions": {
+    "S1_Title": {
+      "action": "Redesign",
+      "instructions": [
+        "Add a subtle large geometric shape (circle outline) in the background with low opacity (0.05) to break the flatness.",
+        "Increase spacing between 'HOP.AGENCY' and the main title.",
+        "Use a 'Tag' or 'Badge' style for the year '2025'.",
+        "Ensure 'Rostelecom' and 'Hop.Agency' have equal visual weight but distinct styling."
+      ]
+    },
+    "S2_Context": {
+      "action": "Enhance Layout",
+      "instructions": [
+        "Use a 2-column layout with a vertical divider line (opacity 0.2).",
+        "Style the bullet points as custom SVG checkmarks in accent color.",
+        "Wrap the 'Context' text in a container with a subtle left border (accent color)."
+      ]
+    },
+    "S8_WhyHop": {
+      "action": "High Impact",
+      "instructions": [
+        "Make the numbers HUGE (fontSize: 72+).",
+        "Add a decorative under-glow or shapes behind the numbers.",
+        "Arrange in a horizontal grid with vertical separators between stats."
+      ]
+    },
+    "S12_Roadmap": {
+      "action": "Visual Upgrade",
+      "instructions": [
+        "Replace solid bars with rounded bars.",
+        "Add vertical grid lines for weeks (dashed, opacity 0.1).",
+        "Add a 'Current Status' marker if applicable (or just start marker).",
+        "Ensure text contrast on labels."
+      ]
+    },
+    "S13_Pricing": {
+      "action": "Focus",
+      "instructions": [
+        "Create a 'Pricing Card' in the center, floating.",
+        "Highlight the Discount badge with a solid accent background (white text).",
+        "Make the final price white and huge.",
+        "Dim the old price significantly."
+      ]
+    }
+  },
+  "implementation_plan": {
+    "step_1": "Setup Theme Object: Consolidate all colors/fonts in a single theme object for easy reuse.",
+    "step_2": "Create Reusable Primitives: Badge, Card, Divider, SectionHeader, BackgroundPattern.",
+    "step_3": "Refactor Slide Layouts: Apply flexbox grids and padding consistency.",
+    "step_4": "Apply Visual Polish: Add SVGs for decoration and better typography hierarchy."
+  },
+  "web_to_pdf_style_guide": {
+    "principles": [
+      {
+        "concept": "Painter's Algorithm",
+        "web_equivalent": "z-index",
+        "pdf_rule": "Elements defined later in the document tree render ON TOP of earlier elements. No z-index property."
+      },
+      {
+        "concept": "Flexbox Only",
+        "web_equivalent": "CSS Grid / Float",
+        "pdf_rule": "Use View with flexDirection row/column. No 'grid-template-columns'. Use percentage widths (flex: 1 or width: '33%')."
+      },
+      {
+        "concept": "Font Loading",
+        "web_equivalent": "@font-face",
+        "pdf_rule": "Must register fonts explicitly with Font.register(). Only TTF/WOFF usually supported. No system fonts fallback reliability."
+      },
+      {
+        "concept": "Absolute Positioning",
+        "web_equivalent": "absolute",
+        "pdf_rule": "Works similar to web, relative to nearest relative parent. Great for background decorations."
+      }
+    ],
+    "typography_scale": {
+      "web_h1_64px": "pdf_h1_34px",
+      "web_h2_48px": "pdf_h2_28px",
+      "web_p_16px": "pdf_p_11px",
+      "rule": "PDF points (pt) are physical units. Screen pixels (px) are relative. Generally, scale down Web px by 0.6-0.7x for PDF pt."
+    }
+  },
+  "universal_guidelines": [
+    "All interactive and key informational elements MUST include a `data-testid` attribute (e.g., `data-testid='slide-title'`).",
+    "Always check for text overflow. PDF Text doesn't auto-scale.",
+    "Use View for layout structure, Text only for leaf nodes.",
+    "Images/SVGs must have explicit dimensions.",
+    "Test with different content lengths."
+  ]
+}
