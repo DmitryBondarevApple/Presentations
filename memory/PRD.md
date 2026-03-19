@@ -1,61 +1,33 @@
-# Презентации Hop.Agency
+# FranchCamp & Rostelecom Presentation App
 
-## Описание
-Веб-приложение для просмотра и скачивания презентаций Hop.Agency.
+## Original Problem Statement
+Build a 9-slide presentation for "FranchCamp" client, presented by Hop.Agency. The app proposes AI training workshops for franchisors featuring three platforms: Noteall, EchoMind, and Emergent.sh. This presentation coexists with the previously created "Rostelecom" presentation.
 
-## Презентации
+## Architecture
+- **Frontend**: React + Vite + Tailwind CSS + Framer Motion
+- **PDF**: @react-pdf/renderer
+- **Routes**: `/` (Rostelecom), `/franchcamp` (FranchCamp)
 
-### 1. Ростелеком (`/`)
-- 14 слайдов коммерческого предложения для ПАО «Ростелеком»
-- PDF-генерация через @react-pdf/renderer
+## What's Implemented
+- 9-slide FranchCamp web presentation with full navigation (arrows, dots, keyboard, touch swipe)
+- PDF generation for FranchCamp presentation
+- Desktop and mobile responsive layout for all slides
+- Rostelecom presentation (14 slides) at root route
 
-### 2. FranchCamp (`/franchcamp`)
-- 9 слайдов — предложение для организаторов FranchCamp
-- Тема: ИИ как часть пакета для франчайзи
-- 3 блока: Noteall, EchoMind, Emergent.sh
-- PDF-генерация через @react-pdf/renderer
+## Completed Bug Fixes
+1. Typography fix: large readable fonts across all slides
+2. Vertical alignment fix on slides 5 & 6
+3. PDF crash fix (fontStyle italic removed)
+4. PDF layout fix (overlapping columns, misaligned badge)
+5. **Mobile responsiveness fix (P0)**: Added overflow-y-auto to slide containers, reduced mobile font sizes, 2-column grids on mobile, adjusted padding/spacing
 
-## Функционал
-- Навигация: стрелки клавиатуры, кнопки, точки прогресса, свайпы
-- PDF-генерация (векторный PDF, выделяемый текст, кириллица)
-- Полноэкранный режим, плавные анимации (framer-motion)
+## Key Files
+- `frontend/src/App.js` - Router
+- `frontend/src/pages/FranchCampPresentation.jsx` - Main FranchCamp page
+- `frontend/src/components/franchcamp-slides/*.jsx` - 10 slide components
+- `frontend/src/components/FranchCampPdfGenerator.jsx` - PDF generator
 
-## Технический стек
-- React + Tailwind CSS + shadcn/ui
-- framer-motion (веб-анимации)
-- @react-pdf/renderer (PDF-генерация)
-- Шрифт Inter (с кириллицей) для PDF
-
-## Структура
-```
-/app/frontend/src/
-├── components/
-│   ├── PdfGenerator.jsx              ← PDF для Ростелеком
-│   ├── FranchCampPdfGenerator.jsx    ← PDF для FranchCamp
-│   ├── slides/                       ← Веб-слайды Ростелеком
-│   ├── franchcamp-slides/            ← Веб-слайды FranchCamp
-│   └── ui/                           ← shadcn
-├── pages/
-│   ├── Presentation.jsx              ← Ростелеком (/)
-│   └── FranchCampPresentation.jsx    ← FranchCamp (/franchcamp)
-/app/docs/
-│   └── WEB_TO_PDF_STYLE_GUIDE.md     ← Style guide: веб → PDF
-```
-
-## Выполнено
-- [x] Веб-презентация Ростелеком — 14 слайдов
-- [x] PDF Ростелеком — @react-pdf/renderer
-- [x] Веб-презентация FranchCamp — 9 слайдов
-- [x] PDF FranchCamp — @react-pdf/renderer
-- [x] Кириллица (Inter)
-- [x] Style guide: WEB_TO_PDF_STYLE_GUIDE.md
-- [x] Маршрутизация: / и /franchcamp
-- [x] Тестирование: 17/17 тестов пройдено (iteration_1)
-
-## Задачи
-Нет открытых задач.
-
-## Будущее
-- [ ] Главная страница с выбором презентации
-- [ ] Динамическая загрузка контента из JSON/БД
-- [ ] Универсальный компонент презентации
+## Backlog
+- **P1**: Confirm route preference (FranchCamp on `/` vs `/franchcamp`)
+- **P2**: Add QR code to final slide
+- **P3**: CSS refactoring for maintainability
