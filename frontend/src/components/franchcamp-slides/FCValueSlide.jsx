@@ -10,26 +10,26 @@ const values = [
 const FCValueSlide = () => {
   return (
     <FCSlideContainer number={3} label="Ценность">
-      <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2" data-testid="fc-value-title">
+      <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2" data-testid="fc-value-title">
         Ценность <span className="text-accent">для франчайзера</span>
       </h2>
-      <p className="font-body text-sm text-muted-foreground mb-6">
+      <p className="font-body text-lg md:text-xl text-muted-foreground mb-8">
         Что получает франчайзер, если такая программа появится у него в пакете
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {values.map((v, i) => (
-          <div key={i} className="bg-card rounded-lg border border-border p-5" data-testid={`fc-value-card-${i}`}>
-            <div className="w-8 h-8 rounded-md bg-accent/10 flex items-center justify-center mb-4">
-              <span className="font-heading text-sm font-bold text-accent">{String(i + 1).padStart(2, '0')}</span>
+          <div key={i} className="bg-card rounded-lg border border-border p-6" data-testid={`fc-value-card-${i}`}>
+            <div className="w-10 h-10 rounded-md bg-accent/10 flex items-center justify-center mb-5">
+              <span className="font-heading text-lg font-bold text-accent">{String(i + 1).padStart(2, '0')}</span>
             </div>
-            <h3 className="font-heading text-sm font-bold text-foreground mb-2">{v.title}</h3>
-            <p className="font-body text-xs text-muted-foreground leading-relaxed">{v.desc}</p>
+            <h3 className="font-heading text-xl font-bold text-foreground mb-3">{v.title}</h3>
+            <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed">{v.desc}</p>
           </div>
         ))}
       </div>
 
-      <p className="font-body text-xs text-muted-foreground/70 mt-5 italic">
+      <p className="font-body text-base md:text-lg text-muted-foreground/70 mt-6 italic">
         Это не просто AI-образование, а усиление пакета сопровождения франчайзи и повышение управляемости сети.
       </p>
     </FCSlideContainer>
