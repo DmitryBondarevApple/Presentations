@@ -1,140 +1,242 @@
-# Деплой FranchCamp на noteall.ru
+# Деплой презентаций на noteall.ru
 
-## Что получается в итоге
+## Итоговая конфигурация (актуальная)
 
 ```
 noteall.ru/presentations/franchcamp   →   Презентация FranchCamp
-noteall.ru/presentations/franchcamp/   →   То же самое
-noteall.ru/*                           →   Существующий сайт (без изменений)
+noteall.ru/*                           →   Основной сайт Noteall (без изменений)
+```
+
+**Продакшн-URL**: https://noteall.ru/presentations/franchcamp
+
+---
+
+## Инфраструктура сервера
+
+| Параметр | Значение |
+|---|---|
+| Сервер | `noteall.ru` (SSH: `ssh root@noteall.ru`) |
+| Хостнейм | `hiplet-69004` |
+| Docker Compose | `/opt/voice-workspace/docker-compose.yml` |
+| Контейнер frontend | `voice-workspace-frontend-1` |
+| Nginx конфиг (внутри контейнера) | `/etc/nginx/conf.d/default.conf` |
+| Порты | `80:80`, `443:443` |
+| SSL сертификат | Let's Encrypt (`/etc/letsencrypt/live/noteall.ru/`) |
+| Файлы презентаций (хост) | `/var/www/presentations/` |
+| Файлы презентаций (в контейнере) | `/usr/share/nginx/html/presentations/` |
+
+### Архитектура
+
+```
+┌── Хост (hiplet-69004) ──────────────────────────────────────────┐
+│                                                                  │
+│  /var/www/presentations/franchcamp/  ← статические файлы         │
+│       │                                                          │
+│       │ (volume mount, read-only)                                │
+│       ▼                                                          │
+│  ┌── Docker: voice-workspace-frontend-1 ──────────────────────┐  │
+│  │                                                             │  │
+│  │  Nginx :80/:443                                             │  │
+│  │  ├── /presentations/*  → /usr/share/nginx/html/pres...      │  │
+│  │  ├── /api/*            → proxy to host:8001 (backend)       │  │
+│  │  └── /*                → /usr/share/nginx/html/ (React SPA) │  │
+│  │                                                             │  │
+│  └─────────────────────────────────────────────────────────────┘  │
+│                                                                  │
+│  ┌── Docker: voice-workspace-backend-1 ───────────────────────┐  │
+│  │  Backend API :8001 (network_mode: host)                     │  │
+│  └─────────────────────────────────────────────────────────────┘  │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Шаг 1. Скачать архив
+## Docker Compose (актуальная конфигурация)
 
-Файл `franchcamp-deploy.tar.gz` (2.7 MB) уже собран и лежит в корне проекта.
+Файл: `/opt/voice-workspace/docker-compose.yml`
 
-Скачайте его через интерфейс Emergent (кнопка "Download") или скопируйте с сервера.
+```yaml
+services:
+  backend:
+    build: ./backend
+    restart: always
+    env_file: ./backend/.env
+    network_mode: host
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_BACKEND_URL: https://noteall.ru
+        CACHEBUST: ${CACHEBUST:-1}
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /var/www/presentations:/usr/share/nginx/html/presentations:ro   # ← Презентации
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+```
+
+**Ключевая строка** — volume mount для презентаций:
+```yaml
+- /var/www/presentations:/usr/share/nginx/html/presentations:ro
+```
+
+Nginx-конфиг внутри контейнера НЕ модифицировался. Существующий `try_files $uri $uri/ /index.html` находит файлы по прямому пути через volume.
 
 ---
 
-## Шаг 2. Загрузить на сервер noteall.ru
-
-```bash
-# С вашего компьютера — передать архив на сервер
-scp franchcamp-deploy.tar.gz user@noteall.ru:/tmp/
-```
-
----
-
-## Шаг 3. Развернуть файлы на сервере
-
-```bash
-# Подключиться к серверу
-ssh user@noteall.ru
-
-# Создать директорию для презентаций
-sudo mkdir -p /var/www/presentations/franchcamp
-
-# Распаковать архив
-sudo tar -xzf /tmp/franchcamp-deploy.tar.gz -C /var/www/presentations/franchcamp
-
-# Установить правильные права
-sudo chown -R www-data:www-data /var/www/presentations
-sudo chmod -R 755 /var/www/presentations
-
-# Проверить файлы
-ls -la /var/www/presentations/franchcamp/
-# Должны быть: index.html, static/, fonts/, asset-manifest.json
-```
-
----
-
-## Шаг 4. Настроить Nginx
-
-Откройте конфигурацию Nginx для noteall.ru:
-
-```bash
-# Обычно один из этих путей:
-sudo nano /etc/nginx/sites-available/noteall.ru
-# или
-sudo nano /etc/nginx/conf.d/noteall.conf
-```
-
-**Добавьте этот блок ВНУТРИ существующего `server { }`, ПЕРЕД основным `location /`:**
-
-```nginx
-    # === Презентации (статические страницы) ===
-    location /presentations/franchcamp {
-        alias /var/www/presentations/franchcamp;
-        index index.html;
-        try_files $uri $uri/ /presentations/franchcamp/index.html;
-
-        # Кэширование статических ресурсов (JS/CSS содержат хэш в имени)
-        location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
-            expires 1y;
-            add_header Cache-Control "public, immutable";
-        }
-    }
-```
-
-### Как это выглядит в контексте всего файла:
+## Nginx конфиг (внутри контейнера, без изменений)
 
 ```nginx
 server {
+    listen 80;
+    server_name noteall.ru www.noteall.ru;
+    return 301 https://$host$request_uri;
+}
+
+server {
     listen 443 ssl;
-    server_name noteall.ru;
+    server_name noteall.ru www.noteall.ru;
 
-    # ... существующие SSL-настройки ...
+    ssl_certificate /etc/letsencrypt/live/noteall.ru/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/noteall.ru/privkey.pem;
 
-    # ↓↓↓ ДОБАВИТЬ ЭТОТ БЛОК ↓↓↓
-    location /presentations/franchcamp {
-        alias /var/www/presentations/franchcamp;
-        index index.html;
-        try_files $uri $uri/ /presentations/franchcamp/index.html;
+    root /usr/share/nginx/html;
+    index index.html;
 
-        location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
-            expires 1y;
-            add_header Cache-Control "public, immutable";
-        }
+    location /api/ {
+        proxy_pass http://host.docker.internal:8001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_read_timeout 300s;
+        client_max_body_size 100M;
     }
-    # ↑↑↑ КОНЕЦ БЛОКА ↑↑↑
 
-    # ... существующий location / для основного сайта ...
+    location /static/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
     location / {
-        # ... текущая конфигурация noteall.ru ...
+        try_files $uri $uri/ /index.html;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+        add_header Pragma "no-cache";
     }
 }
 ```
 
 ---
 
-## Шаг 5. Проверить и применить конфигурацию
+## Сборка и деплой: пошаговая инструкция
 
+### Первоначальная настройка (выполнена)
+
+Это нужно было сделать один раз:
+1. Добавить volume в `docker-compose.yml`
+2. Создать `/var/www/presentations/` на хосте
+3. Перезапустить контейнер: `cd /opt/voice-workspace && docker compose up -d frontend`
+
+### Обновление презентации
+
+При любых изменениях в презентации:
+
+**1. Сборка (в Emergent или локально):**
 ```bash
-# Проверить синтаксис Nginx (обязательно!)
-sudo nginx -t
-
-# Если вывод: "syntax is ok" и "test is successful" — применить:
-sudo systemctl reload nginx
-
-# Если ошибка — исправить конфигурацию и повторить nginx -t
+cd /app
+bash build-franchcamp.sh
 ```
+
+**2. Сохранить в GitHub** (кнопка "Save to Github" в Emergent)
+
+**3. На сервере noteall.ru:**
+```bash
+cd /tmp
+rm -rf Presentations
+git clone https://github.com/DmitryBondarevApple/Presentations.git
+sudo cp -r /tmp/Presentations/deploy-franchcamp/* /var/www/presentations/franchcamp/
+sudo chown -R www-data:www-data /var/www/presentations
+rm -rf /tmp/Presentations
+```
+
+Перезапуск Docker **не нужен** — файлы обновляются через volume мгновенно.
 
 ---
 
-## Шаг 6. Проверить результат
+## Мета-теги (SEO и превью ссылок)
 
-Откройте в браузере:
-```
-https://noteall.ru/presentations/franchcamp
+Настроены в `frontend/public/index.html` и попадают в билд:
+
+```html
+<title>Hop.Agency — AI для франчайзеров</title>
+<meta name="description" content="AI-обучение для франчайзеров — Hop.Agency × FranchCamp" />
 ```
 
-Должна загрузиться презентация FranchCamp. Проверьте:
-- [ ] Слайды переключаются стрелками
-- [ ] Свайп работает на мобильном
-- [ ] PDF генерируется и скачивается
-- [ ] Основной сайт noteall.ru работает как прежде
+При отправке ссылки в мессенджерах отображается:
+- **Заголовок**: Hop.Agency — AI для франчайзеров
+- **Описание**: AI-обучение для франчайзеров — Hop.Agency × FranchCamp
+
+> **Кэш превью**: WhatsApp/Telegram кэшируют превью. После обновления мета-тегов добавьте `?v=2` к URL для сброса кэша.
+
+---
+
+## Добавление новых презентаций
+
+Чтобы добавить ещё одну презентацию (например, `rostelecom`):
+
+**1. Изменить `BASE_PATH` в скрипте сборки:**
+```bash
+# В build-franchcamp.sh заменить:
+BASE_PATH="/presentations/rostelecom"
+DEPLOY_DIR="/app/deploy-rostelecom"
+```
+
+**2. Собрать и загрузить на сервер:**
+```bash
+sudo mkdir -p /var/www/presentations/rostelecom
+sudo cp -r /tmp/Presentations/deploy-rostelecom/* /var/www/presentations/rostelecom/
+```
+
+Nginx-конфиг и Docker менять **не нужно** — volume монтирует всю папку `/var/www/presentations/`.
+
+Новая презентация сразу доступна по адресу: `https://noteall.ru/presentations/rostelecom`
+
+---
+
+## Структура файлов
+
+### На хосте (noteall.ru)
+```
+/var/www/presentations/
+└── franchcamp/
+    ├── index.html              ← Точка входа (title, description, PostHog)
+    ├── asset-manifest.json
+    ├── fonts/
+    │   └── Inter-*.ttf         ← Шрифты для генерации PDF
+    └── static/
+        ├── css/
+        │   └── main.*.css      ← Стили (хэш в имени файла)
+        └── js/
+            └── main.*.js       ← React-приложение (хэш в имени)
+```
+
+### В GitHub-репозитории
+```
+github.com/DmitryBondarevApple/Presentations/
+├── deploy-franchcamp/          ← Готовые файлы для деплоя
+├── frontend/                   ← Исходный код
+├── docs/
+│   ├── DEPLOY_GUIDE.md         ← Этот документ
+│   ├── MOBILE_RESPONSIVENESS_GUIDE.md
+│   └── WEB_TO_PDF_STYLE_GUIDE.md
+├── build-franchcamp.sh         ← Скрипт сборки
+└── memory/
+    └── PRD.md
+```
 
 ---
 
@@ -142,68 +244,23 @@ https://noteall.ru/presentations/franchcamp
 
 ### Белая страница
 ```bash
-# Проверить, что файлы на месте
-ls -la /var/www/presentations/franchcamp/
-ls -la /var/www/presentations/franchcamp/static/js/
+# Файлы на месте?
+docker exec voice-workspace-frontend-1 ls /usr/share/nginx/html/presentations/franchcamp/
 
-# Посмотреть логи Nginx
-sudo tail -20 /var/log/nginx/error.log
+# Логи Nginx
+docker exec voice-workspace-frontend-1 tail -20 /var/log/nginx/error.log
 ```
 
-### 404 на статические файлы (JS/CSS)
-Убедитесь, что используете `alias`, а не `root` в конфигурации Nginx.
-```nginx
-# ПРАВИЛЬНО
-location /presentations/franchcamp {
-    alias /var/www/presentations/franchcamp;
+### Старые мета-теги в превью
+WhatsApp/Telegram кэшируют OG-данные. Решения:
+- Подождать ~30 минут
+- Отправить ссылку с `?v=2`
+- Использовать [Telegram URL Debug](https://t.me/webpagebot) для сброса кэша
 
-# НЕПРАВИЛЬНО (будет искать файлы в /var/www/.../presentations/franchcamp/)
-location /presentations/franchcamp {
-    root /var/www/presentations/franchcamp;
-```
+### Презентация не обновляется после cp
+Браузер кэширует `index.html`. Решения:
+- Ctrl+Shift+R (жёсткое обновление)
+- JS/CSS файлы имеют хэш в имени — они обновляются автоматически
 
-### Сайт noteall.ru перестал работать
-```bash
-# Откатить изменения — удалить добавленный location-блок
-sudo nano /etc/nginx/sites-available/noteall.ru
-sudo nginx -t
-sudo systemctl reload nginx
-```
-
----
-
-## Добавление новых презентаций в будущем
-
-Чтобы добавить ещё одну презентацию (например, `rostelecom`):
-
-1. Собрать билд с `BASE_PATH="/presentations/rostelecom"` (отредактировать скрипт `build-franchcamp.sh`)
-2. Загрузить в `/var/www/presentations/rostelecom/`
-3. Добавить аналогичный `location`-блок в Nginx
-
-```nginx
-    location /presentations/rostelecom {
-        alias /var/www/presentations/rostelecom;
-        index index.html;
-        try_files $uri $uri/ /presentations/rostelecom/index.html;
-    }
-```
-
----
-
-## Структура файлов на сервере
-
-```
-/var/www/presentations/
-└── franchcamp/
-    ├── index.html              ← Точка входа
-    ├── asset-manifest.json
-    ├── fonts/
-    │   └── Inter-*.ttf         ← Шрифты для PDF
-    └── static/
-        ├── css/
-        │   └── main.*.css      ← Стили (хэш в имени)
-        └── js/
-            └── main.*.js       ← Приложение (хэш в имени)
-```
-
-Общий размер: ~2.7 MB.
+### Docker контейнер перезапустился и файлы пропали
+Volume mount (`/var/www/presentations`) на хосте — файлы **не теряются** при перезапуске контейнера. Если пропали — проверьте `docker-compose.yml` на наличие строки volume.

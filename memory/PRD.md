@@ -30,8 +30,9 @@ Build a 9-slide presentation for "FranchCamp" client, presented by Hop.Agency. T
 - `frontend/src/components/FranchCampPdfGenerator.jsx` — PDF generator
 
 ## Project Documentation
-- `docs/WEB_TO_PDF_STYLE_GUIDE.md` — Правила переноса дизайна из веба в PDF
+- `docs/DEPLOY_GUIDE.md` — Полная конфигурация деплоя на noteall.ru (Docker, Nginx, volume, обновление)
 - `docs/MOBILE_RESPONSIVENESS_GUIDE.md` — Правила мобильной адаптивности (viewport, overflow, типографика)
+- `docs/WEB_TO_PDF_STYLE_GUIDE.md` — Правила переноса дизайна из веба в PDF
 
 ## Key Technical Decisions
 - **`100dvh`** для высоты контейнера — учитывает тулбар Safari на iPhone
