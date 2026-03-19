@@ -241,7 +241,7 @@ const S3 = () => (
         ))}
       </View>
       <View style={{ marginTop: 20 }}>
-        <Text style={{ fontSize: 10, color: T.muted, fontStyle: "italic", lineHeight: 1.5 }}>
+        <Text style={{ fontSize: 10, color: T.muted, lineHeight: 1.5 }}>
           Это не просто AI-образование, а усиление пакета сопровождения франчайзи
           и повышение управляемости сети.
         </Text>
