@@ -1,71 +1,125 @@
 {
-  "project_context": {
-    "identity": "E1: The Anti-AI Designer",
-    "mission": "Create balanced, high-impact PDF layouts for Rostelecom corporate proposal.",
-    "core_principles": [
-      "Fusion over Imitation",
-      "Emotion First",
-      "Content is King",
-      "Negative Space",
-      "Contrast"
+  "project_name": "FranchCamp Presentation Fix",
+  "version": "1.0",
+  "identity": {
+    "persona": "E1",
+    "tone": "Bold, immersive, dark tech, presentation-scale",
+    "theme": "dark"
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Space Grotesk, sans-serif",
+      "body": "Inter, sans-serif"
+    },
+    "scale_mapping": {
+      "text-[10px]": "text-sm (14px) or text-base (16px)",
+      "text-xs": "text-lg (18px) or text-xl (20px)",
+      "text-sm": "text-2xl (24px)",
+      "text-base": "text-3xl (30px)",
+      "text-lg": "text-4xl (36px)",
+      "text-xl": "text-5xl (48px)",
+      "text-2xl": "text-6xl (60px)",
+      "text-3xl": "text-7xl (72px)",
+      "text-4xl": "text-8xl (96px) or text-[100px]"
+    },
+    "rules": [
+      "NEVER use text smaller than text-lg (18px) for body content.",
+      "Headings must be massive (text-6xl+). This is a presentation, not a blog post.",
+      "Labels and metadata should be text-sm minimum.",
+      "Increase line-height to 'leading-relaxed' or 'leading-loose' for all body text to fill vertical space.",
+      "Use tracking-tight for large headings."
     ]
   },
-  "design_system": {
-    "typography": {
-      "font_family": "Inter",
-      "usage": "Use Inter for all text. Headings (Bold/700), Body (Regular/400). Tight tracking for headings."
+  "colors": {
+    "background": "hsl(240 100% 10%)",
+    "foreground": "hsl(0 0% 98%)",
+    "accent": "hsl(15 88% 56%)",
+    "muted": "hsl(240 30% 28%)",
+    "muted_foreground": "hsl(225 18% 62%)",
+    "border": "hsl(240 30% 26%)",
+    "card": "hsl(240 50% 15%)"
+  },
+  "layout": {
+    "global_spacing": {
+      "container_padding": "px-16 md:px-24 lg:px-32",
+      "section_gap": "gap-12 md:gap-16 lg:gap-24",
+      "internal_padding": "p-8 or p-10 (for cards)"
     },
-    "colors": {
-      "bg": "#0a0a2e",
-      "bg2": "#141442",
-      "fg": "#fafafa",
-      "accent": "#e8663c",
-      "muted": "#8b92ab",
-      "border": "#2a2a5c"
-    },
-    "layout_strategy": {
-      "vertical_centering": "Wrap main content in a container with { flex: 1, justifyContent: 'center' } to balance empty space.",
-      "card_sizing": "Remove { flex: 1 } from card rows/grids to prevent unnatural vertical stretching. Allow cards to size based on content."
+    "alignment": {
+      "vertical_center": "flex flex-col justify-center h-full",
+      "horizontal_center": "items-center text-center",
+      "grid_gap": "gap-8 or gap-12"
     }
   },
-  "files_to_modify": [
-    "/app/frontend/src/components/PdfGenerator.jsx"
-  ],
-  "pdf_fixes": {
-    "S3": {
-      "component_name": "S3",
-      "problem": "Cards stretch to full page height (flex: 1 on container + flex: 1 on cards).",
-      "solution_instruction": "Wrap the Title (H2) and the Cards Row in a centering container. Remove 'flex: 1' from the Row style.",
-      "code_snippet": "const S3 = () => (\n  <Page size={[PW, PH]} style={s.page}>\n    <Header label=\"Предмет предложения\" num={3} />\n    <View style={{ flex: 1, justifyContent: \"center\" }}>\n      <Text style={[s.h2, { fontSize: 30, marginBottom: 32 }]}>\n        Три фокуса <Text style={{ color: T.accent }}>сотрудничества</Text>\n      </Text>\n      <View style={{ flexDirection: \"row\", gap: 14 }}>\n        {focusAreas.map((a, i) => (\n          <Card key={i} style={{ flex: 1 }}>\n            <NumBadge n={i + 1} />\n            <Text style={[s.h3, { marginBottom: 4 }]}>{a.title}</Text>\n            <Text style={{ fontSize: 10, color: T.accent, marginBottom: 16 }}>{a.sub}</Text>\n            <Text style={[s.body, { marginTop: \"auto\" }]}>{a.desc}</Text>\n          </Card>\n        ))}\n      </View>\n    </View>\n    <Brand />\n  </Page>\n);"
+  "components": {
+    "FCSlideContainer": {
+      "path": "/app/frontend/src/components/franchcamp-slides/FCSlideContainer.jsx",
+      "instructions": [
+        "Increase container padding from px-8/px-16 to px-16/px-24/px-32.",
+        "Ensure content area uses max-w-7xl or w-full to fill width.",
+        "Increase header/footer text sizes (label, page number) to text-sm."
+      ]
     },
-    "S5": {
-      "component_name": "S5",
-      "problem": "Content pushed to top, empty bottom.",
-      "solution_instruction": "Wrap Title (H2) and Columns Row in a centering container. Remove 'flex: 1' from Row style.",
-      "code_snippet": "const S5 = () => (\n  <Page size={[PW, PH]} style={s.page}>\n    <Header label=\"Задачи\" num={5} />\n    <View style={{ flex: 1, justifyContent: \"center\" }}>\n      <Text style={[s.h2, { fontSize: 30, marginBottom: 32 }]}>\n        Задачи <Text style={{ color: T.accent }}>программы</Text>\n      </Text>\n      <View style={{ flexDirection: \"row\", gap: 40 }}>\n        <View style={{ flex: 1, gap: 14 }}>\n          {tasks.slice(0, 4).map((t, i) => (\n            <View key={i} style={{ flexDirection: \"row\", gap: 12, alignItems: \"flex-start\" }}>\n              <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent, width: 26 }}>{String(i + 1).padStart(2, \"0\")}</Text>\n              <Text style={{ fontSize: 12, color: T.fg2, lineHeight: 1.5, flex: 1 }}>{t}</Text>\n            </View>\n          ))}\n        </View>\n        <VSep />\n        <View style={{ flex: 1, gap: 14 }}>\n          {tasks.slice(4).map((t, i) => (\n            <View key={i} style={{ flexDirection: \"row\", gap: 12, alignItems: \"flex-start\" }}>\n              <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent, width: 26 }}>{String(i + 5).padStart(2, \"0\")}</Text>\n              <Text style={{ fontSize: 12, color: T.fg2, lineHeight: 1.5, flex: 1 }}>{t}</Text>\n            </View>\n          ))}\n        </View>\n      </View>\n    </View>\n    <Brand />\n  </Page>\n);"
+    "FCNoteallSlide": {
+      "path": "/app/frontend/src/components/franchcamp-slides/FCNoteallSlide.jsx",
+      "slide_number": 5,
+      "instructions": [
+        "CRITICAL: Fix vertical misalignment. Add 'items-center' to the flex-row container holding the two columns.",
+        "Increase main title 'Noteall' to text-7xl or text-8xl.",
+        "Increase subtitle/description to text-2xl/text-3xl.",
+        "Increase list items to text-xl or text-2xl.",
+        "Increase card padding and border width."
+      ]
     },
-    "S6": {
-      "component_name": "S6",
-      "problem": "Grid items pushed to top.",
-      "solution_instruction": "Wrap Title, Desc, and Grid in centering container. Remove 'flex: 1' from Grid container.",
-      "code_snippet": "const S6 = () => (\n  <Page size={[PW, PH]} style={s.page}>\n    <Header label=\"Результаты\" num={6} />\n    <View style={{ flex: 1, justifyContent: \"center\" }}>\n      <Text style={[s.h2, { marginBottom: 4 }]}>Пакет готовности <Text style={{ color: T.accent }}>к рынку</Text></Text>\n      <Text style={[s.body, { marginBottom: 24 }]}>По каждому продукту — до 5 продуктов на цикл</Text>\n      <View style={{ flexDirection: \"row\", flexWrap: \"wrap\", gap: 10 }}>\n        {results.map((r, i) => (\n          <View key={i} style={{\n            width: \"31.5%\", backgroundColor: T.bg2, borderRadius: 8, padding: \"12 14\",\n            borderWidth: 1, borderColor: T.border,\n            flexDirection: \"row\", gap: 10, alignItems: \"flex-start\",\n          }}>\n            <Dot size={6} />\n            <View style={{ flex: 1 }}>\n              <Text style={{ fontSize: 11, fontWeight: 600, color: T.fg }}>{r.l}</Text>\n              <Text style={[s.caption, { marginTop: 3 }]}>{r.d}</Text>\n            </View>\n          </View>\n        ))}\n      </View>\n    </View>\n    <Brand />\n  </Page>\n);"
+    "FCEchoMindSlide": {
+      "path": "/app/frontend/src/components/franchcamp-slides/FCEchoMindSlide.jsx",
+      "slide_number": 6,
+      "instructions": [
+        "CRITICAL: Fix vertical misalignment. Add 'items-center' to the flex-row container.",
+        "Increase main title 'EchoMind' to text-7xl or text-8xl.",
+        "Stats grid: Increase numbers to text-5xl/text-6xl, labels to text-lg.",
+        "Feature list: Increase text to text-xl or text-2xl.",
+        "Use 'gap-16' between columns."
+      ]
     },
-    "S7": {
-      "component_name": "S7",
-      "problem": "Cards stretch to full page height.",
-      "solution_instruction": "Wrap Title and Cards Row in centering container. Remove 'flex: 1' from Row.",
-      "code_snippet": "const S7 = () => (\n  <Page size={[PW, PH]} style={s.page}>\n    <Header label=\"Сводные результаты\" num={7} />\n    <View style={{ flex: 1, justifyContent: \"center\" }}>\n      <Text style={[s.h2, { fontSize: 30, marginBottom: 32 }]}>\n        Сводные результаты <Text style={{ color: T.accent }}>программы</Text>\n      </Text>\n      <View style={{ flexDirection: \"row\", gap: 14 }}>\n        {summary.map((item, i) => (\n          <Card key={i} style={{ flex: 1 }}>\n            <NumBadge n={i + 1} />\n            <Text style={[s.h3, { fontSize: 15, marginBottom: 10 }]}>{item.t}</Text>\n            <Text style={[s.body, { marginTop: \"auto\" }]}>{item.d}</Text>\n          </Card>\n        ))}\n      </View>\n    </View>\n    <Brand />\n  </Page>\n);"
+    "FCTitleSlide": {
+      "path": "/app/frontend/src/components/franchcamp-slides/FCTitleSlide.jsx",
+      "instructions": [
+        "Make 'HOP.AGENCY' massive (text-4xl+).",
+        "Make main title 'AI as part of package...' MASSIVE (text-7xl to text-9xl).",
+        "Body text should be text-2xl or text-3xl.",
+        "Use more vertical space."
+      ]
     },
-    "S11": {
-      "component_name": "S11",
-      "problem": "Team cards stretch.",
-      "solution_instruction": "Wrap Title, Cards Row, and Total Count in centering container. Remove 'flex: 1' from Row.",
-      "code_snippet": "const S11 = () => (\n  <Page size={[PW, PH]} style={s.page}>\n    <Header label=\"Команда\" num={11} />\n    <View style={{ flex: 1, justifyContent: \"center\" }}>\n      <Text style={[s.h2, { fontSize: 30, marginBottom: 28 }]}>\n        Команда <Text style={{ color: T.accent }}>проекта</Text>\n      </Text>\n      <View style={{ flexDirection: \"row\", gap: 12 }}>\n        {team.map((m, i) => (\n          <Card key={i} style={{ flex: 1 }}>\n            <NumBadge n={i + 1} />\n            <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg }}>{m.role}</Text>\n            <Text style={{ fontSize: 10, color: T.accent, marginTop: 3, marginBottom: 14 }}>{m.count}</Text>\n            <Text style={[s.body, { marginTop: \"auto\" }]}>{m.desc}</Text>\n          </Card>\n        ))}\n      </View>\n      <View style={{ flexDirection: \"row\", alignItems: \"center\", gap: 8, marginTop: 14, flexShrink: 0 }}>\n        <Text style={{ fontSize: 12, color: T.muted }}>Итого:</Text>\n        <Text style={{ fontSize: 18, fontWeight: 700, color: T.fg }}>5 специалистов</Text>\n      </View>\n    </View>\n    <Brand />\n  </Page>\n);"
+    "FCBlocksSlide": {
+      "path": "/app/frontend/src/components/franchcamp-slides/FCBlocksSlide.jsx",
+      "instructions": [
+        "Grid cards need to be taller and have more padding (p-10).",
+        "Card titles: text-3xl. Card desc: text-xl.",
+        "Main Title: text-6xl+."
+      ]
+    },
+    "FCFinalSlide": {
+      "path": "/app/frontend/src/components/franchcamp-slides/FCFinalSlide.jsx",
+      "instructions": [
+        "Contact info text size must be at least text-2xl.",
+        "Final 'HOP.AGENCY' logo should be huge.",
+        "Use gap-16 for layout separation."
+      ]
+    },
+    "GeneralSlides": {
+      "instructions": [
+        "Apply the 2x-2.5x font scale to ALL other slides (Context, Value, Emergent, Offer).",
+        "Ensure no slide feels empty. Use font size and spacing to fill the viewport comfortably."
+      ]
     }
   },
-  "universal_guidelines": [
-    "Use data-testid attributes on all interactive elements.",
-    "Do not use transparent backgrounds where content might overlap.",
-    "Maintain 'Inter' font consistency."
+  "instructions_to_main_agent": [
+    "1. Read this guidelines file first.",
+    "2. Modify 'FCSlideContainer.jsx' to increase global padding and base font sizes.",
+    "3. Go through EACH slide component file (FCTitleSlide, FCContextSlide, FCValueSlide, FCBlocksSlide, FCNoteallSlide, FCEchoMindSlide, FCEmergentSlide, FCOfferSlide, FCFinalSlide) and apply the new typography scale and spacing rules.",
+    "4. Specifically for FCNoteallSlide (Slide 5) and FCEchoMindSlide (Slide 6), ensure you add 'items-center' to the flex container to fix the vertical alignment issue.",
+    "5. Do NOT change colors or the dark theme foundation.",
+    "6. Do NOT break the slide navigation or PDF generation logic."
   ]
 }
