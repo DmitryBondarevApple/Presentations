@@ -137,7 +137,11 @@ const S1 = () => (
     <Text style={{ fontSize: 18, fontWeight: 700, letterSpacing: 5, marginBottom: 40, color: T.fg }}>
       HOP<Text style={{ color: T.accent }}>.</Text>AGEN<Text style={{ color: T.accent }}>C</Text>Y
     </Text>
-    <Badge>ПРЕДЛОЖЕНИЕ ДЛЯ FRANCHCAMP</Badge>
+    <View style={{ backgroundColor: T.accentBg, borderRadius: 4, padding: "3 10" }}>
+      <Text style={{ fontSize: 8, fontWeight: 700, letterSpacing: 1.2, color: T.accent }}>
+        ПРЕДЛОЖЕНИЕ ДЛЯ FRANCHCAMP
+      </Text>
+    </View>
     <Text style={[s.h1, { fontSize: 32, textAlign: "center", maxWidth: 620, marginTop: 20 }]}>
       ИИ как часть пакета{"\n"}<Text style={{ color: T.accent }}>для франчайзи</Text>
     </Text>
@@ -521,11 +525,11 @@ const S9 = () => (
     <Text style={[s.h2, { fontSize: 24, textAlign: "center", marginBottom: 24 }]}>
       Вместе — <Text style={{ color: T.accent }}>новый образовательный пакет</Text>
     </Text>
-    <View style={{ flexDirection: "row", gap: 16, marginBottom: 28, maxWidth: 620 }}>
+    <View style={{ flexDirection: "row", gap: 40, marginBottom: 28, width: PW - PAD * 2 - 80 }}>
       {finalBlocks.map((b, i) => (
         <View key={i} style={{ flex: 1, alignItems: "center" }}>
-          <Text style={{ fontSize: 13, fontWeight: 700, color: T.fg, marginBottom: 6, textAlign: "center" }}>{b.name}</Text>
-          <Text style={{ fontSize: 10, color: T.muted, textAlign: "center", lineHeight: 1.4 }}>{b.desc}</Text>
+          <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg, marginBottom: 6, textAlign: "center" }}>{b.name}</Text>
+          <Text style={{ fontSize: 11, color: T.muted, textAlign: "center", lineHeight: 1.5 }}>{b.desc}</Text>
         </View>
       ))}
     </View>
