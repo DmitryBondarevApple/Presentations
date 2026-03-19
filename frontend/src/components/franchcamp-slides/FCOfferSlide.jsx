@@ -18,34 +18,34 @@ const programItems = [
 const FCOfferSlide = () => {
   return (
     <FCSlideContainer number={8} label="Предложение">
-      <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2" data-testid="fc-offer-title">
+      <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-2" data-testid="fc-offer-title">
         Предложение <span className="text-accent">для франчайзеров</span>
       </h2>
-      <p className="font-body text-lg md:text-xl text-muted-foreground mb-8">
+      <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8">
         Важен не только контент, но и способ монетизации и внедрения в сеть
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-5 mb-4 md:mb-6">
         {offers.map((o, i) => (
-          <div key={i} className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-6 md:p-8" data-testid={`fc-offer-${i}`}>
-            <span className="inline-block px-3 py-1.5 rounded bg-accent/10 text-accent text-sm font-bold tracking-wider mb-4">
+          <div key={i} className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-8" data-testid={`fc-offer-${i}`}>
+            <span className="inline-block px-2 py-1 md:px-3 md:py-1.5 rounded bg-accent/10 text-accent text-xs md:text-sm font-bold tracking-wider mb-2 md:mb-4">
               {o.num}
             </span>
-            <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3">{o.title}</h3>
-            <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed">{o.desc}</p>
+            <h3 className="font-heading text-base md:text-2xl font-bold text-foreground mb-1 md:mb-3">{o.title}</h3>
+            <p className="font-body text-xs md:text-lg text-muted-foreground leading-relaxed">{o.desc}</p>
           </div>
         ))}
       </div>
 
-      <div className="bg-card rounded-lg border border-border p-5">
-        <p className="font-heading text-base md:text-lg font-semibold text-foreground mb-3">
+      <div className="bg-card rounded-lg border border-border p-3 md:p-5">
+        <p className="font-heading text-sm md:text-lg font-semibold text-foreground mb-2 md:mb-3">
           Что входит в состав программы:
         </p>
-        <div className="flex flex-wrap gap-x-6 gap-y-3">
+        <div className="flex flex-wrap gap-x-4 md:gap-x-6 gap-y-1.5 md:gap-y-3">
           {programItems.map((item, i) => (
-            <div key={i} className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-              <span className="font-body text-base md:text-lg text-foreground/80">{item}</span>
+            <div key={i} className="flex items-center gap-1.5 md:gap-2">
+              <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-accent shrink-0" />
+              <span className="font-body text-xs md:text-lg text-foreground/80">{item}</span>
             </div>
           ))}
         </div>

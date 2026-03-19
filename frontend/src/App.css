@@ -4,4 +4,5 @@ html, body, #root {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  -webkit-overflow-scrolling: touch;
 }
