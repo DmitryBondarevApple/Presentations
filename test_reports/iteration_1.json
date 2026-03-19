@@ -1,0 +1,50 @@
+{
+  "summary": "Frontend-only testing of FranchCamp presentation app. Tested /franchcamp route (9 slides) and verified / route (Rostelecom, 14 slides) still works. All 17 tests passed.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [".screenshots/franchcamp_slide1.png", ".screenshots/franchcamp_slide2.png", ".screenshots/franchcamp_slide3.png", ".screenshots/franchcamp_slide4.png", ".screenshots/franchcamp_slide5.png", ".screenshots/franchcamp_slide6.png", ".screenshots/franchcamp_slide7.png", ".screenshots/franchcamp_slide8.png", ".screenshots/franchcamp_slide9.png", ".screenshots/rostelecom_slide1.png"],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {
+    "backend": "N/A - frontend only",
+    "frontend": "100%"
+  },
+  "test_credentials": "N/A",
+  "seed_data_creation": "N/A",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "FranchCamp presentation at /franchcamp has 9 slides with proper navigation (arrows, dots, keyboard). All data-testid attributes are in place: fc-title, fc-context-title, fc-value-title, fc-value-card-{0-3}, fc-blocks-title, fc-block-{0-2}, fc-noteall-title, fc-echomind-title, fc-emergent-title, fc-emergent-card-{0-3}, fc-offer-title, fc-offer-{0-2}, fc-final-title, fc-next-btn, fc-prev-btn, fc-pdf-btn, fc-dot-{0-8}. Rostelecom presentation at / has 14 slides with similar navigation structure.",
+  "tests_executed": {
+    "franchcamp_presentation": {
+      "slide_1_title": "PASSED - Title shows 'ИИ как часть пакета для франчайзи'",
+      "slide_counter": "PASSED - Shows 1/9 to 9/9 correctly",
+      "pdf_button": "PASSED - fc-pdf-btn exists",
+      "progress_dots": "PASSED - All 9 dots found (fc-dot-0 to fc-dot-8)",
+      "slide_2_context": "PASSED - Stats 5000+, 100+, 13, 35 present",
+      "slide_3_value": "PASSED - 4 value cards found",
+      "slide_4_blocks": "PASSED - 3 blocks (Noteall, EchoMind, Emergent)",
+      "slide_5_noteall": "PASSED - 4 masterclass items",
+      "slide_6_echomind": "PASSED - Metrics 100%, 1 день, +7–18%, -14%",
+      "slide_7_emergent": "PASSED - 4 feature cards",
+      "slide_8_offer": "PASSED - 3 offer options",
+      "slide_9_final": "PASSED - Contacts and summary",
+      "next_button_hidden_on_last": "PASSED",
+      "keyboard_navigation_left": "PASSED",
+      "keyboard_navigation_right": "PASSED",
+      "dots_navigation": "PASSED"
+    },
+    "rostelecom_presentation": {
+      "root_route_loads": "PASSED - Ростелеком content loads at /",
+      "navigation_elements": "PASSED - PDF button and navigation found",
+      "slide_count": "PASSED - 14 slides (shown by progress dots)"
+    }
+  }
+}
