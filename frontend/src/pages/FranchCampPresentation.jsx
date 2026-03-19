@@ -101,7 +101,8 @@ export default function FranchCampPresentation() {
 
   return (
     <div
-      className="relative w-full h-screen overflow-hidden bg-background"
+      className="relative w-full overflow-hidden bg-background"
+      style={{ height: '100dvh' }}
       onMouseMove={handleMouseMove}
       onTouchStart={(e) => setTouchX(e.touches[0].clientX)}
       onTouchEnd={(e) => {
@@ -163,9 +164,9 @@ export default function FranchCampPresentation() {
       </div>
 
       <div className={cn(
-        "absolute bottom-0 left-0 right-0 z-20 flex items-center justify-between px-5 py-3",
+        "absolute bottom-0 left-0 right-0 z-20 flex items-center justify-between px-5 py-2",
         showControls ? "opacity-100" : "opacity-0 hover:opacity-100"
-      )} style={{ transition: 'opacity 0.3s' }}>
+      )} style={{ transition: 'opacity 0.3s', paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom))' }}>
         <div className="flex items-center gap-1.5">
           {allSlides.map((_, i) => (
             <button key={i} onClick={() => goTo(i)} data-testid={`fc-dot-${i}`}

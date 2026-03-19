@@ -28,7 +28,7 @@ export const FCSlideContainer = ({ children, number, label, className }) => {
         )}
       </div>
 
-      <div className="flex-1 overflow-y-auto flex flex-col justify-start lg:justify-center px-6 md:px-16 lg:px-24 py-4 md:py-6 lg:pb-12 relative z-10">
+      <div className="flex-1 overflow-y-auto flex flex-col justify-start lg:justify-center px-6 md:px-16 lg:px-24 py-4 md:py-6 lg:pb-12 pb-10 relative z-10">
         {children}
       </div>
 
