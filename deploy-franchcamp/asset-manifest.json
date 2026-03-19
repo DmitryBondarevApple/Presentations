@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/presentations/franchcamp/static/css/main.da0bf44e.css",
+    "main.js": "/presentations/franchcamp/static/js/main.b278a371.js",
+    "index.html": "/presentations/franchcamp/index.html",
+    "main.da0bf44e.css.map": "/presentations/franchcamp/static/css/main.da0bf44e.css.map",
+    "main.b278a371.js.map": "/presentations/franchcamp/static/js/main.b278a371.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da0bf44e.css",
+    "static/js/main.b278a371.js"
+  ]
+}
