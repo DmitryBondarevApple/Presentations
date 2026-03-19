@@ -1,42 +1,61 @@
-# Презентация КП для ПАО «Ростелеком» — Hop.Agency
+# Презентации Hop.Agency
 
 ## Описание
-Веб-приложение для просмотра и скачивания коммерческого предложения Hop.Agency для ПАО «Ростелеком».
+Веб-приложение для просмотра и скачивания презентаций Hop.Agency.
+
+## Презентации
+
+### 1. Ростелеком (`/`)
+- 14 слайдов коммерческого предложения для ПАО «Ростелеком»
+- PDF-генерация через @react-pdf/renderer
+
+### 2. FranchCamp (`/franchcamp`)
+- 9 слайдов — предложение для организаторов FranchCamp
+- Тема: ИИ как часть пакета для франчайзи
+- 3 блока: Noteall, EchoMind, Emergent.sh
+- PDF-генерация через @react-pdf/renderer
 
 ## Функционал
-- 14 слайдов с контентом из КП
 - Навигация: стрелки клавиатуры, кнопки, точки прогресса, свайпы
-- **PDF-генерация через @react-pdf/renderer** (векторный PDF, 64KB, выделяемый текст)
+- PDF-генерация (векторный PDF, выделяемый текст, кириллица)
 - Полноэкранный режим, плавные анимации (framer-motion)
 
 ## Технический стек
 - React + Tailwind CSS + shadcn/ui
 - framer-motion (веб-анимации)
-- **@react-pdf/renderer** (PDF-генерация)
+- @react-pdf/renderer (PDF-генерация)
 - Шрифт Inter (с кириллицей) для PDF
 
 ## Структура
 ```
 /app/frontend/src/
 ├── components/
-│   ├── PdfGenerator.jsx       ← PDF-генерация (@react-pdf/renderer)
-│   ├── slides/                ← Веб-слайды
-│   └── ui/                    ← shadcn
+│   ├── PdfGenerator.jsx              ← PDF для Ростелеком
+│   ├── FranchCampPdfGenerator.jsx    ← PDF для FranchCamp
+│   ├── slides/                       ← Веб-слайды Ростелеком
+│   ├── franchcamp-slides/            ← Веб-слайды FranchCamp
+│   └── ui/                           ← shadcn
 ├── pages/
-│   └── Presentation.jsx       ← Основной компонент
+│   ├── Presentation.jsx              ← Ростелеком (/)
+│   └── FranchCampPresentation.jsx    ← FranchCamp (/franchcamp)
 /app/docs/
-│   └── WEB_TO_PDF_STYLE_GUIDE.md  ← Style guide: веб → PDF
-/app/design_guidelines.json        ← Дизайн-гайд
+│   └── WEB_TO_PDF_STYLE_GUIDE.md     ← Style guide: веб → PDF
 ```
 
 ## Выполнено
-- [x] Веб-презентация 14 слайдов (hop.agency стиль)
-- [x] PDF через @react-pdf/renderer (Premium дизайн, дизайн-система)
-- [x] Сбалансированный layout: натуральная высота карточек + вертикальное центрирование
+- [x] Веб-презентация Ростелеком — 14 слайдов
+- [x] PDF Ростелеком — @react-pdf/renderer
+- [x] Веб-презентация FranchCamp — 9 слайдов
+- [x] PDF FranchCamp — @react-pdf/renderer
 - [x] Кириллица (Inter)
-- [x] Style guide: WEB_TO_PDF_STYLE_GUIDE.md (включая раздел о балансировке layout)
-- [x] Удалён бэйдж "Made with Emergent"
-- [x] Текст "В том числе НДС 5%"
+- [x] Style guide: WEB_TO_PDF_STYLE_GUIDE.md
+- [x] Маршрутизация: / и /franchcamp
+- [x] Тестирование: 17/17 тестов пройдено (iteration_1)
 
 ## Задачи
 Нет открытых задач.
+
+## Будущее
+- [ ] Главная страница с выбором презентации
+- [ ] Динамическая загрузка контента из JSON/БД
+- [ ] Универсальный компонент презентации
