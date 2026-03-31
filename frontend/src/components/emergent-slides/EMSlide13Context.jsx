@@ -3,49 +3,43 @@ import { EMSlideContainer } from './EMSlideContainer';
 const EMSlide13Context = () => {
   return (
     <EMSlideContainer number={13} label="Процесс">
-      <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 md:mb-4" data-testid="em-context-title">
+      <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-2" data-testid="em-context-title">
         Агенты могут <span className="text-accent">меняться</span>
       </h2>
-      <p className="font-body text-sm md:text-lg text-muted-foreground mb-6 md:mb-10">
+      <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8">
         Контекст нужно удерживать через документацию
       </p>
 
-      {/* Process flow */}
-      <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-stretch mb-4 md:mb-8">
-        <div className="flex-1 bg-card rounded-lg border border-border p-4 md:p-6">
-          <span className="font-heading text-accent/30 text-xl md:text-2xl font-bold block mb-2">01</span>
-          <h3 className="font-heading text-base md:text-xl font-bold text-foreground mb-1">Чат растёт</h3>
-          <p className="font-body text-xs md:text-base text-muted-foreground">Вы общаетесь, ставите задачи, уточняете детали</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 mb-4 md:mb-6 md:flex-1 auto-rows-fr">
+        <div className="bg-card rounded-lg border border-border p-4 md:p-8">
+          <div className="w-8 md:w-10 h-8 md:h-10 rounded-md bg-accent/10 flex items-center justify-center mb-3 md:mb-5">
+            <span className="font-heading text-sm md:text-lg font-bold text-accent">01</span>
+          </div>
+          <h3 className="font-heading text-lg md:text-2xl font-bold text-foreground mb-1 md:mb-3">Чат растёт</h3>
+          <p className="font-body text-xs md:text-lg text-muted-foreground leading-relaxed">Вы общаетесь, ставите задачи, уточняете детали — контекст накапливается</p>
         </div>
 
-        <div className="flex items-center justify-center shrink-0">
-          <span className="text-accent text-xl md:text-2xl">&rarr;</span>
+        <div className="bg-card rounded-lg border border-border p-4 md:p-8">
+          <div className="w-8 md:w-10 h-8 md:h-10 rounded-md bg-accent/10 flex items-center justify-center mb-3 md:mb-5">
+            <span className="font-heading text-sm md:text-lg font-bold text-accent">02</span>
+          </div>
+          <h3 className="font-heading text-lg md:text-2xl font-bold text-foreground mb-1 md:mb-3">Окно внимания</h3>
+          <p className="font-body text-xs md:text-lg text-muted-foreground leading-relaxed">Объём контекста заканчивается — агент «забывает» начало разговора</p>
         </div>
 
-        <div className="flex-1 bg-card rounded-lg border border-border p-4 md:p-6">
-          <span className="font-heading text-accent/30 text-xl md:text-2xl font-bold block mb-2">02</span>
-          <h3 className="font-heading text-base md:text-xl font-bold text-foreground mb-1">Окно внимания</h3>
-          <p className="font-body text-xs md:text-base text-muted-foreground">Объём контекста заканчивается</p>
-        </div>
-
-        <div className="flex items-center justify-center shrink-0">
-          <span className="text-accent text-xl md:text-2xl">&rarr;</span>
-        </div>
-
-        <div className="flex-1 bg-card rounded-lg border border-accent/30 border-l-[3px] border-l-accent p-4 md:p-6">
-          <span className="font-heading text-accent/30 text-xl md:text-2xl font-bold block mb-2">03</span>
-          <h3 className="font-heading text-base md:text-xl font-bold text-accent mb-1">Fork</h3>
-          <p className="font-body text-xs md:text-base text-muted-foreground">Новая ветка — новые агенты</p>
+        <div className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-8">
+          <div className="w-8 md:w-10 h-8 md:h-10 rounded-md bg-accent/10 flex items-center justify-center mb-3 md:mb-5">
+            <span className="font-heading text-sm md:text-lg font-bold text-accent">03</span>
+          </div>
+          <h3 className="font-heading text-lg md:text-2xl font-bold text-accent mb-1 md:mb-3">Fork</h3>
+          <p className="font-body text-xs md:text-lg text-muted-foreground leading-relaxed">Создаётся новая ветка — с чистым контекстом и новыми агентами</p>
         </div>
       </div>
 
-      <div className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-6">
-        <p className="font-body text-sm md:text-lg lg:text-xl text-foreground/80 leading-relaxed">
-          <span className="font-semibold text-foreground">Ключевое: </span>
-          новые агенты опираются на документацию внутри проекта. Без неё — часть деталей теряется.
-          Документация удерживает память проекта.
-        </p>
-      </div>
+      <p className="font-body text-sm md:text-xl text-foreground/80 leading-relaxed">
+        <span className="font-semibold">Ключевое: </span>
+        новые агенты опираются на документацию внутри проекта. Без неё — часть деталей теряется. Документация удерживает память проекта.
+      </p>
     </EMSlideContainer>
   );
 };

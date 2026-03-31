@@ -6,20 +6,22 @@ const afterSteps = ["Идея", "ИИ-агенты", "Продукт"];
 const EMSlide04Path = () => {
   return (
     <EMSlideContainer number={4} label="Сдвиг">
-      <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 md:mb-10" data-testid="em-path-title">
+      <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-2" data-testid="em-path-title">
         Путь стал <span className="text-accent">короче в разы</span>
       </h2>
+      <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8">
+        MVP и коммерчески применимый продукт — разница сокращается
+      </p>
 
-      <div className="space-y-4 md:space-y-6">
-        {/* Before track */}
-        <div className="bg-card rounded-lg border border-border p-4 md:p-6 lg:p-8">
-          <span className="font-heading text-muted-foreground text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-5 block">
+      <div className="space-y-3 md:space-y-5 mb-4 md:mb-6 md:flex-1 md:flex md:flex-col md:justify-center">
+        <div className="bg-card rounded-lg border border-border p-4 md:p-8">
+          <span className="inline-block px-2 py-1 md:px-3 md:py-1.5 rounded bg-secondary text-muted-foreground text-xs md:text-sm font-bold tracking-wider uppercase mb-3 md:mb-5">
             Раньше · месяцы
           </span>
-          <div className="flex items-center gap-2 md:gap-3 flex-wrap">
+          <div className="flex items-center gap-2 md:gap-4 flex-wrap">
             {beforeSteps.map((step, i) => (
-              <div key={i} className="flex items-center gap-2 md:gap-3">
-                <span className="font-body text-sm md:text-lg lg:text-xl text-foreground/70 bg-secondary px-3 py-1.5 md:px-5 md:py-2.5 rounded">
+              <div key={i} className="flex items-center gap-2 md:gap-4">
+                <span className="font-body text-sm md:text-xl text-foreground/60 bg-secondary px-3 py-2 md:px-5 md:py-3 rounded">
                   {step}
                 </span>
                 {i < beforeSteps.length - 1 && (
@@ -30,15 +32,14 @@ const EMSlide04Path = () => {
           </div>
         </div>
 
-        {/* After track */}
-        <div className="bg-card rounded-lg border border-accent/30 border-l-[3px] border-l-accent p-4 md:p-6 lg:p-8">
-          <span className="font-heading text-accent text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-5 block">
+        <div className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-8">
+          <span className="inline-block px-2 py-1 md:px-3 md:py-1.5 rounded bg-accent/10 text-accent text-xs md:text-sm font-bold tracking-wider uppercase mb-3 md:mb-5">
             Сейчас · часы или дни
           </span>
-          <div className="flex items-center gap-2 md:gap-4 flex-wrap">
+          <div className="flex items-center gap-3 md:gap-5 flex-wrap">
             {afterSteps.map((step, i) => (
-              <div key={i} className="flex items-center gap-2 md:gap-4">
-                <span className="font-body text-base md:text-xl lg:text-2xl text-foreground font-semibold bg-accent/10 px-4 py-2 md:px-6 md:py-3 rounded border border-accent/20">
+              <div key={i} className="flex items-center gap-3 md:gap-5">
+                <span className="font-body text-sm md:text-2xl text-foreground font-semibold bg-accent/10 px-4 py-2 md:px-6 md:py-3 rounded border border-accent/20">
                   {step}
                 </span>
                 {i < afterSteps.length - 1 && (
@@ -50,8 +51,9 @@ const EMSlide04Path = () => {
         </div>
       </div>
 
-      <p className="font-body text-sm md:text-lg text-muted-foreground mt-4 md:mt-6">
-        MVP и коммерчески применимый продукт — разница сокращается
+      <p className="font-body text-sm md:text-xl text-foreground/80 leading-relaxed">
+        <span className="font-semibold">Маршрут: </span>
+        от формулировки идеи к пониманию пользователя и далее — к рабочему продукту.
       </p>
     </EMSlideContainer>
   );

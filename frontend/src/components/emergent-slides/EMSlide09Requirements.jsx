@@ -3,18 +3,20 @@ import { EMSlideContainer } from './EMSlideContainer';
 const EMSlide09Requirements = () => {
   return (
     <EMSlideContainer number={9} label="Шаг 3 · Требования">
-      <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 md:mb-10" data-testid="em-req-title">
+      <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-2" data-testid="em-req-title">
         Требования <span className="text-accent">нельзя придумывать</span> в отрыве от пользователя
       </h2>
+      <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8">
+        Конкретный пример: от боли к ценности
+      </p>
 
-      <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-stretch">
-        {/* Pain */}
-        <div className="flex-1 bg-card rounded-lg border border-border p-4 md:p-6 lg:p-8 flex flex-col">
-          <span className="font-heading text-accent text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-5 block">
+      <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-stretch mb-4 md:mb-6 md:flex-1">
+        <div className="flex-1 bg-card rounded-lg border border-border p-4 md:p-8">
+          <span className="inline-block px-2 py-1 md:px-3 md:py-1.5 rounded bg-accent/10 text-accent text-xs md:text-sm font-bold tracking-wider uppercase mb-3 md:mb-5">
             Боль
           </span>
-          <p className="font-body text-base md:text-xl lg:text-2xl text-foreground leading-relaxed">
-            Студент не понимает, что учить в первую очередь
+          <p className="font-body text-sm md:text-xl text-foreground leading-relaxed">
+            Студент не понимает, что учить в первую очередь — времени мало, материала много
           </p>
         </div>
 
@@ -22,13 +24,12 @@ const EMSlide09Requirements = () => {
           <span className="text-accent text-2xl md:text-4xl">&rarr;</span>
         </div>
 
-        {/* Feature */}
-        <div className="flex-1 bg-card rounded-lg border border-accent/20 p-4 md:p-6 lg:p-8 flex flex-col">
-          <span className="font-heading text-accent text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-5 block">
+        <div className="flex-1 bg-card rounded-lg border border-accent/20 p-4 md:p-8">
+          <span className="inline-block px-2 py-1 md:px-3 md:py-1.5 rounded bg-accent/10 text-accent text-xs md:text-sm font-bold tracking-wider uppercase mb-3 md:mb-5">
             Функция
           </span>
-          <p className="font-body text-base md:text-xl lg:text-2xl text-foreground leading-relaxed">
-            Персональный план подготовки к экзамену
+          <p className="font-body text-sm md:text-xl text-foreground leading-relaxed">
+            Персональный план подготовки к экзамену на основе списка билетов
           </p>
         </div>
 
@@ -36,19 +37,19 @@ const EMSlide09Requirements = () => {
           <span className="text-accent text-2xl md:text-4xl">&rarr;</span>
         </div>
 
-        {/* Value */}
-        <div className="flex-1 bg-card rounded-lg border border-accent/30 border-l-[3px] border-l-accent p-4 md:p-6 lg:p-8 flex flex-col">
-          <span className="font-heading text-accent text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-5 block">
+        <div className="flex-1 bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-8">
+          <span className="inline-block px-2 py-1 md:px-3 md:py-1.5 rounded bg-accent/10 text-accent text-xs md:text-sm font-bold tracking-wider uppercase mb-3 md:mb-5">
             Ценность
           </span>
-          <p className="font-body text-base md:text-xl lg:text-2xl text-foreground leading-relaxed">
-            Меньше хаоса, выше шанс успеть
+          <p className="font-body text-sm md:text-xl text-foreground leading-relaxed">
+            Меньше хаоса, выше шанс подготовиться и сдать вовремя
           </p>
         </div>
       </div>
 
-      <p className="font-body text-sm md:text-lg text-muted-foreground mt-4 md:mt-8 leading-relaxed">
-        Требования должны вытекать из того, что вы узнали о пользователях, а не из собственных догадок
+      <p className="font-body text-sm md:text-xl text-foreground/80 leading-relaxed">
+        <span className="font-semibold">Ключевое: </span>
+        требования должны вытекать из того, что вы узнали о пользователях, а не из собственных догадок.
       </p>
     </EMSlideContainer>
   );
