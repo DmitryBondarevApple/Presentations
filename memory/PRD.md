@@ -9,9 +9,9 @@ Build web presentations for Hop.Agency with full navigation, PDF generation, mob
 - **Routes**: `/` (Rostelecom), `/franchcamp` (FranchCamp), `/emergent` (Emergent Masterclass)
 - **Hosting**: `presentations.noteall.ru` (Docker volume mount + separate Nginx server block)
 
-## Production URLs
-- https://presentations.noteall.ru/franchcamp
-- https://presentations.noteall.ru/emergent
+## Production URLs (LIVE)
+- https://presentations.noteall.ru/franchcamp ✅
+- https://presentations.noteall.ru/emergent ✅
 
 ## What's Implemented
 
@@ -21,17 +21,18 @@ Build web presentations for Hop.Agency with full navigation, PDF generation, mob
 
 ### Cross-cutting: mobile (100dvh, safe-area), swipe/keyboard/dots nav, PDF gen, standalone build scripts
 
-## Deployment
-- Subdomain `presentations.noteall.ru` → same IP as noteall.ru (185.246.220.121)
-- Nginx config: `/etc/nginx/presentations.conf` → mounted as volume into Docker container
-- Files: `/var/www/presentations/{name}/` → mounted read-only into container
-- SSL: Let's Encrypt certbot for presentations.noteall.ru
+## Deployment (CONFIGURED & LIVE)
+- DNS: A-запись `presentations.noteall.ru` → `185.246.220.121` (Reg.ru) ✅
+- SSL: Let's Encrypt, автообновление через certbot.timer + reload hook ✅
+- Nginx: `/etc/nginx/presentations.conf` → volume mount в Docker ✅
+- Files: `/var/www/presentations/{name}/` → volume mount read-only ✅
 - Full instructions: `docs/DEPLOY_GUIDE.md`
 
 ## Key Files
-- `server-config/presentations.conf` — Nginx config for the subdomain
+- `server-config/presentations.conf` — Nginx config for subdomain
 - `build-franchcamp.sh`, `build-emergent.sh` — standalone build scripts (BASE_PATH: /franchcamp, /emergent)
-- `docs/DEPLOY_GUIDE.md` — full deployment guide with architecture diagram
+- `deploy-franchcamp/`, `deploy-emergent/` — ready-to-deploy static builds
+- `docs/DEPLOY_GUIDE.md` — full deployment guide
 
 ## Backlog
 - P2: QR-коды на финальные слайды
