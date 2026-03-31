@@ -31,6 +31,7 @@ const PW = 841.89;
 const PH = 595.28;
 const PAD = 40;
 const TOTAL = 15;
+const PG = { size: "A4", orientation: "landscape" };
 
 const s = StyleSheet.create({
   page: {
@@ -101,7 +102,7 @@ const BgDeco = () => (
 
 /* ═══════ SLIDE 1: COVER ═══════ */
 const S1 = () => (
-  <Page size={[PW, PH]} style={[s.page, { justifyContent: "center", alignItems: "center" }]}>
+  <Page {...PG} style={[s.page, { justifyContent: "center", alignItems: "center" }]}>
     <BgDeco />
     <BadgeLabel>МАСТЕР-КЛАСС</BadgeLabel>
     <Text style={{ fontWeight: 700, fontSize: 32, textAlign: "center", maxWidth: 620, marginTop: 16, lineHeight: 1.2 }}>
@@ -117,14 +118,14 @@ const S1 = () => (
 
 /* ═══════ SLIDE 2: KNOWN ═══════ */
 const S2 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Контекст" num={2} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Вы уже знаете ИИ <Text style={{ color: T.accent }}>как сервис</Text>
       </Text>
       <Text style={s.sub}>Сегодня посмотрим на ИИ как на команду</Text>
-      <View style={{ flexDirection: "row", gap: 12, flex: 1 }}>
+      <View style={{ flexDirection: "row", gap: 12 }}>
         {[
           { title: "ЧАТ И ПОИСК", items: ["GigaChat", "ChatGPT", "Perplexity", "Алиса"] },
           { title: "ГЕНЕРАЦИЯ", items: ["Midjourney", "DALL-E", "Suno", "NotebookLM"] },
@@ -152,14 +153,14 @@ const S2 = () => (
 
 /* ═══════ SLIDE 3: ABOUT ═══════ */
 const S3 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Фокус" num={3} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Речь не о том, как получить ответ.{"\n"}<Text style={{ color: T.accent }}>Речь о пути до продукта.</Text>
       </Text>
       <Text style={s.sub}>Разница между инструментом и системой</Text>
-      <View style={{ flexDirection: "row", gap: 12, flex: 1 }}>
+      <View style={{ flexDirection: "row", gap: 12 }}>
         <Card style={{ flex: 1 }}>
           <BadgeLabel color={T.muted} bg={T.secBg}>ОБЫЧНЫЙ ИИ-ИНСТРУМЕНТ</BadgeLabel>
           <View style={{ gap: 12 }}>
@@ -194,14 +195,14 @@ const S3 = () => (
 
 /* ═══════ SLIDE 4: PATH ═══════ */
 const S4 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Сдвиг" num={4} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Путь стал <Text style={{ color: T.accent }}>короче в разы</Text>
       </Text>
       <Text style={s.sub}>MVP и коммерчески применимый продукт — разница сокращается</Text>
-      <View style={{ flex: 1, justifyContent: "center", gap: 12 }}>
+      <View style={{ justifyContent: "center", gap: 12 }}>
         <Card style={{ padding: 18 }}>
           <BadgeLabel color={T.muted} bg={T.secBg}>РАНЬШЕ · МЕСЯЦЫ</BadgeLabel>
           <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
@@ -240,14 +241,14 @@ const S4 = () => (
 
 /* ═══════ SLIDE 5: MAP ═══════ */
 const S5 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Маршрут" num={5} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Три шага <Text style={{ color: T.accent }}>к продукту</Text>
       </Text>
       <Text style={s.sub}>Каждый шаг — фундамент для следующего</Text>
-      <View style={{ flexDirection: "row", gap: 12, flex: 1 }}>
+      <View style={{ flexDirection: "row", gap: 12 }}>
         {[
           { n: "01", t: "Сформулировать идею", d: "Точно сказать, что вы делаете, для кого и зачем" },
           { n: "02", t: "Понять проблему пользователя", d: "Разобраться, у кого болит, как болит и почему текущие решения не работают" },
@@ -270,14 +271,14 @@ const S5 = () => (
 
 /* ═══════ SLIDE 6: IDEA ═══════ */
 const S6 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Шаг 1 · Идея" num={6} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Плохая формулировка <Text style={{ color: T.accent }}>=</Text> плохой результат
       </Text>
       <Text style={s.sub}>Даже если инструмент сильный</Text>
-      <View style={{ flexDirection: "row", gap: 12, flex: 1 }}>
+      <View style={{ flexDirection: "row", gap: 12 }}>
         <Card redBorder style={{ flex: 1 }}>
           <BadgeLabel color={T.red} bg={T.redBg}>СЛИШКОМ ОБЩЕЕ</BadgeLabel>
           <Text style={{ fontSize: 14, color: T.dim, lineHeight: 1.6 }}>
@@ -305,14 +306,14 @@ const S6 = () => (
 
 /* ═══════ SLIDE 7: PROBLEM ═══════ */
 const S7 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Шаг 2 · Пользователь" num={7} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Продукт нужен не потому, что идея интересная
       </Text>
       <Text style={{ fontSize: 13, color: T.accent, marginBottom: 18 }}>А потому, что у пользователя есть реальная задача</Text>
-      <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10, flex: 1 }}>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
         {[
           { q: "У кого эта проблема есть?", h: "Определите целевую аудиторию" },
           { q: "В чём она проявляется?", h: "Опишите конкретные ситуации" },
@@ -336,14 +337,14 @@ const S7 = () => (
 
 /* ═══════ SLIDE 8: MARKET ═══════ */
 const S8 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Шаг 2 · Рынок" num={8} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Проверь не только проблему, <Text style={{ color: T.accent }}>но и силу спроса</Text>
       </Text>
       <Text style={s.sub}>Если продукт не решает важную и понятную задачу — он не нужен</Text>
-      <View style={{ flex: 1, justifyContent: "center", gap: 8 }}>
+      <View style={{ justifyContent: "center", gap: 8 }}>
         {[
           { q: "Сколько людей с этим сталкиваются?", h: "Объём рынка" },
           { q: "Насколько это болезненно?", h: "Интенсивность проблемы" },
@@ -368,14 +369,14 @@ const S8 = () => (
 
 /* ═══════ SLIDE 9: REQUIREMENTS ═══════ */
 const S9 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Шаг 3 · Требования" num={9} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Требования <Text style={{ color: T.accent }}>нельзя придумывать</Text> в отрыве от пользователя
       </Text>
       <Text style={s.sub}>Конкретный пример: от боли к ценности</Text>
-      <View style={{ flexDirection: "row", gap: 8, alignItems: "stretch", flex: 1 }}>
+      <View style={{ flexDirection: "row", gap: 8, alignItems: "stretch" }}>
         <Card style={{ flex: 1 }}>
           <BadgeLabel>БОЛЬ</BadgeLabel>
           <Text style={{ fontSize: 13, color: T.fg, lineHeight: 1.6 }}>
@@ -408,7 +409,7 @@ const S9 = () => (
 
 /* ═══════ SLIDE 10: EMERGENT ═══════ */
 const S10 = () => (
-  <Page size={[PW, PH]} style={[s.page, { justifyContent: "center", alignItems: "center" }]}>
+  <Page {...PG} style={[s.page, { justifyContent: "center", alignItems: "center" }]}>
     <BgDeco />
     <Text style={{ fontWeight: 700, fontSize: 32, textAlign: "center", maxWidth: 620, lineHeight: 1.2 }}>
       Emergent — это{"\n"}<Text style={{ color: T.accent }}>цифровая команда</Text>
@@ -425,14 +426,14 @@ const S10 = () => (
 
 /* ═══════ SLIDE 11: TEAM ═══════ */
 const S11 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Emergent · Команда" num={11} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Кто входит в <Text style={{ color: T.accent }}>цифровую команду</Text>
       </Text>
       <Text style={s.sub}>Каждая роль закрывает свой участок работы</Text>
-      <View style={{ flexDirection: "row", gap: 10, flex: 1 }}>
+      <View style={{ flexDirection: "row", gap: 10 }}>
         <View style={{ width: 100, backgroundColor: T.accentBg, borderRadius: 8, justifyContent: "center", alignItems: "center", padding: 14, borderWidth: 1, borderColor: "rgba(166,225,38,0.2)" }}>
           <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent, textAlign: "center" }}>Ваша{"\n"}идея</Text>
         </View>
@@ -462,14 +463,14 @@ const S11 = () => (
 
 /* ═══════ SLIDE 12: TASKS ═══════ */
 const S12 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Практика" num={12} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Как правильно <Text style={{ color: T.accent }}>ставить задачу</Text>
       </Text>
       <Text style={s.sub}>Разговаривайте как с умным исполнителем, который впервые слышит о задаче</Text>
-      <View style={{ flexDirection: "row", gap: 12, flex: 1 }}>
+      <View style={{ flexDirection: "row", gap: 12 }}>
         <Card accentBorder style={{ flex: 1 }}>
           <BadgeLabel>ДЕЛАТЬ</BadgeLabel>
           <View style={{ gap: 10 }}>
@@ -520,14 +521,14 @@ const S12 = () => (
 
 /* ═══════ SLIDE 13: CONTEXT ═══════ */
 const S13 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Процесс" num={13} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Агенты могут <Text style={{ color: T.accent }}>меняться</Text>
       </Text>
       <Text style={s.sub}>Контекст нужно удерживать через документацию</Text>
-      <View style={{ flexDirection: "row", gap: 8, flex: 1 }}>
+      <View style={{ flexDirection: "row", gap: 8 }}>
         {[
           { n: "01", t: "Чат растёт", d: "Вы общаетесь, ставите задачи, уточняете детали — контекст накапливается", accent: false },
           { n: "02", t: "Окно внимания", d: "Объём контекста заканчивается — агент «забывает» начало разговора", accent: false },
@@ -554,14 +555,14 @@ const S13 = () => (
 
 /* ═══════ SLIDE 14: DOCS ═══════ */
 const S14 = () => (
-  <Page size={[PW, PH]} style={s.page}>
+  <Page {...PG} style={s.page}>
     <Header label="Документация" num={14} />
     <View style={{ flex: 1 }}>
       <Text style={[s.h2, { marginBottom: 4 }]}>
         Если не фиксировать решения — <Text style={{ color: T.accent }}>детали потеряются</Text>
       </Text>
       <Text style={s.sub}>Документация — не формальность, а необходимая часть процесса</Text>
-      <View style={{ flexDirection: "row", gap: 12, flex: 1 }}>
+      <View style={{ flexDirection: "row", gap: 12 }}>
         {[
           { n: "01", t: "Документировать крупные фичи", d: "Фиксировать что реализовано, как устроено, какие решения приняты" },
           { n: "02", t: "Фиксировать ключевые решения", d: "Ограничения, архитектурные выборы и важные договорённости — всё должно быть записано" },
@@ -584,7 +585,7 @@ const S14 = () => (
 
 /* ═══════ SLIDE 15: FINAL ═══════ */
 const S15 = () => (
-  <Page size={[PW, PH]} style={[s.page, { justifyContent: "center", alignItems: "center" }]}>
+  <Page {...PG} style={[s.page, { justifyContent: "center", alignItems: "center" }]}>
     <BgDeco />
     <Text style={{ fontWeight: 700, fontSize: 24, textAlign: "center", maxWidth: 600, marginBottom: 20, lineHeight: 1.3 }}>
       Преимущество получает тот, кто умеет превращать идею{"\n"}
