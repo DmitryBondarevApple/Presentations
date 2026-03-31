@@ -8,9 +8,9 @@ set -e
 
 DEPLOY_DIR="/app/deploy-franchcamp"
 FRONTEND_DIR="/app/frontend"
-BASE_PATH="/presentations/franchcamp"
+BASE_PATH="/franchcamp"
 
-echo "=== Сборка FranchCamp для деплоя на noteall.ru${BASE_PATH} ==="
+echo "=== Сборка FranchCamp для деплоя на presentations.noteall.ru${BASE_PATH} ==="
 
 # 1. Очистка предыдущей сборки
 rm -rf "$DEPLOY_DIR"
@@ -28,7 +28,7 @@ import FranchCampPresentation from "@/pages/FranchCampPresentation";
 
 function App() {
   return (
-    <BrowserRouter basename="/presentations/franchcamp">
+    <BrowserRouter basename="/franchcamp">
       <Routes>
         <Route path="/" element={<FranchCampPresentation />} />
         <Route path="*" element={<FranchCampPresentation />} />

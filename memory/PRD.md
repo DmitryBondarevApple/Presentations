@@ -1,60 +1,38 @@
 # Presentation App — PRD
 
 ## Original Problem Statement
-Build web presentations for Hop.Agency with full navigation, PDF generation, mobile responsiveness, and standalone deployment to noteall.ru. Currently houses three presentations: Rostelecom, FranchCamp, and Emergent Masterclass.
+Build web presentations for Hop.Agency with full navigation, PDF generation, mobile responsiveness, and standalone deployment. Hosted on `presentations.noteall.ru` (separate subdomain, isolated from main site deploys).
 
 ## Architecture
-- **Frontend**: React + Vite + Tailwind CSS + Framer Motion
+- **Frontend**: React + Tailwind CSS + Framer Motion
 - **PDF**: @react-pdf/renderer
 - **Routes**: `/` (Rostelecom), `/franchcamp` (FranchCamp), `/emergent` (Emergent Masterclass)
+- **Hosting**: `presentations.noteall.ru` (Docker volume mount + separate Nginx server block)
+
+## Production URLs
+- https://presentations.noteall.ru/franchcamp
+- https://presentations.noteall.ru/emergent
 
 ## What's Implemented
 
-### Rostelecom Presentation (14 slides)
-- Route: `/`
-- Full navigation, PDF generation
+### Rostelecom (14 slides) — Route: `/`
+### FranchCamp (9 slides) — Route: `/franchcamp`, accent: orange
+### Emergent Masterclass (15 slides) — Route: `/emergent`, accent: lime
 
-### FranchCamp Presentation (9 slides)
-- Route: `/franchcamp`
-- Deploy: `noteall.ru/presentations/franchcamp`
-- Build script: `build-franchcamp.sh`
-- Accent: Orange/coral
-
-### Emergent Masterclass Presentation (15 slides)
-- Route: `/emergent`
-- Deploy target: `noteall.ru/presentations/emergent`
-- Build script: `build-emergent.sh`
-- Accent: Lime/green (`--accent: 82 84% 55%`)
-- Topic: "От идеи до продукта с ИИ-агентами" для студентов университета
-- 15 slides: обложка, контекст ИИ, фокус, сдвиг, маршрут, идея, пользователь, рынок, требования, Emergent, команда, практика, процесс, документация, финал
-- PDF generator: `EmergentPdfGenerator.jsx` (15 pages A4 Landscape)
-- Design: cards use `md:flex-1 auto-rows-fr` to fill vertical space on desktop
-
-### Cross-cutting Features
-- Mobile-first adaptive design with `100dvh`, safe-area insets, `overflow-y-auto`
-- Touch swipe, keyboard, and dot navigation
-- PDF generation for all presentations
-- Standalone static build scripts for deployment
-
-## Key Design Decisions
-- **FranchCamp reference sizes**: H2 `text-2xl sm:text-4xl md:text-5xl`, body `text-sm md:text-xl`, card desc `text-xs md:text-lg`, card title `text-lg md:text-2xl`, card padding `p-4 md:p-8`
-- **Cards fill space on desktop**: `md:flex-1` + `auto-rows-fr` on card containers — stretches cards on desktop, natural height on mobile
-- **Scoped accent colors**: CSS variable `--accent` overridden in each presentation wrapper div
-
-## Key Files
-- `frontend/src/App.js` — Router (`/`, `/franchcamp`, `/emergent`)
-- `frontend/src/pages/EmergentPresentation.jsx` — Emergent presentation page
-- `frontend/src/components/emergent-slides/*.jsx` — 16 slide components
-- `frontend/src/components/EmergentPdfGenerator.jsx` — PDF generator
-- `build-emergent.sh` — Standalone build script
+### Cross-cutting: mobile (100dvh, safe-area), swipe/keyboard/dots nav, PDF gen, standalone build scripts
 
 ## Deployment
-- Each presentation has its own build script creating standalone static builds
-- Deploy path: `noteall.ru/presentations/{name}/`
-- Build creates `deploy-{name}/` folder with all static assets
-- Docs: `docs/DEPLOY_GUIDE.md`, `docs/MOBILE_RESPONSIVENESS_GUIDE.md`, `docs/WEB_TO_PDF_STYLE_GUIDE.md`
+- Subdomain `presentations.noteall.ru` → same IP as noteall.ru (185.246.220.121)
+- Nginx config: `/etc/nginx/presentations.conf` → mounted as volume into Docker container
+- Files: `/var/www/presentations/{name}/` → mounted read-only into container
+- SSL: Let's Encrypt certbot for presentations.noteall.ru
+- Full instructions: `docs/DEPLOY_GUIDE.md`
+
+## Key Files
+- `server-config/presentations.conf` — Nginx config for the subdomain
+- `build-franchcamp.sh`, `build-emergent.sh` — standalone build scripts (BASE_PATH: /franchcamp, /emergent)
+- `docs/DEPLOY_GUIDE.md` — full deployment guide with architecture diagram
 
 ## Backlog
-- **P1**: Подтвердить предпочтение роута (FranchCamp на `/` или оставить)
-- **P2**: QR-коды на финальные слайды
-- **P3**: CSS рефакторинг — общие компоненты для слайдов
+- P2: QR-коды на финальные слайды
+- P3: CSS рефакторинг

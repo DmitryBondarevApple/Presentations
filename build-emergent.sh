@@ -8,9 +8,9 @@ set -e
 
 DEPLOY_DIR="/app/deploy-emergent"
 FRONTEND_DIR="/app/frontend"
-BASE_PATH="/presentations/emergent"
+BASE_PATH="/emergent"
 
-echo "=== Сборка Emergent Masterclass для деплоя на noteall.ru${BASE_PATH} ==="
+echo "=== Сборка Emergent Masterclass для деплоя на presentations.noteall.ru${BASE_PATH} ==="
 
 # 1. Очистка предыдущей сборки
 rm -rf "$DEPLOY_DIR"
@@ -28,7 +28,7 @@ import EmergentPresentation from "@/pages/EmergentPresentation";
 
 function App() {
   return (
-    <BrowserRouter basename="/presentations/emergent">
+    <BrowserRouter basename="/emergent">
       <Routes>
         <Route path="/" element={<EmergentPresentation />} />
         <Route path="*" element={<EmergentPresentation />} />
@@ -67,5 +67,5 @@ echo "=== Сборка завершена ==="
 echo "Папка:  $DEPLOY_DIR"
 echo "Архив:  /app/emergent-deploy.tar.gz"
 echo ""
-echo "Следующий шаг: скачайте архив и следуйте инструкции в docs/DEPLOY_GUIDE.md"
-echo "На сервере: sudo cp -r /tmp/Presentations/deploy-emergent/* /var/www/presentations/emergent/"
+echo "Следующий шаг: Save to GitHub, затем на сервере:"
+echo "  sudo cp -r /tmp/Presentations/deploy-emergent/* /var/www/presentations/emergent/"
