@@ -20,14 +20,15 @@ Build web presentations for Hop.Agency with full navigation, PDF generation, mob
 - Build script: `build-franchcamp.sh`
 - Accent: Orange/coral
 
-### Emergent Masterclass Presentation (15 slides) — NEW
+### Emergent Masterclass Presentation (15 slides)
 - Route: `/emergent`
 - Deploy target: `noteall.ru/presentations/emergent`
 - Build script: `build-emergent.sh`
 - Accent: Lime/green (`--accent: 82 84% 55%`)
 - Topic: "От идеи до продукта с ИИ-агентами" для студентов университета
-- 15 slides covering: AI context, idea→product path, user problems, requirements, Emergent as digital team, practical tips, documentation
-- PDF generator: `EmergentPdfGenerator.jsx`
+- 15 slides: обложка, контекст ИИ, фокус, сдвиг, маршрут, идея, пользователь, рынок, требования, Emergent, команда, практика, процесс, документация, финал
+- PDF generator: `EmergentPdfGenerator.jsx` (15 pages A4 Landscape)
+- Design: cards use `md:flex-1 auto-rows-fr` to fill vertical space on desktop
 
 ### Cross-cutting Features
 - Mobile-first adaptive design with `100dvh`, safe-area insets, `overflow-y-auto`
@@ -35,35 +36,25 @@ Build web presentations for Hop.Agency with full navigation, PDF generation, mob
 - PDF generation for all presentations
 - Standalone static build scripts for deployment
 
+## Key Design Decisions
+- **FranchCamp reference sizes**: H2 `text-2xl sm:text-4xl md:text-5xl`, body `text-sm md:text-xl`, card desc `text-xs md:text-lg`, card title `text-lg md:text-2xl`, card padding `p-4 md:p-8`
+- **Cards fill space on desktop**: `md:flex-1` + `auto-rows-fr` on card containers — stretches cards on desktop, natural height on mobile
+- **Scoped accent colors**: CSS variable `--accent` overridden in each presentation wrapper div
+
 ## Key Files
 - `frontend/src/App.js` — Router (`/`, `/franchcamp`, `/emergent`)
 - `frontend/src/pages/EmergentPresentation.jsx` — Emergent presentation page
-- `frontend/src/components/emergent-slides/*.jsx` — 16 slide components (15 slides + container)
-- `frontend/src/components/EmergentPdfGenerator.jsx` — PDF generator (15 pages)
-- `build-emergent.sh` — Standalone build script for `noteall.ru/presentations/emergent`
-- `frontend/src/pages/FranchCampPresentation.jsx` — FranchCamp page
-- `frontend/src/components/franchcamp-slides/*.jsx` — FranchCamp slides
-- `frontend/src/components/FranchCampPdfGenerator.jsx` — FranchCamp PDF
-
-## Project Documentation
-- `docs/DEPLOY_GUIDE.md` — Деплой на noteall.ru (Docker, Nginx, volume, обновление, добавление новых презентаций)
-- `docs/MOBILE_RESPONSIVENESS_GUIDE.md` — Мобильная адаптивность (viewport, overflow, типографика)
-- `docs/WEB_TO_PDF_STYLE_GUIDE.md` — Генерация PDF
-
-## Key Technical Decisions
-- **`100dvh`** для высоты контейнера — учитывает тулбар Safari на iPhone
-- **`viewport-fit=cover`** + `env(safe-area-inset-bottom)` — поддержка safe area
-- **Scoped CSS variables** — акцентный цвет переопределяется в wrapper div каждой презентации
-- **`overflow-y-auto`** на контентной области слайда — прокрутка при переполнении
-- **Standalone build scripts** — `build-franchcamp.sh` и `build-emergent.sh` создают изолированные сборки
+- `frontend/src/components/emergent-slides/*.jsx` — 16 slide components
+- `frontend/src/components/EmergentPdfGenerator.jsx` — PDF generator
+- `build-emergent.sh` — Standalone build script
 
 ## Deployment
-- Each presentation has its own build script that creates a standalone static build
+- Each presentation has its own build script creating standalone static builds
 - Deploy path: `noteall.ru/presentations/{name}/`
 - Build creates `deploy-{name}/` folder with all static assets
-- Volume mount on server: `/var/www/presentations/` → Docker container
+- Docs: `docs/DEPLOY_GUIDE.md`, `docs/MOBILE_RESPONSIVENESS_GUIDE.md`, `docs/WEB_TO_PDF_STYLE_GUIDE.md`
 
 ## Backlog
-- **P1**: Подтвердить предпочтение роута (FranchCamp на `/` или оставить `/franchcamp`)
-- **P2**: QR-код на финальные слайды
+- **P1**: Подтвердить предпочтение роута (FranchCamp на `/` или оставить)
+- **P2**: QR-коды на финальные слайды
 - **P3**: CSS рефакторинг — общие компоненты для слайдов
