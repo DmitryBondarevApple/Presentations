@@ -4,10 +4,13 @@
 
 ```
 noteall.ru/presentations/franchcamp   →   Презентация FranchCamp
+noteall.ru/presentations/emergent     →   Презентация Emergent Masterclass
 noteall.ru/*                           →   Основной сайт Noteall (без изменений)
 ```
 
-**Продакшн-URL**: https://noteall.ru/presentations/franchcamp
+**Продакшн-URL**:
+- https://noteall.ru/presentations/franchcamp
+- https://noteall.ru/presentations/emergent
 
 ---
 
@@ -141,14 +144,17 @@ server {
 2. Создать `/var/www/presentations/` на хосте
 3. Перезапустить контейнер: `cd /opt/voice-workspace && docker compose up -d frontend`
 
-### Обновление презентации
+### Обновление презентаций
 
-При любых изменениях в презентации:
+При любых изменениях в презентациях:
 
 **1. Сборка (в Emergent или локально):**
 ```bash
 cd /app
+# FranchCamp:
 bash build-franchcamp.sh
+# Emergent Masterclass:
+bash build-emergent.sh
 ```
 
 **2. Сохранить в GitHub** (кнопка "Save to Github" в Emergent)
@@ -158,7 +164,14 @@ bash build-franchcamp.sh
 cd /tmp
 rm -rf Presentations
 git clone https://github.com/DmitryBondarevApple/Presentations.git
+
+# FranchCamp:
 sudo cp -r /tmp/Presentations/deploy-franchcamp/* /var/www/presentations/franchcamp/
+
+# Emergent Masterclass:
+sudo mkdir -p /var/www/presentations/emergent
+sudo cp -r /tmp/Presentations/deploy-emergent/* /var/www/presentations/emergent/
+
 sudo chown -R www-data:www-data /var/www/presentations
 rm -rf /tmp/Presentations
 ```
@@ -227,13 +240,15 @@ Nginx-конфиг и Docker менять **не нужно** — volume мон�
 ### В GitHub-репозитории
 ```
 github.com/DmitryBondarevApple/Presentations/
-├── deploy-franchcamp/          ← Готовые файлы для деплоя
+├── deploy-franchcamp/          ← Готовые файлы для деплоя FranchCamp
+├── deploy-emergent/            ← Готовые файлы для деплоя Emergent Masterclass
 ├── frontend/                   ← Исходный код
 ├── docs/
 │   ├── DEPLOY_GUIDE.md         ← Этот документ
 │   ├── MOBILE_RESPONSIVENESS_GUIDE.md
 │   └── WEB_TO_PDF_STYLE_GUIDE.md
-├── build-franchcamp.sh         ← Скрипт сборки
+├── build-franchcamp.sh         ← Скрипт сборки FranchCamp
+├── build-emergent.sh           ← Скрипт сборки Emergent Masterclass
 └── memory/
     └── PRD.md
 ```
