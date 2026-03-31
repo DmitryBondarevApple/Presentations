@@ -1,16 +1,13 @@
 import "@/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Presentation from "@/pages/Presentation";
-import FranchCampPresentation from "@/pages/FranchCampPresentation";
 import EmergentPresentation from "@/pages/EmergentPresentation";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/emergent">
       <Routes>
-        <Route path="/" element={<Presentation />} />
-        <Route path="/franchcamp" element={<FranchCampPresentation />} />
-        <Route path="/emergent" element={<EmergentPresentation />} />
+        <Route path="/" element={<EmergentPresentation />} />
+        <Route path="*" element={<EmergentPresentation />} />
       </Routes>
     </BrowserRouter>
   );
