@@ -142,7 +142,7 @@ const S2 = () => (
           </Card>
         ))}
       </View>
-      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10, fontStyle: "italic" }}>
+      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10 }}>
         Все эти инструменты решают отдельные задачи. Но ни один из них не собирает продукт целиком.
       </Text>
     </View>
@@ -260,7 +260,7 @@ const S5 = () => (
           </Card>
         ))}
       </View>
-      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10, fontStyle: "italic" }}>
+      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10 }}>
         Без первого шага второй не имеет смысла. Без второго — третий будет придуманным.
       </Text>
     </View>
@@ -326,7 +326,7 @@ const S7 = () => (
           </Card>
         ))}
       </View>
-      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10, fontStyle: "italic" }}>
+      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10 }}>
         Если на эти вопросы нет ответа — продукт строится на догадках.
       </Text>
     </View>
@@ -358,7 +358,7 @@ const S8 = () => (
           </View>
         ))}
       </View>
-      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10, fontStyle: "italic" }}>
+      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10 }}>
         Эти пять вопросов определяют, стоит ли вообще начинать разработку.
       </Text>
     </View>
@@ -452,7 +452,7 @@ const S11 = () => (
           ))}
         </View>
       </View>
-      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10, fontStyle: "italic" }}>
+      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10 }}>
         У вас в руках остаётся главное — постановка задачи и направление.
       </Text>
     </View>
@@ -574,7 +574,7 @@ const S14 = () => (
           </Card>
         ))}
       </View>
-      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10, fontStyle: "italic" }}>
+      <Text style={{ fontSize: 10, color: T.dim, marginTop: 10 }}>
         Просите project-менеджера фиксировать всё, что важно для продолжения работы.
       </Text>
     </View>
