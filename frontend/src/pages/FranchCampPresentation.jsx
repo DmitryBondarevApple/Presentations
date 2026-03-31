@@ -59,6 +59,10 @@ export default function FranchCampPresentation() {
     }
   }, []);
 
+  useEffect(() => {
+    document.title = 'Hop.Agency — AI для франчайзеров';
+  }, []);
+
   const generatePdf = useCallback(async () => {
     if (pdfBusy) return;
     setPdfBusy(true);

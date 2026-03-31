@@ -65,6 +65,10 @@ export default function Presentation() {
     }
   }, []);
 
+  useEffect(() => {
+    document.title = 'Hop.Agency × Ростелеком — Презентация';
+  }, []);
+
   /* ───── PDF generation — direct @react-pdf/renderer, no html2canvas ───── */
   const generatePdf = useCallback(async () => {
     if (pdfBusy) return;

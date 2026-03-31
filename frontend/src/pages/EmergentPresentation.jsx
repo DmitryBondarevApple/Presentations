@@ -83,6 +83,10 @@ export default function EmergentPresentation() {
   }, [pdfBusy]);
 
   useEffect(() => {
+    document.title = 'От идеи до продукта с ИИ-агентами — Мастер-класс';
+  }, []);
+
+  useEffect(() => {
     const handleKey = (e) => {
       if (pdfBusy) return;
       if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goNext(); }
