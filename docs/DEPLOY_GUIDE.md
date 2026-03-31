@@ -64,20 +64,38 @@ presentations.noteall.ru/emergent     →   Презентация Emergent Mast
 
 ## Первоначальная настройка (пошагово)
 
-### Шаг 1: SSL-сертификат
+### Шаг 1: SSL-сертификат (через DNS, без остановки сервера)
 
 ```bash
 # Подключаемся к серверу
 ssh root@185.246.220.121
 
-# Останавливаем контейнер (освобождаем порт 80 для certbot)
-cd /opt/voice-workspace
-docker compose stop frontend
+# Запускаем certbot с DNS-валидацией
+sudo certbot certonly --manual --preferred-challenges dns -d presentations.noteall.ru
+```
 
-# Выпускаем сертификат
-sudo certbot certonly --standalone -d presentations.noteall.ru
+Certbot покажет:
+```
+Please deploy a DNS TXT record under the name:
+_acme-challenge.presentations.noteall.ru
+with the following value:
+xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
 
-# Проверяем
+**Не нажимайте Enter!** Сначала:
+1. Откройте Reg.ru → DNS-управление доменом `noteall.ru`
+2. Добавьте TXT-запись:
+   - Имя: `_acme-challenge.presentations`
+   - Значение: то, что показал certbot
+3. Подождите 1-2 минуты
+4. Проверьте (в другом терминале):
+   ```bash
+   dig TXT _acme-challenge.presentations.noteall.ru
+   ```
+5. Когда запись появится — вернитесь в certbot и нажмите Enter
+
+```bash
+# Проверяем что сертификат создан
 ls /etc/letsencrypt/live/presentations.noteall.ru/
 # Должны быть: fullchain.pem, privkey.pem, cert.pem, chain.pem
 ```
