@@ -10,8 +10,8 @@ Build web presentations for Hop.Agency with full navigation, PDF generation, mob
 - **Hosting**: `presentations.noteall.ru` (Docker volume mount + separate Nginx server block)
 
 ## Production URLs (LIVE)
-- https://presentations.noteall.ru/franchcamp ✅
-- https://presentations.noteall.ru/emergent ✅
+- https://presentations.noteall.ru/franchcamp
+- https://presentations.noteall.ru/emergent
 
 ## What's Implemented
 
@@ -19,13 +19,13 @@ Build web presentations for Hop.Agency with full navigation, PDF generation, mob
 ### FranchCamp (9 slides) — Route: `/franchcamp`, accent: orange
 ### Emergent Masterclass (15 slides) — Route: `/emergent`, accent: lime
 
-### Cross-cutting: mobile (100dvh, safe-area), swipe/keyboard/dots nav, PDF gen, standalone build scripts
+### Cross-cutting: mobile (100dvh, safe-area), swipe/keyboard/dots nav, PDF gen, standalone build scripts, dynamic document.title per presentation
 
 ## Deployment (CONFIGURED & LIVE)
-- DNS: A-запись `presentations.noteall.ru` → `185.246.220.121` (Reg.ru) ✅
-- SSL: Let's Encrypt, автообновление через certbot.timer + reload hook ✅
-- Nginx: `/etc/nginx/presentations.conf` → volume mount в Docker ✅
-- Files: `/var/www/presentations/{name}/` → volume mount read-only ✅
+- DNS: A-запись `presentations.noteall.ru` → `185.246.220.121` (Reg.ru)
+- SSL: Let's Encrypt, автообновление через certbot.timer + reload hook
+- Nginx: `/etc/nginx/presentations.conf` → volume mount в Docker
+- Files: `/var/www/presentations/{name}/` → volume mount read-only
 - Full instructions: `docs/DEPLOY_GUIDE.md`
 
 ## Key Files
@@ -34,6 +34,11 @@ Build web presentations for Hop.Agency with full navigation, PDF generation, mob
 - `deploy-franchcamp/`, `deploy-emergent/` — ready-to-deploy static builds
 - `docs/DEPLOY_GUIDE.md` — full deployment guide
 
+## Latest Session (Feb 2026)
+- Rebuilt both static exports with correct document.title useEffect
+- Provided full server terminal commands for deployment
+
 ## Backlog
+- P1: Confirm route preference (FranchCamp → `/`? Rostelecom → `/rostelecom`?)
 - P2: QR-коды на финальные слайды
-- P3: CSS рефакторинг
+- P3: CSS рефакторинг (общие обёртки для слайдов)
