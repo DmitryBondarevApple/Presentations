@@ -1,10 +1,11 @@
 import { MBSlideContainer } from './MBSlideContainer';
 
+const PU = process.env.PUBLIC_URL || '';
 const photos = [
-  { src: "/images/mb/kp-photo-2.jpeg", label: "Новогодний декор входной группы" },
-  { src: "/images/mb/kp-photo-4.jpeg", label: "Хвойная гирлянда с подсветкой" },
-  { src: "/images/mb/kp-photo-1.jpeg", label: "Праздничное оформление фасада" },
-  { src: "/images/mb/kp-photo-5.jpeg", label: "Вертикальные композиции у входа" },
+  { src: `${PU}/images/mb/kp-photo-2.jpeg`, label: "Новогодний декор входной группы" },
+  { src: `${PU}/images/mb/kp-photo-4.jpeg`, label: "Хвойная гирлянда с подсветкой" },
+  { src: `${PU}/images/mb/kp-photo-1.jpeg`, label: "Праздничное оформление фасада" },
+  { src: `${PU}/images/mb/kp-photo-5.jpeg`, label: "Вертикальные композиции у входа" },
 ];
 
 const MBSlide08Portfolio = () => {

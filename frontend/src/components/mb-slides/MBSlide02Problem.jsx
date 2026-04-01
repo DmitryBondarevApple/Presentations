@@ -28,7 +28,7 @@ const MBSlide02Problem = () => {
 
         <div className="lg:w-80 rounded-lg overflow-hidden border border-border">
           <img
-            src="/images/mb/kp-photo-1.jpeg"
+            src={`${process.env.PUBLIC_URL || ''}/images/mb/kp-photo-1.jpeg`}
             alt="Оформленная входная группа"
             className="w-full h-full object-cover"
           />
