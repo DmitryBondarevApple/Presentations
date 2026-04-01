@@ -37,6 +37,9 @@ Build web presentations for multiple companies with full navigation, PDF generat
 - `server-config/presentations.conf` — Nginx: presentations.noteall.ru
 - `server-config/makeusbeautiful-presentations.conf` — Nginx: presentations.makeusbeautiful.ru
 - `docs/DEPLOY_GUIDE.md` — Full deployment guide for both subdomains
+- `docs/PDF_GENERATION_GUIDE.md` — Практическая инструкция по созданию PDF (ОБЯЗАТЕЛЬНО ЧИТАТЬ перед созданием нового PDF-генератора)
+- `docs/WEB_TO_PDF_STYLE_GUIDE.md` — Технический справочник @react-pdf/renderer
+- `frontend/src/components/pdf-shared/PdfComponents.jsx` — Переиспользуемые PDF-компоненты (Header, Card, Badge, Brand, шрифты, размеры)
 
 ## Latest Session (Feb 2026)
 - Created 10-slide "Сделай красиво!" presentation at /makeusbeautiful

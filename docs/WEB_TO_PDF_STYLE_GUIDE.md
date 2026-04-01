@@ -41,12 +41,18 @@ PDF_pt = Web_px × 0.55–0.65
 
 | Роль | Веб (px) | PDF (pt) | fontWeight |
 |---|---|---|---|
-| H1 (заголовок страницы) | 56–64px | 30–36pt | 700 |
-| H2 (секция) | 40–48px | 26–30pt | 700 |
-| H3 (подзаголовок) | 24–32px | 16–20pt | 600 |
-| Body (основной текст) | 16–18px | 11–13pt | 400 |
-| Caption (подписи) | 12–14px | 8–10pt | 400 |
-| Label (метки) | 10–12px | 7–8pt | 700, uppercase |
+| H1 (заголовок страницы) | 56–64px | **36pt** | 700 |
+| H2 (секция) | 40–48px | **36pt** | 700 |
+| H3 (подзаголовок) | 24–32px | **18–20pt** | 600 |
+| Body (основной текст) | 16–18px | **13–14pt** | 400 |
+| Текст в карточках | 14–16px | **11–12pt** | 400 |
+| Caption (подписи) | 12–14px | **10–11pt** | 400 |
+| Label (метки) | 10–12px | **10–11pt** | 700, uppercase |
+
+### КРИТИЧЕСКОЕ ПРАВИЛО: минимальный шрифт — 10pt
+
+Никогда не использовать fontSize < 10pt. При масштабе 100% на A4 это ~3.5mm —
+минимальный читаемый размер. Всё что мельче — нечитаемо при печати.
 
 ### Межстрочный интервал (lineHeight)
 - Заголовки: 1.15–1.25
@@ -319,20 +325,132 @@ Font.register({
 
 ## 10. Чек-лист перед релизом PDF
 
+- [ ] Все шрифты ≥ 10pt (включая caption и label)
+- [ ] Заголовки слайдов = 36pt
 - [ ] Все тексты отображаются корректно (кириллица!)
 - [ ] Шрифты встроены в PDF (не зависят от системных)
+- [ ] Контент заполняет ≥ 70% площади страницы
 - [ ] Контент не обрезается на границах страницы
+- [ ] Максимум 4 карточки в строке (≥ 170pt на карточку)
+- [ ] Все длинные русские слова помещаются в карточки
+- [ ] Картинки через imgBase (абсолютный URL: `window.location.origin + PUBLIC_URL`)
+- [ ] Нет `fontStyle: "italic"` без зарегистрированного italic-шрифта
+- [ ] Нет `flex: 1` на карточках (растягивает на всю высоту)
+- [ ] Нет `height: "100%"` на карточках
+- [ ] `justifyContent: "center"` только на Cover и CTA слайдах
 - [ ] Мелкий текст читаем при zoom 100%
-- [ ] Карточки не пустые (flex: 1 растягивает)
+- [ ] Карточки не пустые (без растяжки)
 - [ ] Номера страниц корректные
 - [ ] Бренд-footer на каждой странице
 - [ ] Текст выделяемый (не изображение)
-- [ ] Файл < 500KB (вектор, не растр)
-- [ ] Тестирование на разных PDF-reader'ах (Chrome, Preview, Acrobat)
+- [ ] Файл < 500KB (если без фото — вектор, не растр)
+- [ ] Тестирование в Preview / Chrome / Acrobat
 
 ---
 
-## 11. Сравнение подходов генерации PDF
+## 11. Русский текст: минимальная ширина элементов
+
+### Проблема
+Русские слова в среднем длиннее английских. Примеры:
+- «Профессиональная» (16 символов)
+- «Согласование» (12 символов)
+- «Переоформление» (14 символов)
+
+При fontSize 13pt одна русская буква ≈ 7–8pt ширины.
+«Профессиональная» ≈ 112–128pt. Если ширина карточки < 130pt — слово **обрежется**.
+
+### Правило
+
+| Элементов в строке | Мин. ширина элемента | Подходит для |
+|---|---|---|
+| 2 | ~370pt | Крупные блоки |
+| 3 | ~240pt | Стандартные карточки |
+| 4 | ~180pt | Компактные карточки |
+| 5+ | < 150pt | **ЗАПРЕЩЕНО** — слова обрезаются |
+
+### Решение для 5+ элементов
+Разбивать на несколько рядов: 4 + остаток, или 3 + 3, или 2 ряда.
+
+```jsx
+// 7 шагов процесса → 2 ряда (4 + 3)
+<View style={{ flexDirection: "row", gap: 12, marginBottom: 12 }}>
+  {steps.slice(0, 4).map((st, i) => <StepCard key={i} {...st} />)}
+</View>
+<View style={{ flexDirection: "row", gap: 12 }}>
+  {steps.slice(4).map((st, i) => <StepCard key={i} {...st} />)}
+</View>
+```
+
+---
+
+## 12. Картинки в PDF: паттерн imgBase
+
+### Проблема
+`@react-pdf/renderer` не понимает относительные пути к картинкам.
+`/images/photo.jpeg` → ошибка загрузки. Нужен абсолютный URL.
+
+### Решение
+
+```jsx
+// В компоненте слайда — принимать imgBase через props:
+const PortfolioSlide = ({ imgBase }) => (
+  <Page>
+    <Image src={`${imgBase}/images/mb/kp-photo-1.jpeg`} style={{ width: 200, height: 280, objectFit: "cover" }} />
+  </Page>
+);
+
+// При генерации PDF — передавать origin + PUBLIC_URL:
+export async function generatePdf(onProgress) {
+  const imgBase = window.location.origin + (process.env.PUBLIC_URL || '');
+  const blob = await pdf(<Document imgBase={imgBase} />).toBlob();
+  // ...
+}
+```
+
+### Размеры картинок
+- Рядом с текстом: `width: 200–240, height: 280`
+- В сетке (4 колонки): `width: "100%", height: 280`
+- Всегда: `objectFit: "cover"`, `borderRadius: 8`
+
+---
+
+## 13. Переиспользуемые PDF-компоненты
+
+Расположение: `/app/frontend/src/components/pdf-shared/PdfComponents.jsx`
+
+### Доступные компоненты:
+- `registerInterFont()` — регистрация шрифта Inter (400, 600, 700)
+- `PAGE` — константы размеров A4 Landscape `{ W, H, PX, PY }`
+- `pageStyle(theme)` — базовый стиль страницы
+- `Header({ label, num, total, theme })` — шапка слайда
+- `Brand({ text, accentText, theme })` — нижний бренд
+- `Dot({ size, color })` — маркер списка
+- `Badge({ children, solid, theme })` — тег/бейдж
+- `Card({ children, accentBorder, theme, style })` — карточка
+- `Divider({ width, color, mt, mb })` — разделитель
+- `FONT` — объект с размерной сеткой `{ h1, h2, h3, subtitle, body, cardTitle, cardBody, small, caption }`
+- `getImageBase()` — возвращает `window.location.origin + PUBLIC_URL`
+
+### Пример использования:
+```jsx
+import { registerInterFont, PAGE, pageStyle, Header, Brand, Card, Badge, FONT, getImageBase } from './pdf-shared/PdfComponents';
+
+registerInterFont();
+const T = { bg: "#0a0a0a", accent: "#2d9b6a", /* ... */ };
+
+const Slide = ({ imgBase }) => (
+  <Page size={[PAGE.W, PAGE.H]} style={pageStyle(T)}>
+    <Header label="Раздел" num={1} total={10} theme={T} />
+    <Text style={{ ...FONT.h2, color: T.fg }}>Заголовок</Text>
+    <Card theme={T}><Text>Контент</Text></Card>
+    <Brand text="СДЕЛАЙ" accentText="КРАСИВО" theme={T} />
+  </Page>
+);
+```
+
+---
+
+## 14. Сравнение подходов генерации PDF
 
 | Подход | Плюсы | Минусы |
 |---|---|---|
