@@ -276,21 +276,33 @@ const S6 = () => (
     <Text style={{ fontSize: 14, color: T.muted, marginBottom: 16, lineHeight: 1.5 }}>
       От замера до демонтажа — всё под ключ, без сюрпризов по бюджету
     </Text>
-    <View style={{ flexDirection: "row", gap: 10 }}>
-      {steps.map((st, i) => (
+    <View style={{ flexDirection: "row", gap: 12, marginBottom: 12 }}>
+      {steps.slice(0, 4).map((st, i) => (
         <View key={i} style={{
           flex: 1, backgroundColor: T.bg2, borderRadius: 8,
           borderTopWidth: 3, borderTopColor: T.accent,
           borderWidth: 1, borderColor: T.border, padding: 14,
-          minHeight: 160,
         }}>
           <Text style={{ fontSize: 11, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{st.n}</Text>
-          <Text style={{ fontSize: 13, fontWeight: 700, color: T.fg, marginTop: 8 }}>{st.t}</Text>
-          <Text style={{ fontSize: 10, color: T.muted, marginTop: 6, lineHeight: 1.5 }}>{st.d}</Text>
+          <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg, marginTop: 8 }}>{st.t}</Text>
+          <Text style={{ fontSize: 11, color: T.muted, marginTop: 6, lineHeight: 1.5 }}>{st.d}</Text>
         </View>
       ))}
     </View>
-    <Card accentBorder style={{ padding: 16, marginTop: 16 }}>
+    <View style={{ flexDirection: "row", gap: 12, marginBottom: 12 }}>
+      {steps.slice(4).map((st, i) => (
+        <View key={i} style={{
+          flex: 1, backgroundColor: T.bg2, borderRadius: 8,
+          borderTopWidth: 3, borderTopColor: T.accent,
+          borderWidth: 1, borderColor: T.border, padding: 14,
+        }}>
+          <Text style={{ fontSize: 11, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{st.n}</Text>
+          <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg, marginTop: 8 }}>{st.t}</Text>
+          <Text style={{ fontSize: 11, color: T.muted, marginTop: 6, lineHeight: 1.5 }}>{st.d}</Text>
+        </View>
+      ))}
+    </View>
+    <Card accentBorder style={{ padding: 16 }}>
       <Text style={{ fontSize: 14, color: T.fg2, lineHeight: 1.5 }}>
         <Text style={{ fontWeight: 700, color: T.fg }}>Сроки: </Text>
         типовой монтаж — 1–3 дня. Точная дата согласуется с учётом доступности и графика работы заведения.
