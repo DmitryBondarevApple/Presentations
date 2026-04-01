@@ -212,7 +212,7 @@ const S3 = () => (
           </View>
         ))}
       </View>
-      <Text style={{ fontSize: 8, color: T.dim, marginTop: 14, fontStyle: "italic" }}>
+      <Text style={{ fontSize: 8, color: T.dim, marginTop: 14 }}>
         Фактический эффект зависит от локации, предложения и сервиса.
       </Text>
     </View>
@@ -466,7 +466,7 @@ const S9 = () => (
           </View>
         ))}
       </View>
-      <Text style={{ fontSize: 8, color: T.dim, marginTop: 14, fontStyle: "italic" }}>
+      <Text style={{ fontSize: 8, color: T.dim, marginTop: 14 }}>
         Для объектов с 4+ входными группами — индивидуальные условия.
       </Text>
     </View>
