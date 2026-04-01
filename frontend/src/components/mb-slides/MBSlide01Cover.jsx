@@ -1,0 +1,42 @@
+const MBSlide01Cover = () => {
+  return (
+    <div className="w-full h-full flex flex-col relative bg-background">
+      <div
+        className="absolute inset-0 opacity-[0.07] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, hsl(152 60% 35%), transparent)' }}
+      />
+
+      <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start lg:justify-center px-6 py-6 md:py-10 relative z-10">
+        <div className="animate-item stagger-1 mb-6 md:mb-10">
+          <span className="font-heading text-xl md:text-3xl lg:text-4xl tracking-[0.2em] text-foreground font-bold">
+            СДЕЛАЙ<span className="text-accent"> КРАСИВО!</span>
+          </span>
+        </div>
+
+        <div className="animate-item stagger-2 mb-4 md:mb-6">
+          <span className="inline-block px-4 py-1.5 md:px-5 md:py-2 rounded bg-accent/10 text-accent text-xs md:text-base font-bold tracking-widest uppercase">
+            Сезонный декор под ключ
+          </span>
+        </div>
+
+        <h1 className="animate-item stagger-3 font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground text-center max-w-5xl leading-tight" data-testid="mb-title">
+          Оформляем так, чтобы{' '}
+          <span className="text-accent">к вам заходили</span>
+        </h1>
+
+        <p className="animate-item stagger-4 mt-4 md:mt-8 font-body text-base md:text-xl lg:text-2xl text-muted-foreground text-center max-w-3xl leading-relaxed">
+          Входные группы, витрины и фасады для ресторанов, кофеен и магазинов.
+          Концепция, смета, материалы, монтаж и демонтаж.
+        </p>
+
+        <div className="animate-item stagger-5 mt-6 md:mt-10 w-20 h-[2px] bg-accent/50" />
+
+        <p className="animate-item stagger-5 mt-4 md:mt-5 font-body text-sm md:text-lg text-muted-foreground/60 text-center max-w-2xl">
+          Чтобы вашу точку заметили с улицы и выбрали в сезон
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default MBSlide01Cover;

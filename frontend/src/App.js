@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Presentation from "@/pages/Presentation";
 import FranchCampPresentation from "@/pages/FranchCampPresentation";
 import EmergentPresentation from "@/pages/EmergentPresentation";
+import MakeUsBeautifulPresentation from "@/pages/MakeUsBeautifulPresentation";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Presentation />} />
         <Route path="/franchcamp" element={<FranchCampPresentation />} />
         <Route path="/emergent" element={<EmergentPresentation />} />
+        <Route path="/makeusbeautiful" element={<MakeUsBeautifulPresentation />} />
       </Routes>
     </BrowserRouter>
   );
