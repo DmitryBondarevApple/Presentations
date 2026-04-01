@@ -1,44 +1,53 @@
 # Presentation App — PRD
 
 ## Original Problem Statement
-Build web presentations for Hop.Agency with full navigation, PDF generation, mobile responsiveness, and standalone deployment. Hosted on `presentations.noteall.ru` (separate subdomain, isolated from main site deploys).
+Build web presentations for multiple companies with full navigation, PDF generation, mobile responsiveness, and standalone deployment on dedicated subdomains.
 
 ## Architecture
 - **Frontend**: React + Tailwind CSS + Framer Motion
 - **PDF**: @react-pdf/renderer
+- **Hosting**: Static deploys on subdomains via Docker + Nginx
+
+## Projects
+
+### 1. Hop.Agency (noteall.ru)
+- **Subdomain**: `presentations.noteall.ru`
 - **Routes**: `/` (Rostelecom), `/franchcamp` (FranchCamp), `/emergent` (Emergent Masterclass)
-- **Hosting**: `presentations.noteall.ru` (Docker volume mount + separate Nginx server block)
+- **Deploy folders**: `deploy-franchcamp/`, `deploy-emergent/`
+- **Build scripts**: `build-franchcamp.sh`, `build-emergent.sh`
 
-## Production URLs (LIVE)
-- https://presentations.noteall.ru/franchcamp
-- https://presentations.noteall.ru/emergent
+### 2. Сделай красиво! (makeusbeautiful.ru)
+- **Subdomain**: `presentations.makeusbeautiful.ru`
+- **Routes**: `/company` (Презентация компании — 10 слайдов)
+- **Deploy folder**: `makeusbeautiful/company/`
+- **Build script**: `build-makeusbeautiful-company.sh`
+- **Theme**: Dark background + green accent (HSL 152 50% 42%)
+- **Slides**: Cover, Problem, Data, About, Services, Process, Included, Portfolio, Pricing, CTA
+- **Photos**: Extracted from KP PDF (kp-photo-1..5.jpeg)
 
-## What's Implemented
-
-### Rostelecom (14 slides) — Route: `/`
-### FranchCamp (9 slides) — Route: `/franchcamp`, accent: orange
-### Emergent Masterclass (15 slides) — Route: `/emergent`, accent: lime
-
-### Cross-cutting: mobile (100dvh, safe-area), swipe/keyboard/dots nav, PDF gen, standalone build scripts, dynamic document.title per presentation
-
-## Deployment (CONFIGURED & LIVE)
-- DNS: A-запись `presentations.noteall.ru` → `185.246.220.121` (Reg.ru)
-- SSL: Let's Encrypt, автообновление через certbot.timer + reload hook
-- Nginx: `/etc/nginx/presentations.conf` → volume mount в Docker
-- Files: `/var/www/presentations/{name}/` → volume mount read-only
-- Full instructions: `docs/DEPLOY_GUIDE.md`
+## Cross-cutting Features
+- Mobile responsive (100dvh, safe-area)
+- Swipe/keyboard/dots navigation
+- PDF generation (A4 landscape)
+- Standalone build scripts per presentation
+- Dynamic document.title per presentation
+- Fullscreen mode
 
 ## Key Files
-- `server-config/presentations.conf` — Nginx config for subdomain
-- `build-franchcamp.sh`, `build-emergent.sh` — standalone build scripts (BASE_PATH: /franchcamp, /emergent)
-- `deploy-franchcamp/`, `deploy-emergent/` — ready-to-deploy static builds
-- `docs/DEPLOY_GUIDE.md` — full deployment guide
+- `server-config/presentations.conf` — Nginx: presentations.noteall.ru
+- `server-config/makeusbeautiful-presentations.conf` — Nginx: presentations.makeusbeautiful.ru
+- `docs/DEPLOY_GUIDE.md` — Full deployment guide for both subdomains
 
 ## Latest Session (Feb 2026)
-- Rebuilt both static exports with correct document.title useEffect
-- Provided full server terminal commands for deployment
+- Created 10-slide "Сделай красиво!" presentation at /makeusbeautiful
+- Extracted 5 portfolio photos from commercial proposal PDF
+- Built static export to makeusbeautiful/company/
+- Created Nginx config for presentations.makeusbeautiful.ru
+- Updated DEPLOY_GUIDE.md with makeusbeautiful deployment instructions
+- Testing agent: 100% pass rate (desktop, mobile, regression)
 
 ## Backlog
-- P1: Confirm route preference (FranchCamp → `/`? Rostelecom → `/rostelecom`?)
+- P1: Deploy presentations.makeusbeautiful.ru (DNS, SSL, Docker volumes)
+- P1: Confirm route preference for noteall.ru (FranchCamp → `/`?)
 - P2: QR-коды на финальные слайды
 - P3: CSS рефакторинг (общие обёртки для слайдов)

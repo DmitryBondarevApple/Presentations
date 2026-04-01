@@ -327,17 +327,88 @@ docker exec voice-workspace-frontend-1 nginx -s reload
 
 ```
 github.com/DmitryBondarevApple/Presentations/
-├── deploy-franchcamp/          ← Готовые файлы для FranchCamp
-├── deploy-emergent/            ← Готовые файлы для Emergent
+├── deploy-franchcamp/                  ← Файлы → presentations.noteall.ru/franchcamp
+├── deploy-emergent/                    ← Файлы → presentations.noteall.ru/emergent
+├── makeusbeautiful/
+│   └── company/                        ← Файлы → presentations.makeusbeautiful.ru/company
 ├── server-config/
-│   └── presentations.conf      ← Nginx-конфиг (копировать на сервер)
-├── frontend/                   ← Исходный код
+│   ├── presentations.conf              ← Nginx: presentations.noteall.ru
+│   └── makeusbeautiful-presentations.conf  ← Nginx: presentations.makeusbeautiful.ru
+├── frontend/                           ← Исходный код
 ├── docs/
-│   ├── DEPLOY_GUIDE.md         ← Этот документ
+│   ├── DEPLOY_GUIDE.md                 ← Этот документ
 │   ├── MOBILE_RESPONSIVENESS_GUIDE.md
 │   └── WEB_TO_PDF_STYLE_GUIDE.md
-├── build-franchcamp.sh         ← Скрипт сборки FranchCamp
-├── build-emergent.sh           ← Скрипт сборки Emergent
+├── build-franchcamp.sh                 ← Сборка → deploy-franchcamp/
+├── build-emergent.sh                   ← Сборка → deploy-emergent/
+├── build-makeusbeautiful-company.sh    ← Сборка → makeusbeautiful/company/
 └── memory/
     └── PRD.md
+```
+
+---
+
+## Деплой на presentations.makeusbeautiful.ru
+
+Второй поддомен для презентаций компании «Сделай красиво!». Аналогичная архитектура.
+
+### Конфигурация
+
+```
+presentations.makeusbeautiful.ru/company   →   Презентация компании
+```
+
+### Шаг 1: DNS (Reg.ru)
+
+Добавить A-запись:
+```
+presentations.makeusbeautiful.ru → <IP сервера>
+```
+
+### Шаг 2: SSL-сертификат
+
+```bash
+sudo certbot certonly --webroot -w /var/www/html -d presentations.makeusbeautiful.ru
+```
+
+### Шаг 3: Файлы и Nginx
+
+```bash
+# Создать папки
+sudo mkdir -p /var/www/presentations-mb/company
+
+# Скопировать файлы
+cd /tmp && rm -rf Presentations && \
+git clone https://github.com/DmitryBondarevApple/Presentations.git && \
+sudo cp -r /tmp/Presentations/makeusbeautiful/company/* /var/www/presentations-mb/company/ && \
+sudo chown -R www-data:www-data /var/www/presentations-mb
+
+# Скопировать Nginx-конфиг
+sudo cp /tmp/Presentations/server-config/makeusbeautiful-presentations.conf /etc/nginx/
+
+# Добавить volumes в docker-compose.yml (раздел frontend -> volumes):
+#   - /var/www/presentations-mb:/usr/share/nginx/html/presentations-mb:ro
+#   - /etc/nginx/makeusbeautiful-presentations.conf:/etc/nginx/conf.d/makeusbeautiful-presentations.conf:ro
+#   - /etc/letsencrypt:/etc/letsencrypt:ro  (если ещё не добавлен)
+
+# Перезапуск
+cd /opt/voice-workspace && docker compose up -d frontend
+```
+
+### Шаг 4: Проверка
+
+```bash
+curl -sI https://presentations.makeusbeautiful.ru/company/
+# Ожидаем: HTTP/2 200
+```
+
+### Обновление презентации
+
+```bash
+cd /tmp && rm -rf Presentations && \
+git clone https://github.com/DmitryBondarevApple/Presentations.git && \
+sudo cp -r /tmp/Presentations/makeusbeautiful/company/* /var/www/presentations-mb/company/ && \
+sudo chown -R www-data:www-data /var/www/presentations-mb && \
+rm -rf /tmp/Presentations && \
+echo "Деплой makeusbeautiful завершён!"
 ```
