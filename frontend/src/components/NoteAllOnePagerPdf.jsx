@@ -187,6 +187,11 @@ const OnePagerDoc = ({ imgBase }) => (
                   <View style={{ backgroundColor: T.accentBg, borderRadius: 2, paddingHorizontal: 4, paddingVertical: 1 }}><Text style={{ fontSize: 6, fontWeight: 700, color: T.accent }}>25 ЛЕТ В ВЕНЧУРЕ</Text></View>
                 </View>
                 <Body>Опытный предприниматель. Создание продуктов с нуля до сервисов с миллионными аудиториями.</Body>
+                <View style={{ flexDirection: "row", gap: 8, marginTop: 3 }}>
+                  <Link src="https://t.me/dmitrybondarev" style={{ fontSize: 7, color: T.muted, textDecoration: "none" }}>Telegram: @dmitrybondarev</Link>
+                  <Link src="mailto:dmitry.bondarev@gmail.com" style={{ fontSize: 7, color: T.muted, textDecoration: "none" }}>dmitry.bondarev@gmail.com</Link>
+                  <Text style={{ fontSize: 7, color: T.muted }}>+7 (921) 961-9644</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -196,16 +201,10 @@ const OnePagerDoc = ({ imgBase }) => (
             <SectionLabel>РАУНД</SectionLabel>
             <Text style={{ fontSize: 16, fontWeight: 700, color: T.accent, marginBottom: 2 }}>5 млн ₽</Text>
             <Text style={{ fontSize: 8, color: T.muted, marginBottom: 3 }}>Burn-rate: 500 тыс. ₽/мес.</Text>
-            <View style={{ flexDirection: "row", gap: 4, marginBottom: 3 }}>
+            <View style={{ flexDirection: "row", gap: 4 }}>
               <View style={{ flex: 1, alignItems: "center" }}><Text style={{ fontSize: 11, fontWeight: 700, color: T.accent }}>400K ₽</Text><Text style={{ fontSize: 6, color: T.muted }}>MRR</Text></View>
               <View style={{ flex: 1, alignItems: "center" }}><Text style={{ fontSize: 11, fontWeight: 700, color: T.accent }}>&gt; 100</Text><Text style={{ fontSize: 6, color: T.muted }}>клиентов</Text></View>
               <View style={{ flex: 1, alignItems: "center" }}><Text style={{ fontSize: 11, fontWeight: 700, color: T.accent }}>&lt; 3 мес.</Text><Text style={{ fontSize: 6, color: T.muted }}>ROAS</Text></View>
-            </View>
-            <View style={{ borderTopWidth: 0.5, borderTopColor: T.border, paddingTop: 3 }}>
-              <Text style={{ fontSize: 8, fontWeight: 700, color: T.fg, marginBottom: 1 }}>Дмитрий Бондарев</Text>
-              <Link src="https://t.me/dmitrybondarev" style={{ fontSize: 7, color: T.muted, textDecoration: "none", marginBottom: 1 }}>Telegram: @dmitrybondarev</Link>
-              <Link src="mailto:dmitry.bondarev@gmail.com" style={{ fontSize: 7, color: T.muted, textDecoration: "none", marginBottom: 1 }}>dmitry.bondarev@gmail.com</Link>
-              <Text style={{ fontSize: 7, color: T.muted }}>+7 (921) 961-9644</Text>
             </View>
           </View>
         </View>
