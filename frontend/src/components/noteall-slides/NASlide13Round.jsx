@@ -45,7 +45,7 @@ const NASlide13Round = () => (
           </div>
         </div>
 
-        <div className="lg:w-80">
+        <div className="lg:w-80 flex flex-col justify-end">
           <p className="font-heading text-sm md:text-xl font-semibold text-foreground mb-3 md:mb-5">Цели на 6 месяцев</p>
           <div className="space-y-2 md:space-y-4 mb-4 md:mb-6">
             {goals.map((g, i) => (
