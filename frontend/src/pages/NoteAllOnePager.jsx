@@ -56,7 +56,7 @@ export default function NoteAllOnePager() {
       </div>
 
       {/* ═══ GRID ═══ */}
-      <div className="flex-1 grid grid-cols-3 grid-rows-3 gap-px bg-border min-h-0">
+      <div className="flex-1 grid grid-cols-3 grid-rows-3 gap-1 bg-border min-h-0">
 
         {/* ROW 1: Problem | Solution | Market */}
         <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
@@ -118,7 +118,7 @@ export default function NoteAllOnePager() {
                 <p className="text-[10px] md:text-xs text-accent font-bold">02 Расширение на команды</p>
                 <p className="text-[10px] md:text-xs text-muted-foreground">Совместные сценарии, общий баланс</p>
               </div>
-              <div className="bg-card rounded p-1.5 md:p-2">
+              <div className="bg-card rounded border border-border p-1.5 md:p-2">
                 <p className="text-[10px] md:text-xs text-accent font-bold">03 Точечные B2B-продажи</p>
                 <p className="text-[10px] md:text-xs text-muted-foreground">Маркетинг, исследования, продукт</p>
               </div>
