@@ -5,11 +5,13 @@
 ```
 presentations.noteall.ru/franchcamp   →   Презентация FranchCamp
 presentations.noteall.ru/emergent     →   Презентация Emergent Masterclass
+presentations.noteall.ru/invest       →   Noteall Инвестиционная презентация
 ```
 
 **Продакшн-URL**:
 - https://presentations.noteall.ru/franchcamp
 - https://presentations.noteall.ru/emergent
+- https://presentations.noteall.ru/invest
 
 ---
 
@@ -40,7 +42,8 @@ presentations.noteall.ru/emergent     →   Презентация Emergent Mast
 │                                                                    │
 │  /var/www/presentations/                                           │
 │  ├── franchcamp/     ← статические файлы FranchCamp               │
-│  └── emergent/       ← статические файлы Emergent                 │
+│  ├── emergent/       ← статические файлы Emergent                 │
+│  └── invest/         ← статические файлы Noteall Invest           │
 │       │                                                            │
 │       │ volume mount (read-only)                                   │
 │       ▼                                                            │
@@ -203,6 +206,9 @@ bash build-franchcamp.sh
 
 # Emergent Masterclass:
 bash build-emergent.sh
+
+# Noteall Invest:
+bash build-noteall-invest.sh
 ```
 
 ### 2. Сохранить в GitHub
@@ -221,6 +227,9 @@ sudo cp -r /tmp/Presentations/deploy-franchcamp/* /var/www/presentations/franchc
 
 # Emergent Masterclass:
 sudo cp -r /tmp/Presentations/deploy-emergent/* /var/www/presentations/emergent/
+
+# Noteall Invest:
+sudo cp -r /tmp/Presentations/deploy-noteall-invest/* /var/www/presentations/invest/
 
 sudo chown -R www-data:www-data /var/www/presentations
 rm -rf /tmp/Presentations
@@ -329,6 +338,7 @@ docker exec voice-workspace-frontend-1 nginx -s reload
 github.com/DmitryBondarevApple/Presentations/
 ├── deploy-franchcamp/                  ← Файлы → presentations.noteall.ru/franchcamp
 ├── deploy-emergent/                    ← Файлы → presentations.noteall.ru/emergent
+├── deploy-noteall-invest/              ← Файлы → presentations.noteall.ru/invest
 ├── makeusbeautiful/
 │   └── company/                        ← Файлы → presentations.makeusbeautiful.ru/company
 ├── server-config/
@@ -341,6 +351,7 @@ github.com/DmitryBondarevApple/Presentations/
 │   └── WEB_TO_PDF_STYLE_GUIDE.md
 ├── build-franchcamp.sh                 ← Сборка → deploy-franchcamp/
 ├── build-emergent.sh                   ← Сборка → deploy-emergent/
+├── build-noteall-invest.sh             ← Сборка → deploy-noteall-invest/
 ├── build-makeusbeautiful-company.sh    ← Сборка → makeusbeautiful/company/
 └── memory/
     └── PRD.md
