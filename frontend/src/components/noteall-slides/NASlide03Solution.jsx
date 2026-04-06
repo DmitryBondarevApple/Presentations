@@ -3,14 +3,14 @@ import { NASlideContainer } from './NASlideContainer';
 const features = [
   { title: "Транскрибация", desc: "Полная расшифровка аудио и видео с автоматическим определением спикеров по голосовым профилям" },
   { title: "Сценарный анализ", desc: "Готовые и кастомные сценарии: от краткого саммари до детального протокола с решениями и задачами" },
-  { title: "Работа с видео", desc: "Загрузка с YouTube и Instagram, извлечение ключевых кадров по обсуждаемым темам" },
+  { title: "Работа с видео", desc: "Загрузка с любых видеохостингов, извлечение ключевых кадров по обсуждаемым темам" },
   { title: "Документы и контекст", desc: "Прикрепляйте PDF, ссылки и материалы — система учтёт их при анализе для глубоких выводов" },
 ];
 
 const NASlide03Solution = () => (
   <NASlideContainer number={3} label="Решение">
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-4" data-testid="na-solution-title">
-      NoteAll забирает <span className="text-accent">рутинную работу</span>
+      Noteall забирает <span className="text-accent">рутинную работу</span>
     </h2>
     <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10 leading-relaxed max-w-5xl">
       Пользователь загружает запись, документ или ссылку — а сервис превращает материал в понятный, структурированный и пригодный для работы результат

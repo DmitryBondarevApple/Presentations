@@ -2,7 +2,7 @@ import { NASlideContainer } from './NASlideContainer';
 
 const diffs = [
   { title: "Сценарный анализ", desc: "Не просто транскрипт, а заранее заданный формат результата — под конкретную задачу и роль" },
-  { title: "Работа с видеоконтентом", desc: "YouTube, Instagram, извлечение ключевых кадров и привязка к контексту обсуждения" },
+  { title: "Работа с видеоконтентом", desc: "Любые видеохостинги, извлечение ключевых кадров и привязка к контексту обсуждения" },
   { title: "Документы + записи", desc: "Единая платформа для встреч, документов и публичного контента — не только meeting notes" },
   { title: "Кастомизируемые шаблоны", desc: "Импорт и экспорт сценариев между коллегами, библиотека готовых шаблонов под отрасли" },
 ];
@@ -10,10 +10,10 @@ const diffs = [
 const NASlide08Differentiation = () => (
   <NASlideContainer number={8} label="Отличие">
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-5" data-testid="na-diff-title">
-      В чём отличие <span className="text-accent">NoteAll</span>
+      В чём отличие <span className="text-accent">Noteall</span>
     </h2>
     <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10 leading-relaxed max-w-5xl">
-      Первое поколение продавало расшифровку. Следующее поколение продаёт рабочий результат. Otter, Read AI, Zoom, Fellow — все двигаются к готовым заметкам и планам действий. NoteAll сфокусирован на <span className="font-semibold text-foreground">пост-анализе</span>.
+      Первое поколение продавало расшифровку. Следующее поколение продаёт рабочий результат. Otter, Read AI, Zoom, Fellow — все двигаются к готовым заметкам и планам действий. Noteall сфокусирован на <span className="font-semibold text-foreground">пост-анализе</span>.
     </p>
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
       {diffs.map((d, i) => (

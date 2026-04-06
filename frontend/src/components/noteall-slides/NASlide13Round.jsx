@@ -72,7 +72,7 @@ const NASlide13Round = () => (
             ))}
           </div>
         </div>
-        <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/logo-noteall.png`} alt="NoteAll" className="h-10 md:h-14 opacity-60" />
+        <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/logo-noteall.png`} alt="Noteall" className="h-10 md:h-14 opacity-60" />
       </div>
     </div>
 

@@ -61,7 +61,7 @@ export default function NoteAllInvestPresentation() {
     else { document.exitFullscreen().catch(() => {}); setIsFs(false); }
   }, []);
 
-  useEffect(() => { document.title = 'NoteAll — Инвестиционная презентация'; }, []);
+  useEffect(() => { document.title = 'Noteall — Инвестиционная презентация'; }, []);
 
   useEffect(() => {
     const handleKey = (e) => {

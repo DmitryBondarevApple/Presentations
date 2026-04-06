@@ -4,7 +4,7 @@ const NASlide01Cover = () => (
       style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 50%, hsl(174 80% 35%), transparent)' }} />
     <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start lg:justify-center px-6 py-6 md:py-10 relative z-10">
       <div className="animate-item stagger-1 mb-6 md:mb-10">
-        <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/logo-noteall.png`} alt="NoteAll" className="h-14 md:h-24" data-testid="na-logo" />
+        <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/logo-noteall.png`} alt="Noteall" className="h-14 md:h-24" data-testid="na-logo" />
       </div>
       <div className="animate-item stagger-2 mb-4 md:mb-6">
         <span className="inline-block px-5 py-2 md:px-6 md:py-2.5 rounded bg-accent/10 text-accent text-xs md:text-base font-bold tracking-widest uppercase">

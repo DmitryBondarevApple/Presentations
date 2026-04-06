@@ -106,14 +106,14 @@ const S2 = () => (
 const features = [
   { title: "Транскрибация", desc: "Полная расшифровка аудио и видео с автоматическим определением спикеров по голосовым профилям" },
   { title: "Сценарный анализ", desc: "Готовые и кастомные сценарии: от краткого саммари до детального протокола с решениями и задачами" },
-  { title: "Работа с видео", desc: "Загрузка с YouTube и Instagram, извлечение ключевых кадров по обсуждаемым темам" },
+  { title: "Работа с видео", desc: "Загрузка с любых видеохостингов, извлечение ключевых кадров по обсуждаемым темам" },
   { title: "Документы и контекст", desc: "Прикрепляйте PDF, ссылки и материалы — система учтёт их при анализе для глубоких выводов" },
 ];
 const S3 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Решение" num={3} />
     <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
-      NoteAll забирает <Text style={{ color: T.accent }}>рутинную работу</Text>
+      Noteall забирает <Text style={{ color: T.accent }}>рутинную работу</Text>
     </Text>
     <Text style={{ fontSize: 14, color: T.muted, marginBottom: 18, lineHeight: 1.5 }}>
       Пользователь загружает запись, документ или ссылку — а сервис превращает материал в структурированный результат
@@ -142,7 +142,7 @@ const S3 = () => (
 /* SLIDE 4: HOW IT WORKS                                  */
 /* ═══════════════════════════════════════════════════════ */
 const steps = [
-  { num: "01", title: "Загрузка", desc: "Аудио, видео, документ или ссылка на YouTube / Instagram" },
+  { num: "01", title: "Загрузка", desc: "Аудио, видео, документ или ссылка на видеохостинг" },
   { num: "02", title: "Обработка", desc: "Транскрибация, определение спикеров, извлечение ключевых кадров" },
   { num: "03", title: "Анализ", desc: "Готовый или кастомный сценарий обработки с учётом контекста" },
   { num: "04", title: "Результат", desc: "Саммари, аналитика, задачи, требования — экспорт в DOCX или шаринг по ссылке" },
@@ -202,7 +202,7 @@ const S5 = () => (
     </View>
     <Card theme={T} accentBorder style={{ padding: 14 }}>
       <Text style={{ fontSize: 13, color: T.fg2, lineHeight: 1.5 }}>
-        NoteAll — на пересечении трёх быстрорастущих рынков: <Text style={{ fontWeight: 700, color: T.accent }}>speech analytics, speech-to-text и document AI</Text>
+        Noteall — на пересечении трёх быстрорастущих рынков: <Text style={{ fontWeight: 700, color: T.accent }}>speech analytics, speech-to-text и document AI</Text>
       </Text>
     </Card>
     <Br />
@@ -288,7 +288,7 @@ const S7 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Для кого" num={7} />
     <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
-      Для кого <Text style={{ color: T.accent }}>NoteAll</Text>
+      Для кого <Text style={{ color: T.accent }}>Noteall</Text>
     </Text>
     <Text style={{ fontSize: 14, color: T.muted, marginBottom: 18, lineHeight: 1.5 }}>
       Профессионалы и команды, которым нужен структурированный результат из неструктурированного контента
@@ -311,7 +311,7 @@ const S7 = () => (
 /* ═══════════════════════════════════════════════════════ */
 const diffs = [
   { title: "Сценарный анализ", desc: "Не просто транскрипт, а заранее заданный формат результата — под конкретную задачу и роль" },
-  { title: "Работа с видеоконтентом", desc: "YouTube, Instagram, извлечение ключевых кадров и привязка к контексту обсуждения" },
+  { title: "Работа с видеоконтентом", desc: "Любые видеохостинги, извлечение ключевых кадров и привязка к контексту обсуждения" },
   { title: "Документы + записи", desc: "Единая платформа для встреч, документов и публичного контента — не только meeting notes" },
   { title: "Кастомизируемые шаблоны", desc: "Импорт и экспорт сценариев между коллегами, библиотека готовых шаблонов под отрасли" },
 ];
@@ -319,10 +319,10 @@ const S8 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Отличие" num={8} />
     <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
-      В чём отличие <Text style={{ color: T.accent }}>NoteAll</Text>
+      В чём отличие <Text style={{ color: T.accent }}>Noteall</Text>
     </Text>
     <Text style={{ fontSize: 14, color: T.fg2, lineHeight: 1.6, marginBottom: 18, maxWidth: 660 }}>
-      Первое поколение продавало расшифровку. Следующее поколение продаёт рабочий результат. NoteAll сфокусирован на пост-анализе.
+      Первое поколение продавало расшифровку. Следующее поколение продаёт рабочий результат. Noteall сфокусирован на пост-анализе.
     </Text>
     <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 14 }}>
       {diffs.map((d, i) => (
@@ -540,7 +540,7 @@ const S13 = ({ imgBase }) => (
         <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
           Дмитрий <Text style={{ color: T.accent }}>Бондарев</Text>
         </Text>
-        <Text style={{ fontSize: 14, color: T.muted, marginBottom: 14 }}>Основатель NoteAll</Text>
+        <Text style={{ fontSize: 14, color: T.muted, marginBottom: 14 }}>Основатель Noteall</Text>
         <View style={{ flexDirection: "row", gap: 8, marginBottom: 16, flexWrap: "wrap" }}>
           <Badge theme={T}>30+ ЛЕТ В БИЗНЕСЕ</Badge>
           <Badge theme={T}>10+ СТАРТАПОВ</Badge>
@@ -652,7 +652,7 @@ const S14 = ({ imgBase }) => (
 /* DOCUMENT                                               */
 /* ═══════════════════════════════════════════════════════ */
 const NADoc = ({ imgBase }) => (
-  <Document title="NoteAll — Инвестиционная презентация" author="NoteAll">
+  <Document title="Noteall — Инвестиционная презентация" author="Noteall">
     <S1 imgBase={imgBase} />
     <S2 /><S3 /><S4 /><S5 /><S6 /><S7 /><S8 /><S9 /><S10 /><S11 /><S12 />
     <S13 imgBase={imgBase} />
@@ -667,7 +667,7 @@ export async function generateNoteAllPdf(onProgress) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "NoteAll_Investment_Presentation.pdf";
+  a.download = "Noteall_Investment_Presentation.pdf";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

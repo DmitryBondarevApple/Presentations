@@ -10,7 +10,7 @@ const segments = [
 const NASlide07Audience = () => (
   <NASlideContainer number={7} label="Для кого">
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-4" data-testid="na-audience-title">
-      Для кого <span className="text-accent">NoteAll</span>
+      Для кого <span className="text-accent">Noteall</span>
     </h2>
     <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10">
       Профессионалы и команды, которым нужен структурированный результат из неструктурированного контента

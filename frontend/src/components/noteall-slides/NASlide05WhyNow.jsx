@@ -28,7 +28,7 @@ const NASlide05WhyNow = () => (
     </div>
     <div className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-6">
       <p className="font-body text-sm md:text-xl text-foreground/80 leading-relaxed">
-        NoteAll — на пересечении трёх быстрорастущих рынков: <span className="font-semibold text-accent">speech analytics, speech-to-text и document AI</span>
+        Noteall — на пересечении трёх быстрорастущих рынков: <span className="font-semibold text-accent">speech analytics, speech-to-text и document AI</span>
       </p>
     </div>
   </NASlideContainer>

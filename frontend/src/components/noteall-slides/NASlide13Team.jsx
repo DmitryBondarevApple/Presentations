@@ -13,7 +13,7 @@ const NASlide13Team = () => (
         <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-4" data-testid="na-team-title">
           Дмитрий <span className="text-accent">Бондарев</span>
         </h2>
-        <p className="font-body text-sm md:text-lg text-muted-foreground/70 mb-3 md:mb-5">Основатель NoteAll</p>
+        <p className="font-body text-sm md:text-lg text-muted-foreground/70 mb-3 md:mb-5">Основатель Noteall</p>
 
         <div className="flex flex-wrap gap-2 md:gap-3 mb-3 md:mb-5">
           <span className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded bg-accent/10 text-accent text-[10px] md:text-sm font-bold tracking-wider">30+ ЛЕТ В БИЗНЕСЕ</span>
