@@ -196,7 +196,11 @@ curl -I http://presentations.noteall.ru/franchcamp/
 
 ## Обновление презентаций
 
-### 1. Сборка (в Emergent)
+> **ВАЖНО! Порядок действий строго обязателен. НИКОГДА не давать команды деплоя без предварительной сборки!**
+
+### Шаг 1. СБОРКА (обязательно перед каждым деплоем!)
+
+Перед деплоем ВСЕГДА пересобирать билд, даже если "ничего не менялось":
 
 ```bash
 cd /app
@@ -209,29 +213,41 @@ bash build-emergent.sh
 
 # Noteall Invest:
 bash build-noteall-invest.sh
+
+# Noteall One Pager:
+bash build-noteall-onepager.sh
 ```
 
-### 2. Сохранить в GitHub
+### Шаг 2. Сохранить в GitHub
 
 Кнопка "Save to Github" в Emergent (репо `DmitryBondarevApple/Presentations`).
 
-### 3. На сервере
+### Шаг 3. На сервере (ТОЛЬКО после шагов 1 и 2!)
 
-```bash
-cd /tmp
-rm -rf Presentations
+Каждую команду вставлять **отдельной строкой** (не объединять через `&&`):
+
+```
+cd /tmp && rm -rf Presentations
+```
+```
 git clone https://github.com/DmitryBondarevApple/Presentations.git
-
-# FranchCamp:
+```
+```
 sudo cp -r /tmp/Presentations/deploy-franchcamp/* /var/www/presentations/franchcamp/
-
-# Emergent Masterclass:
+```
+```
 sudo cp -r /tmp/Presentations/deploy-emergent/* /var/www/presentations/emergent/
-
-# Noteall Invest:
+```
+```
 sudo cp -r /tmp/Presentations/deploy-noteall-invest/* /var/www/presentations/invest/
-
+```
+```
+sudo cp -r /tmp/Presentations/deploy-noteall-onepager/* /var/www/presentations/onepager/
+```
+```
 sudo chown -R www-data:www-data /var/www/presentations
+```
+```
 rm -rf /tmp/Presentations
 ```
 
