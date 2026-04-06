@@ -118,7 +118,7 @@ export default function NoteAllOnePager() {
                 <p className="text-[10px] md:text-xs text-accent font-bold">02 Расширение на команды</p>
                 <p className="text-[10px] md:text-xs text-muted-foreground">Совместные сценарии, общий баланс</p>
               </div>
-              <div className="bg-card rounded border border-border border-b-0 p-1.5 md:p-2 mb-1">
+              <div className="bg-card rounded p-1.5 md:p-2">
                 <p className="text-[10px] md:text-xs text-accent font-bold">03 Точечные B2B-продажи</p>
                 <p className="text-[10px] md:text-xs text-muted-foreground">Маркетинг, исследования, продукт</p>
               </div>
