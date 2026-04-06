@@ -16,12 +16,13 @@ import NASlide09BusinessModel from '@/components/noteall-slides/NASlide09Busines
 import NASlide10Stage from '@/components/noteall-slides/NASlide10Stage';
 import NASlide11GTM from '@/components/noteall-slides/NASlide11GTM';
 import NASlide12Roadmap from '@/components/noteall-slides/NASlide12Roadmap';
-import NASlide13Round from '@/components/noteall-slides/NASlide13Round';
+import NASlide13Team from '@/components/noteall-slides/NASlide13Team';
+import NASlide14Round from '@/components/noteall-slides/NASlide13Round';
 
 const allSlides = [
   NASlide01Cover, NASlide02Problem, NASlide03Solution, NASlide04HowItWorks,
   NASlide05WhyNow, NASlide06Market, NASlide07Audience, NASlide08Differentiation,
-  NASlide09BusinessModel, NASlide10Stage, NASlide11GTM, NASlide12Roadmap, NASlide13Round,
+  NASlide09BusinessModel, NASlide10Stage, NASlide11GTM, NASlide12Roadmap, NASlide13Team, NASlide14Round,
 ];
 
 const TOTAL = allSlides.length;

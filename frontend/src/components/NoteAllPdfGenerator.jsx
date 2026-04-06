@@ -28,7 +28,7 @@ const PW = PAGE.W;
 const PH = PAGE.H;
 const PX = PAGE.PX;
 const PY = PAGE.PY;
-const TOTAL = 13;
+const TOTAL = 14;
 
 const pg = {
   width: PW, height: PH, backgroundColor: T.bg, color: T.fg,
@@ -520,13 +520,8 @@ const S12 = () => (
 );
 
 /* ═══════════════════════════════════════════════════════ */
-/* SLIDE 13: ROUND (CTA)                                  */
+/* SLIDE 13: TEAM                                         */
 /* ═══════════════════════════════════════════════════════ */
-const roundUses = [
-  { title: "Product Development", desc: "Сценарии, интеграции, корпоративные функции, качество анализа" },
-  { title: "Продвижение", desc: "Воспроизводимый и масштабируемый маркетинг в целевых сегментах" },
-  { title: "Инфраструктура", desc: "Масштабирование и надёжность сервиса" },
-];
 const roundGoals = [
   { n: "400K ₽", l: "MRR" },
   { n: "> 100", l: "платящих клиентов" },
@@ -539,7 +534,73 @@ const contacts = [
 ];
 const S13 = ({ imgBase }) => (
   <Page size={[PW, PH]} style={pg}>
-    <Hdr label="Раунд" num={13} />
+    <Hdr label="Команда" num={13} />
+    <View style={{ flexDirection: "row", gap: 20 }}>
+      <View style={{ flex: 1 }}>
+        <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
+          Дмитрий <Text style={{ color: T.accent }}>Бондарев</Text>
+        </Text>
+        <Text style={{ fontSize: 14, color: T.muted, marginBottom: 14 }}>Основатель NoteAll</Text>
+        <View style={{ flexDirection: "row", gap: 8, marginBottom: 16, flexWrap: "wrap" }}>
+          <Badge theme={T}>30+ ЛЕТ В БИЗНЕСЕ</Badge>
+          <Badge theme={T}>10+ СТАРТАПОВ</Badge>
+          <Badge theme={T}>4 ВЫХОДА</Badge>
+          <Badge theme={T}>25 ЛЕТ В ВЕНЧУРЕ</Badge>
+        </View>
+        <Text style={{ fontSize: 12, color: T.fg2, lineHeight: 1.6, marginBottom: 10 }}>
+          Опытный предприниматель на протяжении 30+ лет. Основатель и руководитель в 10+ оффлайн и цифровых стартапах, 4 выхода. Опыт создания компаний и продуктов с нуля до сервисов с миллионными аудиториями.
+        </Text>
+        <Text style={{ fontSize: 12, color: T.fg2, lineHeight: 1.6, marginBottom: 14 }}>
+          В digital умею все, в том числе своими руками. Опыт руководства командами разработки веб- и мобильных сервисов. Большой опыт отраслевой и продуктовой аналитики.
+        </Text>
+        <Text style={{ fontSize: 13, fontWeight: 700, color: T.fg, marginBottom: 10 }}>
+          Опыт в венчурных инвестициях — 25 лет, со всех сторон стола:
+        </Text>
+        <View style={{ gap: 8 }}>
+          <Card theme={T} accentBorder style={{ padding: 12 }}>
+            <View style={{ flexDirection: "row", gap: 8 }}>
+              <Text style={{ fontSize: 12, fontWeight: 700, color: T.accent }}>Основатель</Text>
+              <Text style={{ fontSize: 11, color: T.muted, flex: 1 }}>Опыт основателя стартапа и фандрайзинга</Text>
+            </View>
+          </Card>
+          <Card theme={T} accentBorder style={{ padding: 12 }}>
+            <View style={{ flexDirection: "row", gap: 8 }}>
+              <Text style={{ fontSize: 12, fontWeight: 700, color: T.accent }}>Ангел</Text>
+              <Text style={{ fontSize: 11, color: T.muted, flex: 1 }}>Собственный опыт ангельских инвестиций</Text>
+            </View>
+          </Card>
+          <Card theme={T} accentBorder style={{ padding: 12 }}>
+            <View style={{ flexDirection: "row", gap: 8 }}>
+              <Text style={{ fontSize: 12, fontWeight: 700, color: T.accent }}>VC / Корп.</Text>
+              <Text style={{ fontSize: 11, color: T.muted, flex: 1 }}>Работа с топовыми венчурными фондами и инвестиционный анализ стартапов</Text>
+            </View>
+          </Card>
+        </View>
+      </View>
+      <View style={{ width: 200, alignItems: "center" }}>
+        <Image src={`${imgBase}/images/noteall/founder.png`}
+          style={{ width: 180, height: 180, objectFit: "cover", borderRadius: 12, marginBottom: 14 }} />
+        <Card theme={T} style={{ padding: 16, alignItems: "center", width: 180 }}>
+          <Text style={{ fontSize: 36, fontWeight: 700, color: T.accent, lineHeight: 1 }}>30+</Text>
+          <Text style={{ fontSize: 11, color: T.muted, marginTop: 6, textAlign: "center" }}>лет предпринимательского опыта</Text>
+        </Card>
+      </View>
+    </View>
+    <Br />
+  </Page>
+);
+
+/* ═══════════════════════════════════════════════════════ */
+/* SLIDE 14: ROUND (CTA)                                  */
+/* ═══════════════════════════════════════════════════════ */
+const roundUses14 = [
+  { title: "Product Development", desc: "Сценарии, интеграции, корпоративные функции, качество анализа" },
+  { title: "Продвижение", desc: "Воспроизводимый и масштабируемый маркетинг в целевых сегментах" },
+  { title: "Инфраструктура", desc: "Масштабирование и надёжность сервиса" },
+];
+const S14 = ({ imgBase }) => (
+  <Page size={[PW, PH]} style={pg}>
+    <Hdr label="Раунд" num={14} />
     <View style={{ flexDirection: "row", gap: 16 }}>
       <View style={{ flex: 1 }}>
         <Text style={{ ...FONT.h1, marginBottom: 10, lineHeight: 1.15 }}>
@@ -547,7 +608,7 @@ const S13 = ({ imgBase }) => (
         </Text>
         <Text style={{ fontSize: 13, color: T.muted, marginBottom: 14 }}>Burn-rate: 500 тыс. ₽/мес.</Text>
         <View style={{ gap: 10 }}>
-          {roundUses.map((u, i) => (
+          {roundUses14.map((u, i) => (
             <Card key={i} theme={T} accentBorder style={{ padding: 14 }}>
               <Text style={{ fontSize: 13, fontWeight: 700, color: T.fg }}>{u.title}</Text>
               <Text style={{ fontSize: 11, color: T.muted, marginTop: 4, lineHeight: 1.4 }}>{u.desc}</Text>
@@ -595,6 +656,7 @@ const NADoc = ({ imgBase }) => (
     <S1 imgBase={imgBase} />
     <S2 /><S3 /><S4 /><S5 /><S6 /><S7 /><S8 /><S9 /><S10 /><S11 /><S12 />
     <S13 imgBase={imgBase} />
+    <S14 imgBase={imgBase} />
   </Document>
 );
 

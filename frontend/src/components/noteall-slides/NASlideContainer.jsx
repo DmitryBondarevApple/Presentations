@@ -8,22 +8,22 @@ export const NASlideContainer = ({ children, number, label, className }) => {
       <div className="absolute bottom-0 left-0 w-60 h-60 opacity-[0.03] pointer-events-none"
         style={{ background: 'radial-gradient(circle at bottom left, hsl(174 50% 30%), transparent 70%)' }} />
 
-      <div className="flex items-center justify-between px-6 md:px-16 lg:px-24 pt-4 md:pt-8 shrink-0 relative z-10">
+      <div className="flex items-center justify-between px-6 md:px-12 lg:px-16 pt-4 md:pt-6 shrink-0 relative z-10">
         {label ? (
           <span className="font-heading text-xs md:text-base tracking-[0.18em] text-muted-foreground uppercase">{label}</span>
         ) : <span />}
         {number && (
           <span className="font-body text-xs md:text-base text-muted-foreground">
-            {String(number).padStart(2, '0')}&nbsp;/&nbsp;13
+            {String(number).padStart(2, '0')}&nbsp;/&nbsp;14
           </span>
         )}
       </div>
 
-      <div className="flex-1 overflow-y-auto flex flex-col justify-start lg:justify-center px-6 md:px-16 lg:px-24 py-4 md:py-6 lg:pb-12 pb-10 relative z-10">
+      <div className="flex-1 overflow-y-auto flex flex-col justify-start lg:justify-center px-6 md:px-12 lg:px-16 py-4 md:py-6 lg:pb-10 pb-10 relative z-10">
         {children}
       </div>
 
-      <div className="absolute bottom-4 left-6 md:left-16 lg:left-24 pointer-events-none select-none z-10">
+      <div className="absolute bottom-4 left-6 md:left-12 lg:left-16 pointer-events-none select-none z-10">
         <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/favicon.png`} alt="" className="h-5 md:h-6 opacity-20" />
       </div>
     </div>

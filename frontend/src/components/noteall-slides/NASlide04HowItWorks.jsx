@@ -9,18 +9,18 @@ const steps = [
 
 const NASlide04HowItWorks = () => (
   <NASlideContainer number={4} label="Как работает">
-    <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-3" data-testid="na-how-title">
+    <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-4" data-testid="na-how-title">
       Четыре шага <span className="text-accent">до результата</span>
     </h2>
     <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8">
       От загрузки записи до готового рабочего артефакта
     </p>
-    <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+    <div className="flex flex-col md:flex-row gap-3 md:gap-5">
       {steps.map((s, i) => (
-        <div key={i} className="flex-1 bg-card rounded-lg border-t-[3px] border-t-accent border border-border p-3 md:p-6" data-testid={`na-step-${i}`}>
-          <span className="font-heading text-xs md:text-sm font-bold text-accent/70">{s.num}</span>
-          <h3 className="font-heading text-sm md:text-xl font-bold text-foreground mt-1 md:mt-3">{s.title}</h3>
-          <p className="font-body text-xs md:text-base text-muted-foreground leading-relaxed mt-1 md:mt-3">{s.desc}</p>
+        <div key={i} className="flex-1 bg-card rounded-lg border-t-[3px] border-t-accent border border-border p-4 md:p-7" data-testid={`na-step-${i}`}>
+          <span className="font-heading text-xs md:text-base font-bold text-accent/70">{s.num}</span>
+          <h3 className="font-heading text-sm md:text-2xl font-bold text-foreground mt-2 md:mt-4">{s.title}</h3>
+          <p className="font-body text-xs md:text-lg text-muted-foreground leading-relaxed mt-2 md:mt-4">{s.desc}</p>
         </div>
       ))}
     </div>

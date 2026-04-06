@@ -9,25 +9,25 @@ const features = [
 
 const NASlide03Solution = () => (
   <NASlideContainer number={3} label="Решение">
-    <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-3" data-testid="na-solution-title">
+    <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-4" data-testid="na-solution-title">
       NoteAll забирает <span className="text-accent">рутинную работу</span>
     </h2>
-    <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8 leading-relaxed max-w-4xl">
+    <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8 leading-relaxed max-w-5xl">
       Пользователь загружает запись, документ или ссылку — а сервис превращает материал в понятный, структурированный и пригодный для работы результат
     </p>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
       {features.map((f, i) => (
-        <div key={i} className="bg-card rounded-lg border border-border p-4 md:p-6" data-testid={`na-feature-${i}`}>
-          <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
-            <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-accent" />
+        <div key={i} className="bg-card rounded-lg border border-border p-5 md:p-7" data-testid={`na-feature-${i}`}>
+          <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
+            <div className="w-2.5 md:w-3 h-2.5 md:h-3 rounded-full bg-accent" />
             <h3 className="font-heading text-sm md:text-xl font-bold text-foreground">{f.title}</h3>
           </div>
-          <p className="font-body text-xs md:text-base text-muted-foreground leading-relaxed">{f.desc}</p>
+          <p className="font-body text-xs md:text-lg text-muted-foreground leading-relaxed">{f.desc}</p>
         </div>
       ))}
     </div>
-    <div className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-3 md:p-5 mt-3 md:mt-6">
-      <p className="font-body text-sm md:text-lg text-foreground/80 leading-relaxed">
+    <div className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-6 mt-3 md:mt-6">
+      <p className="font-body text-sm md:text-xl text-foreground/80 leading-relaxed">
         На выходе — не транскрипт, а <span className="font-semibold text-accent">заранее заданный формат результата</span>: саммари, ТЗ/PRD, анализ проблем, список задач, аналитическая выжимка.
       </p>
     </div>
