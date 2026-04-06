@@ -9,17 +9,17 @@ const diffs = [
 
 const NASlide08Differentiation = () => (
   <NASlideContainer number={8} label="Отличие">
-    <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-5" data-testid="na-diff-title">
+    <h2 className="font-heading text-lg sm:text-2xl md:text-5xl font-bold text-foreground mb-1 md:mb-5" data-testid="na-diff-title">
       В чём отличие <span className="text-accent">Noteall</span>
     </h2>
-    <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10 leading-relaxed max-w-5xl">
+    <p className="font-body text-xs sm:text-sm md:text-xl text-muted-foreground mb-2 sm:mb-5 md:mb-10 leading-snug sm:leading-relaxed max-w-5xl">
       Первое поколение продавало расшифровку. Следующее поколение продаёт рабочий результат. Otter, Read AI, Zoom, Fellow — все двигаются к готовым заметкам и планам действий. Noteall сфокусирован на <span className="font-semibold text-foreground">пост-анализе</span>.
     </p>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
+    <div className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-8">
       {diffs.map((d, i) => (
-        <div key={i} className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-5 md:p-7" data-testid={`na-diff-${i}`}>
-          <h3 className="font-heading text-sm md:text-xl font-bold text-foreground mb-2 md:mb-3">{d.title}</h3>
-          <p className="font-body text-xs md:text-lg text-muted-foreground leading-relaxed">{d.desc}</p>
+        <div key={i} className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-2.5 sm:p-5 md:p-7" data-testid={`na-diff-${i}`}>
+          <h3 className="font-heading text-[11px] sm:text-sm md:text-xl font-bold text-foreground mb-1 sm:mb-2 md:mb-3">{d.title}</h3>
+          <p className="font-body text-[10px] sm:text-xs md:text-lg text-muted-foreground leading-snug sm:leading-relaxed">{d.desc}</p>
         </div>
       ))}
     </div>
