@@ -37,14 +37,14 @@ const NASlide13Round = () => (
           </p>
           <div className="space-y-2 md:space-y-4">
             {uses.map((u, i) => (
-              <div key={i} className="flex flex-col lg:flex-row gap-2 md:gap-4">
-                <div className="flex-1 bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-6">
+              <div key={i} className="flex flex-col lg:flex-row gap-2 md:gap-3">
+                <div className="flex-1 min-w-0 bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-3 md:p-5">
                   <h3 className="font-heading text-xs md:text-lg font-bold text-foreground">{u.title}</h3>
                   <p className="font-body text-[10px] md:text-base text-muted-foreground mt-1">{u.desc}</p>
                 </div>
-                <div className="lg:w-64 flex flex-col">
+                <div className="lg:w-48 shrink-0 flex flex-col">
                   {i === 0 && <p className="font-heading text-sm md:text-xl font-semibold text-foreground mb-2 md:mb-3 text-center hidden lg:block">Цели на 6 месяцев</p>}
-                  <div className="flex-1 bg-card rounded-lg border border-border p-4 md:p-6 text-center flex flex-col justify-center">
+                  <div className="flex-1 bg-card rounded-lg border border-border p-3 md:p-4 text-center flex flex-col justify-center">
                   <span className="font-heading text-xl md:text-3xl font-bold text-accent">{goals[i].n}</span>
                   <p className="font-body text-[10px] md:text-base text-muted-foreground mt-1">{goals[i].l}</p>
                   </div>
