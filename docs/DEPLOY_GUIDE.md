@@ -197,6 +197,14 @@ curl -I http://presentations.noteall.ru/franchcamp/
 ## Обновление презентаций
 
 > **ВАЖНО! Порядок действий строго обязателен. НИКОГДА не давать команды деплоя без предварительной сборки!**
+>
+> **ВАЖНО! На проде ВСЁ работает через DOCKER!**
+> - Nginx работает ВНУТРИ контейнера `voice-workspace-frontend-1`
+> - Файлы презентаций монтируются через volume: `/var/www/presentations` (хост) → `/usr/share/nginx/html/presentations` (контейнер)
+> - Nginx-конфиг монтируется через volume: `/etc/nginx/presentations.conf` (хост) → `/etc/nginx/conf.d/presentations.conf` (контейнер)
+> - Для перезагрузки Nginx: `sudo docker exec voice-workspace-frontend-1 nginx -s reload`
+> - Для проверки конфига: `sudo docker exec voice-workspace-frontend-1 nginx -t`
+> - НИКОГДА не давать команды `nginx -s reload` или `systemctl restart nginx` напрямую на хосте — они не работают!
 
 ### Шаг 1. СБОРКА (обязательно перед каждым деплоем!)
 
