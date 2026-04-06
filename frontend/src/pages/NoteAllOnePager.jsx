@@ -109,7 +109,7 @@ export default function NoteAllOnePager() {
 
         <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
           <Sec accent="Go-to-Market" title="Стратегия роста">
-            <div className="space-y-1 md:space-y-1.5">
+            <div className="space-y-1 md:space-y-1.5 pb-1">
               <div className="bg-card rounded border border-border p-1.5 md:p-2">
                 <p className="text-[10px] md:text-xs text-accent font-bold">01 Встроенные механики</p>
                 <p className="text-[10px] md:text-xs text-muted-foreground">Реферальная + аффилиат-программа</p>
