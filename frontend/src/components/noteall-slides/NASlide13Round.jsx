@@ -37,21 +37,15 @@ const NASlide13Round = () => (
           </p>
           <div className="space-y-2 md:space-y-4">
             {uses.map((u, i) => (
-              <div key={i} className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-6">
-                <h3 className="font-heading text-xs md:text-lg font-bold text-foreground">{u.title}</h3>
-                <p className="font-body text-[10px] md:text-base text-muted-foreground mt-1">{u.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="lg:w-80 flex flex-col justify-end">
-          <p className="font-heading text-sm md:text-xl font-semibold text-foreground mb-3 md:mb-5">Цели на 6 месяцев</p>
-          <div className="space-y-2 md:space-y-4 mb-4 md:mb-6">
-            {goals.map((g, i) => (
-              <div key={i} className="bg-card rounded-lg border border-border p-4 md:p-6 text-center">
-                <span className="font-heading text-xl md:text-3xl font-bold text-accent">{g.n}</span>
-                <p className="font-body text-[10px] md:text-base text-muted-foreground mt-1">{g.l}</p>
+              <div key={i} className="flex flex-col lg:flex-row gap-2 md:gap-4">
+                <div className="flex-1 bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-6">
+                  <h3 className="font-heading text-xs md:text-lg font-bold text-foreground">{u.title}</h3>
+                  <p className="font-body text-[10px] md:text-base text-muted-foreground mt-1">{u.desc}</p>
+                </div>
+                <div className="lg:w-64 bg-card rounded-lg border border-border p-4 md:p-6 text-center flex flex-col justify-center">
+                  <span className="font-heading text-xl md:text-3xl font-bold text-accent">{goals[i].n}</span>
+                  <p className="font-body text-[10px] md:text-base text-muted-foreground mt-1">{goals[i].l}</p>
+                </div>
               </div>
             ))}
           </div>

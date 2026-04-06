@@ -8,7 +8,7 @@
  */
 import React from "react";
 import {
-  Document, Page, View, Text, Image, pdf,
+  Document, Page, View, Text, Image, Link, pdf,
 } from "@react-pdf/renderer";
 import {
   registerInterFont, PAGE, Header, Brand, Dot, Badge, Card, Divider,
@@ -80,14 +80,14 @@ const S2 = () => (
         <Text style={{ fontSize: 12, color: T.fg2, marginTop: 10, lineHeight: 1.5 }}>
           сотрудников говорят, что перегрузка встречами мешает основной работе
         </Text>
-        <Text style={{ fontSize: 10, color: T.dim, marginTop: 8 }}>Atlassian</Text>
+        <Link src="https://www.atlassian.com/blog/workplace-woes-meetings" style={{ fontSize: 10, color: T.dim, marginTop: 8, textDecoration: "underline" }}>Atlassian</Link>
       </Card>
       <Card theme={T} style={{ flex: 1, padding: 20 }}>
         <Text style={{ fontSize: 42, fontWeight: 700, color: T.accent, lineHeight: 1 }}>275</Text>
         <Text style={{ fontSize: 12, color: T.fg2, marginTop: 10, lineHeight: 1.5 }}>
           прерываний в день — встречами, письмами или чатами. В среднем раз в 2 минуты
         </Text>
-        <Text style={{ fontSize: 10, color: T.dim, marginTop: 8 }}>Microsoft, 2025</Text>
+        <Link src="https://assets-c4akfrf5b4d3f4b7.z01.azurefd.net/assets/2025/04/2025-wti-one-pager-042325-rw_68094b4da3c89.pdf" style={{ fontSize: 10, color: T.dim, marginTop: 8, textDecoration: "underline" }}>Microsoft, 2025</Link>
       </Card>
     </View>
     <Card theme={T} accentBorder style={{ padding: 16 }}>
@@ -177,9 +177,9 @@ const S4 = () => (
 /* SLIDE 5: WHY NOW                                       */
 /* ═══════════════════════════════════════════════════════ */
 const markets = [
-  { title: "Speech Analytics", val: "$2.8 → $7.7 млрд", period: "2023–2030", src: "Grand View Research" },
-  { title: "Speech-to-Text API", val: "$4.4 → $8.6 млрд", period: "2025–2030", src: "Grand View Research" },
-  { title: "Document AI", val: "$14.7 → $27.6 млрд", period: "2025–2030", src: "MarketsandMarkets" },
+  { title: "Speech Analytics", val: "$2.8 → $7.7 млрд", period: "2023–2030", src: "Grand View Research", href: "https://www.grandviewresearch.com/industry-analysis/speech-analytics-market" },
+  { title: "Speech-to-Text API", val: "$4.4 → $8.6 млрд", period: "2025–2030", src: "Grand View Research", href: "https://www.grandviewresearch.com/industry-analysis/speech-to-text-api-market-report" },
+  { title: "Document AI", val: "$14.7 → $27.6 млрд", period: "2025–2030", src: "MarketsandMarkets", href: "https://www.marketsandmarkets.com/Market-Reports/document-ai-market-195513136.html" },
 ];
 const S5 = () => (
   <Page size={[PW, PH]} style={pg}>
@@ -196,7 +196,7 @@ const S5 = () => (
           <Badge theme={T}>{m.title.toUpperCase()}</Badge>
           <Text style={{ fontSize: 26, fontWeight: 700, color: T.accent, marginTop: 10, lineHeight: 1.1 }}>{m.val}</Text>
           <Text style={{ fontSize: 11, color: T.muted, marginTop: 8 }}>{m.period}</Text>
-          <Text style={{ fontSize: 10, color: T.dim, marginTop: 4 }}>{m.src}</Text>
+          <Link src={m.href} style={{ fontSize: 10, color: T.dim, marginTop: 4, textDecoration: "underline" }}>{m.src}</Link>
         </Card>
       ))}
     </View>
