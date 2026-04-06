@@ -1,0 +1,66 @@
+{
+  "summary": "Comprehensive testing of NoteAll One Pager at /onepager. All features working correctly: page loads without errors, fits exactly in one screen (no vertical scroll at 1920x1080), all 9 sections visible (ПРОБЛЕМА, РЕШЕНИЕ, РЫНОК, БИЗНЕС-МОДЕЛЬ, GO-TO-MARKET, ТЕКУЩАЯ СТАДИЯ, КОМАНДА, РАУНД, header), new content '10–20x Сокращение расходов на разработку' visible in Stage section, '< 3 мес.' with 'ROAS' label visible in Round section, PDF download button works and generates 'Noteall_One_Pager.pdf', logo and founder photo load correctly, header shows correct tagline. All regression routes working (/, /invest, /franchcamp, /emergent).",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [],
+    "minor_warnings": [
+      {
+        "component": "NoteAllOnePagerPdf",
+        "issue": "Console shows 'Buffer is not defined' errors during PDF generation",
+        "priority": "LOW",
+        "note": "Known issue with @react-pdf/renderer v4.x in browser environments. PDF still generates and downloads correctly. Non-blocking."
+      }
+    ]
+  },
+  "test_report_links": [
+    ".screenshots/onepager_full.png",
+    ".screenshots/Noteall_One_Pager.pdf"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {
+    "backend": "N/A - frontend only (no backend APIs)",
+    "frontend": "100%"
+  },
+  "test_credentials": "N/A - no auth required",
+  "seed_data_creation": "N/A",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "NoteAll One Pager at /onepager fully tested. Key findings: (1) Page uses h-[100dvh] and overflow-hidden - fits exactly in one screen with no vertical scroll at 1920x1080, (2) All 9 sections render correctly with dark navy theme and teal accent, (3) data-testid attributes: 'onepager' (container), 'op-logo' (logo), 'op-founder' (founder photo), 'op-pdf-btn' (PDF download button), (4) New content '10–20x Сокращение расходов на разработку' visible in ТЕКУЩАЯ СТАДИЯ section, (5) '< 3 мес.' with 'ROAS' label visible in РАУНД section, (6) PDF button downloads 'Noteall_One_Pager.pdf' (client-side generation via @react-pdf/renderer), (7) All regression routes working: / (Rostelecom), /invest (NoteAll Investment), /franchcamp (FranchCamp), /emergent (Emergent).",
+  "tests_executed": {
+    "onepager_desktop_1920x1080": {
+      "route_loads": "PASSED - /onepager loads NoteAllOnePager component",
+      "document_title": "PASSED - Title is 'Noteall — One Pager'",
+      "no_vertical_scroll": "PASSED - scrollHeight (1080) == clientHeight (1080)",
+      "container_testid": "PASSED - data-testid='onepager' found",
+      "logo_visible": "PASSED - data-testid='op-logo' visible",
+      "header_tagline": "PASSED - 'AI-сервис, который превращает встречи и видео в структурированные данные' found",
+      "sections_visible": {
+        "ПРОБЛЕМА": "PASSED",
+        "РЕШЕНИЕ": "PASSED",
+        "РЫНОК": "PASSED",
+        "БИЗНЕС-МОДЕЛЬ": "PASSED",
+        "GO-TO-MARKET": "PASSED",
+        "ТЕКУЩАЯ СТАДИЯ": "PASSED",
+        "КОМАНДА": "PASSED",
+        "РАУНД": "PASSED"
+      },
+      "new_content_stage": "PASSED - '10–20x Сокращение расходов на разработку' found",
+      "roas_metric_round": "PASSED - '< 3 мес.' with 'ROAS' label found",
+      "founder_photo": "PASSED - data-testid='op-founder' visible",
+      "pdf_download": "PASSED - Downloads 'Noteall_One_Pager.pdf'"
+    },
+    "regression_routes": {
+      "root": "PASSED - / loads Rostelecom presentation",
+      "invest": "PASSED - /invest loads NoteAll Investment presentation",
+      "franchcamp": "PASSED - /franchcamp loads FranchCamp presentation",
+      "emergent": "PASSED - /emergent loads Emergent presentation"
+    }
+  }
+}
