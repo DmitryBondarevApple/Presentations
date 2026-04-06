@@ -1,0 +1,36 @@
+import { NASlideContainer } from './NASlideContainer';
+
+const features = [
+  { title: "Транскрибация", desc: "Полная расшифровка аудио и видео с автоматическим определением спикеров по голосовым профилям" },
+  { title: "Сценарный анализ", desc: "Готовые и кастомные сценарии: от краткого саммари до детального протокола с решениями и задачами" },
+  { title: "Работа с видео", desc: "Загрузка с YouTube и Instagram, извлечение ключевых кадров по обсуждаемым темам" },
+  { title: "Документы и контекст", desc: "Прикрепляйте PDF, ссылки и материалы — система учтёт их при анализе для глубоких выводов" },
+];
+
+const NASlide03Solution = () => (
+  <NASlideContainer number={3} label="Решение">
+    <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-3" data-testid="na-solution-title">
+      NoteAll забирает <span className="text-accent">рутинную работу</span>
+    </h2>
+    <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8 leading-relaxed max-w-4xl">
+      Пользователь загружает запись, документ или ссылку — а сервис превращает материал в понятный, структурированный и пригодный для работы результат
+    </p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
+      {features.map((f, i) => (
+        <div key={i} className="bg-card rounded-lg border border-border p-4 md:p-6" data-testid={`na-feature-${i}`}>
+          <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+            <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-accent" />
+            <h3 className="font-heading text-sm md:text-xl font-bold text-foreground">{f.title}</h3>
+          </div>
+          <p className="font-body text-xs md:text-base text-muted-foreground leading-relaxed">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+    <div className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-3 md:p-5 mt-3 md:mt-6">
+      <p className="font-body text-sm md:text-lg text-foreground/80 leading-relaxed">
+        На выходе — не транскрипт, а <span className="font-semibold text-accent">заранее заданный формат результата</span>: саммари, ТЗ/PRD, анализ проблем, список задач, аналитическая выжимка.
+      </p>
+    </div>
+  </NASlideContainer>
+);
+export default NASlide03Solution;
