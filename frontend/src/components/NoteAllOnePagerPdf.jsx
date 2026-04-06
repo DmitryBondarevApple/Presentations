@@ -59,10 +59,10 @@ const OnePagerDoc = ({ imgBase }) => (
       </View>
 
       {/* ═══ GRID ═══ */}
-      <View style={{ padding: 10, gap: 5 }}>
+      <View style={{ flex: 1, padding: 10, gap: 5 }}>
 
         {/* ROW 1: Problem | Solution | Market */}
-        <View style={{ flexDirection: "row", gap: 5 }}>
+        <View style={{ flexDirection: "row", gap: 5, flex: 1 }}>
 
           {/* PROBLEM */}
           <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
@@ -110,7 +110,7 @@ const OnePagerDoc = ({ imgBase }) => (
         </View>
 
         {/* ROW 2: Biz Model | GTM | Stage */}
-        <View style={{ flexDirection: "row", gap: 5 }}>
+        <View style={{ flexDirection: "row", gap: 5, flex: 1 }}>
 
           {/* BIZ MODEL */}
           <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
@@ -160,7 +160,7 @@ const OnePagerDoc = ({ imgBase }) => (
         </View>
 
         {/* ROW 3: Team (2/3) | Round (1/3) */}
-        <View style={{ flexDirection: "row", gap: 5 }}>
+        <View style={{ flexDirection: "row", gap: 5, flex: 0.8 }}>
 
           {/* TEAM */}
           <View style={{ flex: 2, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
