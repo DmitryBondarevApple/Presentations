@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/franchcamp/static/css/main.5c939e93.css",
+    "main.css": "/franchcamp/static/css/main.3112e75d.css",
     "main.js": "/franchcamp/static/js/main.a4698551.js",
     "index.html": "/franchcamp/index.html",
-    "main.5c939e93.css.map": "/franchcamp/static/css/main.5c939e93.css.map",
+    "main.3112e75d.css.map": "/franchcamp/static/css/main.3112e75d.css.map",
     "main.a4698551.js.map": "/franchcamp/static/js/main.a4698551.js.map"
   },
   "entrypoints": [
-    "static/css/main.5c939e93.css",
+    "static/css/main.3112e75d.css",
     "static/js/main.a4698551.js"
   ]
 }

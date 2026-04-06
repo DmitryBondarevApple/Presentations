@@ -58,7 +58,14 @@ cp -r "$FRONTEND_DIR/build/"* "$DEPLOY_DIR/"
 mv "$FRONTEND_DIR/src/App.js.bak" "$FRONTEND_DIR/src/App.js"
 mv "$FRONTEND_DIR/.env.bak" "$FRONTEND_DIR/.env"
 
-# 8. Создаём архив для удобной передачи
+# 8. Инжектируем OG-теги в index.html
+OG_TAGS='<meta property="og:title" content="Hop.Agency — FranchCamp" />\n<meta property="og:description" content="ИИ как часть пакета для франчайзи" />\n<meta property="og:image" content="https://presentations.noteall.ru/franchcamp/images/og-franchcamp.jpg" />\n<meta property="og:url" content="https://presentations.noteall.ru/franchcamp/" />\n<meta property="og:type" content="website" />\n<meta name="twitter:card" content="summary_large_image" />\n<meta name="twitter:title" content="Hop.Agency — FranchCamp" />\n<meta name="twitter:description" content="ИИ как часть пакета для франчайзи" />\n<meta name="twitter:image" content="https://presentations.noteall.ru/franchcamp/images/og-franchcamp.jpg" />'
+
+sed -i "s|<meta name=\"theme-color\"|${OG_TAGS}\n<meta name=\"theme-color\"|" "$DEPLOY_DIR/index.html"
+sed -i 's|<title>.*</title>|<title>Hop.Agency — FranchCamp</title>|' "$DEPLOY_DIR/index.html"
+echo ">>> OG-теги добавлены в index.html"
+
+# 9. Создаём архив для удобной передачи
 cd /app
 tar -czf /app/franchcamp-deploy.tar.gz -C "$DEPLOY_DIR" .
 

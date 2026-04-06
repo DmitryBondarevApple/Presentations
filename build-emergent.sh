@@ -58,7 +58,14 @@ cp -r "$FRONTEND_DIR/build/"* "$DEPLOY_DIR/"
 mv "$FRONTEND_DIR/src/App.js.bak" "$FRONTEND_DIR/src/App.js"
 mv "$FRONTEND_DIR/.env.bak" "$FRONTEND_DIR/.env"
 
-# 8. Создаём архив для удобной передачи
+# 8. Инжектируем OG-теги в index.html
+OG_TAGS='<meta property="og:title" content="Мастер-класс — От идеи до продукта с ИИ-агентами" />\n<meta property="og:description" content="Как превратить идею в работающий цифровой продукт на примере Emergent.sh" />\n<meta property="og:image" content="https://presentations.noteall.ru/emergent/images/og-emergent.jpg" />\n<meta property="og:url" content="https://presentations.noteall.ru/emergent/" />\n<meta property="og:type" content="website" />\n<meta name="twitter:card" content="summary_large_image" />\n<meta name="twitter:title" content="Мастер-класс — От идеи до продукта с ИИ-агентами" />\n<meta name="twitter:description" content="Как превратить идею в работающий цифровой продукт на примере Emergent.sh" />\n<meta name="twitter:image" content="https://presentations.noteall.ru/emergent/images/og-emergent.jpg" />'
+
+sed -i "s|<meta name=\"theme-color\"|${OG_TAGS}\n<meta name=\"theme-color\"|" "$DEPLOY_DIR/index.html"
+sed -i 's|<title>.*</title>|<title>Мастер-класс — От идеи до продукта с ИИ-агентами</title>|' "$DEPLOY_DIR/index.html"
+echo ">>> OG-теги добавлены в index.html"
+
+# 9. Создаём архив для удобной передачи
 cd /app
 tar -czf /app/emergent-deploy.tar.gz -C "$DEPLOY_DIR" .
 
