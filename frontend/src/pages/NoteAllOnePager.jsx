@@ -56,16 +56,16 @@ export default function NoteAllOnePager() {
       </div>
 
       {/* ═══ GRID ═══ */}
-      <div className="flex-1 grid grid-cols-3 grid-rows-3 gap-1 bg-border min-h-0">
+      <div className="flex-1 grid grid-cols-3 grid-rows-3 min-h-0">
 
         {/* ROW 1: Problem | Solution | Market */}
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-b border-r border-border">
           <Sec accent="Проблема" title="Информация не превращается в данные">
             <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground leading-snug">Команды живут в потоке созвонов, интервью, вебинаров и документов. Ценная информация распределена по десяткам форматов. Бизнесу нужен готовый результат, а не сырые сведения.</p>
           </Sec>
         </div>
 
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-b border-r border-border">
           <Sec accent="Решение" title="Noteall забирает рутинную работу">
             <div className="space-y-1 md:space-y-1.5">
               <Dot>Транскрибация с определением спикеров</Dot>
@@ -77,7 +77,7 @@ export default function NoteAllOnePager() {
           </Sec>
         </div>
 
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-b border-border">
           <Sec accent="Рынок" title="Bottom-up (Россия)">
             <div className="space-y-1 md:space-y-1.5">
               <div className="flex justify-between items-center"><span className="text-[10px] md:text-sm text-muted-foreground">TAM ~1 млн компаний</span><span className="text-sm md:text-base font-bold text-accent">48 млрд ₽</span></div>
@@ -92,7 +92,7 @@ export default function NoteAllOnePager() {
         </div>
 
         {/* ROW 2: Biz Model | GTM | Stage */}
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-b border-r border-border">
           <Sec accent="Бизнес-модель" title="Pay-as-you-go + подписка">
             <div className="space-y-1 md:space-y-1.5 mb-1.5 md:mb-2">
               <div className="bg-card rounded border-l-2 border-l-accent border border-border p-1.5 md:p-2">
@@ -107,7 +107,7 @@ export default function NoteAllOnePager() {
           </Sec>
         </div>
 
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-b border-r border-border">
           <Sec accent="Go-to-Market" title="Стратегия роста">
             <div className="space-y-1 md:space-y-1.5">
               <div className="bg-card rounded border border-border p-1.5 md:p-2">
@@ -126,7 +126,7 @@ export default function NoteAllOnePager() {
           </Sec>
         </div>
 
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-b border-border">
           <Sec accent="Текущая стадия" title="Закрытое бета-тестирование">
             <div className="flex gap-2 md:gap-3 mb-1.5 md:mb-2">
               <div className="bg-card rounded border-2 border-accent p-1.5 md:p-2 flex-1 text-center">
@@ -144,7 +144,7 @@ export default function NoteAllOnePager() {
         </div>
 
         {/* ROW 3: Team (2 cols) | Round (1 col) */}
-        <div className="bg-background p-2 sm:p-3 md:p-4 col-span-2 overflow-hidden">
+        <div className="bg-background p-2 sm:p-3 md:p-4 col-span-2 overflow-hidden border-r border-border">
           <Sec accent="Команда" title="Дмитрий Бондарев — Основатель">
             <div className="flex gap-2 md:gap-4">
               <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/founder.png`} alt="Дмитрий Бондарев"
