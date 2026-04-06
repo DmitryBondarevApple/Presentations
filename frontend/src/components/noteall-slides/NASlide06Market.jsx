@@ -35,13 +35,13 @@ const NASlide06Market = () => (
       </div>
 
       <div className="lg:w-80 bg-card rounded-lg border border-border p-2.5 sm:p-5 md:p-7">
-        <p className="font-heading text-sm sm:text-base md:text-xl font-semibold text-foreground mb-2 sm:mb-4 md:mb-6">Расчёт ARPU</p>
+        <p className="font-heading text-sm sm:text-base md:text-xl font-semibold text-foreground mb-2 sm:mb-4 md:mb-6">Расчёт ARPPU</p>
         <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 sm:gap-3 md:gap-5">
           <div><p className="font-body text-[10px] sm:text-[10px] md:text-base text-muted-foreground">Средний чек за транскрибацию и анализ записи</p><p className="font-heading text-sm sm:text-lg md:text-2xl font-bold text-foreground mt-0.5">400 ₽</p></div>
           <div><p className="font-body text-[10px] sm:text-[10px] md:text-base text-muted-foreground">Записей в месяц</p><p className="font-heading text-sm sm:text-lg md:text-2xl font-bold text-foreground mt-0.5">10</p></div>
           <div className="col-span-2 lg:col-span-1 hidden sm:block w-full h-px bg-border" />
-          <div><p className="font-body text-[10px] sm:text-[10px] md:text-base text-muted-foreground">ARPU в месяц</p><p className="font-heading text-sm sm:text-xl md:text-3xl font-bold text-accent mt-0.5">4 000 ₽</p></div>
-          <div><p className="font-body text-[10px] sm:text-[10px] md:text-base text-muted-foreground">ARPU в год</p><p className="font-heading text-sm sm:text-xl md:text-3xl font-bold text-accent mt-0.5">48 000 ₽</p></div>
+          <div><p className="font-body text-[10px] sm:text-[10px] md:text-base text-muted-foreground">ARPPU в месяц</p><p className="font-heading text-sm sm:text-xl md:text-3xl font-bold text-accent mt-0.5">4 000 ₽</p></div>
+          <div><p className="font-body text-[10px] sm:text-[10px] md:text-base text-muted-foreground">ARPPU в год</p><p className="font-heading text-sm sm:text-xl md:text-3xl font-bold text-accent mt-0.5">48 000 ₽</p></div>
         </div>
       </div>
     </div>

@@ -249,7 +249,7 @@ const S6 = () => (
         </View>
       </View>
       <Card theme={T} style={{ width: 240, padding: 20 }}>
-        <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg, marginBottom: 14 }}>Расчёт ARPU</Text>
+        <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg, marginBottom: 14 }}>Расчёт ARPPU</Text>
         <View style={{ gap: 10 }}>
           <View>
             <Text style={{ fontSize: 11, color: T.muted }}>Средний чек за транскрибацию и анализ записи</Text>
@@ -261,11 +261,11 @@ const S6 = () => (
           </View>
           <Divider width={200} color={T.border} />
           <View>
-            <Text style={{ fontSize: 11, color: T.muted }}>ARPU в месяц</Text>
+            <Text style={{ fontSize: 11, color: T.muted }}>ARPPU в месяц</Text>
             <Text style={{ fontSize: 22, fontWeight: 700, color: T.accent, marginTop: 2 }}>4 000 ₽</Text>
           </View>
           <View>
-            <Text style={{ fontSize: 11, color: T.muted }}>ARPU в год</Text>
+            <Text style={{ fontSize: 11, color: T.muted }}>ARPPU в год</Text>
             <Text style={{ fontSize: 22, fontWeight: 700, color: T.accent, marginTop: 2 }}>48 000 ₽</Text>
           </View>
         </View>
