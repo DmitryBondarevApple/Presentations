@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/onepager/static/css/main.562a691e.css",
+    "main.js": "/onepager/static/js/main.f46c9daf.js",
+    "index.html": "/onepager/index.html",
+    "main.562a691e.css.map": "/onepager/static/css/main.562a691e.css.map",
+    "main.f46c9daf.js.map": "/onepager/static/js/main.f46c9daf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.562a691e.css",
+    "static/js/main.f46c9daf.js"
+  ]
+}
