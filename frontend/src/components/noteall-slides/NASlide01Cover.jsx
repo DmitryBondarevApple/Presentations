@@ -13,7 +13,7 @@ const NASlide01Cover = () => (
       </div>
       <h1 className="animate-item stagger-3 font-heading text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center max-w-5xl leading-tight" data-testid="na-title">
         AI-сервис, который превращает встречи и видео в{' '}
-        <span className="text-accent">структурированный результат</span>
+        <span className="text-accent">структурированные данные</span>
       </h1>
       <p className="animate-item stagger-4 mt-4 md:mt-8 font-body text-sm md:text-xl lg:text-2xl text-muted-foreground text-center max-w-3xl leading-relaxed">
         От транскрипта и саммари — к решениям, задачам, требованиям и аналитическим выводам

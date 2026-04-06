@@ -50,7 +50,7 @@ const S1 = ({ imgBase }) => (
     </View>
     <Text style={{ ...FONT.h1, fontSize: 34, textAlign: "center", lineHeight: 1.2, maxWidth: 620 }}>
       AI-сервис, который превращает{"\n"}встречи и видео в{" "}
-      <Text style={{ color: T.accent }}>структурированный результат</Text>
+      <Text style={{ color: T.accent }}>структурированные данные</Text>
     </Text>
     <Text style={{ fontSize: 14, color: T.muted, marginTop: 18, textAlign: "center", maxWidth: 520, lineHeight: 1.6 }}>
       От транскрипта и саммари — к решениям, задачам, требованиям и аналитическим выводам
