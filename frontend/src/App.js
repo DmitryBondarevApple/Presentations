@@ -5,6 +5,7 @@ import FranchCampPresentation from "@/pages/FranchCampPresentation";
 import EmergentPresentation from "@/pages/EmergentPresentation";
 import MakeUsBeautifulPresentation from "@/pages/MakeUsBeautifulPresentation";
 import NoteAllInvestPresentation from "@/pages/NoteAllInvestPresentation";
+import NoteAllOnePager from "@/pages/NoteAllOnePager";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/emergent" element={<EmergentPresentation />} />
         <Route path="/makeusbeautiful" element={<MakeUsBeautifulPresentation />} />
         <Route path="/invest" element={<NoteAllInvestPresentation />} />
+        <Route path="/onepager" element={<NoteAllOnePager />} />
       </Routes>
     </BrowserRouter>
   );
