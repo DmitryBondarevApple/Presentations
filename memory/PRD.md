@@ -28,14 +28,13 @@ Build web presentations for multiple companies with full navigation, PDF generat
 - **Theme**: Dark navy + teal accent (HSL 174 80% 42%)
 - **Slides (14)**: Cover, Problem, Solution, HowItWorks, WhyNow, Market, Audience, Differentiation, BusinessModel, Stage, GTM, Roadmap, Team, Round
 - **PDF**: `NoteAllPdfGenerator.jsx` (A4 Landscape, 14 pages, shared PdfComponents)
-- **Images**: `logo-noteall.png`, `favicon.png`, `founder.png`
 
 ### 4. NoteAll One Pager
 - **Route**: `/onepager`
 - **Theme**: Same as NoteAll Investment (dark navy + teal accent)
 - **Layout**: 3x3 grid (Problem, Solution, Market | BizModel, GTM, Stage | Team[2col], Round)
 - **Constraints**: Fits exactly on one screen (no scroll) and one A4 landscape page
-- **PDF**: `NoteAllOnePagerPdf.jsx` (single A4 Landscape page)
+- **PDF**: `NoteAllOnePagerPdf.jsx` (single A4 Landscape page, NO flex:1 on rows)
 - **Build script**: `build-noteall-onepager.sh`
 
 ## Cross-cutting Features
@@ -51,20 +50,18 @@ Build web presentations for multiple companies with full navigation, PDF generat
 ## Key Files
 - `frontend/src/pages/NoteAllOnePager.jsx` — Веб-версия One Pager
 - `frontend/src/components/NoteAllOnePagerPdf.jsx` — PDF-генератор One Pager (1 страница)
-- `frontend/src/components/noteall-slides/NASlide13Team.jsx` — Слайд «Команда» с фото основателя
-- `frontend/src/components/NoteAllPdfGenerator.jsx` — PDF-генератор NoteAll (14 слайдов)
 - `frontend/src/pages/NoteAllInvestPresentation.jsx` — Веб-версия NoteAll презентации
+- `frontend/src/components/NoteAllPdfGenerator.jsx` — PDF-генератор NoteAll (14 слайдов)
 - `frontend/src/components/pdf-shared/PdfComponents.jsx` — Переиспользуемые PDF-компоненты
-- `docs/PDF_GENERATION_GUIDE.md` — Инструкция по созданию PDF
-- `docs/DEPLOY_GUIDE.md` — Гайд по деплою
 
 ## Latest Session (Feb 2026)
-- Adjusted One Pager grid proportions: top row 1.25fr, middle 1fr, bottom 0.75fr
-- Increased all font sizes in One Pager (web + PDF)
-- Added "10–20x Сокращение расходов на разработку" to ТЕКУЩАЯ СТАДИЯ section
-- Added "< 3 мес. ROAS" metric to РАУНД section in PDF
-- Reduced Team section height, increased header and top row
-- Testing: 100% pass rate (all 9 sections, no scroll, PDF download, regression routes)
+- Fixed header: tagline now bold/bright (same as section titles)
+- Fixed SOM row: added padding (px-3 md:px-4) 
+- Fixed contacts in Round: visible at 1080p (reduced margins, 0.8fr bottom row)
+- Fixed PDF gaps: removed flex:1 from grid container and row wrappers (auto-size rows)
+- Updated PDF header text: bold + bright
+- Added "10–20x Сокращение расходов на разработку" to Stage section (web + PDF)
+- Added "< 3 мес. ROAS" to Round section in PDF
 
 ## Backlog
 - P1: Fix .gitignore to allow deploy-* directories to be pushed to GitHub

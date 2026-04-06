@@ -44,7 +44,7 @@ export default function NoteAllOnePager() {
         <div className="flex items-center gap-2 md:gap-3">
           <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/logo-noteall.png`} alt="Noteall" className="h-6 md:h-8" data-testid="op-logo" />
           <div className="hidden sm:block w-px h-6 bg-border" />
-          <p className="hidden sm:block text-xs md:text-sm text-muted-foreground">AI-сервис, который превращает встречи и видео в структурированные данные</p>
+          <p className="hidden sm:block text-sm md:text-base font-bold text-foreground">AI-сервис, который превращает встречи и видео в структурированные данные</p>
         </div>
         <div className="flex items-center gap-2">
           <span className="text-[10px] md:text-xs text-accent font-bold tracking-wider uppercase">One Pager</span>
@@ -56,7 +56,7 @@ export default function NoteAllOnePager() {
       </div>
 
       {/* ═══ GRID ═══ */}
-      <div className="flex-1 grid grid-cols-3 gap-px bg-border min-h-0" style={{ gridTemplateRows: '1.25fr 1fr 0.75fr' }}>
+      <div className="flex-1 grid grid-cols-3 gap-px bg-border min-h-0" style={{ gridTemplateRows: '1.2fr 1fr 0.8fr' }}>
 
         {/* ROW 1: Problem | Solution | Market */}
         <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
@@ -92,7 +92,7 @@ export default function NoteAllOnePager() {
             <div className="space-y-1 md:space-y-1.5">
               <div className="flex justify-between items-center"><span className="text-[10px] md:text-sm text-muted-foreground">TAM ~1 млн компаний</span><span className="text-sm md:text-base font-bold text-accent">48 млрд ₽</span></div>
               <div className="flex justify-between items-center"><span className="text-[10px] md:text-sm text-muted-foreground">SAM 450K компаний</span><span className="text-sm md:text-base font-bold text-accent">21.6 млрд ₽</span></div>
-              <div className="flex justify-between items-center bg-accent/10 rounded px-1.5 py-0.5"><span className="text-[10px] md:text-sm text-foreground font-semibold">SOM 67.5K компаний</span><span className="text-sm md:text-base font-bold text-accent">3.2 млрд ₽</span></div>
+              <div className="flex justify-between items-center bg-accent/10 rounded px-3 md:px-4 py-0.5"><span className="text-[10px] md:text-sm text-foreground font-semibold">SOM 67.5K компаний</span><span className="text-sm md:text-base font-bold text-accent">3.2 млрд ₽</span></div>
             </div>
             <div className="flex gap-2 mt-1.5 md:mt-2 pt-1.5 md:pt-2 border-t border-border">
               <div><p className="text-[9px] md:text-xs text-muted-foreground">ARPPU/мес.</p><p className="text-sm md:text-base font-bold text-accent">4 000 ₽</p></div>
@@ -174,19 +174,17 @@ export default function NoteAllOnePager() {
 
         <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
           <Sec accent="Раунд" title="5 млн ₽">
-            <p className="text-[10px] md:text-xs text-muted-foreground mb-1.5 md:mb-2">Burn-rate: 500 тыс. ₽/мес.</p>
-            <div className="flex gap-1.5 md:gap-2 mb-1.5 md:mb-2">
+            <p className="text-[10px] md:text-xs text-muted-foreground mb-1 md:mb-1.5">Burn-rate: 500 тыс. ₽/мес.</p>
+            <div className="flex gap-1.5 md:gap-2 mb-1 md:mb-1.5">
               <Metric n="400K ₽" label="MRR" />
               <Metric n="> 100" label="клиентов" />
               <Metric n="< 3 мес." label="ROAS" />
             </div>
-            <div className="border-t border-border pt-1.5 md:pt-2">
+            <div className="border-t border-border pt-1 md:pt-1.5">
               <p className="text-[10px] md:text-xs text-foreground font-bold">Дмитрий Бондарев</p>
-              <div className="flex flex-col gap-0.5 mt-0.5">
-                <a href="https://t.me/dmitrybondarev" className="text-[9px] md:text-[10px] text-muted-foreground hover:text-accent">@dmitrybondarev</a>
-                <a href="mailto:dmitry.bondarev@gmail.com" className="text-[9px] md:text-[10px] text-muted-foreground hover:text-accent">dmitry.bondarev@gmail.com</a>
-                <a href="tel:+79219619644" className="text-[9px] md:text-[10px] text-muted-foreground hover:text-accent">+7 (921) 961-9644</a>
-              </div>
+              <a href="https://t.me/dmitrybondarev" className="text-[9px] md:text-[10px] text-muted-foreground hover:text-accent block">@dmitrybondarev</a>
+              <a href="mailto:dmitry.bondarev@gmail.com" className="text-[9px] md:text-[10px] text-muted-foreground hover:text-accent block">dmitry.bondarev@gmail.com</a>
+              <a href="tel:+79219619644" className="text-[9px] md:text-[10px] text-muted-foreground hover:text-accent block">+7 (921) 961-9644</a>
             </div>
           </Sec>
         </div>

@@ -53,22 +53,22 @@ const OnePagerDoc = ({ imgBase }) => (
         <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
           <Image src={`${imgBase}/images/noteall/logo-noteall.png`} style={{ width: 80, height: 26, objectFit: "contain" }} />
           <View style={{ width: 0.5, height: 16, backgroundColor: T.border }} />
-          <Text style={{ fontSize: 8, color: T.muted }}>AI-сервис, который превращает встречи и видео в структурированные данные</Text>
+          <Text style={{ fontSize: 9, fontWeight: 700, color: T.fg }}>AI-сервис, который превращает встречи и видео в структурированные данные</Text>
         </View>
         <Text style={{ fontSize: 7, fontWeight: 700, color: T.accent, letterSpacing: 1.5 }}>ONE PAGER</Text>
       </View>
 
       {/* ═══ GRID ═══ */}
-      <View style={{ flex: 1, padding: 10, gap: 6 }}>
+      <View style={{ padding: 10, gap: 5 }}>
 
         {/* ROW 1: Problem | Solution | Market */}
-        <View style={{ flexDirection: "row", gap: 6, flex: 1.3 }}>
+        <View style={{ flexDirection: "row", gap: 5 }}>
 
           {/* PROBLEM */}
-          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
+          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
             <SectionLabel>ПРОБЛЕМА</SectionLabel>
             <SectionTitle>Информация не превращается в данные</SectionTitle>
-            <Body style={{ marginBottom: 5 }}>Команды тонут в созвонах и документах. Ценная информация теряется, ручная обработка занимает часы.</Body>
+            <Body style={{ marginBottom: 4 }}>Команды тонут в созвонах и документах. Ценная информация теряется, ручная обработка занимает часы.</Body>
             <View style={{ flexDirection: "row", gap: 5 }}>
               <MiniCard style={{ flex: 1, alignItems: "center" }}>
                 <Text style={{ fontSize: 18, fontWeight: 700, color: T.accent, lineHeight: 1 }}>78%</Text>
@@ -82,10 +82,10 @@ const OnePagerDoc = ({ imgBase }) => (
           </View>
 
           {/* SOLUTION */}
-          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
+          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
             <SectionLabel>РЕШЕНИЕ</SectionLabel>
             <SectionTitle>Noteall забирает рутинную работу</SectionTitle>
-            <View style={{ marginBottom: 4 }}>
+            <View style={{ marginBottom: 3 }}>
               <DotItem>Транскрибация с определением спикеров</DotItem>
               <DotItem>Сценарный анализ под задачу и роль</DotItem>
               <DotItem>Работа с видео с любых видеохостингов</DotItem>
@@ -95,10 +95,10 @@ const OnePagerDoc = ({ imgBase }) => (
           </View>
 
           {/* MARKET */}
-          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
+          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
             <SectionLabel>РЫНОК</SectionLabel>
             <SectionTitle>Bottom-up (Россия)</SectionTitle>
-            <View style={{ gap: 3, marginBottom: 5 }}>
+            <View style={{ gap: 3, marginBottom: 4 }}>
               <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                 <Text style={{ fontSize: 8, color: T.muted }}>TAM ~1 млн компаний</Text>
                 <Text style={{ fontSize: 9, fontWeight: 700, color: T.accent }}>48 млрд ₽</Text>
@@ -107,7 +107,7 @@ const OnePagerDoc = ({ imgBase }) => (
                 <Text style={{ fontSize: 8, color: T.muted }}>SAM 450K компаний</Text>
                 <Text style={{ fontSize: 9, fontWeight: 700, color: T.accent }}>21.6 млрд ₽</Text>
               </View>
-              <View style={{ flexDirection: "row", justifyContent: "space-between", backgroundColor: T.accentBg, borderRadius: 3, paddingHorizontal: 4, paddingVertical: 2 }}>
+              <View style={{ flexDirection: "row", justifyContent: "space-between", backgroundColor: T.accentBg, borderRadius: 3, paddingHorizontal: 6, paddingVertical: 2 }}>
                 <Text style={{ fontSize: 8, fontWeight: 600, color: T.fg }}>SOM 67.5K компаний</Text>
                 <Text style={{ fontSize: 9, fontWeight: 700, color: T.accent }}>3.2 млрд ₽</Text>
               </View>
@@ -120,13 +120,13 @@ const OnePagerDoc = ({ imgBase }) => (
         </View>
 
         {/* ROW 2: Biz Model | GTM | Stage */}
-        <View style={{ flexDirection: "row", gap: 6, flex: 1 }}>
+        <View style={{ flexDirection: "row", gap: 5 }}>
 
           {/* BIZ MODEL */}
-          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
+          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
             <SectionLabel>БИЗНЕС-МОДЕЛЬ</SectionLabel>
             <SectionTitle>Pay-as-you-go + подписка</SectionTitle>
-            <MiniCard accent style={{ marginBottom: 4 }}>
+            <MiniCard accent style={{ marginBottom: 3 }}>
               <Text style={{ fontSize: 8, fontWeight: 700, color: T.accent }}>Сейчас</Text>
               <Text style={{ fontSize: 8, color: T.muted, marginTop: 1 }}>Оплата за AI-вызовы, бесплатный старт</Text>
             </MiniCard>
@@ -137,7 +137,7 @@ const OnePagerDoc = ({ imgBase }) => (
           </View>
 
           {/* GTM */}
-          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
+          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
             <SectionLabel>GO-TO-MARKET</SectionLabel>
             <SectionTitle>Стратегия роста</SectionTitle>
             <View style={{ gap: 3 }}>
@@ -148,10 +148,10 @@ const OnePagerDoc = ({ imgBase }) => (
           </View>
 
           {/* STAGE */}
-          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
+          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
             <SectionLabel>ТЕКУЩАЯ СТАДИЯ</SectionLabel>
             <SectionTitle>Закрытое бета-тестирование</SectionTitle>
-            <View style={{ flexDirection: "row", gap: 5, marginBottom: 4 }}>
+            <View style={{ flexDirection: "row", gap: 5, marginBottom: 3 }}>
               <MiniCard accent style={{ flex: 1, alignItems: "center" }}>
                 <Text style={{ fontSize: 11, fontWeight: 700, color: T.accent }}>13.04.2026</Text>
                 <Text style={{ fontSize: 7, color: T.fg2, marginTop: 1 }}>Запуск</Text>
@@ -170,17 +170,17 @@ const OnePagerDoc = ({ imgBase }) => (
         </View>
 
         {/* ROW 3: Team (2/3) | Round (1/3) */}
-        <View style={{ flexDirection: "row", gap: 6, flex: 0.75 }}>
+        <View style={{ flexDirection: "row", gap: 5 }}>
 
           {/* TEAM */}
-          <View style={{ flex: 2, backgroundColor: T.bg2, borderRadius: 5, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
+          <View style={{ flex: 2, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
             <SectionLabel>КОМАНДА</SectionLabel>
             <View style={{ flexDirection: "row", gap: 8 }}>
               <Image src={`${imgBase}/images/noteall/founder.png`}
-                style={{ width: 50, height: 50, borderRadius: 6, objectFit: "cover" }} />
+                style={{ width: 48, height: 48, borderRadius: 6, objectFit: "cover" }} />
               <View style={{ flex: 1 }}>
-                <Text style={{ fontSize: 10, fontWeight: 700, color: T.fg, marginBottom: 3 }}>Дмитрий Бондарев — Основатель</Text>
-                <View style={{ flexDirection: "row", gap: 3, flexWrap: "wrap", marginBottom: 3 }}>
+                <Text style={{ fontSize: 10, fontWeight: 700, color: T.fg, marginBottom: 2 }}>Дмитрий Бондарев — Основатель</Text>
+                <View style={{ flexDirection: "row", gap: 3, flexWrap: "wrap", marginBottom: 2 }}>
                   <View style={{ backgroundColor: T.accentBg, borderRadius: 2, paddingHorizontal: 4, paddingVertical: 1 }}><Text style={{ fontSize: 6, fontWeight: 700, color: T.accent }}>30+ ЛЕТ В БИЗНЕСЕ</Text></View>
                   <View style={{ backgroundColor: T.accentBg, borderRadius: 2, paddingHorizontal: 4, paddingVertical: 1 }}><Text style={{ fontSize: 6, fontWeight: 700, color: T.accent }}>10+ СТАРТАПОВ</Text></View>
                   <View style={{ backgroundColor: T.accentBg, borderRadius: 2, paddingHorizontal: 4, paddingVertical: 1 }}><Text style={{ fontSize: 6, fontWeight: 700, color: T.accent }}>4 ВЫХОДА</Text></View>
@@ -192,11 +192,11 @@ const OnePagerDoc = ({ imgBase }) => (
           </View>
 
           {/* ROUND */}
-          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
+          <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
             <SectionLabel>РАУНД</SectionLabel>
             <Text style={{ fontSize: 16, fontWeight: 700, color: T.accent, marginBottom: 2 }}>5 млн ₽</Text>
-            <Text style={{ fontSize: 8, color: T.muted, marginBottom: 4 }}>Burn-rate: 500 тыс. ₽/мес.</Text>
-            <View style={{ flexDirection: "row", gap: 4, marginBottom: 4 }}>
+            <Text style={{ fontSize: 8, color: T.muted, marginBottom: 3 }}>Burn-rate: 500 тыс. ₽/мес.</Text>
+            <View style={{ flexDirection: "row", gap: 4, marginBottom: 3 }}>
               <View style={{ flex: 1, alignItems: "center" }}><Text style={{ fontSize: 11, fontWeight: 700, color: T.accent }}>400K ₽</Text><Text style={{ fontSize: 6, color: T.muted }}>MRR</Text></View>
               <View style={{ flex: 1, alignItems: "center" }}><Text style={{ fontSize: 11, fontWeight: 700, color: T.accent }}>&gt; 100</Text><Text style={{ fontSize: 6, color: T.muted }}>клиентов</Text></View>
               <View style={{ flex: 1, alignItems: "center" }}><Text style={{ fontSize: 11, fontWeight: 700, color: T.accent }}>&lt; 3 мес.</Text><Text style={{ fontSize: 6, color: T.muted }}>ROAS</Text></View>
