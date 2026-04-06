@@ -127,23 +127,18 @@ export default function NoteAllOnePager() {
         </div>
 
         <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-border">
-          <Sec accent="Текущая стадия" title="Закрытое бета-тестирование">
-            <div className="flex gap-2 md:gap-3 mb-1.5 md:mb-2">
-              <div className="bg-card rounded border-2 border-accent p-1.5 md:p-2 flex-1 text-center">
-                <span className="text-sm sm:text-base md:text-lg font-bold text-accent">13.04.2026</span>
-                <p className="text-[9px] md:text-xs text-foreground/80">Запуск</p>
-              </div>
-              <div className="bg-card rounded border border-border p-1.5 md:p-2 flex-1 text-center">
-                <span className="text-sm sm:text-base md:text-lg font-bold text-foreground">AI-first</span>
-                <p className="text-[9px] md:text-xs text-muted-foreground">Разработка</p>
-              </div>
+          <Sec accent="Раунд" title="5 млн ₽">
+            <p className="text-[10px] md:text-xs text-muted-foreground mb-1 md:mb-1.5">Burn-rate: 500 тыс. ₽/мес.</p>
+            <p className="text-[9px] md:text-[10px] text-accent font-bold mb-1">Цели на 6 мес.</p>
+            <div className="flex gap-1.5 md:gap-2">
+              <Metric n="400K ₽" label="MRR" />
+              <Metric n="> 100" label="клиентов" />
+              <Metric n="< 3 мес." label="ROAS" />
             </div>
-            <p className="text-[10px] md:text-xs text-muted-foreground leading-snug">Сроки внедрения — <span className="text-accent font-semibold">дни вместо месяцев</span> благодаря AI-инструментам</p>
-            <p className="text-[10px] md:text-xs text-accent font-semibold mt-1"><span className="text-lg md:text-xl font-bold">10–20x</span> Сокращение расходов на разработку</p>
           </Sec>
         </div>
 
-        {/* ROW 3: Team (2 cols) | Round (1 col) */}
+        {/* ROW 3: Team (2 cols) | Stage (1 col) */}
         <div className="bg-background p-2 sm:p-3 md:p-4 col-span-2 overflow-hidden border-t border-r border-border mt-[8px]">
           <Sec accent="Команда" title="Дмитрий Бондарев — Основатель">
             <div className="flex gap-2 md:gap-4">
@@ -168,14 +163,19 @@ export default function NoteAllOnePager() {
         </div>
 
         <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-t border-border mt-[8px]">
-          <Sec accent="Раунд" title="5 млн ₽">
-            <p className="text-[10px] md:text-xs text-muted-foreground mb-1 md:mb-1.5">Burn-rate: 500 тыс. ₽/мес.</p>
-            <p className="text-[9px] md:text-[10px] text-accent font-bold mb-1">Цели на 6 мес.</p>
-            <div className="flex gap-1.5 md:gap-2">
-              <Metric n="400K ₽" label="MRR" />
-              <Metric n="> 100" label="клиентов" />
-              <Metric n="< 3 мес." label="ROAS" />
+          <Sec accent="Текущая стадия" title="Закрытое бета-тестирование">
+            <div className="flex gap-2 md:gap-3 mb-1.5 md:mb-2">
+              <div className="bg-card rounded border-2 border-accent p-1.5 md:p-2 flex-1 text-center">
+                <span className="text-sm sm:text-base md:text-lg font-bold text-accent">13.04.2026</span>
+                <p className="text-[9px] md:text-xs text-foreground/80">Запуск</p>
+              </div>
+              <div className="bg-card rounded border border-border p-1.5 md:p-2 flex-1 text-center">
+                <span className="text-sm sm:text-base md:text-lg font-bold text-foreground">AI-first</span>
+                <p className="text-[9px] md:text-xs text-muted-foreground">Разработка</p>
+              </div>
             </div>
+            <p className="text-[10px] md:text-xs text-muted-foreground leading-snug">Сроки внедрения — <span className="text-accent font-semibold">дни вместо месяцев</span> благодаря AI-инструментам</p>
+            <p className="text-[10px] md:text-xs text-accent font-semibold mt-1"><span className="text-lg md:text-xl font-bold">10–20x</span> Сокращение расходов на разработку</p>
           </Sec>
         </div>
       </div>
