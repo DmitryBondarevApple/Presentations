@@ -11,7 +11,7 @@ const NASlide05WhyNow = () => (
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-5" data-testid="na-whynow-title">
       Рынок готов <span className="text-accent">покупать прикладной AI</span>
     </h2>
-    <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10 leading-relaxed max-w-5xl">
+    <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10 leading-relaxed max-w-6xl">
       AI перестал быть экспериментом. 88% компаний уже используют AI хотя бы в одной функции, но две трети не масштабировали его на уровне компании. Рынок покупает инструменты с быстрым эффектом.
     </p>
     <div className="flex flex-col sm:flex-row gap-4 md:gap-8 mb-4 md:mb-8">
