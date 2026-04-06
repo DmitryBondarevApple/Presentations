@@ -109,7 +109,7 @@ export default function NoteAllOnePager() {
 
         <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
           <Sec accent="Go-to-Market" title="Стратегия роста">
-            <div className="space-y-1 md:space-y-1.5 pb-1">
+            <div className="space-y-1 md:space-y-1.5">
               <div className="bg-card rounded border border-border p-1.5 md:p-2">
                 <p className="text-[10px] md:text-xs text-accent font-bold">01 Встроенные механики</p>
                 <p className="text-[10px] md:text-xs text-muted-foreground">Реферальная + аффилиат-программа</p>
@@ -118,7 +118,7 @@ export default function NoteAllOnePager() {
                 <p className="text-[10px] md:text-xs text-accent font-bold">02 Расширение на команды</p>
                 <p className="text-[10px] md:text-xs text-muted-foreground">Совместные сценарии, общий баланс</p>
               </div>
-              <div className="bg-card rounded border border-border p-1.5 md:p-2">
+              <div className="bg-card rounded border border-border border-b-0 p-1.5 md:p-2 mb-1">
                 <p className="text-[10px] md:text-xs text-accent font-bold">03 Точечные B2B-продажи</p>
                 <p className="text-[10px] md:text-xs text-muted-foreground">Маркетинг, исследования, продукт</p>
               </div>
