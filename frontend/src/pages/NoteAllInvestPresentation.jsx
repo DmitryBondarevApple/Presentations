@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, Download, Maximize, Minimize, Loader2 } from 'lucide-react';
+import { generateNoteAllPdf } from '@/components/NoteAllPdfGenerator';
 import NASlide01Cover from '@/components/noteall-slides/NASlide01Cover';
 import NASlide02Problem from '@/components/noteall-slides/NASlide02Problem';
 import NASlide03Solution from '@/components/noteall-slides/NASlide03Solution';
@@ -37,6 +38,13 @@ export default function NoteAllInvestPresentation() {
   const [isFs, setIsFs] = useState(false);
   const [showControls, setShowControls] = useState(true);
   const [touchX, setTouchX] = useState(null);
+  const [pdfLoading, setPdfLoading] = useState(false);
+
+  const handlePdf = useCallback(async () => {
+    setPdfLoading(true);
+    try { await generateNoteAllPdf(); } catch (e) { console.error(e); }
+    setPdfLoading(false);
+  }, []);
 
   const goNext = useCallback(() => {
     if (current < TOTAL - 1) { setDirection(1); setCurrent(c => c + 1); }
@@ -123,6 +131,10 @@ export default function NoteAllInvestPresentation() {
         </div>
         <div className="flex items-center gap-1.5">
           <span className="font-body text-[11px] text-muted-foreground/50 mr-2">{current + 1} / {TOTAL}</span>
+          <Button variant="ghost" size="icon" onClick={handlePdf} disabled={pdfLoading} data-testid="na-pdf-btn"
+            className="h-8 w-8 text-foreground/50 hover:text-foreground hover:bg-foreground/10 rounded-full">
+            {pdfLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Download className="h-3.5 w-3.5" />}
+          </Button>
           <Button variant="ghost" size="icon" onClick={toggleFs} data-testid="na-fullscreen-btn"
             className="h-8 w-8 text-foreground/50 hover:text-foreground hover:bg-foreground/10 rounded-full">
             {isFs ? <Minimize className="h-3.5 w-3.5" /> : <Maximize className="h-3.5 w-3.5" />}
