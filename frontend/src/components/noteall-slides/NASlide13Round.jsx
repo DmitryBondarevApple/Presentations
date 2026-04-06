@@ -26,7 +26,7 @@ const NASlide13Round = () => (
       <span className="font-body text-xs md:text-base text-muted-foreground">14&nbsp;/&nbsp;14</span>
     </div>
 
-    <div className="flex-1 overflow-y-auto flex flex-col justify-start lg:justify-center px-6 md:px-12 lg:px-16 py-4 md:py-6 relative z-10">
+    <div className="flex-1 overflow-y-auto flex flex-col justify-start lg:justify-center px-6 md:px-12 lg:px-16 py-4 md:py-6 pb-14 md:pb-16 relative z-10">
       <div className="flex flex-col lg:flex-row gap-4 md:gap-8 mb-4 md:mb-8">
         <div className="flex-1">
           <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-5" data-testid="na-round-title">
