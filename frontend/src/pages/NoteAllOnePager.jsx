@@ -92,7 +92,7 @@ export default function NoteAllOnePager() {
         </div>
 
         {/* ROW 2: Biz Model | GTM | Stage */}
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-b border-r border-border">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-r border-border">
           <Sec accent="Бизнес-модель" title="Pay-as-you-go + подписка">
             <div className="space-y-1 md:space-y-1.5 mb-1.5 md:mb-2">
               <div className="bg-card rounded border-l-2 border-l-accent border border-border p-1.5 md:p-2">
@@ -107,7 +107,7 @@ export default function NoteAllOnePager() {
           </Sec>
         </div>
 
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-b border-r border-border">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-r border-border">
           <Sec accent="Go-to-Market" title="Стратегия роста">
             <div className="space-y-1 md:space-y-1.5">
               <div className="bg-card rounded border border-border p-1.5 md:p-2">
@@ -126,7 +126,7 @@ export default function NoteAllOnePager() {
           </Sec>
         </div>
 
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-b border-border">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-border">
           <Sec accent="Текущая стадия" title="Закрытое бета-тестирование">
             <div className="flex gap-2 md:gap-3 mb-1.5 md:mb-2">
               <div className="bg-card rounded border-2 border-accent p-1.5 md:p-2 flex-1 text-center">
@@ -144,7 +144,7 @@ export default function NoteAllOnePager() {
         </div>
 
         {/* ROW 3: Team (2 cols) | Round (1 col) */}
-        <div className="bg-background p-2 sm:p-3 md:p-4 col-span-2 overflow-hidden border-r border-border">
+        <div className="bg-background p-2 sm:p-3 md:p-4 col-span-2 overflow-hidden border-t border-r border-border mt-[3px]">
           <Sec accent="Команда" title="Дмитрий Бондарев — Основатель">
             <div className="flex gap-2 md:gap-4">
               <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/founder.png`} alt="Дмитрий Бондарев"
@@ -167,7 +167,7 @@ export default function NoteAllOnePager() {
           </Sec>
         </div>
 
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-t border-border mt-[3px]">
           <Sec accent="Раунд" title="5 млн ₽">
             <p className="text-[10px] md:text-xs text-muted-foreground mb-1 md:mb-1.5">Burn-rate: 500 тыс. ₽/мес.</p>
             <p className="text-[9px] md:text-[10px] text-accent font-bold mb-1">Цели на 6 мес.</p>
