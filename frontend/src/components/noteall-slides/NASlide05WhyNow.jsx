@@ -1,9 +1,9 @@
 import { NASlideContainer } from './NASlideContainer';
 
 const markets = [
-  { title: "Speech Analytics", val: "$2.8 → $7.7 млрд", period: "2023–2030", src: "Grand View Research" },
-  { title: "Speech-to-Text API", val: "$4.4 → $8.6 млрд", period: "2025–2030", src: "Grand View Research" },
-  { title: "Document AI", val: "$14.7 → $27.6 млрд", period: "2025–2030", src: "MarketsandMarkets" },
+  { title: "Speech Analytics", val: "$2.8 → $7.7 млрд", period: "2023–2030", src: "Grand View Research", href: "https://www.grandviewresearch.com/industry-analysis/speech-analytics-market" },
+  { title: "Speech-to-Text API", val: "$4.4 → $8.6 млрд", period: "2025–2030", src: "Grand View Research", href: "https://www.grandviewresearch.com/industry-analysis/speech-to-text-api-market-report" },
+  { title: "Document AI", val: "$14.7 → $27.6 млрд", period: "2025–2030", src: "MarketsandMarkets", href: "https://www.marketsandmarkets.com/Market-Reports/document-ai-market-195513136.html" },
 ];
 
 const NASlide05WhyNow = () => (
@@ -22,7 +22,9 @@ const NASlide05WhyNow = () => (
           </span>
           <span className="block font-heading text-xl md:text-4xl font-bold text-accent">{m.val}</span>
           <p className="font-body text-[10px] md:text-base text-muted-foreground mt-2">{m.period}</p>
-          <p className="font-body text-[10px] md:text-sm text-muted-foreground/50 mt-1">{m.src}</p>
+          <p className="font-body text-[10px] md:text-sm text-muted-foreground/50 mt-1">
+            <a href={m.href} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors underline underline-offset-2">{m.src}</a>
+          </p>
         </div>
       ))}
     </div>
