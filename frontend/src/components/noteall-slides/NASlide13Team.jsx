@@ -11,10 +11,10 @@ const NASlide13Team = () => (
     {/* Mobile: photo first, then text. Desktop: text left, photo right */}
     <div className="flex flex-col-reverse lg:flex-row gap-3 md:gap-8 items-start">
       <div className="flex-1">
-        <h2 className="font-heading text-lg sm:text-2xl md:text-5xl font-bold text-foreground mb-1 md:mb-2" data-testid="na-team-title">
+        <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1 md:mb-2" data-testid="na-team-title">
           Дмитрий <span className="text-accent">Бондарев</span>
         </h2>
-        <p className="font-body text-xs sm:text-sm md:text-lg text-muted-foreground/70 mb-2 md:mb-5">Основатель Noteall</p>
+        <p className="font-body text-sm sm:text-base md:text-lg text-muted-foreground/70 mb-2 md:mb-5">Основатель Noteall</p>
 
         <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 mb-2 md:mb-5">
           <span className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 md:px-4 md:py-1.5 rounded bg-accent/10 text-accent text-[9px] sm:text-[10px] md:text-sm font-bold tracking-wider">30+ ЛЕТ В БИЗНЕСЕ</span>
@@ -35,8 +35,8 @@ const NASlide13Team = () => (
           {ventureExp.map((v, i) => (
             <div key={i} className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-1.5 sm:p-2.5 md:p-4">
               <div className="flex items-start gap-1.5 sm:gap-2">
-                <span className="font-heading text-[10px] sm:text-xs md:text-sm font-bold text-accent shrink-0">{v.label}</span>
-                <span className="font-body text-[10px] sm:text-xs md:text-sm text-muted-foreground">{v.desc}</span>
+                <span className="font-heading text-xs sm:text-sm md:text-sm font-bold text-accent shrink-0">{v.label}</span>
+                <span className="font-body text-xs sm:text-sm md:text-sm text-muted-foreground">{v.desc}</span>
               </div>
             </div>
           ))}
@@ -49,7 +49,7 @@ const NASlide13Team = () => (
         </div>
         <div className="bg-card rounded-lg border border-border p-2.5 sm:p-3 md:p-5 flex-1 lg:w-full text-center">
           <span className="font-heading text-xl sm:text-2xl md:text-4xl font-bold text-accent">30+</span>
-          <p className="font-body text-[10px] sm:text-xs md:text-sm text-muted-foreground mt-0.5 sm:mt-1">лет предпринимательского опыта</p>
+          <p className="font-body text-xs sm:text-sm md:text-sm text-muted-foreground mt-0.5 sm:mt-1">лет предпринимательского опыта</p>
         </div>
       </div>
     </div>

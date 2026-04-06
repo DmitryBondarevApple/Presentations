@@ -23,10 +23,10 @@ const phases = [
 
 const NASlide12Roadmap = () => (
   <NASlideContainer number={12} label="Roadmap">
-    <h2 className="font-heading text-lg sm:text-2xl md:text-5xl font-bold text-foreground mb-1 md:mb-4" data-testid="na-roadmap-title">
+    <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1 md:mb-4" data-testid="na-roadmap-title">
       Развитие <span className="text-accent">продукта</span>
     </h2>
-    <p className="font-body text-xs sm:text-sm md:text-xl text-muted-foreground mb-2 sm:mb-5 md:mb-10">
+    <p className="font-body text-sm sm:text-base md:text-xl text-muted-foreground mb-2 sm:mb-5 md:mb-10">
       От прикладных сценариев к экосистеме хранения и обработки данных
     </p>
     <div className="flex flex-col md:flex-row gap-2 sm:gap-4 md:gap-8">
@@ -40,7 +40,7 @@ const NASlide12Roadmap = () => (
             {p.items.map((item, j) => (
               <div key={j} className="flex items-start gap-1.5 sm:gap-2">
                 <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-accent mt-1 sm:mt-1.5 shrink-0" />
-                <span className="font-body text-[10px] sm:text-xs md:text-lg text-muted-foreground leading-snug sm:leading-relaxed">{item}</span>
+                <span className="font-body text-xs sm:text-sm md:text-lg text-muted-foreground leading-snug sm:leading-relaxed">{item}</span>
               </div>
             ))}
           </div>
