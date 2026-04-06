@@ -68,17 +68,7 @@ const OnePagerDoc = ({ imgBase }) => (
           <View style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
             <SectionLabel>ПРОБЛЕМА</SectionLabel>
             <SectionTitle>Информация не превращается в данные</SectionTitle>
-            <Body style={{ marginBottom: 4 }}>Команды тонут в созвонах и документах. Ценная информация теряется, ручная обработка занимает часы.</Body>
-            <View style={{ flexDirection: "row", gap: 5 }}>
-              <MiniCard style={{ flex: 1, alignItems: "center" }}>
-                <Text style={{ fontSize: 18, fontWeight: 700, color: T.accent, lineHeight: 1 }}>78%</Text>
-                <Text style={{ fontSize: 7, color: T.muted, marginTop: 2, textAlign: "center" }}>перегрузка встречами</Text>
-              </MiniCard>
-              <MiniCard style={{ flex: 1, alignItems: "center" }}>
-                <Text style={{ fontSize: 18, fontWeight: 700, color: T.accent, lineHeight: 1 }}>275</Text>
-                <Text style={{ fontSize: 7, color: T.muted, marginTop: 2, textAlign: "center" }}>прерываний в день</Text>
-              </MiniCard>
-            </View>
+            <Body>Команды живут в потоке созвонов, интервью, вебинаров и документов. Ценная информация распределена по десяткам форматов. Бизнесу нужен готовый результат, а не сырые сведения.</Body>
           </View>
 
           {/* SOLUTION */}
@@ -107,7 +97,7 @@ const OnePagerDoc = ({ imgBase }) => (
                 <Text style={{ fontSize: 8, color: T.muted }}>SAM 450K компаний</Text>
                 <Text style={{ fontSize: 9, fontWeight: 700, color: T.accent }}>21.6 млрд ₽</Text>
               </View>
-              <View style={{ flexDirection: "row", justifyContent: "space-between", backgroundColor: T.accentBg, borderRadius: 3, paddingHorizontal: 6, paddingVertical: 2 }}>
+              <View style={{ flexDirection: "row", justifyContent: "space-between", backgroundColor: T.accentBg, borderRadius: 3, paddingVertical: 2 }}>
                 <Text style={{ fontSize: 8, fontWeight: 600, color: T.fg }}>SOM 67.5K компаний</Text>
                 <Text style={{ fontSize: 9, fontWeight: 700, color: T.accent }}>3.2 млрд ₽</Text>
               </View>
@@ -187,12 +177,12 @@ const OnePagerDoc = ({ imgBase }) => (
                   <View style={{ backgroundColor: T.accentBg, borderRadius: 2, paddingHorizontal: 4, paddingVertical: 1 }}><Text style={{ fontSize: 6, fontWeight: 700, color: T.accent }}>25 ЛЕТ В ВЕНЧУРЕ</Text></View>
                 </View>
                 <Body>Опытный предприниматель. Создание продуктов с нуля до сервисов с миллионными аудиториями.</Body>
-                <View style={{ flexDirection: "row", gap: 8, marginTop: 3 }}>
-                  <Link src="https://t.me/dmitrybondarev" style={{ fontSize: 7, color: T.muted, textDecoration: "none" }}>Telegram: @dmitrybondarev</Link>
-                  <Link src="mailto:dmitry.bondarev@gmail.com" style={{ fontSize: 7, color: T.muted, textDecoration: "none" }}>dmitry.bondarev@gmail.com</Link>
-                  <Text style={{ fontSize: 7, color: T.muted }}>+7 (921) 961-9644</Text>
-                </View>
               </View>
+            </View>
+            <View style={{ flexDirection: "row", gap: 8, marginTop: 4, borderTopWidth: 0.5, borderTopColor: T.border, paddingTop: 3 }}>
+              <Link src="https://t.me/dmitrybondarev" style={{ fontSize: 7, color: T.muted, textDecoration: "none" }}>Telegram: @dmitrybondarev</Link>
+              <Link src="mailto:dmitry.bondarev@gmail.com" style={{ fontSize: 7, color: T.muted, textDecoration: "none" }}>dmitry.bondarev@gmail.com</Link>
+              <Text style={{ fontSize: 7, color: T.muted }}>+7 (921) 961-9644</Text>
             </View>
           </View>
 
@@ -201,6 +191,7 @@ const OnePagerDoc = ({ imgBase }) => (
             <SectionLabel>РАУНД</SectionLabel>
             <Text style={{ fontSize: 16, fontWeight: 700, color: T.accent, marginBottom: 2 }}>5 млн ₽</Text>
             <Text style={{ fontSize: 8, color: T.muted, marginBottom: 3 }}>Burn-rate: 500 тыс. ₽/мес.</Text>
+            <Text style={{ fontSize: 7, fontWeight: 700, color: T.accent, marginBottom: 2 }}>Цели на 6 мес.</Text>
             <View style={{ flexDirection: "row", gap: 4 }}>
               <View style={{ flex: 1, alignItems: "center" }}><Text style={{ fontSize: 11, fontWeight: 700, color: T.accent }}>400K ₽</Text><Text style={{ fontSize: 6, color: T.muted }}>MRR</Text></View>
               <View style={{ flex: 1, alignItems: "center" }}><Text style={{ fontSize: 11, fontWeight: 700, color: T.accent }}>&gt; 100</Text><Text style={{ fontSize: 6, color: T.muted }}>клиентов</Text></View>
