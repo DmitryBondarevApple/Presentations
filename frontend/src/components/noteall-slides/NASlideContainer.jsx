@@ -19,7 +19,7 @@ export const NASlideContainer = ({ children, number, label, className }) => {
         )}
       </div>
 
-      <div className="flex-1 overflow-y-auto flex flex-col justify-start lg:justify-center px-4 sm:px-6 md:px-12 lg:px-16 py-2 sm:py-4 md:py-6 pb-8 lg:pb-10 relative z-10">
+      <div className="flex-1 overflow-y-auto flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-16 py-2 sm:py-4 md:py-6 pb-8 lg:pb-10 relative z-10">
         {children}
       </div>
 
