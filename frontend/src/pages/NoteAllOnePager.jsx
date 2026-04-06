@@ -41,12 +41,19 @@ export default function NoteAllOnePager() {
     <div className="w-screen h-[100dvh] bg-background text-foreground overflow-hidden flex flex-col" data-testid="onepager">
       {/* ═══ HEADER ═══ */}
       <div className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-2.5 md:py-3 border-b border-border shrink-0">
-        <div className="flex items-center gap-2 md:gap-3">
-          <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/logo-noteall.png`} alt="Noteall" className="h-6 md:h-8" data-testid="op-logo" />
-          <div className="hidden sm:block w-px h-6 bg-border" />
-          <p className="hidden sm:block text-sm md:text-base font-bold text-foreground">AI-сервис, который превращает встречи и видео в структурированные данные</p>
+        <div className="flex items-center gap-2 md:gap-3 min-w-0">
+          <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/logo-noteall.png`} alt="Noteall" className="h-6 md:h-8 shrink-0" data-testid="op-logo" />
+          <div className="hidden sm:block w-px h-6 bg-border shrink-0" />
+          <div className="hidden sm:flex flex-col min-w-0">
+            <p className="text-sm md:text-base font-bold text-foreground leading-tight">AI-сервис, который превращает встречи и видео в структурированные данные</p>
+            <div className="flex gap-3 mt-0.5">
+              <a href="https://t.me/dmitrybondarev" className="text-[10px] md:text-xs text-foreground/60 hover:text-accent">@dmitrybondarev</a>
+              <a href="mailto:dmitry.bondarev@gmail.com" className="text-[10px] md:text-xs text-foreground/60 hover:text-accent">dmitry.bondarev@gmail.com</a>
+              <a href="tel:+79219619644" className="text-[10px] md:text-xs text-foreground/60 hover:text-accent">+7 (921) 961-9644</a>
+            </div>
+          </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <span className="text-[10px] md:text-xs text-accent font-bold tracking-wider uppercase">One Pager</span>
           <Button variant="ghost" size="icon" onClick={handlePdf} disabled={pdfLoading} data-testid="op-pdf-btn"
             className="h-7 w-7 md:h-8 md:w-8 text-foreground/50 hover:text-foreground hover:bg-foreground/10 rounded-full">
@@ -153,11 +160,6 @@ export default function NoteAllOnePager() {
                 </div>
                 <p className="text-[10px] md:text-xs text-muted-foreground leading-snug">Опытный предприниматель. Создание продуктов с нуля до сервисов с миллионными аудиториями. Полный стек digital-компетенций.</p>
               </div>
-            </div>
-            <div className="flex flex-wrap gap-x-3 gap-y-0 mt-1.5 pt-1.5 border-t border-border/50">
-              <a href="https://t.me/dmitrybondarev" className="text-[9px] md:text-[10px] text-muted-foreground hover:text-accent">@dmitrybondarev</a>
-              <a href="mailto:dmitry.bondarev@gmail.com" className="text-[9px] md:text-[10px] text-muted-foreground hover:text-accent">dmitry.bondarev@gmail.com</a>
-              <a href="tel:+79219619644" className="text-[9px] md:text-[10px] text-muted-foreground hover:text-accent">+7 (921) 961-9644</a>
             </div>
           </Sec>
         </div>

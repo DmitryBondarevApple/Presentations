@@ -52,8 +52,15 @@ const OnePagerDoc = ({ imgBase }) => (
       <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, paddingVertical: 10, borderBottomWidth: 0.5, borderBottomColor: T.border }}>
         <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
           <Image src={`${imgBase}/images/noteall/logo-noteall.png`} style={{ width: 80, height: 26, objectFit: "contain" }} />
-          <View style={{ width: 0.5, height: 16, backgroundColor: T.border }} />
-          <Text style={{ fontSize: 10, fontWeight: 700, color: T.fg }}>AI-сервис, который превращает встречи и видео в структурированные данные</Text>
+          <View style={{ width: 0.5, height: 20, backgroundColor: T.border }} />
+          <View>
+            <Text style={{ fontSize: 10, fontWeight: 700, color: T.fg }}>AI-сервис, который превращает встречи и видео в структурированные данные</Text>
+            <View style={{ flexDirection: "row", gap: 12, marginTop: 2 }}>
+              <Link src="https://t.me/dmitrybondarev" style={{ fontSize: 8, color: T.fg2, textDecoration: "none" }}>@dmitrybondarev</Link>
+              <Link src="mailto:dmitry.bondarev@gmail.com" style={{ fontSize: 8, color: T.fg2, textDecoration: "none" }}>dmitry.bondarev@gmail.com</Link>
+              <Text style={{ fontSize: 8, color: T.fg2 }}>+7 (921) 961-9644</Text>
+            </View>
+          </View>
         </View>
         <Text style={{ fontSize: 7, fontWeight: 700, color: T.accent, letterSpacing: 1.5 }}>ONE PAGER</Text>
       </View>
@@ -170,11 +177,6 @@ const OnePagerDoc = ({ imgBase }) => (
                 </View>
                 <Body>Опытный предприниматель. Создание продуктов с нуля до сервисов с миллионными аудиториями.</Body>
               </View>
-            </View>
-            <View style={{ flexDirection: "row", gap: 12, marginTop: 6, borderTopWidth: 0.5, borderTopColor: T.border, paddingTop: 5 }}>
-              <Link src="https://t.me/dmitrybondarev" style={{ fontSize: 9, color: T.muted, textDecoration: "none" }}>Telegram: @dmitrybondarev</Link>
-              <Link src="mailto:dmitry.bondarev@gmail.com" style={{ fontSize: 9, color: T.muted, textDecoration: "none" }}>dmitry.bondarev@gmail.com</Link>
-              <Text style={{ fontSize: 9, color: T.muted }}>+7 (921) 961-9644</Text>
             </View>
           </View>
 
