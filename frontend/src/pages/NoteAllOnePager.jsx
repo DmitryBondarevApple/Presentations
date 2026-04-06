@@ -144,7 +144,7 @@ export default function NoteAllOnePager() {
         </div>
 
         {/* ROW 3: Team (2 cols) | Round (1 col) */}
-        <div className="bg-background p-2 sm:p-3 md:p-4 col-span-2 overflow-hidden border-t border-r border-border mt-[3px]">
+        <div className="bg-background p-2 sm:p-3 md:p-4 col-span-2 overflow-hidden border-t border-r border-border mt-[8px]">
           <Sec accent="Команда" title="Дмитрий Бондарев — Основатель">
             <div className="flex gap-2 md:gap-4">
               <img src={`${process.env.PUBLIC_URL || ''}/images/noteall/founder.png`} alt="Дмитрий Бондарев"
@@ -167,7 +167,7 @@ export default function NoteAllOnePager() {
           </Sec>
         </div>
 
-        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-t border-border mt-[3px]">
+        <div className="bg-background p-2 sm:p-3 md:p-4 overflow-hidden border-t border-border mt-[8px]">
           <Sec accent="Раунд" title="5 млн ₽">
             <p className="text-[10px] md:text-xs text-muted-foreground mb-1 md:mb-1.5">Burn-rate: 500 тыс. ₽/мес.</p>
             <p className="text-[9px] md:text-[10px] text-accent font-bold mb-1">Цели на 6 мес.</p>
