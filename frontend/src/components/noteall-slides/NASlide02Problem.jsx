@@ -12,12 +12,12 @@ const NASlide02Problem = () => (
       <div className="flex-1 bg-card rounded-lg border border-border p-5 md:p-8">
         <span className="font-heading text-4xl md:text-6xl font-bold text-accent">78%</span>
         <p className="font-body text-xs md:text-lg text-foreground/80 mt-2 md:mt-4 leading-snug">сотрудников говорят, что перегрузка встречами мешает основной работе</p>
-        <p className="font-body text-[10px] md:text-sm text-muted-foreground/50 mt-2 md:mt-3">Atlassian</p>
+        <p className="font-body text-[10px] md:text-sm text-muted-foreground/50 mt-2 md:mt-3"><a href="https://www.atlassian.com/blog/workplace-woes-meetings" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors underline underline-offset-2">Atlassian</a></p>
       </div>
       <div className="flex-1 bg-card rounded-lg border border-border p-5 md:p-8">
         <span className="font-heading text-4xl md:text-6xl font-bold text-accent">275</span>
         <p className="font-body text-xs md:text-lg text-foreground/80 mt-2 md:mt-4 leading-snug">прерываний в день — встречами, письмами или чатами. В среднем раз в 2 минуты</p>
-        <p className="font-body text-[10px] md:text-sm text-muted-foreground/50 mt-2 md:mt-3">Microsoft, 2025</p>
+        <p className="font-body text-[10px] md:text-sm text-muted-foreground/50 mt-2 md:mt-3"><a href="https://assets-c4akfrf5b4d3f4b7.z01.azurefd.net/assets/2025/04/2025-wti-one-pager-042325-rw_68094b4da3c89.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors underline underline-offset-2">Microsoft, 2025</a></p>
       </div>
     </div>
     <div className="bg-card rounded-lg border-l-[3px] border-l-accent border border-border p-4 md:p-6">
