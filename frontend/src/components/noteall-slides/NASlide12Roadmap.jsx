@@ -26,10 +26,10 @@ const NASlide12Roadmap = () => (
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-4" data-testid="na-roadmap-title">
       Развитие <span className="text-accent">продукта</span>
     </h2>
-    <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8">
+    <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10">
       От прикладных сценариев к экосистеме хранения и обработки данных
     </p>
-    <div className="flex flex-col md:flex-row gap-3 md:gap-6">
+    <div className="flex flex-col md:flex-row gap-4 md:gap-8">
       {phases.map((p, i) => (
         <div key={i} className={`flex-1 bg-card rounded-lg border p-5 md:p-8 ${p.active ? 'border-accent border-2' : 'border-border'}`} data-testid={`na-phase-${i}`}>
           <span className={`inline-block px-3 py-1 md:px-4 md:py-1.5 rounded text-[10px] md:text-sm font-bold tracking-wider mb-3 md:mb-5 ${p.active ? 'bg-accent text-background' : 'bg-accent/10 text-accent'}`}>

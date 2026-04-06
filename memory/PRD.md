@@ -22,15 +22,13 @@ Build web presentations for multiple companies with full navigation, PDF generat
 - **Deploy folder**: `makeusbeautiful/company/`
 - **Build script**: `build-makeusbeautiful-company.sh`
 - **Theme**: Dark background + green accent (HSL 152 50% 42%)
-- **Slides**: Cover, Problem, Data, About, Services, Process, Included, Portfolio, Pricing, CTA
-- **Photos**: Extracted from KP PDF (kp-photo-1..5.jpeg)
 
-### 3. NoteAll Investment (NEW — Feb 2026)
+### 3. NoteAll Investment
 - **Route**: `/invest`
 - **Theme**: Dark navy + teal accent (HSL 174 80% 42%)
-- **Slides (13)**: Cover, Problem, Solution, HowItWorks, WhyNow, Market, Audience, Differentiation, BusinessModel, Stage, GTM, Roadmap, Round
-- **PDF**: `NoteAllPdfGenerator.jsx` (A4 Landscape, uses shared PdfComponents)
-- **Images**: `logo-noteall.png`, `favicon.png`
+- **Slides (14)**: Cover, Problem, Solution, HowItWorks, WhyNow, Market, Audience, Differentiation, BusinessModel, Stage, GTM, Roadmap, **Team**, Round
+- **PDF**: `NoteAllPdfGenerator.jsx` (A4 Landscape, 14 pages, shared PdfComponents)
+- **Images**: `logo-noteall.png`, `favicon.png`, `founder.png`
 
 ## Cross-cutting Features
 - Mobile responsive (100dvh, safe-area)
@@ -39,22 +37,22 @@ Build web presentations for multiple companies with full navigation, PDF generat
 - Standalone build scripts per presentation
 - Dynamic document.title per presentation
 - Fullscreen mode
+- Content fill rate ≥ 70% on all slides
 
 ## Key Files
-- `server-config/presentations.conf` — Nginx: presentations.noteall.ru
-- `server-config/makeusbeautiful-presentations.conf` — Nginx: presentations.makeusbeautiful.ru
-- `docs/DEPLOY_GUIDE.md` — Full deployment guide for both subdomains
-- `docs/PDF_GENERATION_GUIDE.md` — Практическая инструкция по созданию PDF
-- `docs/WEB_TO_PDF_STYLE_GUIDE.md` — Технический справочник @react-pdf/renderer
-- `frontend/src/components/pdf-shared/PdfComponents.jsx` — Переиспользуемые PDF-компоненты
-- `frontend/src/components/NoteAllPdfGenerator.jsx` — PDF-генератор NoteAll (13 слайдов)
+- `frontend/src/components/noteall-slides/NASlide13Team.jsx` — Слайд «Команда» с фото основателя
+- `frontend/src/components/NoteAllPdfGenerator.jsx` — PDF-генератор NoteAll (14 слайдов)
 - `frontend/src/pages/NoteAllInvestPresentation.jsx` — Веб-версия NoteAll презентации
+- `frontend/src/components/pdf-shared/PdfComponents.jsx` — Переиспользуемые PDF-компоненты
+- `docs/PDF_GENERATION_GUIDE.md` — Инструкция по созданию PDF
+- `docs/DEPLOY_GUIDE.md` — Гайд по деплою
 
 ## Latest Session (Feb 2026)
-- Created 13-slide NoteAll Investment presentation at /invest
-- Built NoteAllPdfGenerator.jsx using shared PdfComponents (A4 Landscape)
-- Added PDF download button to NoteAll presentation page
-- Testing agent: 100% pass rate (desktop 1920x1080, mobile 390x844, regression)
+- Created 14-slide NoteAll Investment presentation at /invest
+- Added Team slide (#13) with founder photo and bio
+- Increased content fill rate to ≥70% on all slides (bigger cards, more spacing, reduced padding)
+- Built NoteAllPdfGenerator.jsx with 14 slides using shared PdfComponents
+- Testing: 100% pass rate (desktop, mobile, PDF download, regression)
 
 ## Backlog
 - P1: Build script `build-noteall-invest.sh` + Nginx config for NoteAll deployment

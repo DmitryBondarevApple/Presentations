@@ -2,13 +2,13 @@ import { NASlideContainer } from './NASlideContainer';
 
 const NASlide02Problem = () => (
   <NASlideContainer number={2} label="Проблема">
-    <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-5" data-testid="na-problem-title">
+    <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 md:mb-6" data-testid="na-problem-title">
       Информация <span className="text-accent">не превращается в данные</span>
     </h2>
-    <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8 leading-relaxed max-w-5xl">
+    <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10 leading-relaxed max-w-5xl">
       Команды живут в потоке созвонов, интервью, вебинаров и документов. Ценная информация распределена по десяткам форматов, а ручная обработка занимает часы. Бизнесу нужен не сырой контент, а готовый результат.
     </p>
-    <div className="flex flex-col sm:flex-row gap-3 md:gap-6 mb-4 md:mb-8">
+    <div className="flex flex-col sm:flex-row gap-4 md:gap-8 mb-4 md:mb-8">
       <div className="flex-1 bg-card rounded-lg border border-border p-5 md:p-8">
         <span className="font-heading text-4xl md:text-6xl font-bold text-accent">78%</span>
         <p className="font-body text-xs md:text-lg text-foreground/80 mt-2 md:mt-4 leading-snug">сотрудников говорят, что перегрузка встречами мешает основной работе</p>

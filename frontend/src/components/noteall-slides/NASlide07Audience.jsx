@@ -12,10 +12,10 @@ const NASlide07Audience = () => (
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-4" data-testid="na-audience-title">
       Для кого <span className="text-accent">NoteAll</span>
     </h2>
-    <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8">
+    <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10">
       Профессионалы и команды, которым нужен структурированный результат из неструктурированного контента
     </p>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
       {segments.map((s, i) => (
         <div key={i} className="bg-card rounded-lg border border-border p-5 md:p-7" data-testid={`na-segment-${i}`}>
           <span className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded bg-accent/10 text-accent text-[10px] md:text-sm font-bold tracking-wider mb-2 md:mb-4">{s.tag}</span>

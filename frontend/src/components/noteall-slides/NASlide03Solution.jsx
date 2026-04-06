@@ -12,10 +12,10 @@ const NASlide03Solution = () => (
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-4" data-testid="na-solution-title">
       NoteAll забирает <span className="text-accent">рутинную работу</span>
     </h2>
-    <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8 leading-relaxed max-w-5xl">
+    <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10 leading-relaxed max-w-5xl">
       Пользователь загружает запись, документ или ссылку — а сервис превращает материал в понятный, структурированный и пригодный для работы результат
     </p>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
       {features.map((f, i) => (
         <div key={i} className="bg-card rounded-lg border border-border p-5 md:p-7" data-testid={`na-feature-${i}`}>
           <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">

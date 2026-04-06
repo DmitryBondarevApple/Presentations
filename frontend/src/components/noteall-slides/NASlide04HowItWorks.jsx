@@ -12,10 +12,10 @@ const NASlide04HowItWorks = () => (
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 md:mb-4" data-testid="na-how-title">
       Четыре шага <span className="text-accent">до результата</span>
     </h2>
-    <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8">
+    <p className="font-body text-sm md:text-xl text-muted-foreground mb-5 md:mb-10">
       От загрузки записи до готового рабочего артефакта
     </p>
-    <div className="flex flex-col md:flex-row gap-3 md:gap-5">
+    <div className="flex flex-col md:flex-row gap-3 md:gap-6">
       {steps.map((s, i) => (
         <div key={i} className="flex-1 bg-card rounded-lg border-t-[3px] border-t-accent border border-border p-4 md:p-7" data-testid={`na-step-${i}`}>
           <span className="font-heading text-xs md:text-base font-bold text-accent/70">{s.num}</span>
