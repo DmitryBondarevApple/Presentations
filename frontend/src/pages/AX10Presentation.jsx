@@ -1,0 +1,150 @@
+import React, { useState, useCallback, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight, Download, Maximize, Minimize, Loader2 } from 'lucide-react';
+import { generateAX10Pdf } from '@/components/AX10PdfGenerator';
+import AXSlide01Cover from '@/components/ax10-slides/AXSlide01Cover';
+import AXSlide02Problem from '@/components/ax10-slides/AXSlide02Problem';
+import AXSlide03Solution from '@/components/ax10-slides/AXSlide03Solution';
+import AXSlide04Process from '@/components/ax10-slides/AXSlide04Process';
+import AXSlide05Data from '@/components/ax10-slides/AXSlide05Data';
+import AXSlide06AI from '@/components/ax10-slides/AXSlide06AI';
+import AXSlide07Transparency from '@/components/ax10-slides/AXSlide07Transparency';
+import AXSlide08Deliverables from '@/components/ax10-slides/AXSlide08Deliverables';
+import AXSlide09IndependentTZ from '@/components/ax10-slides/AXSlide09IndependentTZ';
+import AXSlide10Choice from '@/components/ax10-slides/AXSlide10Choice';
+import AXSlide11DevPartner from '@/components/ax10-slides/AXSlide11DevPartner';
+import AXSlide12AIFirst from '@/components/ax10-slides/AXSlide12AIFirst';
+import AXSlide13NoLockin from '@/components/ax10-slides/AXSlide13NoLockin';
+import AXSlide14BusinessEffect from '@/components/ax10-slides/AXSlide14BusinessEffect';
+import AXSlide15Format from '@/components/ax10-slides/AXSlide15Format';
+import AXSlide16Final from '@/components/ax10-slides/AXSlide16Final';
+
+const allSlides = [
+  AXSlide01Cover, AXSlide02Problem, AXSlide03Solution, AXSlide04Process,
+  AXSlide05Data, AXSlide06AI, AXSlide07Transparency, AXSlide08Deliverables,
+  AXSlide09IndependentTZ, AXSlide10Choice, AXSlide11DevPartner, AXSlide12AIFirst,
+  AXSlide13NoLockin, AXSlide14BusinessEffect, AXSlide15Format, AXSlide16Final,
+];
+
+const TOTAL = allSlides.length;
+
+const slideVariants = {
+  enter: (dir) => ({ x: dir > 0 ? 120 : -120, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (dir) => ({ x: dir > 0 ? -120 : 120, opacity: 0 }),
+};
+
+export default function AX10Presentation() {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [isFs, setIsFs] = useState(false);
+  const [showControls, setShowControls] = useState(true);
+  const [touchX, setTouchX] = useState(null);
+  const [pdfLoading, setPdfLoading] = useState(false);
+
+  const handlePdf = useCallback(async () => {
+    setPdfLoading(true);
+    try { await generateAX10Pdf(); } catch (e) { console.error(e); }
+    setPdfLoading(false);
+  }, []);
+
+  const goNext = useCallback(() => {
+    if (current < TOTAL - 1) { setDirection(1); setCurrent(c => c + 1); }
+  }, [current]);
+  const goPrev = useCallback(() => {
+    if (current > 0) { setDirection(-1); setCurrent(c => c - 1); }
+  }, [current]);
+  const goTo = useCallback((i) => {
+    setDirection(i > current ? 1 : -1); setCurrent(i);
+  }, [current]);
+  const toggleFs = useCallback(() => {
+    if (!document.fullscreenElement) { document.documentElement.requestFullscreen().catch(() => {}); setIsFs(true); }
+    else { document.exitFullscreen().catch(() => {}); setIsFs(false); }
+  }, []);
+
+  useEffect(() => { document.title = 'AX10 — От идеи к ТЗ'; }, []);
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goNext(); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); }
+    };
+    const handleFsChange = () => { if (!document.fullscreenElement) setIsFs(false); };
+    window.addEventListener('keydown', handleKey);
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => { window.removeEventListener('keydown', handleKey); document.removeEventListener('fullscreenchange', handleFsChange); };
+  }, [goNext, goPrev]);
+
+  useEffect(() => {
+    setShowControls(true);
+    const t = setTimeout(() => setShowControls(false), 4000);
+    return () => clearTimeout(t);
+  }, [current]);
+
+  const Slide = allSlides[current];
+
+  return (
+    <div className="relative w-full overflow-hidden bg-background"
+      style={{ height: '100dvh', '--accent': '217 91% 60%', '--accent-foreground': '0 0% 100%' }}
+      onMouseMove={() => setShowControls(true)}
+      onTouchStart={(e) => setTouchX(e.touches[0].clientX)}
+      onTouchEnd={(e) => {
+        if (touchX === null) return;
+        const d = touchX - e.changedTouches[0].clientX;
+        if (d > 60) goNext(); if (d < -60) goPrev();
+        setTouchX(null);
+      }}
+      data-testid="ax-presentation"
+    >
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-border/20 z-30">
+        <div className="h-full bg-accent" style={{ width: `${((current + 1) / TOTAL) * 100}%`, transition: 'width 0.5s cubic-bezier(0.4,0,0.2,1)' }} />
+      </div>
+
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div key={current} custom={direction} variants={slideVariants}
+          initial="enter" animate="center" exit="exit"
+          transition={{ duration: 0.32, ease: [0.32, 0.72, 0, 1] }}
+          className="absolute inset-0">
+          <Slide />
+        </motion.div>
+      </AnimatePresence>
+
+      <div className={cn("absolute inset-y-0 left-0 flex items-center pl-3 z-20", showControls ? "opacity-100" : "opacity-0 hover:opacity-100")} style={{ transition: 'opacity 0.3s' }}>
+        {current > 0 && (
+          <Button variant="ghost" size="icon" onClick={goPrev} data-testid="ax-prev-btn"
+            className="h-11 w-11 rounded-full bg-foreground/5 hover:bg-foreground/10 text-foreground/50 hover:text-foreground"><ChevronLeft className="h-5 w-5" /></Button>
+        )}
+      </div>
+      <div className={cn("absolute inset-y-0 right-0 flex items-center pr-3 z-20", showControls ? "opacity-100" : "opacity-0 hover:opacity-100")} style={{ transition: 'opacity 0.3s' }}>
+        {current < TOTAL - 1 && (
+          <Button variant="ghost" size="icon" onClick={goNext} data-testid="ax-next-btn"
+            className="h-11 w-11 rounded-full bg-foreground/5 hover:bg-foreground/10 text-foreground/50 hover:text-foreground"><ChevronRight className="h-5 w-5" /></Button>
+        )}
+      </div>
+
+      <div className={cn("absolute bottom-0 left-0 right-0 z-20 flex items-center justify-between px-5 py-2", showControls ? "opacity-100" : "opacity-0 hover:opacity-100")}
+        style={{ transition: 'opacity 0.3s', paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom))' }}>
+        <div className="flex items-center gap-1.5">
+          {allSlides.map((_, i) => (
+            <button key={i} onClick={() => goTo(i)} data-testid={`ax-dot-${i}`}
+              className={cn("h-1.5 rounded-full", i === current ? "bg-accent w-5" : "bg-foreground/15 w-1.5 hover:bg-foreground/30")}
+              style={{ transition: 'all 0.3s' }} />
+          ))}
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="font-body text-[11px] text-muted-foreground/50 mr-2">{current + 1} / {TOTAL}</span>
+          <Button variant="ghost" size="icon" onClick={handlePdf} disabled={pdfLoading} data-testid="ax-pdf-btn"
+            className="h-8 w-8 text-foreground/50 hover:text-foreground hover:bg-foreground/10 rounded-full">
+            {pdfLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Download className="h-3.5 w-3.5" />}
+          </Button>
+          <Button variant="ghost" size="icon" onClick={toggleFs} data-testid="ax-fullscreen-btn"
+            className="h-8 w-8 text-foreground/50 hover:text-foreground hover:bg-foreground/10 rounded-full">
+            {isFs ? <Minimize className="h-3.5 w-3.5" /> : <Maximize className="h-3.5 w-3.5" />}
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
