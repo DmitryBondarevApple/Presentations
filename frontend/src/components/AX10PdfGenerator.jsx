@@ -135,13 +135,13 @@ const S3 = () => (
 /* SLIDE 4: PROCESS (7 steps)                             */
 /* ═══════════════════════════════════════════════════════ */
 const steps = [
-  { num: "01", title: "Параметры", desc: "Уточнение задачи и границ" },
-  { num: "02", title: "Дизайн", desc: "Методология и инструменты" },
-  { num: "03", title: "Полевой этап", desc: "Интервью, анкеты, данные" },
-  { num: "04", title: "ИИ-аналитика", desc: "Обработка и структуризация" },
-  { num: "05", title: "Кабинетное", desc: "Рынок, конкуренты, контекст" },
-  { num: "06", title: "Синтез", desc: "Продуктовые сценарии" },
-  { num: "07", title: "ТЗ", desc: "Документация для разработки" },
+  { num: "01", title: "Параметры проекта", desc: "Уточнение задачи, целей и границ исследования" },
+  { num: "02", title: "Дизайн исследования", desc: "Подготовка методологии, гайдов и инструментов" },
+  { num: "03", title: "Полевой этап", desc: "Интервью, анкеты, сбор первичных данных" },
+  { num: "04", title: "ИИ-аналитика", desc: "Автоматическая обработка и структуризация интервью" },
+  { num: "05", title: "Кабинетное исследование", desc: "Анализ рынка, конкурентов и отраслевого контекста" },
+  { num: "06", title: "Синтез выводов", desc: "Формирование продуктовых сценариев и решений" },
+  { num: "07", title: "ТЗ и материалы", desc: "Подготовка документации для старта разработки" },
 ];
 const S4 = () => (
   <Page size={[PW, PH]} style={pg}>
@@ -155,19 +155,19 @@ const S4 = () => (
       </Text>
       <View style={{ flexDirection: "row", gap: 12, marginBottom: 12 }}>
         {steps.slice(0, 4).map((s, i) => (
-          <View key={i} style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 8, borderTopWidth: 3, borderTopColor: T.accent, borderWidth: 1, borderColor: T.border, padding: 14 }}>
-            <Text style={{ fontSize: 11, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{s.num}</Text>
-            <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg, marginTop: 8 }}>{s.title}</Text>
-            <Text style={{ fontSize: 11, color: T.muted, marginTop: 6, lineHeight: 1.5 }}>{s.desc}</Text>
+          <View key={i} style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 8, borderTopWidth: 3, borderTopColor: T.accent, borderWidth: 1, borderColor: T.border, padding: 12 }}>
+            <Text style={{ fontSize: 10, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{s.num}</Text>
+            <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg, marginTop: 6 }}>{s.title}</Text>
+            <Text style={{ fontSize: 10, color: T.muted, marginTop: 5, lineHeight: 1.5 }}>{s.desc}</Text>
           </View>
         ))}
       </View>
       <View style={{ flexDirection: "row", gap: 12 }}>
         {steps.slice(4).map((s, i) => (
-          <View key={i} style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 8, borderTopWidth: 3, borderTopColor: T.accent, borderWidth: 1, borderColor: T.border, padding: 14 }}>
-            <Text style={{ fontSize: 11, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{s.num}</Text>
-            <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg, marginTop: 8 }}>{s.title}</Text>
-            <Text style={{ fontSize: 11, color: T.muted, marginTop: 6, lineHeight: 1.5 }}>{s.desc}</Text>
+          <View key={i} style={{ flex: 1, backgroundColor: T.bg2, borderRadius: 8, borderTopWidth: 3, borderTopColor: T.accent, borderWidth: 1, borderColor: T.border, padding: 12 }}>
+            <Text style={{ fontSize: 10, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{s.num}</Text>
+            <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg, marginTop: 6 }}>{s.title}</Text>
+            <Text style={{ fontSize: 10, color: T.muted, marginTop: 5, lineHeight: 1.5 }}>{s.desc}</Text>
           </View>
         ))}
       </View>
@@ -215,8 +215,8 @@ const S5 = () => (
 const aiPipeline = [
   { num: "01", title: "Транскрипт", desc: "Запись интервью переводится в точный текст" },
   { num: "02", title: "Summary", desc: "Автоматическая выжимка ключевых тезисов" },
-  { num: "03", title: "Структура", desc: "Цитаты, темы, задачи, барьеры, мотивы" },
-  { num: "04", title: "Выводы", desc: "Прикладные продуктовые решения" },
+  { num: "03", title: "Структура", desc: "Цитаты, темы, задачи, барьеры, мотивы, сомнения" },
+  { num: "04", title: "Выводы", desc: "Прикладные продуктовые решения из массива данных" },
 ];
 const S6 = () => (
   <Page size={[PW, PH]} style={pg}>
@@ -561,9 +561,9 @@ const S14 = () => (
 /* SLIDE 15: PROJECT FORMAT                               */
 /* ═══════════════════════════════════════════════════════ */
 const phases = [
-  { period: "НЕДЕЛИ 1–2", title: "Подготовка", items: ["Уточнение параметров", "Дизайн исследования", "Подготовка инструментов"] },
-  { period: "НЕДЕЛИ 3–5", title: "Полевой этап", items: ["Интервью и анкетирование", "ИИ-обработка данных", "Кабинетное исследование"] },
-  { period: "НЕДЕЛИ 6–9", title: "Синтез и ТЗ", items: ["Продуктовые сценарии", "Структура MVP", "ТЗ и дорожная карта"] },
+  { period: "НЕДЕЛИ 1–2", title: "Подготовка", items: ["Уточнение параметров проекта", "Дизайн исследования", "Подготовка гайдов и инструментов"] },
+  { period: "НЕДЕЛИ 3–5", title: "Полевой этап и аналитика", items: ["Интервью и анкетирование", "ИИ-обработка и кабинетное исследование", "Промежуточные выводы"] },
+  { period: "НЕДЕЛИ 6–9", title: "Синтез и ТЗ", items: ["Формирование продуктовых сценариев", "Структура MVP и приоритеты", "Техническое задание и дорожная карта"] },
 ];
 const S15 = () => (
   <Page size={[PW, PH]} style={pg}>
