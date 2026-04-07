@@ -58,8 +58,12 @@ cp -r "$FRONTEND_DIR/build/"* "$DEPLOY_DIR/"
 mv "$FRONTEND_DIR/src/App.js.bak" "$FRONTEND_DIR/src/App.js"
 mv "$FRONTEND_DIR/.env.bak" "$FRONTEND_DIR/.env"
 
-# 8. Обновляем title в index.html
+# 8. Обновляем title и OG-теги в index.html
 sed -i 's|<title>.*</title>|<title>AX10 — От идеи к ТЗ</title>|' "$DEPLOY_DIR/index.html"
+
+# Инъекция OG-тегов
+OG_TAGS='<meta property="og:type" content="website">\n<meta property="og:title" content="AX10 — От идеи цифрового сервиса к готовому ТЗ">\n<meta property="og:description" content="Исследование, продуктовая аналитика и техническое задание — до начала разработки. Без догадок и привязки к подрядчику.">\n<meta property="og:image" content="https://presentations.noteall.ru/ax10/images/ax10/og-ax10.jpg">\n<meta property="og:url" content="https://presentations.noteall.ru/ax10/">\n<meta property="og:site_name" content="AX10">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="AX10 — От идеи цифрового сервиса к готовому ТЗ">\n<meta name="twitter:description" content="Исследование, продуктовая аналитика и техническое задание — до начала разработки.">\n<meta name="twitter:image" content="https://presentations.noteall.ru/ax10/images/ax10/og-ax10.jpg">\n<meta name="description" content="AX10 помогает компаниям подготовить запуск цифрового продукта: проверяем гипотезы, исследуем рынок, формируем ТЗ.">'
+sed -i "s|</head>|${OG_TAGS}\n</head>|" "$DEPLOY_DIR/index.html"
 
 # 9. Создаём архив
 cd /app
