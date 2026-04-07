@@ -1,71 +1,48 @@
-# Presentation App — PRD
+# Presentation App PRD
 
-## Original Problem Statement
-Build web presentations for multiple companies with full navigation, PDF generation, mobile responsiveness, and standalone deployment on dedicated subdomains.
+## Описание
+Веб-приложение для создания и демонстрации бизнес-презентаций с поддержкой PDF-экспорта (A4 Landscape).
 
-## Architecture
-- **Frontend**: React + Tailwind CSS + Framer Motion
-- **PDF**: @react-pdf/renderer
-- **Hosting**: Static deploys on subdomains via Docker + Nginx
+## Презентации
+| Название | Роут | Слайдов | Статус |
+|----------|-------|---------|--------|
+| Ростелеком | `/` | 15 | DONE |
+| FranchCamp | `/franchcamp` | 17 | DONE |
+| Emergent Masterclass | `/emergent` | 15 | DONE |
+| MakeUsBeautiful | `/makeusbeautiful` | 14 | DONE |
+| NoteAll Invest | `/invest` | 14 | DONE |
+| NoteAll One Pager | `/onepager` | 1 page | DONE |
+| AX10 | `/ax10` | 16 | DONE |
 
-## Projects
+## Технологии
+- React + Tailwind CSS + Framer Motion
+- @react-pdf/renderer (A4 Landscape PDF)
+- Bash Static Export (build-*.sh скрипты)
+- Docker + Nginx на presentations.noteall.ru
 
-### 1. Hop.Agency (noteall.ru)
-- **Subdomain**: `presentations.noteall.ru`
-- **Routes**: `/` (Rostelecom), `/franchcamp` (FranchCamp), `/emergent` (Emergent Masterclass)
-- **Deploy folders**: `deploy-franchcamp/`, `deploy-emergent/`
-- **Build scripts**: `build-franchcamp.sh`, `build-emergent.sh`
+## Деплой
+- Хост: `presentations.noteall.ru`
+- Docker-контейнер: `voice-workspace-frontend-1`
+- Volume mount: `/var/www/presentations` -> контейнер
+- SSL: Let's Encrypt (автообновление certbot)
+- Документация: `/app/docs/DEPLOY_GUIDE.md`
 
-### 2. Сделай красиво! (makeusbeautiful.ru)
-- **Subdomain**: `presentations.makeusbeautiful.ru`
-- **Routes**: `/company` (Презентация компании — 10 слайдов)
-- **Deploy folder**: `makeusbeautiful/company/`
-- **Build script**: `build-makeusbeautiful-company.sh`
-- **Theme**: Dark background + green accent (HSL 152 50% 42%)
+## Завершённые задачи (07 апреля 2026)
+- [x] Создана презентация AX10 — 16 слайдов (Cover -> Problem -> Solution -> Process -> Data -> AI -> Transparency -> Deliverables -> Independent TZ -> Client Choice -> Dev Partner -> AI-first -> No Lock-in -> Business Effect -> Format -> Final/CTA)
+- [x] PDF-генератор AX10 (A4 Landscape, 16 страниц)
+- [x] Билд-скрипт build-ax10.sh
+- [x] Nginx location /ax10/ в presentations.conf
+- [x] Мобильная адаптивность
+- [x] Свайп, клавиатура, точечная навигация
+- [x] Тестирование: 100% PASSED (iteration_9.json)
 
-### 3. NoteAll Investment
-- **Route**: `/invest`
-- **Theme**: Dark navy + teal accent (HSL 174 80% 42%)
-- **Slides (14)**: Cover, Problem, Solution, HowItWorks, WhyNow, Market, Audience, Differentiation, BusinessModel, Stage, GTM, Roadmap, Team, Round
-- **PDF**: `NoteAllPdfGenerator.jsx` (A4 Landscape, 14 pages, shared PdfComponents)
+## Бэклог
+- [ ] P1: QR-коды на финальные слайды
+- [ ] P2: CSS-рефакторинг (общие обёртки для слайдов)
+- [ ] P3: OG-теги и OG-картинка для AX10
 
-### 4. NoteAll One Pager
-- **Route**: `/onepager`
-- **Theme**: Same as NoteAll Investment (dark navy + teal accent)
-- **Layout**: 3x3 grid (Problem, Solution, Market | BizModel, GTM, Stage | Team[2col], Round)
-- **Constraints**: Fits exactly on one screen (no scroll) and one A4 landscape page
-- **PDF**: `NoteAllOnePagerPdf.jsx` (single A4 Landscape page, NO flex:1 on rows)
-- **Build script**: `build-noteall-onepager.sh`
-
-## Cross-cutting Features
-- Mobile responsive (100dvh, safe-area)
-- Swipe/keyboard/dots navigation
-- PDF generation (A4 landscape)
-- Standalone build scripts per presentation
-- Dynamic document.title per presentation
-- Fullscreen mode
-- Content fill rate >= 70% on all slides
-- Open Graph (OG) tags and images for social sharing
-
-## Key Files
-- `frontend/src/pages/NoteAllOnePager.jsx` — Веб-версия One Pager
-- `frontend/src/components/NoteAllOnePagerPdf.jsx` — PDF-генератор One Pager (1 страница)
-- `frontend/src/pages/NoteAllInvestPresentation.jsx` — Веб-версия NoteAll презентации
-- `frontend/src/components/NoteAllPdfGenerator.jsx` — PDF-генератор NoteAll (14 слайдов)
-- `frontend/src/components/pdf-shared/PdfComponents.jsx` — Переиспользуемые PDF-компоненты
-
-## Latest Session (Feb 2026)
-- Fixed header: tagline now bold/bright (same as section titles)
-- Fixed SOM row: added padding (px-3 md:px-4) 
-- Fixed contacts in Round: visible at 1080p (reduced margins, 0.8fr bottom row)
-- Fixed PDF gaps: removed flex:1 from grid container and row wrappers (auto-size rows)
-- Updated PDF header text: bold + bright
-- Added "10–20x Сокращение расходов на разработку" to Stage section (web + PDF)
-- Added "< 3 мес. ROAS" to Round section in PDF
-
-## Backlog
-- P1: Fix .gitignore to allow deploy-* directories to be pushed to GitHub
-- P1: Verify build-noteall-onepager.sh works correctly (OG tags, paths)
-- P1: Confirm route preference for noteall.ru (FranchCamp -> `/`?)
-- P2: QR-коды на финальные слайды
-- P3: CSS рефакторинг (общие обёртки для слайдов)
+## Критические правила
+- Перед деплоем ВСЕГДА пересобирать билд
+- На проде ВСЁ через Docker (voice-workspace-frontend-1)
+- Команды для терминала — каждая ОТДЕЛЬНОЙ строкой
+- Nginx reload: `sudo docker exec voice-workspace-frontend-1 nginx -s reload`

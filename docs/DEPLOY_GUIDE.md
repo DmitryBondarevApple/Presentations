@@ -224,6 +224,9 @@ bash build-noteall-invest.sh
 
 # Noteall One Pager:
 bash build-noteall-onepager.sh
+
+# AX10:
+bash build-ax10.sh
 ```
 
 ### Шаг 2. Сохранить в GitHub
@@ -251,6 +254,9 @@ sudo cp -r /tmp/Presentations/deploy-noteall-invest/* /var/www/presentations/inv
 ```
 ```
 sudo cp -r /tmp/Presentations/deploy-noteall-onepager/* /var/www/presentations/onepager/
+```
+```
+sudo cp -r /tmp/Presentations/deploy-ax10/* /var/www/presentations/ax10/
 ```
 ```
 sudo chown -R www-data:www-data /var/www/presentations
