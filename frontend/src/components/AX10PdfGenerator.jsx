@@ -68,8 +68,7 @@ const S1 = ({ imgBase }) => (
 const S2 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Проблема" num={2} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
-      <Text style={{ ...FONT.h1, marginBottom: 10, lineHeight: 1.15 }}>
+    <Text style={{ ...FONT.h1, marginBottom: 10, lineHeight: 1.15 }}>
         Цифровой сервис начинают <Text style={{ color: T.accent }}>с предположений</Text>
       </Text>
       <Text style={{ fontSize: 14, color: T.fg2, lineHeight: 1.6, marginBottom: 18, maxWidth: 660 }}>
@@ -94,7 +93,6 @@ const S2 = () => (
           если идти в разработку без проверки, первая версия собирается на догадках, а не на данных.
         </Text>
       </Card>
-    </View>
     <Br />
   </Page>
 );
@@ -111,7 +109,6 @@ const solutionItems = [
 const S3 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Решение" num={3} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         AX10 готовит <Text style={{ color: T.accent }}>основу для разработки</Text>
       </Text>
@@ -126,7 +123,6 @@ const S3 = () => (
           </Card>
         ))}
       </View>
-    </View>
     <Br />
   </Page>
 );
@@ -146,7 +142,6 @@ const steps = [
 const S4 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Процесс" num={4} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         Семь этапов <Text style={{ color: T.accent }}>от идеи до ТЗ</Text>
       </Text>
@@ -171,7 +166,6 @@ const S4 = () => (
           </View>
         ))}
       </View>
-    </View>
     <Br />
   </Page>
 );
@@ -188,7 +182,6 @@ const sources = [
 const S5 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Данные" num={5} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         Выводы строятся на <Text style={{ color: T.accent }}>нескольких источниках</Text>
       </Text>
@@ -204,7 +197,6 @@ const S5 = () => (
           </Card>
         ))}
       </View>
-    </View>
     <Br />
   </Page>
 );
@@ -221,7 +213,6 @@ const aiPipeline = [
 const S6 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Технология" num={6} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         ИИ — <Text style={{ color: T.accent }}>рабочий инструмент</Text>, не вывеска
       </Text>
@@ -243,7 +234,6 @@ const S6 = () => (
           из десятков интервью — <Text style={{ fontWeight: 700, color: T.accent }}>структурированная база инсайтов</Text>, готовая для продуктовых решений.
         </Text>
       </Card>
-    </View>
     <Br />
   </Page>
 );
@@ -259,7 +249,6 @@ const transpFeatures = [
 const S7 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Прозрачность" num={7} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         Клиент видит <Text style={{ color: T.accent }}>весь процесс</Text>
       </Text>
@@ -285,7 +274,6 @@ const S7 = () => (
           </Text>
         </Card>
       </View>
-    </View>
     <Br />
   </Page>
 );
@@ -304,7 +292,6 @@ const deliverables = [
 const S8 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Результат" num={8} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         Полноценный <Text style={{ color: T.accent }}>пакет для старта</Text>
       </Text>
@@ -325,7 +312,6 @@ const S8 = () => (
           и дорожная карта — исчерпывающее задание для оценки трудозатрат, сроков и стоимости.
         </Text>
       </View>
-    </View>
     <Br />
   </Page>
 );
@@ -341,7 +327,6 @@ const tzPoints = [
 const S9 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Свобода выбора" num={9} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 10, lineHeight: 1.15 }}>
         ТЗ <Text style={{ color: T.accent }}>не привязано</Text> к AX10
       </Text>
@@ -366,7 +351,6 @@ const S9 = () => (
           <Text style={{ fontSize: 12, color: T.muted, marginTop: 10, textAlign: "center" }}>материалов остаётся у клиента</Text>
         </Card>
       </View>
-    </View>
     <Br />
   </Page>
 );
@@ -377,7 +361,6 @@ const S9 = () => (
 const S10 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Следующий шаг" num={10} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 10, lineHeight: 1.15 }}>
         После проекта — <Text style={{ color: T.accent }}>выбор за клиентом</Text>
       </Text>
@@ -406,7 +389,6 @@ const S10 = () => (
           разработка не навязывается. Клиент получает свободу выбора на каждом этапе.
         </Text>
       </Card>
-    </View>
     <Br />
   </Page>
 );
@@ -422,7 +404,6 @@ const advantages = [
 const S11 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Разработка" num={11} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         AX10 может <Text style={{ color: T.accent }}>реализовать ТЗ</Text>
       </Text>
@@ -443,7 +424,6 @@ const S11 = () => (
           это опция, а не условие. Разработка предлагается только после завершения исследовательского этапа.
         </Text>
       </Card>
-    </View>
     <Br />
   </Page>
 );
@@ -454,7 +434,6 @@ const S11 = () => (
 const S12 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="AI-first" num={12} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         AI-first подход: <Text style={{ color: T.accent }}>скорость и экономия</Text>
       </Text>
@@ -477,7 +456,6 @@ const S12 = () => (
           коммерческие сервисы, созданные с AI-first подходом, уже работают в продакшне.
         </Text>
       </Card>
-    </View>
     <Br />
   </Page>
 );
@@ -493,7 +471,6 @@ const guarantees = [
 const S13 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Независимость" num={13} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         AI-first <Text style={{ color: T.accent }}>не создаёт зависимость</Text>
       </Text>
@@ -514,7 +491,6 @@ const S13 = () => (
           высокая скорость, более низкий бюджет и <Text style={{ fontWeight: 700, color: T.accent }}>свобода смены исполнителя</Text> в будущем.
         </Text>
       </Card>
-    </View>
     <Br />
   </Page>
 );
@@ -531,7 +507,6 @@ const effects = [
 const S14 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Бизнес-эффект" num={14} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         Управляемый путь <Text style={{ color: T.accent }}>к запуску</Text>
       </Text>
@@ -552,7 +527,6 @@ const S14 = () => (
           подтверждённый продуктовый фокус, независимое ТЗ, затем реализация с любой командой или AI-first разработка силами AX10.
         </Text>
       </View>
-    </View>
     <Br />
   </Page>
 );
@@ -568,7 +542,6 @@ const phases = [
 const S15 = () => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Формат проекта" num={15} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 6, lineHeight: 1.15 }}>
         <Text style={{ color: T.accent }}>7–9 недель</Text> до результата
       </Text>
@@ -594,7 +567,6 @@ const S15 = () => (
           </View>
         ))}
       </View>
-    </View>
     <Br />
   </Page>
 );
@@ -611,7 +583,6 @@ const team = [
 const S16 = ({ imgBase }) => (
   <Page size={[PW, PH]} style={pg}>
     <Hdr label="Контакты" num={16} />
-    <View style={{ flex: 1, justifyContent: "center" }}>
       <Text style={{ ...FONT.h1, marginBottom: 10, lineHeight: 1.15 }}>
         Начните с <Text style={{ color: T.accent }}>проверенного фундамента</Text>
       </Text>
@@ -641,7 +612,6 @@ const S16 = ({ imgBase }) => (
           <Text style={{ fontSize: 10, color: T.muted, marginTop: 1 }}>+7(900)916-73-69</Text>
         </View>
       </View>
-    </View>
     <Br />
   </Page>
 );
