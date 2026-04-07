@@ -1,9 +1,9 @@
 import { AXSlideContainer } from './AXSlideContainer';
 
 const phases = [
-  { weeks: "Недели 1–2", title: "Подготовка", items: ["Уточнение параметров проекта", "Дизайн исследования", "Подготовка гайдов и инструментов"], active: true },
-  { weeks: "Недели 3–5", title: "Полевой этап и аналитика", items: ["Интервью и анкетирование", "ИИ-обработка и кабинетное исследование", "Промежуточные выводы"], active: true },
-  { weeks: "Недели 6–9", title: "Синтез и ТЗ", items: ["Формирование продуктовых сценариев", "Структура MVP и приоритеты", "Техническое задание и дорожная карта"], active: false },
+  { weeks: "Недели 1–2", title: "Подготовка", items: ["Уточнение параметров проекта", "Дизайн исследования", "Подготовка гайдов и инструментов"] },
+  { weeks: "Недели 3–5", title: "Полевой этап и аналитика", items: ["Интервью и анкетирование", "ИИ-обработка и кабинетное исследование", "Промежуточные выводы"] },
+  { weeks: "Недели 6–9", title: "Синтез и ТЗ", items: ["Формирование продуктовых сценариев", "Структура MVP и приоритеты", "Техническое задание и дорожная карта"] },
 ];
 
 const AXSlide15Format = () => (
@@ -16,8 +16,8 @@ const AXSlide15Format = () => (
     </p>
     <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 md:gap-6">
       {phases.map((p, i) => (
-        <div key={i} className={`flex-1 bg-card rounded-lg border ${p.active ? 'border-2 border-accent' : 'border-border'} p-3 sm:p-5 md:p-7`} data-testid={`ax-phase-${i}`}>
-          <span className={`inline-block px-2 py-0.5 sm:px-3 sm:py-1 md:px-4 md:py-1.5 rounded ${p.active ? 'bg-accent text-white' : 'bg-accent/10 text-accent'} text-[10px] sm:text-xs md:text-sm font-bold tracking-wider mb-2 sm:mb-3 md:mb-4`}>
+        <div key={i} className="flex-1 bg-card rounded-lg border-2 border-accent p-3 sm:p-5 md:p-7" data-testid={`ax-phase-${i}`}>
+          <span className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 md:px-4 md:py-1.5 rounded bg-accent text-white text-[10px] sm:text-xs md:text-sm font-bold tracking-wider mb-2 sm:mb-3 md:mb-4">
             {p.weeks}
           </span>
           <h3 className="font-heading text-sm sm:text-base md:text-xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4">{p.title}</h3>

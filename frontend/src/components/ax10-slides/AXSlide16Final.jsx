@@ -3,10 +3,8 @@ import { AXSlideContainer } from './AXSlideContainer';
 const team = [
   { name: "Сергей Мартюшев", role: "Финансы", exp: "20+ лет" },
   { name: "Сергей Бобылев", role: "Продажи", exp: "7+ лет" },
-  { name: "Ирина Радюшкина", role: "Маркетинг", exp: "15+ лет" },
   { name: "Дмитрий Бондарев", role: "Разработка", exp: "30+ лет" },
   { name: "Сергей Томилов", role: "Коммуникации", exp: "7+ лет" },
-  { name: "Михаил Карпов", role: "Продукт", exp: "10+ лет" },
 ];
 
 const AXSlide16Final = () => (
@@ -18,7 +16,7 @@ const AXSlide16Final = () => (
       AX10 помогает сделать первый шаг к запуску цифрового сервиса быстрым, обоснованным и управляемым.
     </p>
 
-    <div className="grid grid-cols-3 md:grid-cols-6 gap-1.5 sm:gap-2 md:gap-3 mb-2 sm:mb-4 md:mb-8">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 sm:gap-2 md:gap-4 mb-2 sm:mb-4 md:mb-8">
       {team.map((t, i) => (
         <div key={i} className="bg-card rounded-lg border border-border p-2 sm:p-3 md:p-4 text-center" data-testid={`ax-team-${i}`}>
           <p className="font-heading text-[10px] sm:text-xs md:text-sm font-bold text-foreground truncate">{t.name}</p>
@@ -34,8 +32,11 @@ const AXSlide16Final = () => (
           <h3 className="font-heading text-sm sm:text-base md:text-2xl font-bold text-foreground mb-1 sm:mb-2">Следующий шаг — диагностическая сессия</h3>
           <p className="font-body text-xs sm:text-sm md:text-lg text-muted-foreground leading-snug">Расскажите о задаче. Мы зададим вопросы и дадим аналитику бесплатно на первом звонке.</p>
         </div>
-        <div className="shrink-0 text-right">
+        <div className="shrink-0 text-right space-y-1">
           <p className="font-heading text-sm sm:text-base md:text-xl font-bold text-accent">ax10.ru</p>
+          <p className="font-body text-[10px] sm:text-xs md:text-sm text-foreground/80">Сергей Мартюшев</p>
+          <p className="font-body text-[10px] sm:text-xs md:text-sm text-muted-foreground">@smartfincons</p>
+          <p className="font-body text-[10px] sm:text-xs md:text-sm text-muted-foreground">+7(900)916-73-69</p>
         </div>
       </div>
     </div>

@@ -561,9 +561,9 @@ const S14 = () => (
 /* SLIDE 15: PROJECT FORMAT                               */
 /* ═══════════════════════════════════════════════════════ */
 const phases = [
-  { period: "НЕДЕЛИ 1–2", title: "Подготовка", items: ["Уточнение параметров", "Дизайн исследования", "Подготовка инструментов"], active: true },
-  { period: "НЕДЕЛИ 3–5", title: "Полевой этап", items: ["Интервью и анкетирование", "ИИ-обработка данных", "Кабинетное исследование"], active: true },
-  { period: "НЕДЕЛИ 6–9", title: "Синтез и ТЗ", items: ["Продуктовые сценарии", "Структура MVP", "ТЗ и дорожная карта"], active: false },
+  { period: "НЕДЕЛИ 1–2", title: "Подготовка", items: ["Уточнение параметров", "Дизайн исследования", "Подготовка инструментов"] },
+  { period: "НЕДЕЛИ 3–5", title: "Полевой этап", items: ["Интервью и анкетирование", "ИИ-обработка данных", "Кабинетное исследование"] },
+  { period: "НЕДЕЛИ 6–9", title: "Синтез и ТЗ", items: ["Продуктовые сценарии", "Структура MVP", "ТЗ и дорожная карта"] },
 ];
 const S15 = () => (
   <Page size={[PW, PH]} style={pg}>
@@ -579,9 +579,9 @@ const S15 = () => (
         {phases.map((p, i) => (
           <View key={i} style={{
             flex: 1, backgroundColor: T.bg2, borderRadius: 8, padding: 20,
-            borderWidth: p.active ? 2 : 1, borderColor: p.active ? T.accent : T.border,
+            borderWidth: 2, borderColor: T.accent,
           }}>
-            <Badge theme={T} solid={p.active}>{p.period}</Badge>
+            <Badge theme={T} solid>{p.period}</Badge>
             <Text style={{ fontSize: 16, fontWeight: 700, color: T.fg, marginTop: 12, marginBottom: 10 }}>{p.title}</Text>
             <View style={{ gap: 8 }}>
               {p.items.map((item, j) => (
@@ -605,10 +605,8 @@ const S15 = () => (
 const team = [
   { name: "С. Мартюшев", role: "Финансы", exp: "20+ лет" },
   { name: "С. Бобылев", role: "Продажи", exp: "7+ лет" },
-  { name: "И. Радюшкина", role: "Маркетинг", exp: "15+ лет" },
   { name: "Д. Бондарев", role: "Разработка", exp: "30+ лет" },
   { name: "С. Томилов", role: "PR", exp: "7+ лет" },
-  { name: "М. Карпов", role: "Продукт", exp: "10+ лет" },
 ];
 const S16 = ({ imgBase }) => (
   <Page size={[PW, PH]} style={pg}>
@@ -620,9 +618,9 @@ const S16 = ({ imgBase }) => (
       <Text style={{ fontSize: 14, color: T.muted, marginBottom: 18, lineHeight: 1.5 }}>
         AX10 помогает сделать первый шаг к запуску цифрового сервиса быстрым, обоснованным и управляемым.
       </Text>
-      <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10, marginBottom: 16 }}>
+      <View style={{ flexDirection: "row", gap: 12, marginBottom: 16 }}>
         {team.map((t, i) => (
-          <Card key={i} theme={T} style={{ width: "31.5%", padding: 12, alignItems: "center" }}>
+          <Card key={i} theme={T} style={{ flex: 1, padding: 14, alignItems: "center" }}>
             <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg }}>{t.name}</Text>
             <Text style={{ fontSize: 11, color: T.accent, marginTop: 2 }}>{t.role}</Text>
             <Text style={{ fontSize: 10, color: T.muted, marginTop: 2 }}>{t.exp}</Text>
@@ -634,10 +632,13 @@ const S16 = ({ imgBase }) => (
           <Text style={{ fontSize: 16, fontWeight: 700, color: T.fg, marginBottom: 4 }}>Следующий шаг — диагностическая сессия</Text>
           <Text style={{ fontSize: 12, color: T.muted, lineHeight: 1.5 }}>Расскажите о задаче. Мы дадим аналитику бесплатно на первом звонке.</Text>
         </View>
-        <View style={{ alignItems: "center" }}>
+        <View style={{ alignItems: "flex-end" }}>
           <Image src={`${imgBase}/images/ax10/logo-ax10.png`}
             style={{ width: 80, height: 30, objectFit: "contain", marginBottom: 6 }} />
           <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent }}>ax10.ru</Text>
+          <Text style={{ fontSize: 11, color: T.fg2, marginTop: 4 }}>Сергей Мартюшев</Text>
+          <Text style={{ fontSize: 10, color: T.muted, marginTop: 2 }}>@smartfincons</Text>
+          <Text style={{ fontSize: 10, color: T.muted, marginTop: 1 }}>+7(900)916-73-69</Text>
         </View>
       </View>
     </View>
