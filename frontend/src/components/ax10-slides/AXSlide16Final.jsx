@@ -35,7 +35,9 @@ const AXSlide16Final = () => (
         <div className="shrink-0 text-right space-y-1">
           <p className="font-heading text-sm sm:text-base md:text-xl font-bold text-accent">ax10.ru</p>
           <p className="font-body text-[10px] sm:text-xs md:text-sm text-foreground/80">Сергей Мартюшев</p>
-          <p className="font-body text-[10px] sm:text-xs md:text-sm text-muted-foreground">@smartfincons</p>
+          <p className="font-body text-[10px] sm:text-xs md:text-sm text-muted-foreground">
+            <a href="https://t.me/smartfincons" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">@smartfincons</a>
+          </p>
           <p className="font-body text-[10px] sm:text-xs md:text-sm text-muted-foreground">+7(900)916-73-69</p>
         </div>
       </div>

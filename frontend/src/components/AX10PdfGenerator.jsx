@@ -8,7 +8,7 @@
  */
 import React from "react";
 import {
-  Document, Page, View, Text, Image, pdf,
+  Document, Page, View, Text, Image, Link, pdf,
 } from "@react-pdf/renderer";
 import {
   registerInterFont, PAGE, Header, Brand, Dot, Badge, Card, Divider,
@@ -608,7 +608,7 @@ const S16 = ({ imgBase }) => (
             style={{ width: 80, height: 30, objectFit: "contain", marginBottom: 6 }} />
           <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent }}>ax10.ru</Text>
           <Text style={{ fontSize: 11, color: T.fg2, marginTop: 4 }}>Сергей Мартюшев</Text>
-          <Text style={{ fontSize: 10, color: T.muted, marginTop: 2 }}>@smartfincons</Text>
+          <Link src="https://t.me/smartfincons" style={{ fontSize: 10, color: T.accent, marginTop: 2, textDecoration: "none" }}>@smartfincons</Link>
           <Text style={{ fontSize: 10, color: T.muted, marginTop: 1 }}>+7(900)916-73-69</Text>
         </View>
       </View>
