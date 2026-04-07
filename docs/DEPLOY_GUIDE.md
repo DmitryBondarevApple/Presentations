@@ -229,6 +229,45 @@ bash build-noteall-onepager.sh
 bash build-ax10.sh
 ```
 
+---
+
+## Обязательные требования при создании новой презентации
+
+> **КАЖДАЯ новая презентация ОБЯЗАНА включать:**
+
+### 1. OG-теги (Open Graph)
+- OG-картинка = **скриншот титульного слайда** (1920x1080, JPEG, quality=85)
+- Файл сохраняется в `public/images/{name}/og-{name}.jpg`
+- Билд-скрипт ОБЯЗАН инжектить OG-теги в `index.html`:
+  - `og:title` — заголовок презентации
+  - `og:description` — краткое описание
+  - `og:image` — URL картинки на `presentations.noteall.ru`
+  - `og:url` — URL презентации
+  - `og:site_name` — название бренда
+  - `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`
+  - `description` (мета-тег)
+
+### 2. PDF-генератор
+- A4 Landscape (`841.89 x 595.28 pt`)
+- Шрифт Inter (зарегистрирован через `registerInterFont()`)
+- НЕ использовать `flex: 1` + `justifyContent: "center"` — контент идёт сверху вниз
+
+### 3. Мобильная адаптивность
+- Следовать `/app/docs/MOBILE_LAYOUT_GUIDE.md`
+- Свайп-навигация обязательна
+
+### 4. Билд-скрипт
+- `build-{name}.sh` в корне `/app/`
+- Создаёт изолированный SPA-билд
+- Инжектит title и OG-теги
+- Результат в `deploy-{name}/`
+
+### 5. Nginx location
+- Добавить блок в `server-config/presentations.conf`
+- На сервере: скопировать конфиг, перезагрузить Nginx через Docker
+
+---
+
 ### Шаг 2. Сохранить в GitHub
 
 Кнопка "Save to Github" в Emergent (репо `DmitryBondarevApple/Presentations`).
