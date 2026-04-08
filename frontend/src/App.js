@@ -7,6 +7,7 @@ import MakeUsBeautifulPresentation from "@/pages/MakeUsBeautifulPresentation";
 import NoteAllInvestPresentation from "@/pages/NoteAllInvestPresentation";
 import NoteAllOnePager from "@/pages/NoteAllOnePager";
 import AX10Presentation from "@/pages/AX10Presentation";
+import AX10OnePager from "@/pages/AX10OnePager";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/invest" element={<NoteAllInvestPresentation />} />
         <Route path="/onepager" element={<NoteAllOnePager />} />
         <Route path="/ax10" element={<AX10Presentation />} />
+        <Route path="/ax10-onepager" element={<AX10OnePager />} />
       </Routes>
     </BrowserRouter>
   );

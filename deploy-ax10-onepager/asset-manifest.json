@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ax10-onepager/static/css/main.ab4d6cd7.css",
+    "main.js": "/ax10-onepager/static/js/main.243b6d27.js",
+    "index.html": "/ax10-onepager/index.html",
+    "main.ab4d6cd7.css.map": "/ax10-onepager/static/css/main.ab4d6cd7.css.map",
+    "main.243b6d27.js.map": "/ax10-onepager/static/js/main.243b6d27.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab4d6cd7.css",
+    "static/js/main.243b6d27.js"
+  ]
+}
