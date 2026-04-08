@@ -1,125 +1,76 @@
 {
-  "project_name": "FranchCamp Presentation Fix",
-  "version": "1.0",
-  "identity": {
-    "persona": "E1",
-    "tone": "Bold, immersive, dark tech, presentation-scale",
-    "theme": "dark"
+  "theme_and_archetype": {
+    "domain": "Digital Consulting / AI / Tech Specs",
+    "theme": "dark",
+    "archetype": "Archetype 4 (Swiss & High-Contrast) - Control Room Variant",
+    "background_color": "#0b1120",
+    "accent_color": "#3b82f6",
+    "text_primary": "#ffffff",
+    "text_secondary": "#94a3b8",
+    "border_color": "#1e293b"
   },
   "typography": {
-    "fonts": {
-      "heading": "Space Grotesk, sans-serif",
-      "body": "Inter, sans-serif"
-    },
-    "scale_mapping": {
-      "text-[10px]": "text-sm (14px) or text-base (16px)",
-      "text-xs": "text-lg (18px) or text-xl (20px)",
-      "text-sm": "text-2xl (24px)",
-      "text-base": "text-3xl (30px)",
-      "text-lg": "text-4xl (36px)",
-      "text-xl": "text-5xl (48px)",
-      "text-2xl": "text-6xl (60px)",
-      "text-3xl": "text-7xl (72px)",
-      "text-4xl": "text-8xl (96px) or text-[100px]"
-    },
-    "rules": [
-      "NEVER use text smaller than text-lg (18px) for body content.",
-      "Headings must be massive (text-6xl+). This is a presentation, not a blog post.",
-      "Labels and metadata should be text-sm minimum.",
-      "Increase line-height to 'leading-relaxed' or 'leading-loose' for all body text to fill vertical space.",
-      "Use tracking-tight for large headings."
-    ]
-  },
-  "colors": {
-    "background": "hsl(240 100% 10%)",
-    "foreground": "hsl(0 0% 98%)",
-    "accent": "hsl(15 88% 56%)",
-    "muted": "hsl(240 30% 28%)",
-    "muted_foreground": "hsl(225 18% 62%)",
-    "border": "hsl(240 30% 26%)",
-    "card": "hsl(240 50% 15%)"
-  },
-  "layout": {
-    "global_spacing": {
-      "container_padding": "px-16 md:px-24 lg:px-32",
-      "section_gap": "gap-12 md:gap-16 lg:gap-24",
-      "internal_padding": "p-8 or p-10 (for cards)"
-    },
-    "alignment": {
-      "vertical_center": "flex flex-col justify-center h-full",
-      "horizontal_center": "items-center text-center",
-      "grid_gap": "gap-8 or gap-12"
+    "font_family": "Inter, sans-serif",
+    "hierarchy": {
+      "overline": "text-[10px] sm:text-xs font-bold tracking-[0.15em] uppercase text-blue-500 mb-2",
+      "heading": "text-sm sm:text-base font-semibold text-white tracking-tight mb-2 leading-tight",
+      "body": "text-[10px] sm:text-xs text-slate-400 leading-relaxed",
+      "metric_value": "text-2xl sm:text-3xl lg:text-4xl font-light tracking-tighter text-white",
+      "metric_label": "text-[10px] sm:text-xs text-blue-400 font-medium"
     }
+  },
+  "layout_and_spacing": {
+    "container": "h-[100dvh] w-full bg-[#0b1120] p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6 overflow-hidden",
+    "header": "flex justify-between items-center shrink-0 pb-4 border-b border-slate-800",
+    "grid": "flex-1 min-h-0 grid grid-cols-1 md:grid-cols-3 grid-rows-3 gap-3 md:gap-4",
+    "card": "bg-slate-900/40 border border-slate-800 rounded-xl p-4 sm:p-5 flex flex-col relative overflow-hidden",
+    "print_styles": "Ensure `print:bg-[#0b1120] print:text-white` or exact color adjustment is used so the dark theme prints as designed."
   },
   "components": {
-    "FCSlideContainer": {
-      "path": "/app/frontend/src/components/franchcamp-slides/FCSlideContainer.jsx",
-      "instructions": [
-        "Increase container padding from px-8/px-16 to px-16/px-24/px-32.",
-        "Ensure content area uses max-w-7xl or w-full to fill width.",
-        "Increase header/footer text sizes (label, page number) to text-sm."
-      ]
+    "lists": {
+      "description": "Replace chaotic dots with a clean, unified list style. Use a simple 1px left border for steps, or consistent low-opacity numbers.",
+      "implementation": "<div className=\"flex gap-2 items-start mb-1.5 md:mb-2\"><span className=\"text-slate-600 font-mono text-[10px] sm:text-xs\">{num}</span><span className=\"text-[10px] sm:text-xs text-slate-300 leading-snug\">{text}</span></div>"
     },
-    "FCNoteallSlide": {
-      "path": "/app/frontend/src/components/franchcamp-slides/FCNoteallSlide.jsx",
-      "slide_number": 5,
-      "instructions": [
-        "CRITICAL: Fix vertical misalignment. Add 'items-center' to the flex-row container holding the two columns.",
-        "Increase main title 'Noteall' to text-7xl or text-8xl.",
-        "Increase subtitle/description to text-2xl/text-3xl.",
-        "Increase list items to text-xl or text-2xl.",
-        "Increase card padding and border width."
-      ]
+    "callouts": {
+      "description": "Replace all the scattered `Mini` boxes with unified left-border callouts or crisp flex-row metrics.",
+      "implementation": "<div className=\"pl-3 border-l-2 border-blue-500 mt-auto pt-1\"><p className=\"text-[10px] sm:text-xs font-medium text-white\">{text}</p></div>"
     },
-    "FCEchoMindSlide": {
-      "path": "/app/frontend/src/components/franchcamp-slides/FCEchoMindSlide.jsx",
-      "slide_number": 6,
-      "instructions": [
-        "CRITICAL: Fix vertical misalignment. Add 'items-center' to the flex-row container.",
-        "Increase main title 'EchoMind' to text-7xl or text-8xl.",
-        "Stats grid: Increase numbers to text-5xl/text-6xl, labels to text-lg.",
-        "Feature list: Increase text to text-xl or text-2xl.",
-        "Use 'gap-16' between columns."
-      ]
-    },
-    "FCTitleSlide": {
-      "path": "/app/frontend/src/components/franchcamp-slides/FCTitleSlide.jsx",
-      "instructions": [
-        "Make 'HOP.AGENCY' massive (text-4xl+).",
-        "Make main title 'AI as part of package...' MASSIVE (text-7xl to text-9xl).",
-        "Body text should be text-2xl or text-3xl.",
-        "Use more vertical space."
-      ]
-    },
-    "FCBlocksSlide": {
-      "path": "/app/frontend/src/components/franchcamp-slides/FCBlocksSlide.jsx",
-      "instructions": [
-        "Grid cards need to be taller and have more padding (p-10).",
-        "Card titles: text-3xl. Card desc: text-xl.",
-        "Main Title: text-6xl+."
-      ]
-    },
-    "FCFinalSlide": {
-      "path": "/app/frontend/src/components/franchcamp-slides/FCFinalSlide.jsx",
-      "instructions": [
-        "Contact info text size must be at least text-2xl.",
-        "Final 'HOP.AGENCY' logo should be huge.",
-        "Use gap-16 for layout separation."
-      ]
-    },
-    "GeneralSlides": {
-      "instructions": [
-        "Apply the 2x-2.5x font scale to ALL other slides (Context, Value, Emergent, Offer).",
-        "Ensure no slide feels empty. Use font size and spacing to fill the viewport comfortably."
-      ]
+    "metrics_row": {
+      "description": "For cards with numbers (AI-first Dev, Independent TZ), use a clean flex row of large numbers.",
+      "implementation": "<div className=\"flex items-end gap-4\"><div className=\"flex flex-col\"><span className=\"text-3xl text-white font-light leading-none\">100%</span><span className=\"text-[10px] text-blue-500 mt-1\">материалов у клиента</span></div></div>"
     }
   },
+  "content_mapping": {
+    "header": "Logo, title, @smartfincons, +79009167369, ax10.ru, PDF button.",
+    "row_1": [
+      { "id": "problem", "overline": "Проблема", "heading": "Запуск на догадках", "content": "Bullet points replaced with left-border list. Footer callout: 'Без проверки = месяцы и миллионы впустую'." },
+      { "id": "solution", "overline": "Решение", "heading": "Основа для разработки", "content": "Clean list of deliverables." },
+      { "id": "process", "overline": "Процесс", "heading": "7 этапов за 7–9 недель", "content": "Numbered list 01-07, small mono numbers." }
+    ],
+    "row_2": [
+      { "id": "data_ai", "overline": "Данные и ИИ", "heading": "Мультиисточниковая аналитика", "content": "Remove generic mini blocks. Use two clean sections: '4 источника' and 'ИИ полного цикла'." },
+      { "id": "deliverables", "overline": "Результат", "heading": "Полный пакет для старта", "content": "Clean list. Bottom highlight: '+ ТЗ и дорожная карта'." },
+      { "id": "independent_tz", "overline": "Свобода выбора", "heading": "ТЗ не привязано к AX10", "content": "Large 100% metric, followed by list of benefits." }
+    ],
+    "row_3": [
+      { "id": "ai_dev", "overline": "AI-first разработка", "heading": "Опциональный следующий шаг", "content": "Metrics 5-6x (дешевле) and 10x+ (быстрее) placed side-by-side cleanly." },
+      { "id": "business_effect", "overline": "Бизнес-эффект", "heading": "Управляемый путь к запуску", "content": "Three clear points: Снижение риска, Экономия бюджета, Ускорение запуска." },
+      { "id": "team_cta", "overline": "Команда", "heading": "Экспертиза", "content": "Name + Role/Exp rows, clean flex layout. Bottom CTA: 'Диагностическая сессия'." }
+    ]
+  },
+  "interactive_elements": {
+    "pdf_button": "Button variant 'ghost' with hover state: `hover:bg-slate-800 hover:text-white`. Ensure `data-testid=\"ax-op-pdf-btn\"`."
+  },
+  "testing_attributes": [
+    "data-testid=\"ax-onepager\"",
+    "data-testid=\"ax-op-logo\"",
+    "data-testid=\"ax-op-pdf-btn\""
+  ],
   "instructions_to_main_agent": [
-    "1. Read this guidelines file first.",
-    "2. Modify 'FCSlideContainer.jsx' to increase global padding and base font sizes.",
-    "3. Go through EACH slide component file (FCTitleSlide, FCContextSlide, FCValueSlide, FCBlocksSlide, FCNoteallSlide, FCEchoMindSlide, FCEmergentSlide, FCOfferSlide, FCFinalSlide) and apply the new typography scale and spacing rules.",
-    "4. Specifically for FCNoteallSlide (Slide 5) and FCEchoMindSlide (Slide 6), ensure you add 'items-center' to the flex container to fix the vertical alignment issue.",
-    "5. Do NOT change colors or the dark theme foundation.",
-    "6. Do NOT break the slide navigation or PDF generation logic."
+    "Rewrite `AX10OnePager.jsx` completely.",
+    "Remove `Mini` and `Dot` components. Create cleaner, less boxed-in structures like `ListItem` and `Callout`.",
+    "Apply `h-[100dvh]` and strictly ensure no scrolling via `overflow-hidden`.",
+    "Implement the dark theme using inline classes: `bg-[#0b1120]`, `text-slate-300`, `border-slate-800`.",
+    "Use proper flexbox (`flex-1`, `mt-auto`) to distribute vertical space inside the cards rather than letting text cram to the top."
   ]
 }
