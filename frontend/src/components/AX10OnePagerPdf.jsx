@@ -28,10 +28,10 @@ const Over = ({ children }) => (
 const Hd = ({ children }) => (
   <Text style={{ fontSize: 10, fontWeight: 700, color: T.fg, marginBottom: 2, lineHeight: 1.2 }}>{children}</Text>
 );
-const Li = ({ n, children }) => (
-  <View style={{ flexDirection: "row", gap: 3, alignItems: "flex-start", marginBottom: 1 }}>
+const Li = ({ n, children, lh }) => (
+  <View style={{ flexDirection: "row", gap: 3, alignItems: "flex-start", marginBottom: lh ? 2.5 : 1 }}>
     <Text style={{ fontSize: 7.5, color: T.dim, width: 10, textAlign: "right" }}>{n || "—"}</Text>
-    <Text style={{ fontSize: 8, color: T.muted, lineHeight: 1.3, flex: 1 }}>{children}</Text>
+    <Text style={{ fontSize: 8, color: T.muted, lineHeight: lh || 1.3, flex: 1 }}>{children}</Text>
   </View>
 );
 const Callout = ({ children }) => (
@@ -39,10 +39,10 @@ const Callout = ({ children }) => (
     <Text style={{ fontSize: 8, fontWeight: 600, color: T.fg }}>{children}</Text>
   </View>
 );
-const BBlock = ({ label, desc, accent }) => (
-  <View style={{ paddingLeft: 5, borderLeftWidth: 2, borderLeftColor: accent ? T.accent : T.border, marginBottom: 2 }}>
-    <Text style={{ fontSize: 8, fontWeight: 600, color: accent ? T.accent : T.fg }}>{label}</Text>
-    {desc && <Text style={{ fontSize: 7, color: T.muted, marginTop: 0.5 }}>{desc}</Text>}
+const BBlock = ({ label, desc, accent, lh }) => (
+  <View style={{ paddingLeft: 5, borderLeftWidth: 2, borderLeftColor: accent ? T.accent : T.border, marginBottom: lh ? 4 : 2 }}>
+    <Text style={{ fontSize: 8, fontWeight: 600, color: accent ? T.accent : T.fg, lineHeight: lh || 1.3 }}>{label}</Text>
+    {desc && <Text style={{ fontSize: 7, color: T.muted, marginTop: 0.5, lineHeight: lh || 1.3 }}>{desc}</Text>}
   </View>
 );
 
@@ -87,21 +87,23 @@ const AX10OnePagerDoc = ({ imgBase }) => (
           <Cell>
             <Over>ПРОБЛЕМА</Over>
             <Hd>Запуск на догадках</Hd>
-            <Li n="—">Кто станет ранним пользователем</Li>
-            <Li n="—">Какие сценарии действительно нужны</Li>
-            <Li n="—">Какие гипотезы подтверждаются рынком</Li>
-            <Li n="—">Что должно войти в первый релиз</Li>
-            <Callout>Без проверки = месяцы и миллионы впустую</Callout>
+            <Li lh={1.2} n="—">Кто станет ранним пользователем</Li>
+            <Li lh={1.2} n="—">Какие сценарии действительно нужны</Li>
+            <Li lh={1.2} n="—">Какие гипотезы подтверждаются рынком</Li>
+            <Li lh={1.2} n="—">Что должно войти в первый релиз</Li>
+            <View style={{ marginTop: 10 }}>
+              <Callout>Без проверки = месяцы и миллионы впустую</Callout>
+            </View>
           </Cell>
 
           <Cell>
             <Over>РЕШЕНИЕ</Over>
             <Hd>Основа для разработки</Hd>
-            <Text style={{ fontSize: 7.5, color: T.muted, lineHeight: 1.3, marginBottom: 2 }}>Исследовательский проект. На выходе — пакет для запуска:</Text>
-            <Li n="—">Подтверждённые гипотезы</Li>
-            <Li n="—">Пользовательские сценарии</Li>
-            <Li n="—">Портрет раннего пользователя</Li>
-            <Li n="—">Структура MVP и техническое задание</Li>
+            <Text style={{ fontSize: 7.5, color: T.muted, lineHeight: 1.2, marginBottom: 2 }}>Исследовательский проект. На выходе — пакет для запуска:</Text>
+            <Li lh={1.2} n="—">Подтверждённые гипотезы</Li>
+            <Li lh={1.2} n="—">Пользовательские сценарии</Li>
+            <Li lh={1.2} n="—">Портрет раннего пользователя</Li>
+            <Li lh={1.2} n="—">Структура MVP и техническое задание</Li>
           </Cell>
 
           <Cell>
@@ -122,20 +124,20 @@ const AX10OnePagerDoc = ({ imgBase }) => (
           <Cell>
             <Over>ДАННЫЕ И ИИ</Over>
             <Hd>Мультиисточниковая аналитика</Hd>
-            <BBlock accent label="4 источника данных" desc="Интервью · Рынок · Инфраструктура · Клиент" />
-            <BBlock accent label="ИИ полного цикла" desc="Транскрипт → Summary → Структура → Выводы" />
-            <Text style={{ fontSize: 7, color: T.dim, marginTop: 2 }}>Онлайн-дашборд · доступ <Text style={{ color: T.accent, fontWeight: 600 }}>3 года</Text></Text>
+            <BBlock lh={1.2} accent label="4 источника данных" desc="Интервью · Рынок · Инфраструктура · Клиент" />
+            <BBlock lh={1.2} accent label="ИИ полного цикла" desc="Транскрипт → Summary → Структура → Выводы" />
+            <Text style={{ fontSize: 7, color: T.dim, marginTop: 2, lineHeight: 1.2 }}>Онлайн-дашборд · доступ <Text style={{ color: T.accent, fontWeight: 600 }}>3 года</Text></Text>
           </Cell>
 
           <Cell>
             <Over>РЕЗУЛЬТАТ</Over>
             <Hd>Полный пакет для старта</Hd>
-            <Li n="—">База инсайтов из интервью</Li>
-            <Li n="—">Кабинетное исследование рынка</Li>
-            <Li n="—">Сводный аналитический документ</Li>
-            <Li n="—">Карта пользовательских сценариев</Li>
-            <Li n="—">Портрет раннего пользователя</Li>
-            <Li n="—">Функционал MVP</Li>
+            <Li lh={1.2} n="—">База инсайтов из интервью</Li>
+            <Li lh={1.2} n="—">Кабинетное исследование рынка</Li>
+            <Li lh={1.2} n="—">Сводный аналитический документ</Li>
+            <Li lh={1.2} n="—">Карта пользовательских сценариев</Li>
+            <Li lh={1.2} n="—">Портрет раннего пользователя</Li>
+            <Li lh={1.2} n="—">Функционал MVP</Li>
             <Callout>+ ТЗ и дорожная карта</Callout>
           </Cell>
 
@@ -144,9 +146,9 @@ const AX10OnePagerDoc = ({ imgBase }) => (
             <Hd>ТЗ не привязано к AX10</Hd>
             <Text style={{ fontSize: 20, fontWeight: 300, color: T.fg, letterSpacing: -1, lineHeight: 1 }}>100%</Text>
             <Text style={{ fontSize: 7, color: T.accent, fontWeight: 600, marginTop: 1, marginBottom: 3 }}>материалов остаётся у клиента</Text>
-            <Li n="—">Передайте любой команде разработки</Li>
-            <Li n="—">Достаточно для оценки сроков и стоимости</Li>
-            <Li n="—">Не требует консультаций с AX10</Li>
+            <Li lh={1.2} n="—">Передайте любой команде разработки</Li>
+            <Li lh={1.2} n="—">Достаточно для оценки сроков и стоимости</Li>
+            <Li lh={1.2} n="—">Не требует консультаций с AX10</Li>
           </Cell>
         </Row>
 
@@ -173,9 +175,9 @@ const AX10OnePagerDoc = ({ imgBase }) => (
           <Cell>
             <Over>БИЗНЕС-ЭФФЕКТ</Over>
             <Hd>Управляемый путь к запуску</Hd>
-            <BBlock label="Снижение риска" desc="Первый релиз на данных, а не догадках" />
-            <BBlock label="Экономия бюджета" desc="Инвестиции только в подтверждённое" />
-            <BBlock label="Ускорение запуска" desc="Готовое ТЗ сокращает планирование" />
+            <BBlock lh={1.2} label="Снижение риска" desc="Первый релиз на данных, а не догадках" />
+            <BBlock lh={1.2} label="Экономия бюджета" desc="Инвестиции только в подтверждённое" />
+            <BBlock lh={1.2} label="Ускорение запуска" desc="Готовое ТЗ сокращает планирование" />
           </Cell>
 
           <Cell>
