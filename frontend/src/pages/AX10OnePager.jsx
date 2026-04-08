@@ -37,11 +37,11 @@ export default function AX10OnePager() {
   }, []);
 
   return (
-    <div className="h-[100dvh] w-full bg-[#0b1120] text-white p-3 sm:p-4 md:p-6 flex flex-col overflow-hidden"
+    <div className="h-[100dvh] w-full bg-[#0b1120] text-white p-2.5 sm:p-3 md:p-5 flex flex-col overflow-hidden"
       data-testid="ax-onepager">
 
       {/* HEADER */}
-      <div className="flex items-center justify-between shrink-0 pb-3 mb-3 border-b border-slate-800">
+      <div className="flex items-center justify-between shrink-0 pb-2 mb-2 border-b border-slate-800">
         <div className="flex items-center gap-3 min-w-0">
           <img src={`${process.env.PUBLIC_URL || ''}/images/ax10/logo-ax10.png`} alt="AX10" className="h-6 md:h-7 shrink-0" data-testid="ax-op-logo" />
           <div className="hidden sm:block w-px h-5 bg-slate-700 shrink-0" />
@@ -192,10 +192,10 @@ export default function AX10OnePager() {
         <Card>
           <Over>Команда</Over>
           <div className="space-y-1 flex-1">
-            <div className="flex justify-between"><span className="text-[10px] sm:text-xs text-white font-medium">С. Мартюшев</span><span className="text-[10px] text-blue-400">Финансы · 20+ лет</span></div>
-            <div className="flex justify-between"><span className="text-[10px] sm:text-xs text-white font-medium">С. Бобылев</span><span className="text-[10px] text-blue-400">Продажи · 7+ лет</span></div>
-            <div className="flex justify-between"><span className="text-[10px] sm:text-xs text-white font-medium">Д. Бондарев</span><span className="text-[10px] text-blue-400">Разработка · 30+ лет</span></div>
-            <div className="flex justify-between"><span className="text-[10px] sm:text-xs text-white font-medium">С. Томилов</span><span className="text-[10px] text-blue-400">PR · 7+ лет</span></div>
+            <div className="flex justify-between"><span className="text-[10px] sm:text-xs text-white font-medium">Сергей Мартюшев</span><span className="text-[10px] text-blue-400">Финансы · 20+ лет</span></div>
+            <div className="flex justify-between"><span className="text-[10px] sm:text-xs text-white font-medium">Сергей Бобылев</span><span className="text-[10px] text-blue-400">Продажи · 7+ лет</span></div>
+            <div className="flex justify-between"><span className="text-[10px] sm:text-xs text-white font-medium">Дмитрий Бондарев</span><span className="text-[10px] text-blue-400">Разработка · 30+ лет</span></div>
+            <div className="flex justify-between"><span className="text-[10px] sm:text-xs text-white font-medium">Сергей Томилов</span><span className="text-[10px] text-blue-400">PR · 7+ лет</span></div>
           </div>
           <div className="mt-auto pt-2 border-t border-slate-800 text-center">
             <p className="text-[10px] sm:text-xs font-semibold text-blue-400">Диагностическая сессия</p>

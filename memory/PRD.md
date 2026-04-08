@@ -13,6 +13,7 @@
 | NoteAll Invest | `/invest` | 14 | DONE |
 | NoteAll One Pager | `/onepager` | 1 page | DONE |
 | AX10 | `/ax10` | 16 | DONE |
+| AX10 One Pager | `/ax10-onepager` | 1 page | DONE |
 
 ## Технологии
 - React + Tailwind CSS + Framer Motion
@@ -27,22 +28,24 @@
 - SSL: Let's Encrypt (автообновление certbot)
 - Документация: `/app/docs/DEPLOY_GUIDE.md`
 
-## Завершённые задачи (07 апреля 2026)
-- [x] Создана презентация AX10 — 16 слайдов (Cover -> Problem -> Solution -> Process -> Data -> AI -> Transparency -> Deliverables -> Independent TZ -> Client Choice -> Dev Partner -> AI-first -> No Lock-in -> Business Effect -> Format -> Final/CTA)
+## Завершённые задачи
+- [x] Создана презентация AX10 — 16 слайдов
 - [x] PDF-генератор AX10 (A4 Landscape, 16 страниц)
 - [x] Билд-скрипт build-ax10.sh
 - [x] Nginx location /ax10/ в presentations.conf
-- [x] Мобильная адаптивность
-- [x] Свайп, клавиатура, точечная навигация
-- [x] Тестирование: 100% PASSED (iteration_9.json)
+- [x] AX10 One Pager — Dark Swiss дизайн (переписан по design_guidelines.json)
+- [x] PDF-генератор One Pager синхронизирован с новым веб-дизайном
+- [x] OG-скриншот обновлён с нового тёмного дизайна
+- [x] Билд build-ax10-onepager.sh пересобран
+- [x] Полные имена в команде: Сергей Мартюшев, Сергей Бобылев, Дмитрий Бондарев, Сергей Томилов
 
 ## Бэклог
-- [ ] P1: QR-коды на финальные слайды
-- [ ] P2: CSS-рефакторинг (общие обёртки для слайдов)
-- [ ] P3: OG-теги и OG-картинка для AX10
+- [ ] P2: QR-коды на финальные слайды
+- [ ] P3: CSS-рефакторинг (общие обёртки для слайдов)
 
 ## Критические правила
 - Перед деплоем ВСЕГДА пересобирать билд
 - На проде ВСЁ через Docker (voice-workspace-frontend-1)
-- Команды для терминала — каждая ОТДЕЛЬНОЙ строкой
+- OG-картинки = только скриншоты титульных слайдов (НЕ AI-генерация)
+- PDF: НЕ использовать flex:1 + justifyContent:center для обёрток страниц
 - Nginx reload: `sudo docker exec voice-workspace-frontend-1 nginx -s reload`
