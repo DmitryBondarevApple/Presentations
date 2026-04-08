@@ -48,7 +48,7 @@ const BBlock = ({ label, desc, accent, lh }) => (
 
 /* Cell stretches to fill row, but content stays at top */
 const Cell = ({ children }) => (
-  <View style={{ flex: 1, backgroundColor: "rgba(15,23,42,0.4)", borderRadius: 4, padding: 8, borderWidth: 0.5, borderColor: T.border, justifyContent: "flex-start" }}>
+  <View style={{ flex: 1, backgroundColor: "rgba(15,23,42,0.4)", borderRadius: 4, padding: 6, borderWidth: 0.5, borderColor: T.border, justifyContent: "flex-start" }}>
     {children}
   </View>
 );
@@ -82,8 +82,8 @@ const AX10OnePagerDoc = ({ imgBase }) => (
       {/* GRID — flex:1 fills page, rows share space, content at top */}
       <View style={{ flex: 1, padding: 7, gap: 4 }}>
 
-        {/* ROW 1 — 35% of 538 ≈ 188pt */}
-        <Row h={188}>
+        {/* ROW 1 — 163pt */}
+        <Row h={163}>
           <Cell>
             <Over>ПРОБЛЕМА</Over>
             <Hd>Запуск на догадках</Hd>
@@ -91,7 +91,7 @@ const AX10OnePagerDoc = ({ imgBase }) => (
             <Li lh={1.2} n="—">Какие сценарии действительно нужны</Li>
             <Li lh={1.2} n="—">Какие гипотезы подтверждаются рынком</Li>
             <Li lh={1.2} n="—">Что должно войти в первый релиз</Li>
-            <View style={{ marginTop: 10 }}>
+            <View style={{ marginTop: 5 }}>
               <Callout>Без проверки = месяцы и миллионы впустую</Callout>
             </View>
           </Cell>
@@ -119,8 +119,8 @@ const AX10OnePagerDoc = ({ imgBase }) => (
           </Cell>
         </Row>
 
-        {/* ROW 2 — 38% of 538 ≈ 205pt */}
-        <Row h={205}>
+        {/* ROW 2 — 180pt */}
+        <Row h={180}>
           <Cell>
             <Over>ДАННЫЕ И ИИ</Over>
             <Hd>Мультиисточниковая аналитика</Hd>
@@ -152,8 +152,8 @@ const AX10OnePagerDoc = ({ imgBase }) => (
           </Cell>
         </Row>
 
-        {/* ROW 3 — 27% of 538 ≈ 145pt */}
-        <Row h={145}>
+        {/* ROW 3 — 135pt */}
+        <Row h={135}>
           <Cell>
             <Over>AI-FIRST РАЗРАБОТКА</Over>
             <Hd>Опциональный следующий шаг</Hd>
