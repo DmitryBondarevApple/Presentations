@@ -23,26 +23,26 @@ const T = {
 const f = { fontFamily: "Inter" };
 
 const Over = ({ children }) => (
-  <Text style={{ fontSize: 6.5, fontWeight: 700, color: T.accent, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 2 }}>{children}</Text>
+  <Text style={{ fontSize: 8.5, fontWeight: 700, color: T.accent, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 2 }}>{children}</Text>
 );
 const Hd = ({ children }) => (
-  <Text style={{ fontSize: 10, fontWeight: 700, color: T.fg, marginBottom: 2, lineHeight: 1.2 }}>{children}</Text>
+  <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg, marginBottom: 2, lineHeight: 1.2 }}>{children}</Text>
 );
 const Li = ({ n, children, lh }) => (
   <View style={{ flexDirection: "row", gap: 3, alignItems: "flex-start", marginBottom: lh ? 2.5 : 1 }}>
-    <Text style={{ fontSize: 7.5, color: T.dim, width: 10, textAlign: "right" }}>{n || "—"}</Text>
-    <Text style={{ fontSize: 8, color: T.muted, lineHeight: lh || 1.3, flex: 1 }}>{children}</Text>
+    <Text style={{ fontSize: 9.5, color: T.dim, width: 12, textAlign: "right" }}>{n || "—"}</Text>
+    <Text style={{ fontSize: 10, color: T.muted, lineHeight: lh || 1.3, flex: 1 }}>{children}</Text>
   </View>
 );
 const Callout = ({ children }) => (
   <View style={{ paddingLeft: 5, borderLeftWidth: 2, borderLeftColor: T.accent, marginTop: 2 }}>
-    <Text style={{ fontSize: 8, fontWeight: 600, color: T.fg }}>{children}</Text>
+    <Text style={{ fontSize: 10, fontWeight: 600, color: T.fg }}>{children}</Text>
   </View>
 );
 const BBlock = ({ label, desc, accent, lh }) => (
   <View style={{ paddingLeft: 5, borderLeftWidth: 2, borderLeftColor: accent ? T.accent : T.border, marginBottom: lh ? 4 : 2 }}>
-    <Text style={{ fontSize: 8, fontWeight: 600, color: accent ? T.accent : T.fg, lineHeight: lh || 1.3 }}>{label}</Text>
-    {desc && <Text style={{ fontSize: 7, color: T.muted, marginTop: 0.5, lineHeight: lh || 1.3 }}>{desc}</Text>}
+    <Text style={{ fontSize: 10, fontWeight: 600, color: accent ? T.accent : T.fg, lineHeight: lh || 1.3 }}>{label}</Text>
+    {desc && <Text style={{ fontSize: 9, color: T.muted, marginTop: 0.5, lineHeight: lh || 1.3 }}>{desc}</Text>}
   </View>
 );
 
@@ -68,15 +68,15 @@ const AX10OnePagerDoc = ({ imgBase }) => (
           <Image src={`${imgBase}/images/ax10/logo-ax10.png`} style={{ width: 60, height: 20, objectFit: "contain" }} />
           <View style={{ width: 0.5, height: 16, backgroundColor: T.border }} />
           <View>
-            <Text style={{ fontSize: 8.5, fontWeight: 700, color: T.fg }}>От идеи цифрового сервиса к готовому ТЗ</Text>
+            <Text style={{ fontSize: 10.5, fontWeight: 700, color: T.fg }}>От идеи цифрового сервиса к готовому ТЗ</Text>
             <View style={{ flexDirection: "row", gap: 10, marginTop: 1 }}>
-              <Link src="https://t.me/smartfincons" style={{ fontSize: 6.5, color: T.dim, textDecoration: "none" }}>@smartfincons</Link>
-              <Text style={{ fontSize: 6.5, color: T.dim }}>+7 (900) 916-73-69</Text>
-              <Link src="https://ax10.ru" style={{ fontSize: 6.5, color: T.dim, textDecoration: "none" }}>ax10.ru</Link>
+              <Link src="https://t.me/smartfincons" style={{ fontSize: 8.5, color: T.dim, textDecoration: "none" }}>@smartfincons</Link>
+              <Text style={{ fontSize: 8.5, color: T.dim }}>+7 (900) 916-73-69</Text>
+              <Link src="https://ax10.ru" style={{ fontSize: 8.5, color: T.dim, textDecoration: "none" }}>ax10.ru</Link>
             </View>
           </View>
         </View>
-        <Text style={{ fontSize: 6, fontWeight: 700, color: T.accent, letterSpacing: 1.5 }}>ONE PAGER</Text>
+        <Text style={{ fontSize: 8, fontWeight: 700, color: T.accent, letterSpacing: 1.5 }}>ONE PAGER</Text>
       </View>
 
       {/* GRID — flex:1 fills page, rows share space, content at top */}
@@ -99,7 +99,7 @@ const AX10OnePagerDoc = ({ imgBase }) => (
           <Cell>
             <Over>РЕШЕНИЕ</Over>
             <Hd>Основа для разработки</Hd>
-            <Text style={{ fontSize: 7.5, color: T.muted, lineHeight: 1.2, marginBottom: 2 }}>Исследовательский проект. На выходе — пакет для запуска:</Text>
+            <Text style={{ fontSize: 9.5, color: T.muted, lineHeight: 1.2, marginBottom: 2 }}>Исследовательский проект. На выходе — пакет для запуска:</Text>
             <Li lh={1.2} n="—">Подтверждённые гипотезы</Li>
             <Li lh={1.2} n="—">Пользовательские сценарии</Li>
             <Li lh={1.2} n="—">Портрет раннего пользователя</Li>
@@ -126,7 +126,7 @@ const AX10OnePagerDoc = ({ imgBase }) => (
             <Hd>Мультиисточниковая аналитика</Hd>
             <BBlock lh={1.2} accent label="4 источника данных" desc="Интервью · Рынок · Инфраструктура · Клиент" />
             <BBlock lh={1.2} accent label="ИИ полного цикла" desc="Транскрипт → Summary → Структура → Выводы" />
-            <Text style={{ fontSize: 7, color: T.dim, marginTop: 2, lineHeight: 1.2 }}>Онлайн-дашборд · доступ <Text style={{ color: T.accent, fontWeight: 600 }}>3 года</Text></Text>
+            <Text style={{ fontSize: 9, color: T.dim, marginTop: 2, lineHeight: 1.2 }}>Онлайн-дашборд · доступ <Text style={{ color: T.accent, fontWeight: 600 }}>3 года</Text></Text>
           </Cell>
 
           <Cell>
@@ -144,8 +144,8 @@ const AX10OnePagerDoc = ({ imgBase }) => (
           <Cell>
             <Over>СВОБОДА ВЫБОРА</Over>
             <Hd>ТЗ не привязано к AX10</Hd>
-            <Text style={{ fontSize: 20, fontWeight: 300, color: T.fg, letterSpacing: -1, lineHeight: 1 }}>100%</Text>
-            <Text style={{ fontSize: 7, color: T.accent, fontWeight: 600, marginTop: 1, marginBottom: 3 }}>материалов остаётся у клиента</Text>
+            <Text style={{ fontSize: 22, fontWeight: 300, color: T.fg, letterSpacing: -1, lineHeight: 1 }}>100%</Text>
+            <Text style={{ fontSize: 9, color: T.accent, fontWeight: 600, marginTop: 1, marginBottom: 3 }}>материалов остаётся у клиента</Text>
             <Li lh={1.2} n="—">Передайте любой команде разработки</Li>
             <Li lh={1.2} n="—">Достаточно для оценки сроков и стоимости</Li>
             <Li lh={1.2} n="—">Не требует консультаций с AX10</Li>
@@ -159,12 +159,12 @@ const AX10OnePagerDoc = ({ imgBase }) => (
             <Hd>Опциональный следующий шаг</Hd>
             <View style={{ flexDirection: "row", gap: 10, marginBottom: 2 }}>
               <View>
-                <Text style={{ fontSize: 16, fontWeight: 300, color: T.fg, letterSpacing: -0.5, lineHeight: 1 }}>5-6x</Text>
-                <Text style={{ fontSize: 6.5, color: T.accent, fontWeight: 600, marginTop: 1 }}>дешевле</Text>
+                <Text style={{ fontSize: 18, fontWeight: 300, color: T.fg, letterSpacing: -0.5, lineHeight: 1 }}>5-6x</Text>
+                <Text style={{ fontSize: 8.5, color: T.accent, fontWeight: 600, marginTop: 1 }}>дешевле</Text>
               </View>
               <View>
-                <Text style={{ fontSize: 16, fontWeight: 300, color: T.fg, letterSpacing: -0.5, lineHeight: 1 }}>10x+</Text>
-                <Text style={{ fontSize: 6.5, color: T.accent, fontWeight: 600, marginTop: 1 }}>быстрее</Text>
+                <Text style={{ fontSize: 18, fontWeight: 300, color: T.fg, letterSpacing: -0.5, lineHeight: 1 }}>10x+</Text>
+                <Text style={{ fontSize: 8.5, color: T.accent, fontWeight: 600, marginTop: 1 }}>быстрее</Text>
               </View>
             </View>
             <Li n="—">Читаемый, структурированный код</Li>
@@ -184,25 +184,25 @@ const AX10OnePagerDoc = ({ imgBase }) => (
             <Over>КОМАНДА</Over>
             <View style={{ gap: 2, marginBottom: 3 }}>
               <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                <Text style={{ fontSize: 8, fontWeight: 600, color: T.fg }}>Сергей Мартюшев</Text>
-                <Text style={{ fontSize: 7, color: T.accent }}>Финансы · 20+ лет</Text>
+                <Text style={{ fontSize: 10, fontWeight: 600, color: T.fg }}>Сергей Мартюшев</Text>
+                <Text style={{ fontSize: 9, color: T.accent }}>Финансы · 20+ лет</Text>
               </View>
               <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                <Text style={{ fontSize: 8, fontWeight: 600, color: T.fg }}>Сергей Бобылев</Text>
-                <Text style={{ fontSize: 7, color: T.accent }}>Продажи · 7+ лет</Text>
+                <Text style={{ fontSize: 10, fontWeight: 600, color: T.fg }}>Сергей Бобылев</Text>
+                <Text style={{ fontSize: 9, color: T.accent }}>Продажи · 7+ лет</Text>
               </View>
               <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                <Text style={{ fontSize: 8, fontWeight: 600, color: T.fg }}>Дмитрий Бондарев</Text>
-                <Text style={{ fontSize: 7, color: T.accent }}>Разработка · 30+ лет</Text>
+                <Text style={{ fontSize: 10, fontWeight: 600, color: T.fg }}>Дмитрий Бондарев</Text>
+                <Text style={{ fontSize: 9, color: T.accent }}>Разработка · 30+ лет</Text>
               </View>
               <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                <Text style={{ fontSize: 8, fontWeight: 600, color: T.fg }}>Сергей Томилов</Text>
-                <Text style={{ fontSize: 7, color: T.accent }}>PR · 7+ лет</Text>
+                <Text style={{ fontSize: 10, fontWeight: 600, color: T.fg }}>Сергей Томилов</Text>
+                <Text style={{ fontSize: 9, color: T.accent }}>PR · 7+ лет</Text>
               </View>
             </View>
             <View style={{ borderTopWidth: 0.5, borderTopColor: T.border, paddingTop: 2, alignItems: "center" }}>
-              <Text style={{ fontSize: 8, fontWeight: 700, color: T.accent }}>Диагностическая сессия</Text>
-              <Text style={{ fontSize: 6.5, color: T.dim, marginTop: 0.5 }}>Бесплатная аналитика на первом звонке</Text>
+              <Text style={{ fontSize: 10, fontWeight: 700, color: T.accent }}>Диагностическая сессия</Text>
+              <Text style={{ fontSize: 8.5, color: T.dim, marginTop: 0.5 }}>Бесплатная аналитика на первом звонке</Text>
             </View>
           </Cell>
         </Row>
