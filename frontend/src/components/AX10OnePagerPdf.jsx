@@ -1,7 +1,7 @@
 /**
- * AX10 One Pager PDF — Dark Swiss, DENSE layout
- * Single A4 Landscape (841.89 x 595.28 pt)
- * NO flex stretching — content packed tight at top of each cell
+ * AX10 One Pager PDF — Dark Swiss
+ * A4 Landscape (841.89 x 595.28 pt)
+ * Rows fill page height evenly, content inside cells stays at TOP
  */
 import React from "react";
 import {
@@ -13,7 +13,6 @@ registerInterFont();
 
 const PW = 841.89;
 const PH = 595.28;
-const COL = (PW - 14 - 8) / 3; // 3 columns with gaps
 
 const T = {
   bg: "#0b1120", fg: "#ffffff",
@@ -47,15 +46,16 @@ const BBlock = ({ label, desc, accent }) => (
   </View>
 );
 
-/* Cell: NO flex:1, fixed width per column, content-driven height */
+/* Cell stretches to fill row, but content stays at top */
 const Cell = ({ children }) => (
-  <View style={{ width: COL, backgroundColor: "rgba(15,23,42,0.4)", borderRadius: 4, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
+  <View style={{ flex: 1, backgroundColor: "rgba(15,23,42,0.4)", borderRadius: 4, padding: 8, borderWidth: 0.5, borderColor: T.border, justifyContent: "flex-start" }}>
     {children}
   </View>
 );
 
-const Row = ({ children }) => (
-  <View style={{ flexDirection: "row", gap: 4 }}>{children}</View>
+/* Row with explicit height — no flex guessing */
+const Row = ({ children, h }) => (
+  <View style={{ flexDirection: "row", gap: 4, height: h }}>{children}</View>
 );
 
 const AX10OnePagerDoc = ({ imgBase }) => (
@@ -79,11 +79,11 @@ const AX10OnePagerDoc = ({ imgBase }) => (
         <Text style={{ fontSize: 6, fontWeight: 700, color: T.accent, letterSpacing: 1.5 }}>ONE PAGER</Text>
       </View>
 
-      {/* GRID — natural flow, no forced heights */}
-      <View style={{ padding: 7, gap: 4 }}>
+      {/* GRID — flex:1 fills page, rows share space, content at top */}
+      <View style={{ flex: 1, padding: 7, gap: 4 }}>
 
-        {/* ROW 1 */}
-        <Row>
+        {/* ROW 1 — 35% of 538 ≈ 188pt */}
+        <Row h={188}>
           <Cell>
             <Over>ПРОБЛЕМА</Over>
             <Hd>Запуск на догадках</Hd>
@@ -117,8 +117,8 @@ const AX10OnePagerDoc = ({ imgBase }) => (
           </Cell>
         </Row>
 
-        {/* ROW 2 */}
-        <Row>
+        {/* ROW 2 — 38% of 538 ≈ 205pt */}
+        <Row h={205}>
           <Cell>
             <Over>ДАННЫЕ И ИИ</Over>
             <Hd>Мультиисточниковая аналитика</Hd>
@@ -150,8 +150,8 @@ const AX10OnePagerDoc = ({ imgBase }) => (
           </Cell>
         </Row>
 
-        {/* ROW 3 */}
-        <Row>
+        {/* ROW 3 — 27% of 538 ≈ 145pt */}
+        <Row h={145}>
           <Cell>
             <Over>AI-FIRST РАЗРАБОТКА</Over>
             <Hd>Опциональный следующий шаг</Hd>
