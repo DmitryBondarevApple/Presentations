@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ax10-onepager/static/css/main.37324edf.css",
-    "main.js": "/ax10-onepager/static/js/main.3175600b.js",
+    "main.js": "/ax10-onepager/static/js/main.17163ed3.js",
     "index.html": "/ax10-onepager/index.html",
     "main.37324edf.css.map": "/ax10-onepager/static/css/main.37324edf.css.map",
-    "main.3175600b.js.map": "/ax10-onepager/static/js/main.3175600b.js.map"
+    "main.17163ed3.js.map": "/ax10-onepager/static/js/main.17163ed3.js.map"
   },
   "entrypoints": [
     "static/css/main.37324edf.css",
-    "static/js/main.3175600b.js"
+    "static/js/main.17163ed3.js"
   ]
 }

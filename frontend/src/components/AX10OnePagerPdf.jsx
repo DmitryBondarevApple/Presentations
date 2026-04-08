@@ -15,9 +15,9 @@ const PW = 841.89;
 const PH = 595.28;
 
 const T = {
-  bg: "#0b1120", fg: "#ffffff",
-  muted: "#94a3b8", dim: "#64748b", accent: "#3b82f6",
-  border: "#1e293b",
+  bg: "#ffffff", fg: "#0f172a",
+  muted: "#475569", dim: "#94a3b8", accent: "#2563eb",
+  border: "#e2e8f0",
 };
 
 const f = { fontFamily: "Inter" };
@@ -48,7 +48,7 @@ const BBlock = ({ label, desc, accent, lh }) => (
 
 /* Cell stretches to fill row, but content stays at top */
 const Cell = ({ children }) => (
-  <View style={{ flex: 1, backgroundColor: "rgba(15,23,42,0.4)", borderRadius: 4, padding: 6, borderWidth: 0.5, borderColor: T.border, justifyContent: "flex-start" }}>
+  <View style={{ flex: 1, backgroundColor: "#f8fafc", borderRadius: 4, padding: 6, borderWidth: 0.5, borderColor: T.border, justifyContent: "flex-start" }}>
     {children}
   </View>
 );
@@ -65,7 +65,7 @@ const AX10OnePagerDoc = ({ imgBase }) => (
       {/* HEADER */}
       <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 16, paddingVertical: 7, borderBottomWidth: 0.5, borderBottomColor: T.border }}>
         <View style={{ flexDirection: "row", alignItems: "center", gap: 7 }}>
-          <Image src={`${imgBase}/images/ax10/logo-ax10.png`} style={{ width: 60, height: 20, objectFit: "contain" }} />
+          <Image src={`${imgBase}/images/ax10/logo-ax10-dark.png`} style={{ width: 60, height: 20, objectFit: "contain" }} />
           <View style={{ width: 0.5, height: 16, backgroundColor: T.border }} />
           <View>
             <Text style={{ fontSize: 10.5, fontWeight: 700, color: T.fg }}>От идеи цифрового сервиса к готовому ТЗ</Text>
