@@ -3,15 +3,19 @@
 ## Итоговая конфигурация (актуальная)
 
 ```
-presentations.noteall.ru/franchcamp   →   Презентация FranchCamp
-presentations.noteall.ru/emergent     →   Презентация Emergent Masterclass
-presentations.noteall.ru/invest       →   Noteall Инвестиционная презентация
+presentations.noteall.ru/franchcamp      →   Презентация FranchCamp
+presentations.noteall.ru/emergent        →   Презентация Emergent Masterclass
+presentations.noteall.ru/invest          →   Noteall Инвестиционная презентация
+presentations.noteall.ru/product         →   Noteall Product (14 слайдов)
+presentations.noteall.ru/product-short   →   Noteall Product Short (13 слайдов)
 ```
 
 **Продакшн-URL**:
 - https://presentations.noteall.ru/franchcamp
 - https://presentations.noteall.ru/emergent
 - https://presentations.noteall.ru/invest
+- https://presentations.noteall.ru/product
+- https://presentations.noteall.ru/product-short
 
 ---
 
@@ -227,6 +231,12 @@ bash build-noteall-onepager.sh
 
 # AX10:
 bash build-ax10.sh
+
+# Noteall Product (14 слайдов):
+bash build-noteall-product.sh
+
+# Noteall Product Short (13 слайдов):
+bash build-noteall-product-short.sh
 ```
 
 ---
@@ -296,6 +306,12 @@ sudo cp -r /tmp/Presentations/deploy-noteall-onepager/* /var/www/presentations/o
 ```
 ```
 sudo cp -r /tmp/Presentations/deploy-ax10/* /var/www/presentations/ax10/
+```
+```
+sudo cp -r /tmp/Presentations/deploy-noteall-product/* /var/www/presentations/product/
+```
+```
+sudo cp -r /tmp/Presentations/deploy-noteall-product-short/* /var/www/presentations/product-short/
 ```
 ```
 sudo chown -R www-data:www-data /var/www/presentations
@@ -408,6 +424,8 @@ github.com/DmitryBondarevApple/Presentations/
 ├── deploy-franchcamp/                  ← Файлы → presentations.noteall.ru/franchcamp
 ├── deploy-emergent/                    ← Файлы → presentations.noteall.ru/emergent
 ├── deploy-noteall-invest/              ← Файлы → presentations.noteall.ru/invest
+├── deploy-noteall-product/             ← Файлы → presentations.noteall.ru/product
+├── deploy-noteall-product-short/       ← Файлы → presentations.noteall.ru/product-short
 ├── makeusbeautiful/
 │   └── company/                        ← Файлы → presentations.makeusbeautiful.ru/company
 ├── server-config/
@@ -421,6 +439,8 @@ github.com/DmitryBondarevApple/Presentations/
 ├── build-franchcamp.sh                 ← Сборка → deploy-franchcamp/
 ├── build-emergent.sh                   ← Сборка → deploy-emergent/
 ├── build-noteall-invest.sh             ← Сборка → deploy-noteall-invest/
+├── build-noteall-product.sh            ← Сборка → deploy-noteall-product/
+├── build-noteall-product-short.sh      ← Сборка → deploy-noteall-product-short/
 ├── build-makeusbeautiful-company.sh    ← Сборка → makeusbeautiful/company/
 └── memory/
     └── PRD.md
