@@ -13,7 +13,7 @@ import NPSlide11Segments from "@/components/noteall-product-slides/NPSlide12Segm
 import NPSlide12Comparison from "@/components/noteall-product-slides/NPSlide13Comparison";
 import NPSlide13Growth from "@/components/noteall-product-slides/NPSlide13Growth";
 import NPSlide14CTA from "@/components/noteall-product-slides/NPSlide15CTA";
-import { preGenerateNoteAllProductPdfs, downloadBlob } from "@/components/NoteAllProductPdfGenerator";
+import { preGenerateNoteAllProductPdfs } from "@/components/NoteAllProductPdfGenerator";
 import { SlideTotal } from "@/components/noteall-product-slides/NPSlideContainer";
 
 const allSlides = [
@@ -30,26 +30,40 @@ export default function NoteAllProductPresentation({ excludeSlide13 = false }) {
   const TOTAL = slides.length;
 
   const [current, setCurrent] = useState(0);
-  const [pdfBlobs, setPdfBlobs] = useState(null);
+  const [pdfUrls, setPdfUrls] = useState(null);       // { light: blobUrl, dark: blobUrl }
   const [pdfLoading, setPdfLoading] = useState(true);
   const [showThemeMenu, setShowThemeMenu] = useState(false);
   const menuRef = useRef(null);
 
   useEffect(() => {
-    document.title = excludeSlide13
-      ? "Noteall — Возможности платформы"
-      : "Noteall — Возможности платформы";
+    document.title = "Noteall — Возможности платформы";
     return () => { document.title = "Presentations"; };
-  }, [excludeSlide13]);
+  }, []);
 
-  /* Pre-generate both Light + Dark PDFs on mount */
+  /* Pre-generate both Light + Dark PDFs on mount, store blob URLs */
   useEffect(() => {
     let cancelled = false;
+    const urls = { light: null, dark: null };
     setPdfLoading(true);
+
     preGenerateNoteAllProductPdfs({ excludeSlide13 })
-      .then(blobs => { if (!cancelled) { setPdfBlobs(blobs); setPdfLoading(false); } })
-      .catch(e => { console.error("PDF pre-gen failed:", e); if (!cancelled) setPdfLoading(false); });
-    return () => { cancelled = true; };
+      .then(blobs => {
+        if (cancelled) return;
+        urls.light = URL.createObjectURL(blobs.light);
+        urls.dark  = URL.createObjectURL(blobs.dark);
+        setPdfUrls(urls);
+        setPdfLoading(false);
+      })
+      .catch(e => {
+        console.error("PDF pre-gen failed:", e);
+        if (!cancelled) setPdfLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+      if (urls.light) URL.revokeObjectURL(urls.light);
+      if (urls.dark)  URL.revokeObjectURL(urls.dark);
+    };
   }, [excludeSlide13]);
 
   const go = useCallback((dir) => {
@@ -75,14 +89,7 @@ export default function NoteAllProductPresentation({ excludeSlide13 = false }) {
     return () => document.removeEventListener("mousedown", handler);
   }, [showThemeMenu]);
 
-  const handleDownload = (theme) => {
-    if (!pdfBlobs?.[theme]) return;
-    const suffix = excludeSlide13 ? "_Short" : "";
-    const label = theme === "light" ? "Light" : "Dark";
-    downloadBlob(pdfBlobs[theme], `Noteall_Product${suffix}_${label}.pdf`);
-    setShowThemeMenu(false);
-  };
-
+  const suffix = excludeSlide13 ? "_Short" : "";
   const Slide = slides[current];
 
   return (
@@ -94,7 +101,7 @@ export default function NoteAllProductPresentation({ excludeSlide13 = false }) {
         </div>
 
         {/* Bottom bar */}
-        <div className="shrink-0 flex items-center justify-between px-3 sm:px-4 md:px-8 py-1.5 sm:py-2 md:py-3 border-t border-border bg-card/50 backdrop-blur-sm">
+        <div className="shrink-0 flex items-center justify-between px-3 sm:px-4 md:px-8 py-1.5 sm:py-2 md:py-3 border-t border-border bg-card/50 backdrop-blur-sm relative z-20">
           <button onClick={() => go(-1)} disabled={current === 0}
             className="px-2 py-1 sm:px-4 sm:py-2 rounded text-xs sm:text-sm md:text-base font-heading font-medium text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
             data-testid="np-prev-btn">
@@ -113,7 +120,7 @@ export default function NoteAllProductPresentation({ excludeSlide13 = false }) {
             {/* PDF button + theme dropdown */}
             <div className="relative" ref={menuRef}>
               <button
-                onClick={() => { if (pdfBlobs) setShowThemeMenu(v => !v); }}
+                onClick={() => { if (pdfUrls) setShowThemeMenu(v => !v); }}
                 disabled={pdfLoading}
                 className="px-2 py-1 sm:px-3 sm:py-1.5 rounded text-xs sm:text-sm font-heading font-medium text-accent border border-accent/30 hover:bg-accent/10 disabled:opacity-50 transition-colors"
                 data-testid="np-pdf-btn">
@@ -128,25 +135,30 @@ export default function NoteAllProductPresentation({ excludeSlide13 = false }) {
                 ) : "PDF"}
               </button>
 
-              {showThemeMenu && (
+              {showThemeMenu && pdfUrls && (
                 <div className="absolute bottom-full right-0 mb-2 bg-card border border-border rounded-lg shadow-xl overflow-hidden min-w-[170px] z-50"
                   data-testid="np-theme-menu">
-                  <button onClick={() => handleDownload("light")}
-                    className="w-full px-4 py-2.5 text-left text-sm font-medium text-foreground hover:bg-accent/10 transition-colors flex items-center gap-2.5"
+                  {/* Real <a> links — browser handles download natively */}
+                  <a href={pdfUrls.light}
+                    download={`Noteall_Product${suffix}_Light.pdf`}
+                    onClick={() => setTimeout(() => setShowThemeMenu(false), 800)}
+                    className="block w-full px-4 py-2.5 text-left text-sm font-medium text-foreground hover:bg-accent/10 transition-colors flex items-center gap-2.5 no-underline"
                     data-testid="np-pdf-light">
-                    <svg className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-4 h-4 text-amber-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
                     </svg>
                     Светлая тема
-                  </button>
-                  <button onClick={() => handleDownload("dark")}
-                    className="w-full px-4 py-2.5 text-left text-sm font-medium text-foreground hover:bg-accent/10 transition-colors flex items-center gap-2.5 border-t border-border"
+                  </a>
+                  <a href={pdfUrls.dark}
+                    download={`Noteall_Product${suffix}_Dark.pdf`}
+                    onClick={() => setTimeout(() => setShowThemeMenu(false), 800)}
+                    className="block w-full px-4 py-2.5 text-left text-sm font-medium text-foreground hover:bg-accent/10 transition-colors flex items-center gap-2.5 border-t border-border no-underline"
                     data-testid="np-pdf-dark">
-                    <svg className="w-4 h-4 text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-4 h-4 text-indigo-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                     </svg>
                     Тёмная тема
-                  </button>
+                  </a>
                 </div>
               )}
             </div>

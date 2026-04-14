@@ -418,14 +418,22 @@ export async function preGenerateNoteAllProductPdfs({ excludeSlide13 = false } =
   return { light: lightBlob, dark: darkBlob };
 }
 
-/** Trigger browser download from a pre-generated blob */
+/** Trigger browser download from a pre-generated blob (cross-browser, Safari-safe) */
 export function downloadBlob(blob, filename) {
-  const url = URL.createObjectURL(blob);
+  if (!blob || blob.size === 0) {
+    console.error("downloadBlob: blob is empty or missing");
+    return;
+  }
+  const blobUrl = URL.createObjectURL(blob);
   const a = document.createElement("a");
-  a.href = url;
+  a.style.display = "none";
+  a.href = blobUrl;
   a.download = filename;
+  a.rel = "noopener";
   document.body.appendChild(a);
   a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  setTimeout(() => {
+    document.body.removeChild(a);
+    URL.revokeObjectURL(blobUrl);
+  }, 60000);
 }

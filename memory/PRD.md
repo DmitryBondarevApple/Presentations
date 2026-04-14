@@ -35,28 +35,34 @@
 - [x] PDF-генератор AX10 (A4 Landscape, 16 страниц)
 - [x] Билд-скрипт build-ax10.sh
 - [x] Nginx location /ax10/ в presentations.conf
-- [x] AX10 One Pager — Dark Swiss дизайн (переписан по design_guidelines.json)
+- [x] AX10 One Pager — Dark Swiss дизайн
 - [x] PDF-генератор One Pager синхронизирован с новым веб-дизайном
 - [x] OG-скриншот обновлён с нового тёмного дизайна
 - [x] Билд build-ax10-onepager.sh пересобран
-- [x] Полные имена в команде: Сергей Мартюшев, Сергей Бобылев, Дмитрий Бондарев, Сергей Томилов
 - [x] Noteall Product Presentation — 14 слайдов (`/product`)
-- [x] PDF-генератор с предгенерацией Light/Dark тем
-- [x] Селектор тем PDF (Светлая/Тёмная) — дропдаун при нажатии кнопки PDF
+- [x] PDF-генератор с предгенерацией Light/Dark тем при загрузке страницы
+- [x] Селектор тем PDF — дропдаун с реальными `<a href download>` ссылками
 - [x] Краткий вариант без слайда 13 (`/product-short`, 13 слайдов)
 - [x] SlideTotal React Context для динамической нумерации слайдов
-- [x] Исправлена синтаксическая ошибка в NoteAllProductPdfGenerator.jsx (Slide12/Slide13 merge)
-- [x] Исправлена обрезка верхней рамки на слайде 12 в PDF (marginTop: 6)
+- [x] Исправлена синтаксическая ошибка NoteAllProductPdfGenerator.jsx
+- [x] Исправлена обрезка рамки на слайде 12 в PDF (marginTop: 6)
+- [x] Bug fix: z-index дропдауна PDF (слайд перекрывал меню)
+- [x] Bug fix: DOM removal timing — setTimeout на закрытие меню после клика
 
 ## Бэклог
 - [ ] P2: QR-коды на финальные слайды
 - [ ] P3: CSS-рефакторинг (общие обёртки для слайдов)
 
+## Архитектура PDF-генерации
+- Обе темы (Light/Dark) предгенерируются при загрузке страницы через `preGenerateNoteAllProductPdfs()`
+- Блобы конвертируются в blob URL через `URL.createObjectURL()`
+- Дропдаун содержит реальные `<a href={blobUrl} download={filename}>` — браузер скачивает нативно
+- `setTimeout(800ms)` перед закрытием меню, чтобы `<a>` не удалялся из DOM до начала загрузки
+- Blob URLs очищаются при unmount через `URL.revokeObjectURL()`
+
 ## Критические правила
 - Перед деплоем ВСЕГДА пересобирать билд
 - На проде ВСЁ через Docker (voice-workspace-frontend-1)
-- OG-картинки = только скриншоты титульных слайдов (НЕ AI-генерация)
 - PDF: НЕ использовать flex:1 + justifyContent:center для обёрток страниц
-- Nginx reload: `sudo docker exec voice-workspace-frontend-1 nginx -s reload`
-- PDF themes: T — мутабельная переменная модуля, устанавливается перед каждым pdf() вызовом
-- PDF pre-gen: обе темы генерируются при загрузке страницы, блобы хранятся в state
+- PDF download: НЕ использовать программный `a.click()` — только реальные `<a>` ссылки
+- Bottom bar z-index: `relative z-20` чтобы дропдаун был выше слайд-области
