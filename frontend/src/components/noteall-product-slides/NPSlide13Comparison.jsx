@@ -18,7 +18,7 @@ const right = [
 const NPSlide13Comparison = () => (
   <NPSlideContainer number={12} label="Преимущество">
     <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1.5 sm:mb-3 md:mb-6" data-testid="np-compare-title">
-      Глубже, чем <span className="text-accent">обычный транскрибатор</span>
+      Глубже, <span className="text-accent">чем обычный транскрибатор</span>
     </h2>
     <p className="font-body text-sm sm:text-base md:text-xl text-muted-foreground mb-2 sm:mb-5 md:mb-10 leading-snug sm:leading-relaxed max-w-5xl">
       Это не просто «перевод голоса в текст», а инструмент анализа и упаковки экспертного контекста.

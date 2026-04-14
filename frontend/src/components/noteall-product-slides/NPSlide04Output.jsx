@@ -3,7 +3,7 @@ import { NPSlideContainer } from './NPSlideContainer';
 const NPSlide04Output = () => (
   <NPSlideContainer number={4} label="Результат">
     <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1.5 sm:mb-3 md:mb-6" data-testid="np-output-title">
-      На выходе — не транскрипт, а <span className="text-accent">рабочий документ</span>
+      На выходе — не транскрипт, <span className="text-accent">а рабочий документ</span>
     </h2>
     <p className="font-body text-sm sm:text-base md:text-xl text-muted-foreground mb-2 sm:mb-5 md:mb-10 leading-snug sm:leading-relaxed max-w-5xl">
       Noteall превращает неструктурированную коммуникацию в структурированные артефакты для работы команды.
