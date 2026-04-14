@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import NPSlide01Cover from "@/components/noteall-product-slides/NPSlide01Cover";
 import NPSlide02Problem from "@/components/noteall-product-slides/NPSlide02Problem";
 import NPSlide03Solution from "@/components/noteall-product-slides/NPSlide03Solution";
-import NPSlide04HowItWorks from "@/components/noteall-product-slides/NPSlide04HowItWorks";
+import NPSlide04Output from "@/components/noteall-product-slides/NPSlide04Output";
 import NPSlide05Transcription from "@/components/noteall-product-slides/NPSlide05Transcription";
 import NPSlide06Speakers from "@/components/noteall-product-slides/NPSlide06Speakers";
 import NPSlide07Scenarios from "@/components/noteall-product-slides/NPSlide07Scenarios";
@@ -10,16 +10,16 @@ import NPSlide08Visual from "@/components/noteall-product-slides/NPSlide08Visual
 import NPSlide09Sources from "@/components/noteall-product-slides/NPSlide09Sources";
 import NPSlide10Sharing from "@/components/noteall-product-slides/NPSlide10Sharing";
 import NPSlide11Research from "@/components/noteall-product-slides/NPSlide11Research";
-import NPSlide12Cases from "@/components/noteall-product-slides/NPSlide12Cases";
-import NPSlide13Growth from "@/components/noteall-product-slides/NPSlide13Growth";
-import NPSlide14Pricing from "@/components/noteall-product-slides/NPSlide14Pricing";
+import NPSlide12Segments from "@/components/noteall-product-slides/NPSlide12Segments";
+import NPSlide13Comparison from "@/components/noteall-product-slides/NPSlide13Comparison";
+import NPSlide14Growth from "@/components/noteall-product-slides/NPSlide13Growth";
 import NPSlide15CTA from "@/components/noteall-product-slides/NPSlide15CTA";
 
 const slides = [
-  NPSlide01Cover, NPSlide02Problem, NPSlide03Solution, NPSlide04HowItWorks,
+  NPSlide01Cover, NPSlide02Problem, NPSlide03Solution, NPSlide04Output,
   NPSlide05Transcription, NPSlide06Speakers, NPSlide07Scenarios, NPSlide08Visual,
-  NPSlide09Sources, NPSlide10Sharing, NPSlide11Research, NPSlide12Cases,
-  NPSlide13Growth, NPSlide14Pricing, NPSlide15CTA,
+  NPSlide09Sources, NPSlide10Sharing, NPSlide11Research, NPSlide12Segments,
+  NPSlide13Comparison, NPSlide14Growth, NPSlide15CTA,
 ];
 
 export default function NoteAllProductPresentation() {
