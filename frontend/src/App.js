@@ -8,6 +8,7 @@ import NoteAllInvestPresentation from "@/pages/NoteAllInvestPresentation";
 import NoteAllOnePager from "@/pages/NoteAllOnePager";
 import AX10Presentation from "@/pages/AX10Presentation";
 import AX10OnePager from "@/pages/AX10OnePager";
+import NoteAllProductPresentation from "@/pages/NoteAllProductPresentation";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/onepager" element={<NoteAllOnePager />} />
         <Route path="/ax10" element={<AX10Presentation />} />
         <Route path="/ax10-onepager" element={<AX10OnePager />} />
+        <Route path="/product" element={<NoteAllProductPresentation />} />
       </Routes>
     </BrowserRouter>
   );
