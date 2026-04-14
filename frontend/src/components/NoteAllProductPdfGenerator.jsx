@@ -26,39 +26,39 @@ const TOTAL = 14;
 /* ── helpers ── */
 const Header = ({ num, label }) => (
   <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 14 }}>
-    <Text style={{ fontSize: 9, fontWeight: 700, color: T.accent, letterSpacing: 1.5, textTransform: "uppercase" }}>{label}</Text>
-    <Text style={{ fontSize: 9, color: T.dim }}>{String(num).padStart(2, '0')} / {TOTAL}</Text>
+    <Text style={{ fontSize: 11, fontWeight: 700, color: T.accent, letterSpacing: 1.5, textTransform: "uppercase" }}>{label}</Text>
+    <Text style={{ fontSize: 11, color: T.dim }}>{String(num).padStart(2, '0')} / {TOTAL}</Text>
   </View>
 );
 const H = ({ children }) => (
-  <Text style={{ fontSize: 22, fontWeight: 700, color: T.fg, marginBottom: 6, lineHeight: 1.2 }}>{children}</Text>
+  <Text style={{ fontSize: 26, fontWeight: 700, color: T.fg, marginBottom: 6, lineHeight: 1.2 }}>{children}</Text>
 );
 const HA = ({ children }) => (
-  <Text style={{ fontSize: 22, fontWeight: 700, color: T.accent, lineHeight: 1.2 }}>{children}</Text>
+  <Text style={{ fontSize: 26, fontWeight: 700, color: T.accent, lineHeight: 1.2 }}>{children}</Text>
 );
 const Sub = ({ children }) => (
-  <Text style={{ fontSize: 11, color: T.muted, lineHeight: 1.4, marginBottom: 14, maxWidth: 550 }}>{children}</Text>
+  <Text style={{ fontSize: 13, color: T.muted, lineHeight: 1.4, marginBottom: 14, maxWidth: 600 }}>{children}</Text>
 );
 const Li = ({ children }) => (
-  <View style={{ flexDirection: "row", gap: 4, alignItems: "flex-start", marginBottom: 2 }}>
-    <View style={{ width: 4, height: 4, borderRadius: 2, backgroundColor: T.accent, marginTop: 4 }} />
-    <Text style={{ fontSize: 10, color: T.muted, lineHeight: 1.4, flex: 1 }}>{children}</Text>
+  <View style={{ flexDirection: "row", gap: 4, alignItems: "flex-start", marginBottom: 3 }}>
+    <View style={{ width: 5, height: 5, borderRadius: 3, backgroundColor: T.accent, marginTop: 5 }} />
+    <Text style={{ fontSize: 12, color: T.muted, lineHeight: 1.4, flex: 1 }}>{children}</Text>
   </View>
 );
 const Card = ({ children, accent, style }) => (
-  <View style={{ flex: 1, backgroundColor: T.card, borderRadius: 4, padding: 10, borderWidth: 0.5, borderColor: accent ? T.accent : T.border, borderTopWidth: accent ? 2 : 0.5, borderTopColor: accent ? T.accent : T.border, ...style }}>
+  <View style={{ flex: 1, backgroundColor: T.card, borderRadius: 4, padding: 12, borderWidth: 0.5, borderColor: accent ? T.accent : T.border, borderTopWidth: accent ? 3 : 0.5, borderTopColor: accent ? T.accent : T.border, ...style }}>
     {children}
   </View>
 );
 const CardTitle = ({ children }) => (
-  <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg, marginBottom: 4 }}>{children}</Text>
+  <Text style={{ fontSize: 14, fontWeight: 700, color: T.fg, marginBottom: 4 }}>{children}</Text>
 );
 const BigNum = ({ children }) => (
-  <Text style={{ fontSize: 28, fontWeight: 700, color: T.accent, marginBottom: 2 }}>{children}</Text>
+  <Text style={{ fontSize: 32, fontWeight: 700, color: T.accent, marginBottom: 2 }}>{children}</Text>
 );
 const Tag = ({ children }) => (
   <View style={{ backgroundColor: "rgba(13,148,136,0.1)", borderRadius: 3, paddingHorizontal: 6, paddingVertical: 2 }}>
-    <Text style={{ fontSize: 8, fontWeight: 600, color: T.accent }}>{children}</Text>
+    <Text style={{ fontSize: 10, fontWeight: 600, color: T.accent }}>{children}</Text>
   </View>
 );
 const pageStyle = { ...f, width: PW, height: PH, backgroundColor: T.bg, color: T.fg, padding: 30 };
@@ -85,12 +85,12 @@ const Slide02 = () => (
     <H>Большая часть ценности <HA>теряется после встречи</HA></H>
     <Sub>Сервисов транскрибации много — но сам по себе транскрипт мало что даёт. Он используется ненамного чаще, чем просто аудиозапись. Ценная информация из встреч так и не превращается в рабочие документы.</Sub>
     <View style={{ flexDirection: "row", gap: 8, marginBottom: 10 }}>
-      <Card><BigNum>80%</BigNum><Text style={{ fontSize: 10, color: T.muted, lineHeight: 1.3 }}>записей остаются необработанными — транскрипт длинный и неудобный</Text></Card>
-      <Card><BigNum>40%</BigNum><Text style={{ fontSize: 10, color: T.muted, lineHeight: 1.3 }}>информации теряется без фиксации решений, задач и выводов</Text></Card>
-      <Card><BigNum>Много</BigNum><Text style={{ fontSize: 10, color: T.muted, lineHeight: 1.3 }}>разрозненных инструментов: запись отдельно, заметки отдельно, задачи отдельно</Text></Card>
+      <Card><BigNum>80%</BigNum><Text style={{ fontSize: 12, color: T.muted, lineHeight: 1.3 }}>записей остаются необработанными — транскрипт длинный и неудобный</Text></Card>
+      <Card><BigNum>40%</BigNum><Text style={{ fontSize: 12, color: T.muted, lineHeight: 1.3 }}>информации теряется без фиксации решений, задач и выводов</Text></Card>
+      <Card><BigNum>Много</BigNum><Text style={{ fontSize: 12, color: T.muted, lineHeight: 1.3 }}>разрозненных инструментов: запись отдельно, заметки отдельно, задачи отдельно</Text></Card>
     </View>
     <View style={{ backgroundColor: T.card, borderRadius: 4, padding: 10, borderLeftWidth: 3, borderLeftColor: T.accent, borderWidth: 0.5, borderColor: T.border }}>
-      <Text style={{ fontSize: 11, color: T.muted, lineHeight: 1.4 }}><Text style={{ fontWeight: 700, color: T.fg }}>Обычные инструменты дают текст и краткое summary</Text> — но не доводят записи встреч до формата, пригодного для внедрения и принятия решений.</Text>
+      <Text style={{ fontSize: 13, color: T.muted, lineHeight: 1.4 }}><Text style={{ fontWeight: 700, color: T.fg }}>Обычные инструменты дают текст и краткое summary</Text> — но не доводят записи встреч до формата, пригодного для внедрения и принятия решений.</Text>
     </View>
   </Page>
 );
@@ -107,8 +107,8 @@ const Slide03 = () => (
         { n: "03", t: "Результат", items: ["Структурированный документ", "Выводы и рекомендации", "Экспорт в DOCX", "Шаринг по ссылке"] },
       ].map((s, i) => (
         <Card key={i} accent>
-          <Text style={{ fontSize: 9, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{s.n}</Text>
-          <Text style={{ fontSize: 13, fontWeight: 700, color: T.fg, marginTop: 4, marginBottom: 6 }}>{s.t}</Text>
+          <Text style={{ fontSize: 11, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{s.n}</Text>
+          <Text style={{ fontSize: 15, fontWeight: 700, color: T.fg, marginTop: 4, marginBottom: 6 }}>{s.t}</Text>
           {s.items.map((it, j) => <Li key={j}>{it}</Li>)}
         </Card>
       ))}
@@ -124,8 +124,8 @@ const Slide04 = () => (
     <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
       {["Summary встречи", "Тематическая структура обсуждения", "Выводы и рекомендации", "Дорожная карта", "Диагностика по фреймворку", "Материалы для проектирования", "Готовый к использованию ТЗ / PRD / backlog", "Синтез нескольких интервью"].map((t, i) => (
         <View key={i} style={{ width: "48%", flexDirection: "row", gap: 4, alignItems: "flex-start", backgroundColor: T.card, borderRadius: 4, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
-          <View style={{ width: 5, height: 5, borderRadius: 3, backgroundColor: T.accent, marginTop: 3 }} />
-          <Text style={{ fontSize: 11, color: T.fg, lineHeight: 1.3, flex: 1 }}>{t}</Text>
+          <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: T.accent, marginTop: 3 }} />
+          <Text style={{ fontSize: 13, color: T.fg, lineHeight: 1.3, flex: 1 }}>{t}</Text>
         </View>
       ))}
     </View>
@@ -144,21 +144,26 @@ const Slide05 = () => (
         { t: "Растущая точность", d: "С каждой записью профили точнее. Чем больше встреч — тем надёжнее определение участников." },
       ].map((s, i) => (
         <Card key={i}>
-          <Text style={{ fontSize: 16, fontWeight: 700, color: T.accent, opacity: 0.5, marginBottom: 4 }}>{String(i+1).padStart(2,'0')}</Text>
+          <Text style={{ fontSize: 18, fontWeight: 700, color: T.accent, opacity: 0.5, marginBottom: 4 }}>{String(i+1).padStart(2,'0')}</Text>
           <CardTitle>{s.t}</CardTitle>
-          <Text style={{ fontSize: 10, color: T.muted, lineHeight: 1.4 }}>{s.d}</Text>
+          <Text style={{ fontSize: 12, color: T.muted, lineHeight: 1.4 }}>{s.d}</Text>
         </Card>
       ))}
     </View>
   </Page>
 );
 
-const Slide06 = () => (
+const Slide06 = ({ imgBase }) => (
   <Page size={[PW, PH]} style={pageStyle}>
     <Header num={6} label="СЦЕНАРИИ АНАЛИЗА" />
     <H>Гибкая настройка <HA>глубины и формата</HA></H>
     <Sub>Каждый сценарий определяет подробность, структуру и акценты анализа.</Sub>
-    {["Подробность, акценты и формат — под вашу задачу", "Кастомизируемый AI-анализ: резюме, задачи, риски, ключевые решения", "Импорт и экспорт сценариев между коллегами", "Мгновенное применение к любой записи"].map((t, i) => <Li key={i}>{t}</Li>)}
+    <View style={{ flexDirection: "row", gap: 12 }}>
+      <View style={{ flex: 1 }}>
+        {["Подробность, акценты и формат — под вашу задачу", "Кастомизируемый AI-анализ: резюме, задачи, риски, ключевые решения", "Импорт и экспорт сценариев между коллегами", "Мгновенное применение к любой записи"].map((t, i) => <Li key={i}>{t}</Li>)}
+      </View>
+      <Image src={`${imgBase}/images/noteall/screenshot-scenarios.png`} style={{ width: 340, height: 240, objectFit: "contain", borderRadius: 4 }} />
+    </View>
   </Page>
 );
 
@@ -176,7 +181,7 @@ const Slide07 = () => (
       ].map((s, i) => (
         <View key={i} style={{ width: "48%", ...{ backgroundColor: T.card, borderRadius: 4, padding: 10, borderWidth: 0.5, borderColor: T.border } }}>
           <CardTitle>{s.t}</CardTitle>
-          <Text style={{ fontSize: 10, color: T.muted, lineHeight: 1.4 }}>{s.d}</Text>
+          <Text style={{ fontSize: 12, color: T.muted, lineHeight: 1.4 }}>{s.d}</Text>
         </View>
       ))}
     </View>
@@ -196,7 +201,7 @@ const Slide08 = () => (
       ].map((s, i) => (
         <Card key={i}>
           <CardTitle>{s.t}</CardTitle>
-          <Text style={{ fontSize: 10, color: T.muted, lineHeight: 1.4, marginBottom: 6 }}>{s.d}</Text>
+          <Text style={{ fontSize: 12, color: T.muted, lineHeight: 1.4, marginBottom: 6 }}>{s.d}</Text>
           <View style={{ flexDirection: "row", gap: 4, flexWrap: "wrap" }}>
             {s.tags.map((tg, j) => <Tag key={j}>{tg}</Tag>)}
           </View>
@@ -206,25 +211,30 @@ const Slide08 = () => (
   </Page>
 );
 
-const Slide09 = () => (
+const Slide09 = ({ imgBase }) => (
   <Page size={[PW, PH]} style={pageStyle}>
     <Header num={9} label="ШАРИНГ И ЭКСПОРТ" />
     <H>Делитесь <HA>результатами</HA></H>
     <Sub>Отправьте коллеге ссылку — результат откроется без регистрации. Или экспортируйте в DOCX по шаблону.</Sub>
-    {[
-      { t: "Одна ссылка — доступ для всех", d: "Без регистрации, на любом устройстве" },
-      { t: "Адаптивный вид", d: "Удобное чтение на смартфоне, планшете и компьютере" },
-      { t: "Экспорт в DOCX", d: "По шаблону с плейсхолдерами — под корпоративный формат" },
-      { t: "AI-переформулировка", d: "Перефразируйте отдельные блоки результата одним кликом" },
-    ].map((s, i) => (
-      <View key={i} style={{ flexDirection: "row", gap: 4, alignItems: "flex-start", marginBottom: 4 }}>
-        <View style={{ width: 5, height: 5, borderRadius: 3, backgroundColor: T.accent, marginTop: 4 }} />
-        <View>
-          <Text style={{ fontSize: 11, fontWeight: 600, color: T.fg }}>{s.t}</Text>
-          <Text style={{ fontSize: 10, color: T.muted }}>{s.d}</Text>
-        </View>
+    <View style={{ flexDirection: "row", gap: 16 }}>
+      <View style={{ flex: 1 }}>
+        {[
+          { t: "Одна ссылка — доступ для всех", d: "Без регистрации, на любом устройстве" },
+          { t: "Адаптивный вид", d: "Удобное чтение на смартфоне, планшете и компьютере" },
+          { t: "Экспорт в DOCX", d: "По шаблону с плейсхолдерами — под корпоративный формат" },
+          { t: "AI-переформулировка", d: "Перефразируйте отдельные блоки результата одним кликом" },
+        ].map((s, i) => (
+          <View key={i} style={{ flexDirection: "row", gap: 4, alignItems: "flex-start", marginBottom: 6 }}>
+            <View style={{ width: 5, height: 5, borderRadius: 3, backgroundColor: T.accent, marginTop: 5 }} />
+            <View>
+              <Text style={{ fontSize: 13, fontWeight: 600, color: T.fg }}>{s.t}</Text>
+              <Text style={{ fontSize: 12, color: T.muted }}>{s.d}</Text>
+            </View>
+          </View>
+        ))}
       </View>
-    ))}
+      <Image src={`${imgBase}/images/noteall/screenshot-phone.png`} style={{ width: 160, height: 300, objectFit: "contain" }} />
+    </View>
   </Page>
 );
 
@@ -244,7 +254,7 @@ const Slide10 = () => (
       ].map((s, i) => (
         <View key={i} style={{ width: "31%", backgroundColor: T.card, borderRadius: 4, padding: 8, borderWidth: 0.5, borderColor: T.border }}>
           <CardTitle>{s.t}</CardTitle>
-          <Text style={{ fontSize: 9, color: T.muted, lineHeight: 1.4 }}>{s.d}</Text>
+          <Text style={{ fontSize: 11, color: T.muted, lineHeight: 1.4 }}>{s.d}</Text>
         </View>
       ))}
     </View>
@@ -277,20 +287,20 @@ const Slide12 = () => (
     <Sub>Это не просто «перевод голоса в текст», а инструмент анализа и упаковки экспертного контекста.</Sub>
     <View style={{ flexDirection: "row", gap: 10 }}>
       <Card>
-        <Text style={{ fontSize: 12, fontWeight: 700, color: T.dim, marginBottom: 8 }}>Обычные сервисы</Text>
+        <Text style={{ fontSize: 14, fontWeight: 700, color: T.dim, marginBottom: 8 }}>Обычные сервисы</Text>
         {["Транскрипт", "Короткое summary", "Мало структуры", "Слабая привязка к бизнес-задаче"].map((t, i) => (
-          <View key={i} style={{ flexDirection: "row", gap: 4, marginBottom: 3, alignItems: "center" }}>
-            <View style={{ width: 4, height: 4, borderRadius: 2, backgroundColor: T.dim, opacity: 0.4 }} />
-            <Text style={{ fontSize: 10, color: T.dim }}>{t}</Text>
+          <View key={i} style={{ flexDirection: "row", gap: 5, marginBottom: 4, alignItems: "center" }}>
+            <View style={{ width: 5, height: 5, borderRadius: 3, backgroundColor: T.dim, opacity: 0.4 }} />
+            <Text style={{ fontSize: 12, color: T.dim }}>{t}</Text>
           </View>
         ))}
       </Card>
-      <Card style={{ borderWidth: 1.5, borderColor: T.accent }}>
-        <Text style={{ fontSize: 12, fontWeight: 700, color: T.accent, marginBottom: 8 }}>Noteall</Text>
+      <Card style={{ borderWidth: 2, borderColor: T.accent }}>
+        <Text style={{ fontSize: 14, fontWeight: 700, color: T.accent, marginBottom: 8 }}>Noteall</Text>
         {["Тематическая сборка разговора", "Анализ по настраиваемым сценариям", "Поддержка исследовательских фреймворков", "Работа с несколькими интервью", "Итоговые артефакты под внедрение", "Настройка под конкретный процесс клиента"].map((t, i) => (
-          <View key={i} style={{ flexDirection: "row", gap: 4, marginBottom: 3, alignItems: "center" }}>
-            <View style={{ width: 4, height: 4, borderRadius: 2, backgroundColor: T.accent }} />
-            <Text style={{ fontSize: 10, color: T.fg }}>{t}</Text>
+          <View key={i} style={{ flexDirection: "row", gap: 5, marginBottom: 4, alignItems: "center" }}>
+            <View style={{ width: 5, height: 5, borderRadius: 3, backgroundColor: T.accent }} />
+            <Text style={{ fontSize: 12, color: T.fg }}>{t}</Text>
           </View>
         ))}
       </Card>
@@ -312,7 +322,7 @@ const Slide13 = () => (
       ].map((s, i) => (
         <View key={i} style={{ width: "48%", backgroundColor: T.card, borderRadius: 4, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
           <CardTitle>{s.t}</CardTitle>
-          <Text style={{ fontSize: 10, color: T.muted, lineHeight: 1.4 }}>{s.d}</Text>
+          <Text style={{ fontSize: 12, color: T.muted, lineHeight: 1.4 }}>{s.d}</Text>
         </View>
       ))}
     </View>
@@ -349,10 +359,10 @@ const NoteAllProductDoc = ({ imgBase }) => (
     <Slide03 />
     <Slide04 />
     <Slide05 />
-    <Slide06 />
+    <Slide06 imgBase={imgBase} />
     <Slide07 />
     <Slide08 />
-    <Slide09 />
+    <Slide09 imgBase={imgBase} />
     <Slide10 />
     <Slide11 />
     <Slide12 />
