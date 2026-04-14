@@ -1,7 +1,7 @@
 import { NPSlideContainer } from './NPSlideContainer';
 
 const NPSlide11Research = () => (
-  <NPSlideContainer number={11} label="Качественные исследования">
+  <NPSlideContainer number={10} label="Качественные исследования">
     <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1.5 sm:mb-3 md:mb-6" data-testid="np-research-title">
       Research Module: <span className="text-accent">Customer Development</span>
     </h2>

@@ -16,7 +16,7 @@ const NPSlide04Output = () => (
         "Дорожная карта",
         "Диагностика по фреймворку",
         "Материалы для проектирования",
-        "База для ТЗ / PRD / backlog",
+        "Готовый к использованию ТЗ / PRD / backlog",
         "Синтез нескольких интервью",
       ].map((item, i) => (
         <div key={i} className="bg-card rounded-lg border border-border p-2.5 sm:p-4 md:p-5 flex items-start gap-1.5 md:gap-3" data-testid={`np-output-${i}`}>
@@ -24,14 +24,6 @@ const NPSlide04Output = () => (
           <p className="font-body text-xs sm:text-sm md:text-lg text-foreground/80 leading-snug">{item}</p>
         </div>
       ))}
-    </div>
-    <div className="rounded-xl border border-border overflow-hidden shadow-lg">
-      <img
-        src={`${process.env.PUBLIC_URL || ''}/images/noteall/screenshot-main.png`}
-        alt="Noteall — интерфейс анализа"
-        className="w-full h-auto"
-        data-testid="np-output-screenshot"
-      />
     </div>
   </NPSlideContainer>
 );

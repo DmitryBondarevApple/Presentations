@@ -1,7 +1,7 @@
 import { NPSlideContainer } from './NPSlideContainer';
 
 const NPSlide06Speakers = () => (
-  <NPSlideContainer number={6} label="Спикеры">
+  <NPSlideContainer number={5} label="Спикеры">
     <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1.5 sm:mb-3 md:mb-6" data-testid="np-speakers-title">
       Система <span className="text-accent">знает ваших собеседников</span>
     </h2>

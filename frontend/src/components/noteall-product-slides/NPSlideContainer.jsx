@@ -14,7 +14,7 @@ export const NPSlideContainer = ({ children, number, label, className }) => {
         ) : <span />}
         {number && (
           <span className="font-body text-[10px] sm:text-xs md:text-base text-muted-foreground">
-            {String(number).padStart(2, '0')}&nbsp;/&nbsp;15
+            {String(number).padStart(2, '0')}&nbsp;/&nbsp;14
           </span>
         )}
       </div>

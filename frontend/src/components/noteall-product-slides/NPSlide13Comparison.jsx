@@ -16,7 +16,7 @@ const right = [
 ];
 
 const NPSlide13Comparison = () => (
-  <NPSlideContainer number={13} label="Преимущество">
+  <NPSlideContainer number={12} label="Преимущество">
     <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1.5 sm:mb-3 md:mb-6" data-testid="np-compare-title">
       Глубже, чем <span className="text-accent">обычный транскрибатор</span>
     </h2>

@@ -31,7 +31,7 @@ const segments = [
 ];
 
 const NPSlide12Segments = () => (
-  <NPSlideContainer number={12} label="Ценность">
+  <NPSlideContainer number={11} label="Ценность">
     <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1.5 sm:mb-3 md:mb-6" data-testid="np-segments-title">
       Универсальная платформа <span className="text-accent">для трёх типов команд</span>
     </h2>

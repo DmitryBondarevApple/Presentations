@@ -1,7 +1,7 @@
 import { NPSlideContainer } from './NPSlideContainer';
 
 const NPSlide09Sources = () => (
-  <NPSlideContainer number={9} label="Источники данных">
+  <NPSlideContainer number={8} label="Источники данных">
     <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1.5 sm:mb-3 md:mb-6" data-testid="np-sources-title">
       Анализируйте записи <span className="text-accent">из любых источников</span>
     </h2>

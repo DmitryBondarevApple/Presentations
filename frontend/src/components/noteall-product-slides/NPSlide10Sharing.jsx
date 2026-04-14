@@ -1,7 +1,7 @@
 import { NPSlideContainer } from './NPSlideContainer';
 
 const NPSlide10Sharing = () => (
-  <NPSlideContainer number={10} label="Шаринг и экспорт">
+  <NPSlideContainer number={9} label="Шаринг и экспорт">
     <div className="flex flex-col md:flex-row gap-3 md:gap-8 items-start">
       <div className="flex-1 min-w-0">
         <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1.5 sm:mb-3 md:mb-6" data-testid="np-sharing-title">

@@ -3,27 +3,30 @@ import NPSlide01Cover from "@/components/noteall-product-slides/NPSlide01Cover";
 import NPSlide02Problem from "@/components/noteall-product-slides/NPSlide02Problem";
 import NPSlide03Solution from "@/components/noteall-product-slides/NPSlide03Solution";
 import NPSlide04Output from "@/components/noteall-product-slides/NPSlide04Output";
-import NPSlide05Transcription from "@/components/noteall-product-slides/NPSlide05Transcription";
-import NPSlide06Speakers from "@/components/noteall-product-slides/NPSlide06Speakers";
-import NPSlide07Scenarios from "@/components/noteall-product-slides/NPSlide07Scenarios";
-import NPSlide08Visual from "@/components/noteall-product-slides/NPSlide08Visual";
-import NPSlide09Sources from "@/components/noteall-product-slides/NPSlide09Sources";
-import NPSlide10Sharing from "@/components/noteall-product-slides/NPSlide10Sharing";
-import NPSlide11Research from "@/components/noteall-product-slides/NPSlide11Research";
-import NPSlide12Segments from "@/components/noteall-product-slides/NPSlide12Segments";
-import NPSlide13Comparison from "@/components/noteall-product-slides/NPSlide13Comparison";
-import NPSlide14Growth from "@/components/noteall-product-slides/NPSlide13Growth";
-import NPSlide15CTA from "@/components/noteall-product-slides/NPSlide15CTA";
+import NPSlide05Speakers from "@/components/noteall-product-slides/NPSlide06Speakers";
+import NPSlide06Scenarios from "@/components/noteall-product-slides/NPSlide07Scenarios";
+import NPSlide07Visual from "@/components/noteall-product-slides/NPSlide08Visual";
+import NPSlide08Sources from "@/components/noteall-product-slides/NPSlide09Sources";
+import NPSlide09Sharing from "@/components/noteall-product-slides/NPSlide10Sharing";
+import NPSlide10Research from "@/components/noteall-product-slides/NPSlide11Research";
+import NPSlide11Segments from "@/components/noteall-product-slides/NPSlide12Segments";
+import NPSlide12Comparison from "@/components/noteall-product-slides/NPSlide13Comparison";
+import NPSlide13Growth from "@/components/noteall-product-slides/NPSlide13Growth";
+import NPSlide14CTA from "@/components/noteall-product-slides/NPSlide15CTA";
+import { generateNoteAllProductPdf } from "@/components/NoteAllProductPdfGenerator";
 
 const slides = [
   NPSlide01Cover, NPSlide02Problem, NPSlide03Solution, NPSlide04Output,
-  NPSlide05Transcription, NPSlide06Speakers, NPSlide07Scenarios, NPSlide08Visual,
-  NPSlide09Sources, NPSlide10Sharing, NPSlide11Research, NPSlide12Segments,
-  NPSlide13Comparison, NPSlide14Growth, NPSlide15CTA,
+  NPSlide05Speakers, NPSlide06Scenarios, NPSlide07Visual, NPSlide08Sources,
+  NPSlide09Sharing, NPSlide10Research, NPSlide11Segments, NPSlide12Comparison,
+  NPSlide13Growth, NPSlide14CTA,
 ];
+
+const TOTAL = slides.length;
 
 export default function NoteAllProductPresentation() {
   const [current, setCurrent] = useState(0);
+  const [pdfLoading, setPdfLoading] = useState(false);
 
   useEffect(() => {
     document.title = "Noteall — Возможности платформы";
@@ -31,7 +34,7 @@ export default function NoteAllProductPresentation() {
   }, []);
 
   const go = useCallback((dir) => {
-    setCurrent((p) => Math.max(0, Math.min(slides.length - 1, p + dir)));
+    setCurrent((p) => Math.max(0, Math.min(TOTAL - 1, p + dir)));
   }, []);
 
   useEffect(() => {
@@ -42,6 +45,12 @@ export default function NoteAllProductPresentation() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [go]);
+
+  const handlePdf = async () => {
+    setPdfLoading(true);
+    try { await generateNoteAllProductPdf(); } catch (e) { console.error(e); }
+    setPdfLoading(false);
+  };
 
   const Slide = slides[current];
 
@@ -65,11 +74,18 @@ export default function NoteAllProductPresentation() {
               data-testid={`np-dot-${i}`} />
           ))}
         </div>
-        <button onClick={() => go(1)} disabled={current === slides.length - 1}
-          className="px-2 py-1 sm:px-4 sm:py-2 rounded text-xs sm:text-sm md:text-base font-heading font-medium text-accent hover:text-accent/80 disabled:opacity-30 transition-colors"
-          data-testid="np-next-btn">
-          Далее
-        </button>
+        <div className="flex items-center gap-2">
+          <button onClick={handlePdf} disabled={pdfLoading}
+            className="px-2 py-1 sm:px-3 sm:py-1.5 rounded text-xs sm:text-sm font-heading font-medium text-accent border border-accent/30 hover:bg-accent/10 disabled:opacity-50 transition-colors"
+            data-testid="np-pdf-btn">
+            {pdfLoading ? "..." : "PDF"}
+          </button>
+          <button onClick={() => go(1)} disabled={current === TOTAL - 1}
+            className="px-2 py-1 sm:px-4 sm:py-2 rounded text-xs sm:text-sm md:text-base font-heading font-medium text-accent hover:text-accent/80 disabled:opacity-30 transition-colors"
+            data-testid="np-next-btn">
+            Далее
+          </button>
+        </div>
       </div>
     </div>
   );
