@@ -14,6 +14,8 @@
 | NoteAll One Pager | `/onepager` | 1 page | DONE |
 | AX10 | `/ax10` | 16 | DONE |
 | AX10 One Pager | `/ax10-onepager` | 1 page | DONE |
+| Noteall Product | `/product` | 14 | DONE |
+| Noteall Product (Short) | `/product-short` | 13 | DONE |
 
 ## Технологии
 - React + Tailwind CSS + Framer Motion
@@ -38,6 +40,13 @@
 - [x] OG-скриншот обновлён с нового тёмного дизайна
 - [x] Билд build-ax10-onepager.sh пересобран
 - [x] Полные имена в команде: Сергей Мартюшев, Сергей Бобылев, Дмитрий Бондарев, Сергей Томилов
+- [x] Noteall Product Presentation — 14 слайдов (`/product`)
+- [x] PDF-генератор с предгенерацией Light/Dark тем
+- [x] Селектор тем PDF (Светлая/Тёмная) — дропдаун при нажатии кнопки PDF
+- [x] Краткий вариант без слайда 13 (`/product-short`, 13 слайдов)
+- [x] SlideTotal React Context для динамической нумерации слайдов
+- [x] Исправлена синтаксическая ошибка в NoteAllProductPdfGenerator.jsx (Slide12/Slide13 merge)
+- [x] Исправлена обрезка верхней рамки на слайде 12 в PDF (marginTop: 6)
 
 ## Бэклог
 - [ ] P2: QR-коды на финальные слайды
@@ -49,3 +58,5 @@
 - OG-картинки = только скриншоты титульных слайдов (НЕ AI-генерация)
 - PDF: НЕ использовать flex:1 + justifyContent:center для обёрток страниц
 - Nginx reload: `sudo docker exec voice-workspace-frontend-1 nginx -s reload`
+- PDF themes: T — мутабельная переменная модуля, устанавливается перед каждым pdf() вызовом
+- PDF pre-gen: обе темы генерируются при загрузке страницы, блобы хранятся в state
