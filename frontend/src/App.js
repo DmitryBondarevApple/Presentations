@@ -23,6 +23,7 @@ function App() {
         <Route path="/ax10" element={<AX10Presentation />} />
         <Route path="/ax10-onepager" element={<AX10OnePager />} />
         <Route path="/product" element={<NoteAllProductPresentation />} />
+        <Route path="/product-short" element={<NoteAllProductPresentation excludeSlide13 />} />
       </Routes>
     </BrowserRouter>
   );

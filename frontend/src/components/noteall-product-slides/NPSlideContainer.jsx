@@ -1,6 +1,10 @@
 import { cn } from "@/lib/utils";
+import { createContext, useContext } from "react";
+
+export const SlideTotal = createContext(14);
 
 export const NPSlideContainer = ({ children, number, label, className }) => {
+  const total = useContext(SlideTotal);
   return (
     <div className={cn("w-full h-full flex flex-col relative bg-background", className)}>
       <div className="absolute top-0 right-0 w-80 h-80 opacity-[0.04] pointer-events-none"
@@ -14,7 +18,7 @@ export const NPSlideContainer = ({ children, number, label, className }) => {
         ) : <span />}
         {number && (
           <span className="font-body text-[10px] sm:text-xs md:text-base text-muted-foreground">
-            {String(number).padStart(2, '0')}&nbsp;/&nbsp;14
+            {String(number).padStart(2, '0')}&nbsp;/&nbsp;{total}
           </span>
         )}
       </div>
