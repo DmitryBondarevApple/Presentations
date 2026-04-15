@@ -19,8 +19,8 @@ const EMSlide17System = () => (
     <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
       <div className="lg:w-[55%] rounded-lg overflow-hidden border border-border shadow-lg">
         <img
-          src={`${process.env.PUBLIC_URL || ''}/images/emergent/vc-dashboard.png`}
-          alt="VetControl — Сводка по хозяйству"
+          src={`${process.env.PUBLIC_URL || ''}/images/emergent/vc-analytics.png`}
+          alt="VetControl — Аналитика"
           className="w-full h-auto"
         />
       </div>
