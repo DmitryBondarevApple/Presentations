@@ -34,7 +34,7 @@ const allSlides = [
   EMSlide09Requirements, EMSlide10Emergent, EMSlide11Team, EMSlide12Tasks,
   EMSlide13Context, EMSlide14Docs, EMSlide15Final,
   EMSlide16Result, EMSlide17System, EMSlide18Iteration, EMSlide19Evolution,
-  EMSlide20Environments, EMSlide22DomainValue, EMSlide21Pipeline, EMSlide23HumanRole,
+  EMSlide22DomainValue, EMSlide20Environments, EMSlide21Pipeline, EMSlide23HumanRole,
 ];
 
 const TOTAL = allSlides.length;

@@ -1,7 +1,7 @@
 import { EMSlideContainer } from './EMSlideContainer';
 
 const EMSlide20Environments = () => (
-  <EMSlideContainer number={20} label="Инфраструктура">
+  <EMSlideContainer number={21} label="Инфраструктура">
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-4" data-testid="em-envs-title">
       Разработка и рабочий продукт — <span className="text-accent">это не одно и то же</span>
     </h2>
