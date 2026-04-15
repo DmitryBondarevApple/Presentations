@@ -8,7 +8,7 @@
 |----------|-------|---------|--------|
 | Ростелеком | `/` | 15 | DONE |
 | FranchCamp | `/franchcamp` | 17 | DONE |
-| Emergent Masterclass | `/emergent` | 15 | DONE |
+| Emergent Masterclass | `/emergent` | 23 | DONE |
 | MakeUsBeautiful | `/makeusbeautiful` | 14 | DONE |
 | NoteAll Invest | `/invest` | 14 | DONE |
 | NoteAll One Pager | `/onepager` | 1 page | DONE |
@@ -48,6 +48,8 @@
 - [x] Исправлена обрезка рамки на слайде 12 в PDF (marginTop: 6)
 - [x] Bug fix: z-index дропдауна PDF (слайд перекрывал меню)
 - [x] Bug fix: DOM removal timing — setTimeout на закрытие меню после клика
+- [x] Emergent Masterclass Part 2: 8 новых слайдов (16-23) — Результат, Система, Итерация, Развитие, Среды, Pipeline, Ценность, Роль человека
+- [x] Скриншоты VetControl (dashboard, analytics, disease form) в public/images/emergent/
 
 ## Бэклог
 - [ ] P2: QR-коды на финальные слайды

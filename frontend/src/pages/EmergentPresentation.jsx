@@ -18,6 +18,14 @@ import EMSlide12Tasks from '@/components/emergent-slides/EMSlide12Tasks';
 import EMSlide13Context from '@/components/emergent-slides/EMSlide13Context';
 import EMSlide14Docs from '@/components/emergent-slides/EMSlide14Docs';
 import EMSlide15Final from '@/components/emergent-slides/EMSlide15Final';
+import EMSlide16Result from '@/components/emergent-slides/EMSlide16Result';
+import EMSlide17System from '@/components/emergent-slides/EMSlide17System';
+import EMSlide18Iteration from '@/components/emergent-slides/EMSlide18Iteration';
+import EMSlide19Evolution from '@/components/emergent-slides/EMSlide19Evolution';
+import EMSlide20Environments from '@/components/emergent-slides/EMSlide20Environments';
+import EMSlide21Pipeline from '@/components/emergent-slides/EMSlide21Pipeline';
+import EMSlide22DomainValue from '@/components/emergent-slides/EMSlide22DomainValue';
+import EMSlide23HumanRole from '@/components/emergent-slides/EMSlide23HumanRole';
 import { generateEmergentPdf } from '@/components/EmergentPdfGenerator';
 
 const allSlides = [
@@ -25,6 +33,8 @@ const allSlides = [
   EMSlide05Map, EMSlide06Idea, EMSlide07Problem, EMSlide08Market,
   EMSlide09Requirements, EMSlide10Emergent, EMSlide11Team, EMSlide12Tasks,
   EMSlide13Context, EMSlide14Docs, EMSlide15Final,
+  EMSlide16Result, EMSlide17System, EMSlide18Iteration, EMSlide19Evolution,
+  EMSlide20Environments, EMSlide21Pipeline, EMSlide22DomainValue, EMSlide23HumanRole,
 ];
 
 const TOTAL = allSlides.length;
