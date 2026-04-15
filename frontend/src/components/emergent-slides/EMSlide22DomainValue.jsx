@@ -3,7 +3,7 @@ import { EMSlideContainer } from './EMSlideContainer';
 const EMSlide22DomainValue = () => (
   <EMSlideContainer number={22} label="Ценность">
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-4" data-testid="em-domain-title">
-      Ценность растёт, <span className="text-accent">когда продукт знает предметную область</span>
+      Ценность растёт, <span className="text-accent">когда продукт глубоко погружен в предметную область</span>
     </h2>
     <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-8 max-w-3xl">
       Чем глубже система понимает контекст — тем больше пользы она приносит

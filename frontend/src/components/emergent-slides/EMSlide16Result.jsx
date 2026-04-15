@@ -37,12 +37,12 @@ const EMSlide16Result = () => (
           <span className="font-heading text-2xl md:text-4xl font-bold text-accent">18:23</span>
           <div>
             <p className="font-body text-xs md:text-sm text-accent uppercase tracking-wider">Готовый результат</p>
-            <p className="font-body text-xs md:text-sm text-muted-foreground/60">Рабочий SaaS-продукт</p>
+            <p className="font-body text-xs md:text-sm text-muted-foreground/60">Рабочий прототип SaaS-продукта</p>
           </div>
         </div>
 
         <div className="flex flex-col gap-1.5 mt-1 md:mt-2">
-          {["Система с нуля за одну сессию", "Авторизация, роли, dashboard, CRUD"].map((t, i) => (
+          {["Действующий прототип системы с нуля за одну сессию", "Авторизация, роли, dashboard, CRUD"].map((t, i) => (
             <div key={i} className="flex items-start gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-1.5" />
               <p className="font-body text-xs md:text-base text-muted-foreground">{t}</p>
