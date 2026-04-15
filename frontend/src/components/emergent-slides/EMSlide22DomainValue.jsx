@@ -1,7 +1,7 @@
 import { EMSlideContainer } from './EMSlideContainer';
 
 const EMSlide22DomainValue = () => (
-  <EMSlideContainer number={22} label="Ценность">
+  <EMSlideContainer number={21} label="Ценность">
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-4" data-testid="em-domain-title">
       Ценность растёт, <span className="text-accent">когда продукт глубоко погружен в предметную область</span>
     </h2>

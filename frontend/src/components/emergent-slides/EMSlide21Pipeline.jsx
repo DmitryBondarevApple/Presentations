@@ -7,7 +7,7 @@ const nodes = [
 ];
 
 const EMSlide21Pipeline = () => (
-  <EMSlideContainer number={21} label="Деплой">
+  <EMSlideContainer number={22} label="Деплой">
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-4" data-testid="em-pipeline-title">
       Как код выходит <span className="text-accent">в вашу инфраструктуру</span>
     </h2>

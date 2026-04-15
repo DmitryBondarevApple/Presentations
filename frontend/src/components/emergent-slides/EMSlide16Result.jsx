@@ -3,7 +3,7 @@ import { EMSlideContainer } from './EMSlideContainer';
 const EMSlide16Result = () => (
   <EMSlideContainer number={16} label="Результат">
     <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 md:mb-4" data-testid="em-result-title">
-      Что получилось <span className="text-accent">за 30 минут</span>
+      Что получилось <span className="text-accent">за 40 минут</span>
     </h2>
     <p className="font-body text-sm md:text-xl text-muted-foreground mb-4 md:mb-6 max-w-3xl">
       От PRD-документа к первому рабочему продукту
