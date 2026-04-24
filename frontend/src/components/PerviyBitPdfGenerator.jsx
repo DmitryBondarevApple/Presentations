@@ -84,7 +84,7 @@ const S01 = ({ imgBase }) => (
         <Image src={`${imgBase}/images/perviy-bit/logo-perviy-bit.jpg`} style={{ width: 110, height: 38, objectFit: "contain", borderRadius: 3 }} />
       </View>
       <Text style={{ fontSize: 32, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 620, lineHeight: 1.3 }}>Автоматизация пресейла</Text>
-      <Text style={{ fontSize: 32, fontWeight: 700, color: T.accent, textAlign: "center", maxWidth: 620, lineHeight: 1.3 }}>для 1С-доработок</Text>
+      <Text style={{ fontSize: 32, fontWeight: 700, color: T.accent, textAlign: "center", maxWidth: 620, lineHeight: 1.3 }}>для 1С-разработки</Text>
       <Text style={{ fontSize: 15, color: T.muted, textAlign: "center", maxWidth: 520, marginTop: 16, lineHeight: 1.45 }}>От интервью с клиентом — к готовому ТЗ и коммерческому предложению</Text>
       <View style={{ width: 44, height: 2, backgroundColor: T.accent, marginTop: 24, opacity: 0.5 }} />
       <Text style={{ fontSize: 11, color: T.dim, marginTop: 14 }}>noteall.ru</Text>
