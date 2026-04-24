@@ -18,7 +18,7 @@ const PBSlide04Solution = () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-5">
       {steps.map((s, i) => (
         <div key={i} className="bg-card rounded-lg border-t-[3px] border-t-accent border border-border p-3 sm:p-4 md:p-6">
-          <span className="font-heading text-lg md:text-2xl font-bold text-accent/30">{s.n}</span>
+          <span className="font-heading text-lg md:text-2xl font-bold text-accent/70">{s.n}</span>
           <h3 className="font-heading text-sm sm:text-base md:text-xl font-bold text-foreground mt-1 mb-1 md:mb-2">{s.t}</h3>
           <p className="font-body text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">{s.d}</p>
         </div>

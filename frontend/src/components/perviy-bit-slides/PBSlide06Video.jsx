@@ -17,7 +17,7 @@ const PBSlide06Video = () => (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 md:gap-6">
       {items.map((s, i) => (
         <div key={i} className="bg-card rounded-lg border border-border p-3 sm:p-5 md:p-8">
-          <span className="font-heading text-lg md:text-2xl font-bold text-accent/30">{String(i + 1).padStart(2, '0')}</span>
+          <span className="font-heading text-lg md:text-2xl font-bold text-accent/70">{String(i + 1).padStart(2, '0')}</span>
           <h3 className="font-heading text-sm sm:text-base md:text-xl font-bold text-foreground mt-1 mb-1 md:mb-3">{s.t}</h3>
           <p className="font-body text-xs sm:text-sm md:text-lg text-muted-foreground leading-relaxed">{s.d}</p>
         </div>

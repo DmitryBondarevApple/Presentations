@@ -17,7 +17,7 @@ const PBSlide02Problem = () => (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 md:gap-6">
       {cards.map((c, i) => (
         <div key={i} className="bg-card rounded-lg border border-border p-3 sm:p-5 md:p-8" data-testid={`pb-problem-${i}`}>
-          <span className="font-heading text-lg md:text-2xl font-bold text-accent/30">{c.num}</span>
+          <span className="font-heading text-lg md:text-2xl font-bold text-accent/70">{c.num}</span>
           <h3 className="font-heading text-sm sm:text-base md:text-2xl font-bold text-foreground mt-1 mb-1 md:mb-3">{c.title}</h3>
           <p className="font-body text-xs sm:text-sm md:text-lg text-muted-foreground leading-relaxed">{c.desc}</p>
         </div>
