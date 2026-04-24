@@ -9,6 +9,7 @@ import NoteAllOnePager from "@/pages/NoteAllOnePager";
 import AX10Presentation from "@/pages/AX10Presentation";
 import AX10OnePager from "@/pages/AX10OnePager";
 import NoteAllProductPresentation from "@/pages/NoteAllProductPresentation";
+import PerviyBitPresentation from "@/pages/PerviyBitPresentation";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/ax10-onepager" element={<AX10OnePager />} />
         <Route path="/product" element={<NoteAllProductPresentation />} />
         <Route path="/product-short" element={<NoteAllProductPresentation excludeSlide13 />} />
+        <Route path="/perviy-bit" element={<PerviyBitPresentation />} />
       </Routes>
     </BrowserRouter>
   );
