@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/perviy-bit/static/css/main.6778ce41.css",
-    "main.js": "/perviy-bit/static/js/main.810b8c53.js",
+    "main.js": "/perviy-bit/static/js/main.9676f2ef.js",
     "index.html": "/perviy-bit/index.html",
     "main.6778ce41.css.map": "/perviy-bit/static/css/main.6778ce41.css.map",
-    "main.810b8c53.js.map": "/perviy-bit/static/js/main.810b8c53.js.map"
+    "main.9676f2ef.js.map": "/perviy-bit/static/js/main.9676f2ef.js.map"
   },
   "entrypoints": [
     "static/css/main.6778ce41.css",
-    "static/js/main.810b8c53.js"
+    "static/js/main.9676f2ef.js"
   ]
 }
