@@ -10,7 +10,7 @@ const items = [
 const PBSlide09KP = () => (
   <PBSlideContainer number={9} label="Подготовка коммерческих предложений">
     <h2 className="font-heading text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-1.5 sm:mb-3 md:mb-6" data-testid="pb-kp-title">
-      Готовое КП — <span className="text-accent">за минуты, а не за дни</span>
+      Готовое КП — <span className="text-accent">меньше чем за час, а не за рабочий день</span>
     </h2>
     <p className="font-body text-sm sm:text-base md:text-xl text-muted-foreground mb-3 sm:mb-5 md:mb-10 leading-relaxed max-w-4xl">
       Автоматическая сборка коммерческого предложения из данных pipeline
