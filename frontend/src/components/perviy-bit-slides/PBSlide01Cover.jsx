@@ -9,8 +9,10 @@ const PBSlide01Cover = () => (
         <img src={`${process.env.PUBLIC_URL || ''}/images/perviy-bit/logo-perviy-bit.jpg`} alt="Первый Бит" className="h-8 sm:h-10 md:h-14 rounded" />
       </div>
       <h1 className="font-heading text-xl sm:text-2xl md:text-5xl lg:text-6xl font-bold text-foreground text-center max-w-5xl leading-tight" data-testid="pb-cover-title">
-        Автоматизация пресейла{'\n'}
-        <span className="text-accent">для 1С-разработки</span>
+        Автоматизация пресейла
+      </h1>
+      <h1 className="font-heading text-xl sm:text-2xl md:text-5xl lg:text-6xl font-bold text-accent text-center max-w-5xl leading-tight">
+        для 1С-разработки
       </h1>
       <p className="font-body text-sm sm:text-base md:text-xl text-muted-foreground text-center max-w-3xl mt-3 md:mt-6 leading-relaxed">
         От интервью с клиентом — к готовому ТЗ и коммерческому предложению
