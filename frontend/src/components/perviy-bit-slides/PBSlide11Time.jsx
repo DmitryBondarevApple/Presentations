@@ -12,13 +12,13 @@ const PBSlide11Time = () => (
       <div className="bg-card rounded-lg border border-border p-3 sm:p-5 md:p-8">
         <span className="inline-block px-2 py-1 rounded bg-muted-foreground/10 text-muted-foreground text-[10px] md:text-xs font-bold tracking-wider uppercase mb-3 md:mb-5">Было</span>
         <p className="font-body text-xs sm:text-sm md:text-lg text-foreground/70 leading-relaxed">
-          Интервью — 8-10 ч ручной обработки — ТЗ — расчёт — КП
+          Интервью → 8-10 ч ручной обработки → ТЗ → расчёт → КП
         </p>
       </div>
       <div className="bg-card rounded-lg border-2 border-accent p-3 sm:p-5 md:p-8">
         <span className="inline-block px-2 py-1 rounded bg-accent/10 text-accent text-[10px] md:text-xs font-bold tracking-wider uppercase mb-3 md:mb-5">Стало</span>
         <p className="font-body text-xs sm:text-sm md:text-lg text-foreground leading-relaxed">
-          Интервью — 1 ч проверки — готовый пакет документов
+          Интервью → 1 ч проверки → готовый пакет документов
         </p>
       </div>
       <div className="bg-card rounded-lg border border-border p-3 sm:p-5 md:p-8">

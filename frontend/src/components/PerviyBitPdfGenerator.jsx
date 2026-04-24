@@ -288,11 +288,11 @@ const S11 = () => (
       <View style={{ flexDirection: "row", gap: 10 }}>
         <Card>
           <Tag bg={T.dimDot + "22"} color={T.muted}>БЫЛО</Tag>
-          <Text style={{ fontSize: 14, color: T.fg, opacity: 0.7, marginTop: 10, lineHeight: 1.5 }}>Интервью — 8-10 ч ручной обработки — ТЗ — расчёт — КП</Text>
+          <Text style={{ fontSize: 14, color: T.fg, opacity: 0.7, marginTop: 10, lineHeight: 1.5 }}>Интервью → 8-10 ч ручной обработки → ТЗ → расчёт → КП</Text>
         </Card>
         <Card thick>
           <Tag>СТАЛО</Tag>
-          <Text style={{ fontSize: 14, color: T.fg, marginTop: 10, lineHeight: 1.5 }}>Интервью — 1 ч проверки — готовый пакет документов</Text>
+          <Text style={{ fontSize: 14, color: T.fg, marginTop: 10, lineHeight: 1.5 }}>Интервью → 1 ч проверки → готовый пакет документов</Text>
         </Card>
         <Card>
           <Tag>РЕЗУЛЬТАТ</Tag>
