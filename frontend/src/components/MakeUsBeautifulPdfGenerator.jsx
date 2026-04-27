@@ -80,7 +80,7 @@ const Card = ({ children, accentBorder, style }) => (
 /* SLIDE 1: COVER                                         */
 /* ═══════════════════════════════════════════════════════ */
 const S1 = () => (
-  <Page size={[PW, PH]} style={{ ...pg, justifyContent: "center", alignItems: "center" }}>
+  <Page size={[PW, PH]} style={{ ...pg(), justifyContent: "center", alignItems: "center" }}>
     <Text style={{ fontSize: 22, fontWeight: 700, letterSpacing: 5, marginBottom: 24 }}>
       СДЕЛАЙ<Text style={{ color: T.accent }}> КРАСИВО!</Text>
     </Text>
@@ -456,7 +456,7 @@ const S9 = () => (
 /* SLIDE 10: CTA                                          */
 /* ═══════════════════════════════════════════════════════ */
 const S10 = () => (
-  <Page size={[PW, PH]} style={{ ...pg, justifyContent: "center", alignItems: "center" }}>
+  <Page size={[PW, PH]} style={{ ...pg(), justifyContent: "center", alignItems: "center" }}>
     <Text style={{ fontSize: 34, fontWeight: 700, textAlign: "center", lineHeight: 1.2, marginBottom: 16 }}>
       Следующий шаг —{"\n"}<Text style={{ color: T.accent }}>бесплатная консультация</Text>
     </Text>
