@@ -17,11 +17,20 @@ Font.register({
   ],
 });
 
-const T = {
-  bg: "#0a0a0a", bg2: "#141414", fg: "#fafafa", fg2: "#d0d4d8",
-  muted: "#8b9296", dim: "#6b7074", accent: "#2d9b6a", accent2: "#3dc484",
-  accentBg: "rgba(45,155,106,0.12)", border: "#1e2a24", border2: "#2a3d32",
+const THEMES = {
+  dark: {
+    bg: "#0a0a0a", bg2: "#141414", fg: "#fafafa", fg2: "#d0d4d8",
+    muted: "#8b9296", dim: "#6b7074", accent: "#2d9b6a", accent2: "#3dc484",
+    accentBg: "rgba(45,155,106,0.12)", border: "#1e2a24", border2: "#2a3d32",
+  },
+  light: {
+    bg: "#ffffff", bg2: "#f4f7f5", fg: "#0f1a14", fg2: "#2a3d32",
+    muted: "#5a6b62", dim: "#8b9b92", accent: "#2d9b6a", accent2: "#1a7d50",
+    accentBg: "rgba(45,155,106,0.08)", border: "#d4e0d9", border2: "#b8ccc2",
+  },
 };
+
+let T = THEMES.dark;
 
 const PW = 841.89;
 const PH = 595.28;
@@ -29,10 +38,10 @@ const PX = 36;
 const PY = 30;
 const TOTAL = 10;
 
-const pg = {
+const pg = () => ({
   width: PW, height: PH, backgroundColor: T.bg, color: T.fg,
   fontFamily: "Inter", padding: `${PY} ${PX}`, position: "relative",
-};
+});
 
 /* ── Helpers ── */
 const Header = ({ label, num }) => (
@@ -96,7 +105,7 @@ const S1 = () => (
 /* SLIDE 2: PROBLEM                                       */
 /* ═══════════════════════════════════════════════════════ */
 const S2 = ({ imgBase }) => (
-  <Page size={[PW, PH]} style={pg}>
+  <Page size={[PW, PH]} style={pg()}>
     <Header label="Зачем это нужно" num={2} />
     <Text style={{ fontSize: 36, fontWeight: 700, marginBottom: 14, lineHeight: 1.15 }}>
       Решение принимается <Text style={{ color: T.accent }}>на улице</Text>
@@ -149,7 +158,7 @@ const extraStats = [
   { n: "58%", l: "потребителей вдохновляются через соцсети" },
 ];
 const S3 = () => (
-  <Page size={[PW, PH]} style={pg}>
+  <Page size={[PW, PH]} style={pg()}>
     <Header label="Цифры" num={3} />
     <Text style={{ fontSize: 36, fontWeight: 700, marginBottom: 6, lineHeight: 1.15 }}>
       Декор <Text style={{ color: T.accent }}>работает</Text>
@@ -185,7 +194,7 @@ const S3 = () => (
 /* SLIDE 4: ABOUT — fixed right card height               */
 /* ═══════════════════════════════════════════════════════ */
 const S4 = () => (
-  <Page size={[PW, PH]} style={pg}>
+  <Page size={[PW, PH]} style={pg()}>
     <Header label="О нас" num={4} />
     <Text style={{ fontSize: 36, fontWeight: 700, marginBottom: 6, lineHeight: 1.15 }}>
       Декор как <Text style={{ color: T.accent }}>бизнес-инструмент</Text>
@@ -234,7 +243,7 @@ const seasons = [
   { tag: "СЕНТ–НОЯБ", title: "Осенний декор", desc: "Тёплая палитра и сезонные мотивы. Ветви, листья, подсветка." },
 ];
 const S5 = () => (
-  <Page size={[PW, PH]} style={pg}>
+  <Page size={[PW, PH]} style={pg()}>
     <Header label="Услуги" num={5} />
     <Text style={{ fontSize: 36, fontWeight: 700, marginBottom: 6, lineHeight: 1.15 }}>
       Партнёр <Text style={{ color: T.accent }}>на весь год</Text>
@@ -268,7 +277,7 @@ const steps = [
   { n: "07", t: "Демонтаж", d: "Аккуратный демонтаж после окончания сезона" },
 ];
 const S6 = () => (
-  <Page size={[PW, PH]} style={pg}>
+  <Page size={[PW, PH]} style={pg()}>
     <Header label="Процесс" num={6} />
     <Text style={{ fontSize: 36, fontWeight: 700, marginBottom: 6, lineHeight: 1.15 }}>
       Как мы <Text style={{ color: T.accent }}>работаем</Text>
@@ -329,7 +338,7 @@ const conditions = [
   { t: "Оплата", d: "50% предоплата после согласования, 50% — после приёмки монтажа" },
 ];
 const S7 = () => (
-  <Page size={[PW, PH]} style={pg}>
+  <Page size={[PW, PH]} style={pg()}>
     <Header label="Что входит" num={7} />
     <Text style={{ fontSize: 36, fontWeight: 700, marginBottom: 6, lineHeight: 1.15 }}>
       Всё <Text style={{ color: T.accent }}>включено</Text>
@@ -366,7 +375,7 @@ const S7 = () => (
 /* SLIDE 8: PORTFOLIO — with images                       */
 /* ═══════════════════════════════════════════════════════ */
 const S8 = ({ imgBase }) => (
-  <Page size={[PW, PH]} style={pg}>
+  <Page size={[PW, PH]} style={pg()}>
     <Header label="Портфолио" num={8} />
     <Text style={{ fontSize: 36, fontWeight: 700, marginBottom: 6, lineHeight: 1.15 }}>
       Примеры <Text style={{ color: T.accent }}>работ</Text>
@@ -403,7 +412,7 @@ const packages = [
   { tag: "ОБНОВЛЕНИЕ", title: "Переоформление", price: "от 20 000 ₽", items: ["Демонтаж старого декора", "Новая концепция", "Обновление материалов", "Быстрые сроки"] },
 ];
 const S9 = () => (
-  <Page size={[PW, PH]} style={pg}>
+  <Page size={[PW, PH]} style={pg()}>
     <Header label="Стоимость" num={9} />
     <Text style={{ fontSize: 36, fontWeight: 700, marginBottom: 6, lineHeight: 1.15 }}>
       Прозрачные <Text style={{ color: T.accent }}>цены</Text>
@@ -492,6 +501,7 @@ const MBDoc = ({ imgBase }) => (
 export async function generateMakeUsBeautifulPdf(onProgress) {
   if (onProgress) onProgress("Генерация PDF...");
   const imgBase = window.location.origin + (process.env.PUBLIC_URL || '');
+  T = THEMES.dark;
   const blob = await pdf(<MBDoc imgBase={imgBase} />).toBlob();
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -501,4 +511,13 @@ export async function generateMakeUsBeautifulPdf(onProgress) {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+export async function preGenerateMakeUsBeautifulPdfs() {
+  const imgBase = window.location.origin + (process.env.PUBLIC_URL || '');
+  T = THEMES.light;
+  const lightBlob = await pdf(<MBDoc imgBase={imgBase} />).toBlob();
+  T = THEMES.dark;
+  const darkBlob = await pdf(<MBDoc imgBase={imgBase} />).toBlob();
+  return { light: lightBlob, dark: darkBlob };
 }

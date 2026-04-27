@@ -19,6 +19,7 @@ function App() {
         <Route path="/franchcamp" element={<FranchCampPresentation />} />
         <Route path="/emergent" element={<EmergentPresentation />} />
         <Route path="/makeusbeautiful" element={<MakeUsBeautifulPresentation />} />
+        <Route path="/makeusbeautiful-light" element={<MakeUsBeautifulPresentation light />} />
         <Route path="/invest" element={<NoteAllInvestPresentation />} />
         <Route path="/onepager" element={<NoteAllOnePager />} />
         <Route path="/ax10" element={<AX10Presentation />} />
