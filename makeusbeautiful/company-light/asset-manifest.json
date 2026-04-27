@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/company-light/static/css/main.6778ce41.css",
+    "main.js": "/company-light/static/js/main.0cc3822b.js",
+    "index.html": "/company-light/index.html",
+    "main.6778ce41.css.map": "/company-light/static/css/main.6778ce41.css.map",
+    "main.0cc3822b.js.map": "/company-light/static/js/main.0cc3822b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6778ce41.css",
+    "static/js/main.0cc3822b.js"
+  ]
+}
