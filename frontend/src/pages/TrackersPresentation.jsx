@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import TASlide01Cover from "@/components/trackers-slides/TASlide01Cover";
 import TASlide02About from "@/components/trackers-slides/TASlide02About";
 import TASlide03Tracker from "@/components/trackers-slides/TASlide03Tracker";
@@ -31,6 +31,7 @@ import TASlide29Conclusion from "@/components/trackers-slides/TASlide29Conclusio
 import TASlide30Finals from "@/components/trackers-slides/TASlide30Finals";
 import TASlide31Formula from "@/components/trackers-slides/TASlide31Formula";
 import TASlide32Last from "@/components/trackers-slides/TASlide32Last";
+import { preGenerateTrackersPdfs } from "@/components/TrackersPdfGenerator";
 
 const slides = [
   TASlide01Cover, TASlide02About, TASlide03Tracker, TASlide04Speaker,
@@ -42,15 +43,38 @@ const slides = [
   TASlide25Mistakes, TASlide26Exercise, TASlide27Questions, TASlide28Debrief,
   TASlide29Conclusion, TASlide30Finals, TASlide31Formula, TASlide32Last,
 ];
-
 const TOTAL = slides.length;
 
 export default function TrackersPresentation() {
   const [current, setCurrent] = useState(0);
+  const [pdfUrls, setPdfUrls] = useState(null);
+  const [pdfLoading, setPdfLoading] = useState(true);
+  const [showThemeMenu, setShowThemeMenu] = useState(false);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     document.title = "Введение в стартапы — Академия трекеров";
     return () => { document.title = "Presentations"; };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    const urls = { light: null, dark: null };
+    setPdfLoading(true);
+    preGenerateTrackersPdfs()
+      .then(blobs => {
+        if (cancelled) return;
+        urls.light = URL.createObjectURL(blobs.light);
+        urls.dark = URL.createObjectURL(blobs.dark);
+        setPdfUrls(urls);
+        setPdfLoading(false);
+      })
+      .catch(e => { console.error("PDF pre-gen failed:", e); if (!cancelled) setPdfLoading(false); });
+    return () => {
+      cancelled = true;
+      if (urls.light) URL.revokeObjectURL(urls.light);
+      if (urls.dark) URL.revokeObjectURL(urls.dark);
+    };
   }, []);
 
   const go = useCallback((dir) => {
@@ -66,6 +90,15 @@ export default function TrackersPresentation() {
     return () => window.removeEventListener("keydown", onKey);
   }, [go]);
 
+  useEffect(() => {
+    if (!showThemeMenu) return;
+    const handler = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) setShowThemeMenu(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [showThemeMenu]);
+
   const Slide = slides[current];
 
   return (
@@ -74,13 +107,10 @@ export default function TrackersPresentation() {
         <div className="absolute inset-0"><Slide /></div>
       </div>
       <div className="shrink-0 flex items-center justify-between px-3 sm:px-4 md:px-8 py-1.5 sm:py-2 md:py-3 relative z-20"
-        style={{ borderTop: "1px solid #e5e5e5", backgroundColor: "rgba(255,255,255,0.8)", backdropFilter: "blur(8px)" }}>
+        style={{ borderTop: "1px solid #e5e5e5", backgroundColor: "rgba(255,255,255,0.85)", backdropFilter: "blur(8px)" }}>
         <button onClick={() => go(-1)} disabled={current === 0}
           className="px-2 py-1 sm:px-4 sm:py-2 rounded text-xs sm:text-sm md:text-base font-medium disabled:opacity-20 transition-opacity"
-          style={{ color: "#71717a" }}
-          data-testid="ta-prev-btn">
-          Назад
-        </button>
+          style={{ color: "#71717a" }} data-testid="ta-prev-btn">Назад</button>
         <div className="flex items-center gap-1 sm:gap-1.5">
           {slides.map((_, i) => (
             <button key={i} onClick={() => setCurrent(i)}
@@ -89,12 +119,43 @@ export default function TrackersPresentation() {
               data-testid={`ta-dot-${i}`} />
           ))}
         </div>
-        <button onClick={() => go(1)} disabled={current === TOTAL - 1}
-          className="px-2 py-1 sm:px-4 sm:py-2 rounded text-xs sm:text-sm md:text-base font-medium disabled:opacity-20 transition-opacity"
-          style={{ color: "#0a0a0a" }}
-          data-testid="ta-next-btn">
-          Далее
-        </button>
+        <div className="flex items-center gap-2">
+          <div className="relative" ref={menuRef}>
+            <button onClick={() => { if (pdfUrls) setShowThemeMenu(v => !v); }}
+              disabled={pdfLoading}
+              className="px-2 py-1 sm:px-3 sm:py-1.5 rounded text-xs sm:text-sm font-medium disabled:opacity-40 transition-opacity"
+              style={{ color: "#0a0a0a", border: "1px solid #e5e5e5" }} data-testid="ta-pdf-btn">
+              {pdfLoading ? (
+                <span className="flex items-center gap-1.5">
+                  <svg className="animate-spin h-3 w-3" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                  PDF
+                </span>
+              ) : "PDF"}
+            </button>
+            {showThemeMenu && pdfUrls && (
+              <div className="absolute bottom-full right-0 mb-2 rounded-lg shadow-xl overflow-hidden min-w-[170px] z-50"
+                style={{ backgroundColor: "#ffffff", border: "1px solid #e5e5e5" }}>
+                <a href={pdfUrls.light} download="Trackers_Light.pdf"
+                  onClick={() => setTimeout(() => setShowThemeMenu(false), 800)}
+                  className="block w-full px-4 py-2.5 text-left text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2.5 no-underline"
+                  style={{ color: "#0a0a0a" }}>
+                  <svg className="w-4 h-4 text-amber-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" /></svg>
+                  Светлая тема
+                </a>
+                <a href={pdfUrls.dark} download="Trackers_Dark.pdf"
+                  onClick={() => setTimeout(() => setShowThemeMenu(false), 800)}
+                  className="block w-full px-4 py-2.5 text-left text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2.5 no-underline"
+                  style={{ color: "#0a0a0a", borderTop: "1px solid #e5e5e5" }}>
+                  <svg className="w-4 h-4 text-indigo-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /></svg>
+                  Тёмная тема
+                </a>
+              </div>
+            )}
+          </div>
+          <button onClick={() => go(1)} disabled={current === TOTAL - 1}
+            className="px-2 py-1 sm:px-4 sm:py-2 rounded text-xs sm:text-sm md:text-base font-medium disabled:opacity-20 transition-opacity"
+            style={{ color: "#0a0a0a" }} data-testid="ta-next-btn">Далее</button>
+        </div>
       </div>
     </div>
   );
