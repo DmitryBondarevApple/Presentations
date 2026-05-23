@@ -12,7 +12,7 @@ const TASlide23NegCases = () => (
     <TAH>Провалы, которые учат</TAH>
     <TASub>Уроки для трекера из реальных историй</TASub>
     <div className="max-w-4xl" style={{ border: "1px solid #e5e5e5", borderRadius: 6, overflow: "hidden" }}>
-      <div className="grid grid-cols-[1fr_2fr] font-mono text-[10px] md:text-xs tracking-wider uppercase px-4 py-2 md:py-3" style={{ backgroundColor: "#fafafa", borderBottom: "1px solid #e5e5e5", color: "#a1a1aa" }}>
+      <div className="grid grid-cols-[1fr_2fr] font-mono text-[10px] md:text-xs tracking-wider uppercase px-4 py-2 md:py-3" style={{ backgroundColor: "#0a0a0a", borderBottom: "none", color: "#ffffff" }}>
         <span>Кейс</span><span>Урок для трекера</span>
       </div>
       {cases.map((r, i) => (

@@ -46,9 +46,9 @@ const Li = ({ children }) => (
   </View>
 );
 const TRow = ({ cells, header, last }) => (
-  <View style={{ flexDirection: "row", borderBottomWidth: last ? 0 : 0.5, borderBottomColor: T.border, paddingVertical: header ? 8 : 10, paddingHorizontal: 12 , backgroundColor: header ? T.card : "transparent" }}>
+  <View style={{ flexDirection: "row", borderBottomWidth: last ? 0 : 0.5, borderBottomColor: T.border, paddingVertical: header ? 8 : 10, paddingHorizontal: 12, backgroundColor: header ? T.badge : "transparent" }}>
     {cells.map((c, i) => (
-      <Text key={i} style={{ flex: i === 0 ? 1 : 2, fontSize: header ? 10 : 14, fontWeight: i === 0 && !header ? 700 : (header ? 700 : 400), color: header ? T.dim : (i === 0 ? T.fg : T.fg2), letterSpacing: header ? 1.5 : 0, textTransform: header ? "uppercase" : "none", lineHeight: 1.4 }}>{c}</Text>
+      <Text key={i} style={{ flex: i === 0 ? 1 : 2, fontSize: header ? 10 : 14, fontWeight: i === 0 || header ? 700 : 400, color: header ? T.badgeFg : (i === 0 ? T.fg : T.fg2), letterSpacing: header ? 1.5 : 0, textTransform: header ? "uppercase" : "none", lineHeight: 1.4 }}>{c}</Text>
     ))}
   </View>
 );

@@ -10,7 +10,7 @@ const TASlide06NotJust = () => (
     <TAH>Стартап — это не просто новая компания</TAH>
     <TASub>Сравнение типов деятельности</TASub>
     <div className="max-w-3xl" style={{ border: "1px solid #e5e5e5", borderRadius: 6, overflow: "hidden" }}>
-      <div className="grid grid-cols-2 font-mono text-[10px] md:text-xs tracking-wider uppercase px-4 py-2 md:py-3" style={{ backgroundColor: "#fafafa", borderBottom: "1px solid #e5e5e5", color: "#a1a1aa" }}>
+      <div className="grid grid-cols-2 font-mono text-[10px] md:text-xs tracking-wider uppercase px-4 py-2 md:py-3" style={{ backgroundColor: "#0a0a0a", borderBottom: "none", color: "#ffffff" }}>
         <span>Тип деятельности</span><span>Суть</span>
       </div>
       {rows.map((r, i) => (
