@@ -106,8 +106,8 @@ const S04 = ({ ib }) => (
   <Page size={[PW, PH]} style={ps()}><Header num={4} label="Спикер" />
     <View style={{ flexDirection: "row", gap: 24 }}>
       <View style={{ flex: 1 }}>
-        <H>Практическая позиция спикера</H><Sub>Я говорю об этом как практик</Sub>
-        <Li>Серийный предприниматель</Li><Li>Более 10 компаний</Li><Li>Опыт привлечения инвестиций</Li><Li>Опыт бизнес-ангела</Li><Li>Опыт работы с фондами, корпорациями и стартапами</Li>
+        <H>Практическая позиция спикера</H>
+        <Li>Серийный предприниматель, более 10 компаний</Li><Li>Опыт привлечения инвестиций</Li><Li>Опыт бизнес-ангела</Li><Li>Опыт работы с фондами, корпорациями и стартапами</Li>
       </View>
       <View style={{ alignItems: "center" }}>
         <Image src={`${ib}/images/trackers/speaker.png`} style={{ width: 120, height: 120, borderRadius: 8, objectFit: "cover" }} />

@@ -4,10 +4,8 @@ const TASlide04Speaker = () => (
     <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
       <div className="flex-1">
         <TAH>Практическая позиция спикера</TAH>
-        <TASub>Я говорю об этом как практик</TASub>
         <div className="space-y-0.5">
-          <TALi>Серийный предприниматель</TALi>
-          <TALi>Более 10 компаний</TALi>
+          <TALi>Серийный предприниматель, более 10 компаний</TALi>
           <TALi>Опыт привлечения инвестиций</TALi>
           <TALi>Опыт бизнес-ангела</TALi>
           <TALi>Опыт работы с фондами, корпорациями и стартапами</TALi>
