@@ -3,11 +3,11 @@ const TASlide29Conclusion = () => (
   <TASlideContainer number={29} label="Вывод">
     <TAH>Главный вывод упражнения</TAH>
     <TASub>Команда НЕ должна сразу:</TASub>
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 md:gap-4 max-w-4xl mb-4 md:mb-8">
+    <div className="flex flex-wrap gap-2 md:gap-3 max-w-4xl mb-4 md:mb-8">
       {["Искать инвестиции", "Нанимать отдел продаж", "Строить полную платформу", "Добавлять 10 фич"].map((t, i) => (
-        <div key={i} className="rounded-md px-3 py-2.5 md:px-4 md:py-3.5 text-xs sm:text-sm md:text-base" style={{ backgroundColor: "#fafafa", border: "1px solid #e5e5e5", color: "#52525b" }}>
+        <span key={i} className="inline-block font-mono text-[10px] md:text-xs tracking-[0.15em] uppercase px-2.5 py-1.5 md:px-3 md:py-2 rounded-sm" style={{ backgroundColor: "#0a0a0a", color: "#ffffff" }}>
           {t}
-        </div>
+        </span>
       ))}
     </div>
     <div className="rounded-md p-3 md:p-5 max-w-4xl" style={{ backgroundColor: "#0a0a0a" }}>

@@ -4,11 +4,11 @@ const TASlide16Efficiency = () => (
     <TAH>Efficiency</TAH>
     <TASub>Главный вопрос: можем ли расти при разумной экономике?</TASub>
     <p className="font-body text-xs md:text-sm mb-2 md:mb-4" style={{ color: "#71717a" }}>Проверяем:</p>
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 md:gap-4 max-w-4xl">
+    <div className="flex flex-wrap gap-2 md:gap-3 max-w-4xl">
       {["CAC", "LTV", "Gross margin", "Contribution margin", "Payback period", "Churn", "Стоимость внедрения", "Доля ручных операций"].map((m, i) => (
-        <div key={i} className="rounded-md px-3 py-2 md:px-4 md:py-3 text-xs sm:text-sm md:text-base font-medium" style={{ backgroundColor: "#fafafa", border: "1px solid #e5e5e5", color: "#0a0a0a" }}>
+        <span key={i} className="inline-block font-mono text-[10px] md:text-xs tracking-[0.15em] uppercase px-2.5 py-1.5 md:px-3 md:py-2 rounded-sm" style={{ backgroundColor: "#0a0a0a", color: "#ffffff" }}>
           {m}
-        </div>
+        </span>
       ))}
     </div>
   </TASlideContainer>
