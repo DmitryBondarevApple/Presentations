@@ -71,9 +71,9 @@ const Badge = ({ children }) => (
 
 const S01 = ({ ib }) => (
   <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, justifyContent: "center", alignItems: "center", padding: 40 }}>
-    <Text style={{ fontSize: 10, color: T.dim, letterSpacing: 3, textTransform: "uppercase", marginBottom: 24 }}>АКАДЕМИЯ ТРЕКЕРОВ · СКОЛКОВО</Text>
+    <Text style={{ fontSize: 10, color: T.dim, letterSpacing: 3, textTransform: "uppercase", marginBottom: 24 }}>АТТЕСТАЦИЯ ТРЕКЕРОВ · СКОЛКОВО</Text>
     <Text style={{ fontSize: 36, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 600, lineHeight: 1.25 }}>Введение в стартапы</Text>
-    <Text style={{ fontSize: 16, color: T.muted, textAlign: "center", maxWidth: 500, marginTop: 14, lineHeight: 1.5 }}>Стартап как система гипотез, метрик, рисков и проверяемых действий</Text>
+    <Text style={{ fontSize: 16, color: T.muted, textAlign: "center", maxWidth: 500, marginTop: 14, lineHeight: 1.5 }}>{"Стартап как система гипотез, метрик, рисков\nи проверяемых действий"}</Text>
     <View style={{ width: 40, height: 1, backgroundColor: T.dim, marginTop: 28, opacity: 0.4 }} />
     <View style={{ flexDirection: "row", alignItems: "center", gap: 10, marginTop: 18 }}>
       <Image src={`${ib}/images/trackers/speaker.png`} style={{ width: 32, height: 32, borderRadius: 16, objectFit: "cover" }} />
@@ -203,7 +203,7 @@ const S31 = () => (<Page size={[PW, PH]} style={ps()}><Header num={31} label="Ф
 
 const S32 = ({ ib }) => (
   <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, justifyContent: "center", alignItems: "center", padding: 40 }}>
-    <Text style={{ fontSize: 10, color: T.dim, letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>АКАДЕМИЯ ТРЕКЕРОВ · СКОЛКОВО</Text>
+    <Text style={{ fontSize: 10, color: T.dim, letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>АТТЕСТАЦИЯ ТРЕКЕРОВ · СКОЛКОВО</Text>
     <Text style={{ fontSize: 15, color: T.muted, marginBottom: 8 }}>Хороший результат трекерской встречи:</Text>
     <Text style={{ fontSize: 26, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 560, lineHeight: 1.3, marginBottom: 6 }}>Основатель уходит не с набором советов, а с чётким пониманием:</Text>
     <Text style={{ fontSize: 16, color: T.fg2, textAlign: "center", maxWidth: 500, lineHeight: 1.5 }}>что именно мы проверяем, почему это важно, какой факт должны получить и что сделаем до следующей встречи.</Text>

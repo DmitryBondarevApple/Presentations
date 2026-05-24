@@ -1,7 +1,7 @@
 const TASlide32Last = () => (
   <div className="w-full h-full flex flex-col justify-center items-center px-6 md:px-20 py-10" style={{ backgroundColor: "#ffffff" }}>
     <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase mb-8 md:mb-10" style={{ color: "#a1a1aa" }}>
-      АКАДЕМИЯ ТРЕКЕРОВ · СКОЛКОВО
+      АТТЕСТАЦИЯ ТРЕКЕРОВ · СКОЛКОВО
     </span>
     <p className="font-body text-base sm:text-lg md:text-xl mb-2 md:mb-4" style={{ color: "#52525b" }}>
       Хороший результат трекерской встречи:
