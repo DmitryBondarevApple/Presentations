@@ -31,6 +31,25 @@ import TASlide29Conclusion from "@/components/trackers-slides/TASlide29Conclusio
 import TASlide30Finals from "@/components/trackers-slides/TASlide30Finals";
 import TASlide31Formula from "@/components/trackers-slides/TASlide31Formula";
 import TASlide32Last from "@/components/trackers-slides/TASlide32Last";
+import TASlide33EmCover from "@/components/trackers-slides/TASlide33EmCover";
+import TASlide34Known from "@/components/trackers-slides/TASlide34Known";
+import TASlide35Focus from "@/components/trackers-slides/TASlide35Focus";
+import TASlide36Path from "@/components/trackers-slides/TASlide36Path";
+import TASlide37Map from "@/components/trackers-slides/TASlide37Map";
+import TASlide38Idea from "@/components/trackers-slides/TASlide38Idea";
+import TASlide39Problem from "@/components/trackers-slides/TASlide39Problem";
+import TASlide40Market from "@/components/trackers-slides/TASlide40Market";
+import TASlide41Req from "@/components/trackers-slides/TASlide41Req";
+import TASlide42Emergent from "@/components/trackers-slides/TASlide42Emergent";
+import TASlide43Team from "@/components/trackers-slides/TASlide43Team";
+import TASlide44Result from "@/components/trackers-slides/TASlide44Result";
+import TASlide45System from "@/components/trackers-slides/TASlide45System";
+import TASlide46Iteration from "@/components/trackers-slides/TASlide46Iteration";
+import TASlide47Evolution from "@/components/trackers-slides/TASlide47Evolution";
+import TASlide48DomainValue from "@/components/trackers-slides/TASlide48DomainValue";
+import TASlide49Environments from "@/components/trackers-slides/TASlide49Environments";
+import TASlide50Pipeline from "@/components/trackers-slides/TASlide50Pipeline";
+import TASlide51HumanRole from "@/components/trackers-slides/TASlide51HumanRole";
 import { preGenerateTrackersPdfs } from "@/components/TrackersPdfGenerator";
 
 const slides = [
@@ -42,6 +61,11 @@ const slides = [
   TASlide21Success, TASlide22HowToLook, TASlide23NegCases, TASlide24Failures,
   TASlide25Mistakes, TASlide26Exercise, TASlide27Questions, TASlide28Debrief,
   TASlide29Conclusion, TASlide30Finals, TASlide31Formula, TASlide32Last,
+  TASlide33EmCover, TASlide34Known, TASlide35Focus, TASlide36Path,
+  TASlide37Map, TASlide38Idea, TASlide39Problem, TASlide40Market,
+  TASlide41Req, TASlide42Emergent, TASlide43Team, TASlide44Result,
+  TASlide45System, TASlide46Iteration, TASlide47Evolution, TASlide48DomainValue,
+  TASlide49Environments, TASlide50Pipeline, TASlide51HumanRole,
 ];
 const TOTAL = slides.length;
 

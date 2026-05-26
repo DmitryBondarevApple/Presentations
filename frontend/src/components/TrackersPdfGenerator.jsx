@@ -11,7 +11,7 @@ registerInterFont();
 
 const PW = 841.89;
 const PH = 595.28;
-const TOTAL = 32;
+const TOTAL = 51;
 
 const THEMES = {
   light: {
