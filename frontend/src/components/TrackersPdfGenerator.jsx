@@ -53,13 +53,13 @@ const TRow = ({ cells, header, last }) => (
   </View>
 );
 const Table = ({ headers, rows }) => (
-  <View style={{ borderWidth: 0.5, borderColor: T.border, borderRadius: 4, overflow: "hidden", maxWidth: 700 }}>
+  <View style={{ borderTopWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 0.5, borderRightWidth: 0.5, borderColor: T.border, borderRadius: 4, overflow: "hidden", maxWidth: 700 }}>
     <TRow cells={headers} header />
     {rows.map((r, i) => <TRow key={i} cells={r} last={i === rows.length - 1} />)}
   </View>
 );
 const Card = ({ children, accent }) => (
-  <View style={{ flex: 1, backgroundColor: T.card, borderRadius: 4, padding: 14, borderWidth: accent ? 2 : 0.5, borderColor: accent ? T.fg : T.border }}>{children}</View>
+  <View style={{ flex: 1, backgroundColor: T.card, borderRadius: 4, padding: 14, borderTopWidth: accent ? 2 : 0.5, borderTopColor: accent ? T.fg : T.border, borderBottomWidth: accent ? 2 : 0.5, borderBottomColor: accent ? T.fg : T.border, borderLeftWidth: accent ? 2 : 0.5, borderLeftColor: accent ? T.fg : T.border, borderRightWidth: accent ? 2 : 0.5, borderRightColor: accent ? T.fg : T.border }}>{children}</View>
 );
 const Badge = ({ children }) => (
   <View style={{ backgroundColor: T.badge, borderRadius: 3, paddingHorizontal: 10, paddingVertical: 4, alignSelf: "flex-start" }}>
@@ -189,17 +189,17 @@ const S24 = () => (<Page size={[PW, PH]} style={ps()}><Header num={24} label="О
 
 const S25 = () => (<Page size={[PW, PH]} style={ps()}><Header num={25} label="Ошибки основателей" /><H>Типовые ошибки основателей</H><Sub>Что делает трекер</Sub><Table headers={["Ошибка","Что должен сделать трекер"]} rows={[["Строит продукт до понимания боли","Вернуть к problem discovery"],["Считает интервью спросом","Искать поведенческие сигналы"],["Путает пилот с продажей","Зафиксировать критерии оплаты"],["Принимает первую сделку за PMF","Проверить повторяемость"],["Нанимает продавцов до упаковки","Разобрать процесс продажи"],["Масштабирует ручной труд","Замерить долю ручных операций"]]}/></Page>);
 
-const S26 = () => (<Page size={[PW, PH]} style={ps()}><Header num={26} label="Практика" /><H>Практическое упражнение</H><Sub>Кейс для разбора</Sub><View style={{backgroundColor:T.card,borderRadius:4,padding:14,borderWidth:0.5,borderColor:T.border,marginBottom:14}}><Text style={{fontSize:14,color:T.fg2,lineHeight:1.5}}>Команда разрабатывает AI-сервис для автоматического анализа клиентских звонков в сервисных компаниях.</Text></View><Li>20 интервью</Li><Li>3 пилота</Li><Li>Один клиент готов платить после интеграции с CRM</Li><View style={{flexDirection:"row",alignItems:"center",gap:8,marginTop:10}}><Badge>Запрос команды</Badge><Text style={{fontSize:14,color:T.fg2}}>Инвестиции на полную платформу и найм отдела продаж</Text></View></Page>);
+const S26 = () => (<Page size={[PW, PH]} style={ps()}><Header num={26} label="Практика" /><H>Практическое упражнение</H><Sub>Кейс для разбора</Sub><View style={{backgroundColor:T.card,borderRadius:4,padding:14,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,marginBottom:14}}><Text style={{fontSize:14,color:T.fg2,lineHeight:1.5}}>Команда разрабатывает AI-сервис для автоматического анализа клиентских звонков в сервисных компаниях.</Text></View><Li>20 интервью</Li><Li>3 пилота</Li><Li>Один клиент готов платить после интеграции с CRM</Li><View style={{flexDirection:"row",alignItems:"center",gap:8,marginTop:10}}><Badge>Запрос команды</Badge><Text style={{fontSize:14,color:T.fg2}}>Инвестиции на полную платформу и найм отдела продаж</Text></View></Page>);
 
 const S27 = () => (<Page size={[PW, PH]} style={ps()}><Header num={27} label="Вопросы" /><H>Вопросы к упражнению</H><Sub>Ответьте за 5 минут</Sub>{["На какой стадии находится стартап?","Главный риск?","Какая ключевая метрика сейчас?","О чём трекер должен спросить в первую очередь?","Какое действие на следующую неделю?"].map((q,i)=>(<View key={i} style={{flexDirection:"row",gap:10,alignItems:"center",paddingVertical:10,borderBottomWidth:i<4?0.5:0,borderBottomColor:T.border}}><Text style={{fontSize:18,fontWeight:700,color:T.dim,opacity:0.4,width:30}}>{String(i+1).padStart(2,"0")}</Text><Text style={{fontSize:14,color:T.fg2,flex:1}}>{q}</Text></View>))}</Page>);
 
 const S28 = () => (<Page size={[PW, PH]} style={ps()}><Header num={28} label="Разбор" /><H>Разбор упражнения</H><Table headers={["Вопрос","Ответ"]} rows={[["Стадия","Валидация, переход к первым продажам"],["Главный риск","Переход от пилотов к оплачиваемому внедрению"],["Ключевая метрика","Конверсия пилотов в оплату"],["Первый вопрос","За какой результат клиент готов платить?"],["Действие на неделю","Оформить платный пилот с суммой, сроком и критериями"]]}/></Page>);
 
-const S29 = () => (<Page size={[PW, PH]} style={ps()}><Header num={29} label="Вывод" /><H>Главный вывод упражнения</H><Sub>Команда НЕ должна сразу:</Sub><View style={{flexDirection:"row",gap:8,marginBottom:14,flexWrap:"wrap"}}>{["Искать инвестиции","Нанимать отдел продаж","Строить полную платформу","Добавлять 10 фич"].map((t,i)=>(<Badge key={i}>{t}</Badge>))}</View><View style={{backgroundColor:T.card,borderRadius:4,padding:14,borderWidth:1,borderColor:T.border}}><Text style={{fontSize:15,color:T.fg,lineHeight:1.5}}>Сначала нужно доказать: <Text style={{fontWeight:700}}>клиент платит за конкретный измеримый результат.</Text></Text></View></Page>);
+const S29 = () => (<Page size={[PW, PH]} style={ps()}><Header num={29} label="Вывод" /><H>Главный вывод упражнения</H><Sub>Команда НЕ должна сразу:</Sub><View style={{flexDirection:"row",gap:8,marginBottom:14,flexWrap:"wrap"}}>{["Искать инвестиции","Нанимать отдел продаж","Строить полную платформу","Добавлять 10 фич"].map((t,i)=>(<Badge key={i}>{t}</Badge>))}</View><View style={{backgroundColor:T.card,borderRadius:4,padding:14,borderTopWidth:1,borderBottomWidth:1,borderLeftWidth:1,borderRightWidth:1,borderColor:T.border}}><Text style={{fontSize:15,color:T.fg,lineHeight:1.5}}>Сначала нужно доказать: <Text style={{fontWeight:700}}>клиент платит за конкретный измеримый результат.</Text></Text></View></Page>);
 
 const S30 = () => (<Page size={[PW, PH]} style={ps()}><Header num={30} label="Выводы" /><H>Финальные выводы</H><Text style={{fontSize:13,color:T.muted,marginBottom:12}}>5 мыслей, которые стоит запомнить</Text>{["Стартап — это поиск модели, а не просто новая компания","Стадия определяет правильный вопрос, метрику и действие","Пилот, интервью и интерес — ещё не доказательство спроса","PMF виден по поведению клиента: оплата, retention, повторяемость","Задача трекера — помочь найти главный риск и превратить его в проверяемый шаг"].map((t,i)=>(<View key={i} style={{flexDirection:"row",gap:10,alignItems:"flex-start",marginBottom:8}}><Text style={{fontSize:16,fontWeight:700,color:T.dim,opacity:0.4}}>{String(i+1).padStart(2,"0")}</Text><Text style={{fontSize:14,color:T.fg2,lineHeight:1.5,flex:1}}>{t}</Text></View>))}</Page>);
 
-const S31 = () => (<Page size={[PW, PH]} style={ps()}><Header num={31} label="Формула" /><H>Финальная формула трекера</H><Sub>На каждой встрече со стартапом</Sub>{["Определить стадию","Найти главный риск","Выбрать одну главную метрику","Договориться об одном действии на ближайшую неделю","Проверить факты, а не впечатления"].map((s,i)=>(<View key={i} style={{flexDirection:"row",gap:14,alignItems:"center",backgroundColor:T.card,borderRadius:4,padding:"10 14",borderWidth:0.5,borderColor:T.border,marginBottom:6}}><Text style={{fontSize:20,fontWeight:700,color:T.fg}}>{i+1}</Text><Text style={{fontSize:14,color:T.fg2,lineHeight:1.5}}>{s}</Text></View>))}</Page>);
+const S31 = () => (<Page size={[PW, PH]} style={ps()}><Header num={31} label="Формула" /><H>Финальная формула трекера</H><Sub>На каждой встрече со стартапом</Sub>{["Определить стадию","Найти главный риск","Выбрать одну главную метрику","Договориться об одном действии на ближайшую неделю","Проверить факты, а не впечатления"].map((s,i)=>(<View key={i} style={{flexDirection:"row",gap:14,alignItems:"center",backgroundColor:T.card,borderRadius:4,padding:"10 14",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,marginBottom:6}}><Text style={{fontSize:20,fontWeight:700,color:T.fg}}>{i+1}</Text><Text style={{fontSize:14,color:T.fg2,lineHeight:1.5}}>{s}</Text></View>))}</Page>);
 
 const S32 = ({ ib }) => (
   <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, justifyContent: "center", alignItems: "center", padding: 40 }}>
@@ -215,9 +215,216 @@ const S32 = ({ ib }) => (
   </Page>
 );
 
+/* ══ PART 2: Emergent slides (33-51) ══ */
+
+const S33 = () => (
+  <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, justifyContent: "center", alignItems: "center", padding: 40 }}>
+    <View style={{ width: 50, height: 1, backgroundColor: T.fg, marginBottom: 20 }} />
+    <Text style={{ fontSize: 10, color: T.dim, letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>ЧАСТЬ 2</Text>
+    <Text style={{ fontSize: 34, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 600, lineHeight: 1.25 }}>От идеи до продукта с ИИ-агентами</Text>
+    <Text style={{ fontSize: 16, color: T.muted, textAlign: "center", maxWidth: 500, marginTop: 14, lineHeight: 1.5 }}>Как превратить идею в работающий цифровой продукт на примере Emergent.sh</Text>
+  </Page>
+);
+
+const S34 = () => (<Page size={[PW, PH]} style={ps()}><Header num={34} label="Контекст" /><H>Вы уже знаете ИИ как сервис</H><Sub>Сегодня посмотрим на ИИ как на команду</Sub>
+  <View style={{ flexDirection: "row", gap: 10 }}>
+    {[{t:"Чат и поиск",items:["GigaChat","ChatGPT","Perplexity","Алиса"]},{t:"Генерация",items:["Midjourney","DALL-E","Suno","NotebookLM"]},{t:"Инструменты для кода",items:["Cursor","Claude Code","Codex"]}].map((c,i)=>(
+      <Card key={i}><Badge>{c.t}</Badge><View style={{marginTop:8,gap:4}}>{c.items.map((it,j)=>(<View key={j} style={{backgroundColor:T.bg,borderRadius:3,padding:"4 8",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}><Text style={{fontSize:12,color:T.fg2}}>{it}</Text></View>))}</View></Card>
+    ))}
+  </View>
+  <Text style={{fontSize:12,color:T.dim,marginTop:10}}>Все эти инструменты решают отдельные задачи. Но ни один из них не собирает продукт целиком.</Text>
+</Page>);
+
+const S35 = () => (<Page size={[PW, PH]} style={ps()}><Header num={35} label="Фокус" /><H>Не ответ на вопрос, а путь до продукта</H><Sub>Разница между инструментом и системой</Sub>
+  <View style={{ flexDirection: "row", gap: 12 }}>
+    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>ОБЫЧНЫЙ ИИ-ИНСТРУМЕНТ</Text><Li>Ответить на вопрос</Li><Li>Сгенерировать текст</Li><Li>Подсказать решение</Li></Card>
+    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>ПЛАТФОРМА С ИИ-АГЕНТАМИ</Text><Li>Спроектировать архитектуру</Li><Li>Собрать работающий продукт</Li><Li>Доработать и протестировать</Li></Card>
+  </View>
+</Page>);
+
+const S36 = () => (<Page size={[PW, PH]} style={ps()}><Header num={36} label="Сдвиг" /><H>Путь стал короче в разы</H><Sub>MVP и коммерчески применимый продукт — разница сокращается</Sub>
+  <View style={{backgroundColor:T.card,borderRadius:4,padding:14,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,marginBottom:10}}>
+    <Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>РАНЬШЕ · МЕСЯЦЫ</Text>
+    <View style={{flexDirection:"row",gap:6,alignItems:"center"}}>{["Идея","Команда","Разработка","Тесты","Запуск"].map((s,i)=>(<View key={i} style={{flexDirection:"row",alignItems:"center",gap:6}}><View style={{backgroundColor:T.bg,borderRadius:3,padding:"4 10",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}><Text style={{fontSize:12,color:T.dim}}>{s}</Text></View>{i<4&&<Text style={{fontSize:12,color:T.dim}}>→</Text>}</View>))}</View>
+  </View>
+  <View style={{borderRadius:4,padding:14,borderTopWidth:2,borderBottomWidth:2,borderLeftWidth:2,borderRightWidth:2,borderColor:T.fg}}>
+    <Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>СЕЙЧАС · ЧАСЫ ИЛИ ДНИ</Text>
+    <View style={{flexDirection:"row",gap:8,alignItems:"center"}}>{["Идея","ИИ-агенты","Продукт"].map((s,i)=>(<View key={i} style={{flexDirection:"row",alignItems:"center",gap:8}}><Badge>{s}</Badge>{i<2&&<Text style={{fontSize:14,color:T.fg}}>→</Text>}</View>))}</View>
+  </View>
+</Page>);
+
+const S37 = () => (<Page size={[PW, PH]} style={ps()}><Header num={37} label="Маршрут" /><H>Три шага к продукту</H><Sub>Каждый шаг — фундамент для следующего</Sub>
+  <View style={{flexDirection:"row",gap:10}}>
+    {[{n:"01",t:"Сформулировать идею",d:"Точно сказать, что вы делаете, для кого и зачем"},{n:"02",t:"Понять проблему пользователя",d:"У кого болит, как болит и почему текущие решения не работают"},{n:"03",t:"Превратить в требования",d:"Перевести потребности в набор функций продукта"}].map((s,i)=>(
+      <View key={i} style={{flex:1,backgroundColor:T.card,borderRadius:4,padding:14,borderLeftWidth:3,borderLeftColor:T.fg,borderRightWidth:0.5,borderRightColor:T.border,borderTopWidth:0.5,borderTopColor:T.border,borderBottomWidth:0.5,borderBottomColor:T.border}}>
+        <Text style={{fontSize:18,fontWeight:700,color:T.dim,opacity:0.4}}>{s.n}</Text>
+        <Text style={{fontSize:15,fontWeight:700,color:T.fg,marginTop:4,marginBottom:6}}>{s.t}</Text>
+        <Text style={{fontSize:13,color:T.fg2,lineHeight:1.5}}>{s.d}</Text>
+      </View>
+    ))}
+  </View>
+</Page>);
+
+const S38 = () => (<Page size={[PW, PH]} style={ps()}><Header num={38} label="Шаг 1 · Идея" /><H>Плохая формулировка = плохой результат</H><Sub>Даже если инструмент сильный</Sub>
+  <View style={{flexDirection:"row",gap:12}}>
+    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>СЛИШКОМ ОБЩЕЕ</Text><Text style={{fontSize:14,color:T.dim,marginBottom:4}}>«Хочу сервис для студентов»</Text><Text style={{fontSize:12,color:T.dim,opacity:0.6}}>Непонятно, что делает сервис, для кого именно</Text></Card>
+    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>ДОСТАТОЧНО КОНКРЕТНО</Text><Text style={{fontSize:14,color:T.fg,lineHeight:1.5}}>«Хочу сервис, который помогает студентам готовиться к экзаменам по билетам и автоматически собирать персональный план подготовки»</Text></Card>
+  </View>
+</Page>);
+
+const S39 = () => (<Page size={[PW, PH]} style={ps()}><Header num={39} label="Шаг 2 · Пользователь" /><H>Продукт нужен не потому, что идея интересная</H><Sub>А потому, что у пользователя есть реальная задача</Sub>
+  <View style={{flexDirection:"row",gap:8,flexWrap:"wrap"}}>
+    {[{n:"01",q:"У кого эта проблема есть?",h:"Целевая аудитория"},{n:"02",q:"В чём она проявляется?",h:"Конкретные ситуации"},{n:"03",q:"Как решают сейчас?",h:"Альтернативы и конкуренты"},{n:"04",q:"Почему не устраивает?",h:"Что можно улучшить"}].map((q,i)=>(
+      <View key={i} style={{width:"48%",backgroundColor:T.card,borderRadius:4,padding:12,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}>
+        <Text style={{fontSize:16,fontWeight:700,color:T.dim,opacity:0.4}}>{q.n}</Text>
+        <Text style={{fontSize:14,fontWeight:700,color:T.fg,marginTop:2,marginBottom:4}}>{q.q}</Text>
+        <Text style={{fontSize:12,color:T.fg2}}>{q.h}</Text>
+      </View>
+    ))}
+  </View>
+</Page>);
+
+const S40 = () => (<Page size={[PW, PH]} style={ps()}><Header num={40} label="Шаг 2 · Рынок" /><H>Проверь не только проблему, но и силу спроса</H><Sub>Если продукт не решает важную и понятную задачу — он не нужен</Sub>
+  <View style={{gap:6}}>
+    {[{n:"01",q:"Сколько людей с этим сталкиваются?"},{n:"02",q:"Насколько это болезненно?"},{n:"03",q:"Готовы ли они платить за решение?"},{n:"04",q:"Как часто будут возвращаться?"},{n:"05",q:"Разовая покупка или долгий сценарий?"}].map((c,i)=>(
+      <View key={i} style={{flexDirection:"row",alignItems:"center",gap:10,backgroundColor:T.card,borderRadius:4,padding:"8 14",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}>
+        <Text style={{fontSize:14,fontWeight:700,color:T.dim,opacity:0.4,width:24}}>{c.n}</Text>
+        <Text style={{fontSize:14,color:T.fg,flex:1}}>{c.q}</Text>
+      </View>
+    ))}
+  </View>
+</Page>);
+
+const S41 = () => (<Page size={[PW, PH]} style={ps()}><Header num={41} label="Шаг 3 · Требования" /><H>Требования нельзя придумывать в отрыве от пользователя</H><Sub>Конкретный пример: от боли к ценности</Sub>
+  <View style={{flexDirection:"row",gap:8,alignItems:"center"}}>
+    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:6}}>БОЛЬ</Text><Text style={{fontSize:13,color:T.fg2}}>Студент не понимает, что учить в первую очередь</Text></Card>
+    <Text style={{fontSize:16,color:T.fg,fontWeight:700}}>→</Text>
+    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:6}}>ФУНКЦИЯ</Text><Text style={{fontSize:13,color:T.fg2}}>Персональный план подготовки на основе билетов</Text></Card>
+    <Text style={{fontSize:16,color:T.fg,fontWeight:700}}>→</Text>
+    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:6}}>ЦЕННОСТЬ</Text><Text style={{fontSize:13,color:T.fg}}>Меньше хаоса, выше шанс сдать вовремя</Text></Card>
+  </View>
+</Page>);
+
+const S42 = () => (
+  <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, justifyContent: "center", alignItems: "center", padding: 40 }}>
+    <Text style={{ fontSize: 32, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 600, lineHeight: 1.25 }}>Emergent — это цифровая команда</Text>
+    <Text style={{ fontSize: 16, color: T.muted, textAlign: "center", maxWidth: 500, marginTop: 14, lineHeight: 1.5 }}>Не просто чат с ИИ. Система, которая помогает довести идею до рабочего продукта.</Text>
+    <View style={{ width: 50, height: 1, backgroundColor: T.dim, marginTop: 22, opacity: 0.4 }} />
+    <Text style={{ fontSize: 13, color: T.dim, marginTop: 14 }}>У вас в руках остаётся главное — постановка задачи и направление</Text>
+  </Page>
+);
+
+const S43 = () => (<Page size={[PW, PH]} style={ps()}><Header num={43} label="Emergent · Команда" /><H>Кто входит в цифровую команду</H><Sub>Каждая роль закрывает свой участок работы</Sub>
+  <View style={{flexDirection:"row",gap:8,flexWrap:"wrap"}}>
+    {[{n:"01",t:"Бизнес-аналитик",d:"Переводит задачу на язык разработки"},{n:"02",t:"Дизайнер",d:"Создаёт интерфейс и отвечает за удобство"},{n:"03",t:"Full-stack разработчик",d:"Пишет код, связывает серверную и клиентскую части"},{n:"04",t:"Тестировщик",d:"Проверяет сценарии, ищет ошибки"},{n:"05",t:"Project-менеджер",d:"Ваш основной собеседник, распределяет задачи"}].map((r,i)=>(
+      <View key={i} style={{width:"31%",backgroundColor:T.card,borderRadius:4,padding:10,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}>
+        <Text style={{fontSize:16,fontWeight:700,color:T.dim,opacity:0.4}}>{r.n}</Text>
+        <Text style={{fontSize:14,fontWeight:700,color:T.fg,marginTop:2,marginBottom:4}}>{r.t}</Text>
+        <Text style={{fontSize:12,color:T.fg2,lineHeight:1.4}}>{r.d}</Text>
+      </View>
+    ))}
+  </View>
+</Page>);
+
+const S44 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={44} label="Результат" /><H>Что получилось за 40 минут</H><Sub>От PRD-документа к первому рабочему продукту</Sub>
+  <View style={{flexDirection:"row",gap:14}}>
+    <View style={{width:380,borderRadius:4,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,overflow:"hidden"}}><Image src={`${ib}/images/emergent/vc-dashboard.png`} style={{width:380,height:260,objectFit:"contain"}} /></View>
+    <View style={{flex:1,gap:8,justifyContent:"center"}}>
+      <View style={{backgroundColor:T.card,borderRadius:4,padding:12,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}><Text style={{fontSize:24,fontWeight:700,color:T.fg}}>17:43</Text><Text style={{fontSize:11,color:T.dim}}>PRD.md передан платформе</Text></View>
+      <View style={{borderRadius:4,padding:12,borderTopWidth:2,borderBottomWidth:2,borderLeftWidth:2,borderRightWidth:2,borderColor:T.fg}}><Text style={{fontSize:24,fontWeight:700,color:T.fg}}>18:23</Text><Text style={{fontSize:11,color:T.fg2}}>Рабочий прототип SaaS-продукта</Text></View>
+    </View>
+  </View>
+</Page>);
+
+const S45 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={45} label="Демонстрация" /><H>Это уже не идея, а рабочая система</H><Sub>Полноценный цифровой продукт</Sub>
+  <View style={{flexDirection:"row",gap:14}}>
+    <Image src={`${ib}/images/emergent/vc-analytics.png`} style={{width:380,height:260,objectFit:"contain",borderRadius:4,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}} />
+    <View style={{flex:1,gap:8}}>
+      {[{t:"Учёт животных",d:"Карточки, группы, площадки"},{t:"Мероприятия",d:"Вакцинации, обработки, осмотры"},{t:"Заболевания",d:"Симптомы, диагнозы, лечение"},{t:"Аналитика",d:"Графики, сводки, экспорт"}].map((f,i)=>(
+        <View key={i} style={{backgroundColor:T.card,borderRadius:4,padding:10,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}>
+          <Text style={{fontSize:14,fontWeight:700,color:T.fg,marginBottom:2}}>{f.t}</Text>
+          <Text style={{fontSize:12,color:T.fg2}}>{f.d}</Text>
+        </View>
+      ))}
+    </View>
+  </View>
+</Page>);
+
+const S46 = () => (<Page size={[PW, PH]} style={ps()}><Header num={46} label="Процесс" /><H>Как проходит одна доработка</H><Sub>Вы ставите задачу и проверяете результат</Sub>
+  <View style={{flexDirection:"row",gap:6}}>
+    {[{n:"01",r:"Вы",t:"Формулируете изменение",h:"«Нужно редактирование»"},{n:"02",r:"PM",t:"Интерпретирует задачу",h:"Анализирует структуру"},{n:"03",r:"Dev",t:"Вносят изменения",h:"UI + backend"},{n:"04",r:"QA",t:"Проверяет результат",h:"Тесты"},{n:"05",r:"Вы",t:"Проверка",h:"Соответствует ожиданиям?"}].map((s,i)=>(
+      <View key={i} style={{flex:1,backgroundColor:s.r==="Вы"?T.badge:T.card,borderRadius:4,padding:10,borderTopWidth:s.r==="Вы"?0:0.5,borderBottomWidth:s.r==="Вы"?0:0.5,borderLeftWidth:s.r==="Вы"?0:0.5,borderRightWidth:s.r==="Вы"?0:0.5,borderColor:T.border}}>
+        <Text style={{fontSize:9,color:s.r==="Вы"?T.badgeFg:T.dim,letterSpacing:1.5,textTransform:"uppercase"}}>{s.r}</Text>
+        <Text style={{fontSize:12,fontWeight:700,color:s.r==="Вы"?T.badgeFg:T.fg,marginTop:4}}>{s.t}</Text>
+        <Text style={{fontSize:10,color:s.r==="Вы"?T.dim:T.dim,marginTop:2}}>{s.h}</Text>
+      </View>
+    ))}
+  </View>
+</Page>);
+
+const S47 = () => (<Page size={[PW, PH]} style={ps()}><Header num={47} label="Развитие" /><H>После первого релиза работа только начинается</H><Sub>Первый рабочий вариант — это отправная точка</Sub>
+  <View style={{flexDirection:"row",gap:10}}>
+    {[{n:"01",t:"Исправлять пробелы",items:["Нет редактирования","Не хватает фильтрации","Нужна валидация"]},{n:"02",t:"Углублять область",items:["Расширить карточку","Добавить протоколы","Связать симптомы и диагнозы"]},{n:"03",t:"Повышать ценность",items:["Расчёт дозировки","Уведомления","Экспорт отчётов"]}].map((d,i)=>(
+      <View key={i} style={{flex:1,backgroundColor:T.card,borderRadius:4,padding:12,borderTopWidth:3,borderTopColor:T.fg,borderBottomWidth:0.5,borderBottomColor:T.border,borderLeftWidth:0.5,borderLeftColor:T.border,borderRightWidth:0.5,borderRightColor:T.border}}>
+        <Text style={{fontSize:18,fontWeight:700,color:T.dim,opacity:0.4}}>{d.n}</Text>
+        <Text style={{fontSize:14,fontWeight:700,color:T.fg,marginTop:2,marginBottom:6}}>{d.t}</Text>
+        {d.items.map((it,j)=><Li key={j}>{it}</Li>)}
+      </View>
+    ))}
+  </View>
+</Page>);
+
+const S48 = () => (<Page size={[PW, PH]} style={ps()}><Header num={48} label="Ценность" /><H>Ценность растёт с погружением в предметную область</H><Sub>Чем глубже система понимает контекст — тем больше пользы</Sub>
+  <View style={{flexDirection:"row",gap:12,alignItems:"stretch"}}>
+    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>БЫЛО</Text><Text style={{fontSize:14,fontWeight:700,color:T.fg,marginBottom:6}}>Карточка препарата</Text><Li>Название</Li><Li>Краткое описание</Li></Card>
+    <View style={{justifyContent:"center"}}><Text style={{fontSize:16,color:T.fg,fontWeight:700}}>→</Text></View>
+    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>СТАЛО</Text><Text style={{fontSize:14,fontWeight:700,color:T.fg,marginBottom:6}}>Карточка препарата</Text><Li>Название и вещество</Li><Li>Состав и форма выпуска</Li><Li>Показания</Li><Li>Дозировка по типу</Li><Li>Расчёт дозы</Li></Card>
+  </View>
+</Page>);
+
+const S49 = () => (<Page size={[PW, PH]} style={ps()}><Header num={49} label="Инфраструктура" /><H>Разработка и рабочий продукт — это не одно и то же</H><Sub>У любого продукта минимум две среды</Sub>
+  <View style={{flexDirection:"row",gap:12}}>
+    <Card><Text style={{fontSize:18,fontWeight:700,color:T.fg,marginBottom:6}}>Development</Text><Text style={{fontSize:11,color:T.dim,marginBottom:8}}>Сервер разработки</Text><Li>Тестируют новые функции</Li><Li>Можно ломать</Li><Li>Промежуточные решения</Li></Card>
+    <Card accent><Text style={{fontSize:18,fontWeight:700,color:T.fg,marginBottom:6}}>Production</Text><Text style={{fontSize:11,color:T.dim,marginBottom:8}}>Сервер для пользователей</Text><Li>Реальные пользователи</Li><Li>Только проверенное</Li><Li>Критична стабильность</Li></Card>
+  </View>
+</Page>);
+
+const S50 = () => (<Page size={[PW, PH]} style={ps()}><Header num={50} label="Деплой" /><H>Как код выходит в вашу инфраструктуру</H><Sub>Простой путь от среды разработки до рабочего продукта</Sub>
+  <View style={{flexDirection:"row",gap:8,alignItems:"center",justifyContent:"center",marginBottom:14}}>
+    {["Emergent","GitHub","Ваш сервер"].map((n,i)=>(<View key={i} style={{flexDirection:"row",alignItems:"center",gap:8}}>
+      <View style={{borderRadius:4,padding:"10 20",borderTopWidth:i===2?2:0.5,borderBottomWidth:i===2?2:0.5,borderLeftWidth:i===2?2:0.5,borderRightWidth:i===2?2:0.5,borderColor:i===2?T.fg:T.border}}><Text style={{fontSize:16,fontWeight:700,color:T.fg}}>{n}</Text></View>
+      {i<2&&<Text style={{fontSize:14,color:T.fg}}>→</Text>}
+    </View>))}
+  </View>
+  <View style={{backgroundColor:T.card,borderRadius:4,padding:12,borderLeftWidth:3,borderLeftColor:T.fg,borderRightWidth:0.5,borderRightColor:T.border,borderTopWidth:0.5,borderTopColor:T.border,borderBottomWidth:0.5,borderBottomColor:T.border}}>
+    <Text style={{fontSize:14,color:T.fg2,lineHeight:1.5}}><Text style={{fontWeight:700,color:T.fg}}>GitHub</Text> — слой хранения, версионирования и переноса кода между средами.</Text>
+  </View>
+</Page>);
+
+const S51 = ({ ib }) => (
+  <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, justifyContent: "center", alignItems: "center", padding: 40 }}>
+    <Text style={{ fontSize: 30, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 600, lineHeight: 1.25 }}>ИИ ускоряет разработку. Роль человека не исчезает.</Text>
+    <View style={{ width: 50, height: 1, backgroundColor: T.dim, marginTop: 20, opacity: 0.4 }} />
+    <View style={{ flexDirection: "row", gap: 10, marginTop: 20 }}>
+      {[{n:"01",t:"Человек формулирует задачу"},{n:"02",t:"Человек определяет ценность"},{n:"03",t:"Человек решает, что считать результатом"}].map((r,i)=>(
+        <View key={i} style={{flex:1,backgroundColor:T.card,borderRadius:4,padding:12,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,alignItems:"center"}}>
+          <Text style={{fontSize:18,fontWeight:700,color:T.dim,opacity:0.4,marginBottom:4}}>{r.n}</Text>
+          <Text style={{fontSize:13,color:T.fg2,textAlign:"center",lineHeight:1.4}}>{r.t}</Text>
+        </View>
+      ))}
+    </View>
+    <Text style={{ fontSize: 13, color: T.dim, textAlign: "center", maxWidth: 500, marginTop: 18, lineHeight: 1.5 }}>Не обязательно делать всё руками. Но по-прежнему необходимо понимать — что, для кого и зачем.</Text>
+    <View style={{ flexDirection: "row", alignItems: "center", gap: 10, marginTop: 18 }}>
+      <Image src={`${ib}/images/trackers/speaker.png`} style={{ width: 32, height: 32, borderRadius: 16, objectFit: "cover" }} />
+      <Text style={{ fontSize: 12, color: T.dim }}>Дмитрий Бондарев</Text>
+    </View>
+  </Page>
+);
+
 const TADoc = ({ ib }) => (
-  <Document title="Введение в стартапы — Академия трекеров" author="Дмитрий Бондарев">
+  <Document title="Введение в стартапы — Аттестация трекеров" author="Дмитрий Бондарев">
     <S01 ib={ib}/><S02/><S03/><S04 ib={ib}/><S05/><S06/><S07/><S08/><S09/><S10/><S11/><S12/><S13/><S14/><S15/><S16/><S17/><S18/><S19/><S20/><S21/><S22/><S23/><S24/><S25/><S26/><S27/><S28/><S29/><S30/><S31/><S32 ib={ib}/>
+    <S33/><S34/><S35/><S36/><S37/><S38/><S39/><S40/><S41/><S42/><S43/><S44 ib={ib}/><S45 ib={ib}/><S46/><S47/><S48/><S49/><S50/><S51 ib={ib}/>
   </Document>
 );
 
