@@ -4,7 +4,7 @@ const TASlide50Pipeline = () => (
   <TASlideContainer number={50} label="Деплой">
     <TAH>Как код выходит в вашу инфраструктуру</TAH>
     <TASub>Простой путь от среды разработки до рабочего продукта</TASub>
-    <div className="flex items-center gap-0 max-w-3xl mx-auto mb-6 md:mb-10">
+    <div className="flex items-center gap-0 max-w-3xl mb-6 md:mb-10">
       {nodes.map((n, i) => (
         <div key={i} className="flex items-center">
           <div className="rounded-md px-5 py-4 md:px-8 md:py-6 text-center" style={{ border: i === 2 ? "2px solid #0a0a0a" : "1px solid #e5e5e5", backgroundColor: i === 2 ? "#fafafa" : "#ffffff" }}>
