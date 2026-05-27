@@ -16,6 +16,9 @@
 | AX10 One Pager | `/ax10-onepager` | 1 page | DONE |
 | Noteall Product | `/product` | 14 | DONE |
 | Noteall Product (Short) | `/product-short` | 13 | DONE |
+| Trackers Academy | `/trackers` | 54 | DONE |
+| Perviy Bit | `/perviy-bit` | 13 | DONE |
+| MakeUsBeautiful Light | `/makeusbeautiful-light` | 14 | DONE |
 
 ## Технологии
 - React + Tailwind CSS + Framer Motion
@@ -31,6 +34,7 @@
 - Документация: `/app/docs/DEPLOY_GUIDE.md`
 
 ## Завершённые задачи
+- [x] **2026-02 · Trackers Academy v2 (54 слайда)**: Блок Emergent (34-54) переписан под трекерскую оптику; 3 новых слайда (37 «Что меняется для трекера», 45 «Вопросы трекера команде Emergent», 53 «Новые риски AI-разработки»); B2B-примеры вместо студенческих (анализ звонков сервисных компаний, карточка лида); финал теперь «Роль трекера не исчезает»; PDF Light/Dark обновлены; testing_agent_v3_fork 100% PASS
 - [x] Создана презентация AX10 — 16 слайдов
 - [x] PDF-генератор AX10 (A4 Landscape, 16 страниц)
 - [x] Билд-скрипт build-ax10.sh
@@ -52,8 +56,10 @@
 - [x] Скриншоты VetControl (dashboard, analytics, disease form) в public/images/emergent/
 
 ## Бэклог
+- [ ] P1: Deploy `/trackers` v2 (54 слайда) на presentations.noteall.ru/trackers — ожидание команды пользователя
 - [ ] P2: QR-коды на финальные слайды
 - [ ] P3: CSS-рефакторинг (общие обёртки для слайдов)
+- [ ] P3: Переименовать файлы слайдов Trackers под актуальные номера (drift: TASlide37Map.jsx ↔ slide 38, TASlide45System.jsx ↔ slide 47, TASlide51HumanRole.jsx ↔ slide 54)
 
 ## Архитектура PDF-генерации
 - Обе темы (Light/Dark) предгенерируются при загрузке страницы через `preGenerateNoteAllProductPdfs()`
