@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub } from './TASlideContainer';
 const TASlide40Problem = () => (
-  <TASlideContainer number={40} label="Шаг 2 · Пользователь">
+  <TASlideContainer number={42} label="Шаг 2 · Пользователь">
     <TAH>Продукт нужен не потому, что идея интересная</TAH>
     <TASub>А потому что у клиента есть реальная и желательно оплачиваемая задача</TASub>
     <div className="grid grid-cols-2 gap-3 md:gap-5 max-w-4xl">

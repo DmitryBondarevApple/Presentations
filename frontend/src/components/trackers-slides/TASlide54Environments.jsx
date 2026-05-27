@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub, TALi } from './TASlideContainer';
 const TASlide51Environments = () => (
-  <TASlideContainer number={51} label="Инфраструктура">
+  <TASlideContainer number={54} label="Инфраструктура">
     <TAH>Рабочий прототип и коммерческий продукт — это не одно и то же</TAH>
     <TASub>У любого цифрового сервиса минимум две среды</TASub>
     <div className="flex flex-col md:flex-row gap-3 md:gap-6">

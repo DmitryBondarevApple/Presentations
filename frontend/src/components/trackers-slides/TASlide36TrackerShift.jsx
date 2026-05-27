@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TALi } from './TASlideContainer';
 const TASlide37TrackerShift = () => (
-  <TASlideContainer number={35} label="Новая реальность">
+  <TASlideContainer number={36} label="Новая реальность">
     <TAH>Что именно меняется для трекера</TAH>
     <div className="space-y-1 md:space-y-2 mt-2 md:mt-4 max-w-4xl">
       <TALi>Первую версию сервиса можно собрать быстрее</TALi>

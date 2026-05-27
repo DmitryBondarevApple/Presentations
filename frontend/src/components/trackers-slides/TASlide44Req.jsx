@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub } from './TASlideContainer';
 const TASlide42Req = () => (
-  <TASlideContainer number={42} label="Шаг 3 · Требования">
+  <TASlideContainer number={44} label="Шаг 3 · Требования">
     <TAH>Требования нельзя придумывать в отрыве от пользователя</TAH>
     <TASub>Конкретный пример: от боли к ценности</TASub>
     <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-stretch max-w-4xl">

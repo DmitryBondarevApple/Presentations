@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub } from './TASlideContainer';
 const TASlide50DomainValue = () => (
-  <TASlideContainer number={50} label="Ценность">
+  <TASlideContainer number={53} label="Ценность">
     <TAH>Ценность растёт с погружением в предметную область</TAH>
     <TASub>Польза появляется не от количества полей, а от понимания рабочего контекста клиента</TASub>
     <div className="flex flex-col md:flex-row gap-3 md:gap-6 items-stretch max-w-4xl">

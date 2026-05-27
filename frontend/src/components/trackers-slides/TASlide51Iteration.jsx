@@ -7,7 +7,7 @@ const steps = [
   {n:"05",r:"Вы",t:"Оцениваете: ближе к ценности?",h:"Стало ли ближе к ценности для клиента?"},
 ];
 const TASlide48Iteration = () => (
-  <TASlideContainer number={48} label="Процесс">
+  <TASlideContainer number={51} label="Процесс">
     <TAH>Как проходит одна продуктовая итерация</TAH>
     <TASub>Вы ставите задачу и проверяете, уменьшила ли итерация неопределённость</TASub>
     <div className="flex flex-col md:flex-row gap-2 md:gap-3 max-w-4xl">

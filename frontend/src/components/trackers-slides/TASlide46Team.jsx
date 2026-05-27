@@ -7,7 +7,7 @@ const roles = [
   {n:"05",t:"Project-менеджер",d:"Остаётся основным собеседником и координирует работу"},
 ];
 const TASlide44Team = () => (
-  <TASlideContainer number={44} label="Emergent · Команда">
+  <TASlideContainer number={46} label="Emergent · Команда">
     <TAH>Кто входит в цифровую команду</TAH>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl">
       {roles.map((r,i)=>(

@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub } from './TASlideContainer';
 const TASlide39Idea = () => (
-  <TASlideContainer number={39} label="Шаг 1 · Идея">
+  <TASlideContainer number={41} label="Шаг 1 · Идея">
     <TAH>Плохая формулировка = плохой результат</TAH>
     <TASub>Даже если инструмент сильный</TASub>
     <div className="flex flex-col md:flex-row gap-3 md:gap-6">

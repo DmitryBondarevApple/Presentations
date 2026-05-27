@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-const TOTAL = 54;
+const TOTAL = 59;
 
 export const TASlideContainer = ({ children, number, label, className }) => (
   <div className={cn("w-full h-full flex flex-col relative", className)}

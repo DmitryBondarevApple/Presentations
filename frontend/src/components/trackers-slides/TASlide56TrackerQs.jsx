@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TALi } from './TASlideContainer';
 const TASlide45TrackerQs = () => (
-  <TASlideContainer number={53} label="Диагностика">
+  <TASlideContainer number={56} label="Диагностика">
     <TAH>Какие вопросы трекер задаёт команде, работающей через Emergent</TAH>
     <div className="space-y-1 md:space-y-2 mt-2 md:mt-4 max-w-4xl">
       <TALi>Какую гипотезу вы проверяете этой сборкой</TALi>

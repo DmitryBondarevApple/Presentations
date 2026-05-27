@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub } from './TASlideContainer';
 const TASlide38Map = () => (
-  <TASlideContainer number={38} label="Маршрут">
+  <TASlideContainer number={39} label="Маршрут">
     <TAH>Три шага к коммерческому ИТ-сервису</TAH>
     <TASub>Каждый шаг создаёт основу для следующего</TASub>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5">

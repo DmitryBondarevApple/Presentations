@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub } from './TASlideContainer';
 const TASlide52Pipeline = () => (
-  <TASlideContainer number={52} label="Деплой">
+  <TASlideContainer number={55} label="Деплой">
     <TAH>Как код выходит в инфраструктуру проекта</TAH>
     <TASub>Простой путь от среды разработки до рабочего продукта</TASub>
     <div className="flex items-center gap-0 max-w-3xl mb-6 md:mb-10">

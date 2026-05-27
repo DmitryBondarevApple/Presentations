@@ -7,7 +7,7 @@ const checks = [
   { n: "05", q: "Разовая покупка или долгий сценарий?", h: "Модель монетизации" },
 ];
 const TASlide40Market = () => (
-  <TASlideContainer number={41} label="Шаг 2 · Рынок">
+  <TASlideContainer number={43} label="Шаг 2 · Рынок">
     <TAH>Проверь не только проблему, но и силу спроса</TAH>
     <TASub>Если продукт не решает важную и понятную задачу — он не нужен</TASub>
     <div className="space-y-2 md:space-y-3 max-w-4xl">

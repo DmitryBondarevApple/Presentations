@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub, TALi } from './TASlideContainer';
 const TASlide49Evolution = () => (
-  <TASlideContainer number={49} label="Развитие">
+  <TASlideContainer number={52} label="Развитие">
     <TAH>После первого релиза работа только начинается</TAH>
     <TASub>Первый рабочий вариант — это отправная точка</TASub>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5">
