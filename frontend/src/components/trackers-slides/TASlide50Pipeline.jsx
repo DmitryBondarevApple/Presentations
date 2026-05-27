@@ -19,7 +19,7 @@ const TASlide50Pipeline = () => (
         </div>
       ))}
     </div>
-    <div className="rounded-md p-4 md:p-5 max-w-3xl mx-auto" style={{ backgroundColor: "#fafafa", borderLeft: "3px solid #0a0a0a", border: "1px solid #e5e5e5", borderLeftWidth: 3, borderLeftColor: "#0a0a0a" }}>
+    <div className="rounded-md p-4 md:p-5 max-w-3xl" style={{ backgroundColor: "#fafafa", borderLeft: "3px solid #0a0a0a", border: "1px solid #e5e5e5", borderLeftWidth: 3, borderLeftColor: "#0a0a0a" }}>
       <p className="font-body text-sm md:text-lg" style={{ color: "#3f3f46" }}><span className="font-bold" style={{ color: "#0a0a0a" }}>GitHub</span> — слой хранения, версионирования и переноса кода между средами.</p>
     </div>
   </TASlideContainer>
