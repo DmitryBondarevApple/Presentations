@@ -1,6 +1,6 @@
 /**
  * Trackers Academy Presentation PDF Generator
- * 32 slides, A4 Landscape, monochrome Swiss style
+ * 54 slides, A4 Landscape, monochrome Swiss style
  * Pre-generates Light and Dark themes.
  */
 import React from "react";
@@ -11,7 +11,7 @@ registerInterFont();
 
 const PW = 841.89;
 const PH = 595.28;
-const TOTAL = 51;
+const TOTAL = 54;
 
 const THEMES = {
   light: {
@@ -215,7 +215,7 @@ const S32 = ({ ib }) => (
   </Page>
 );
 
-/* ══ PART 2: Emergent slides (33-51) ══ */
+/* ══ PART 2: Emergent slides (33-54) ══ */
 
 const S33 = () => (
   <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, justifyContent: "center", alignItems: "center", padding: 40 }}>
@@ -226,36 +226,50 @@ const S33 = () => (
   </Page>
 );
 
-const S34 = () => (<Page size={[PW, PH]} style={ps()}><Header num={34} label="Контекст" /><H>Вы уже знаете ИИ как сервис</H><Sub>Сегодня посмотрим на ИИ как на команду</Sub>
+const S34 = () => (<Page size={[PW, PH]} style={ps()}><Header num={34} label="Контекст" /><H>Вы уже знаете ИИ как отдельные сервисы</H><Sub>Сегодня посмотрим на ИИ как на среду сборки продукта</Sub>
   <View style={{ flexDirection: "row", gap: 10 }}>
     {[{t:"Чат и поиск",items:["GigaChat","ChatGPT","Perplexity","Алиса"]},{t:"Генерация",items:["Midjourney","DALL-E","Suno","NotebookLM"]},{t:"Инструменты для кода",items:["Cursor","Claude Code","Codex"]}].map((c,i)=>(
       <Card key={i}><Badge>{c.t}</Badge><View style={{marginTop:8,gap:4}}>{c.items.map((it,j)=>(<View key={j} style={{backgroundColor:T.bg,borderRadius:3,padding:"4 8",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}><Text style={{fontSize:12,color:T.fg2}}>{it}</Text></View>))}</View></Card>
     ))}
   </View>
-  <Text style={{fontSize:12,color:T.dim,marginTop:10}}>Все эти инструменты решают отдельные задачи. Но ни один из них не собирает продукт целиком.</Text>
+  <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Для трекера важно различать: отдельный ИИ-сервис помогает на одном шаге, агентская среда помогает пройти путь до рабочего сервиса.</Text>
 </Page>);
 
-const S35 = () => (<Page size={[PW, PH]} style={ps()}><Header num={35} label="Фокус" /><H>Не ответ на вопрос, а путь до продукта</H><Sub>Разница между инструментом и системой</Sub>
+const S35 = () => (<Page size={[PW, PH]} style={ps()}><Header num={35} label="Фокус" /><H>Не отдельный ответ, а путь до рабочего сервиса</H><Sub>Разница между инструментом и средой разработки</Sub>
   <View style={{ flexDirection: "row", gap: 12 }}>
     <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>ОБЫЧНЫЙ ИИ-ИНСТРУМЕНТ</Text><Li>Ответить на вопрос</Li><Li>Сгенерировать текст</Li><Li>Подсказать решение</Li></Card>
-    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>ПЛАТФОРМА С ИИ-АГЕНТАМИ</Text><Li>Спроектировать архитектуру</Li><Li>Собрать работающий продукт</Li><Li>Доработать и протестировать</Li></Card>
+    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>ПЛАТФОРМА С ИИ-АГЕНТАМИ</Text><Li>Спроектировать архитектуру</Li><Li>Собрать рабочий продукт</Li><Li>Доработать и протестировать</Li></Card>
   </View>
+  <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Для трекера это критично: в одном случае ускоряется операция, в другом — весь цикл проверки продуктовой гипотезы.</Text>
 </Page>);
 
-const S36 = () => (<Page size={[PW, PH]} style={ps()}><Header num={36} label="Сдвиг" /><H>Путь стал короче в разы</H><Sub>MVP и коммерчески применимый продукт — разница сокращается</Sub>
+const S36 = () => (<Page size={[PW, PH]} style={ps()}><Header num={36} label="Сдвиг" /><H>Для многих ИТ-сервисов путь стал короче в разы</H><Sub>Барьер между идеей и первым рабочим прототипом стал ниже</Sub>
   <View style={{backgroundColor:T.card,borderRadius:4,padding:14,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,marginBottom:10}}>
     <Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>РАНЬШЕ · МЕСЯЦЫ</Text>
     <View style={{flexDirection:"row",gap:6,alignItems:"center"}}>{["Идея","Команда","Разработка","Тесты","Запуск"].map((s,i)=>(<View key={i} style={{flexDirection:"row",alignItems:"center",gap:6}}><View style={{backgroundColor:T.bg,borderRadius:3,padding:"4 10",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}><Text style={{fontSize:12,color:T.dim}}>{s}</Text></View>{i<4&&<Text style={{fontSize:12,color:T.dim}}>→</Text>}</View>))}</View>
   </View>
   <View style={{borderRadius:4,padding:14,borderTopWidth:2,borderBottomWidth:2,borderLeftWidth:2,borderRightWidth:2,borderColor:T.fg}}>
     <Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>СЕЙЧАС · ЧАСЫ ИЛИ ДНИ</Text>
-    <View style={{flexDirection:"row",gap:8,alignItems:"center"}}>{["Идея","ИИ-агенты","Продукт"].map((s,i)=>(<View key={i} style={{flexDirection:"row",alignItems:"center",gap:8}}><Badge>{s}</Badge>{i<2&&<Text style={{fontSize:14,color:T.fg}}>→</Text>}</View>))}</View>
+    <View style={{flexDirection:"row",gap:8,alignItems:"center"}}>{["Идея","ИИ-агенты","Рабочий прототип"].map((s,i)=>(<View key={i} style={{flexDirection:"row",alignItems:"center",gap:8}}><Badge>{s}</Badge>{i<2&&<Text style={{fontSize:14,color:T.fg}}>→</Text>}</View>))}</View>
+  </View>
+  <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Это не отменяет проверку спроса. Это снижает стоимость первой проверки.</Text>
+</Page>);
+
+const S37 = () => (<Page size={[PW, PH]} style={ps()}><Header num={37} label="Новая реальность" /><H>Что именно меняется для трекера</H>
+  <View style={{gap:6,marginTop:6,maxWidth:680}}>
+    <Li>Первую версию сервиса можно собрать быстрее</Li>
+    <Li>Технический прогресс всё чаще обгоняет рыночную проверку</Li>
+    <Li>Командам легче начать делать, но легче и начать делать лишнее</Li>
+    <Li>Теперь нужно различать: итерация снижает техническую неопределённость или рыночную</Li>
+  </View>
+  <View style={{backgroundColor:T.fg,borderRadius:4,padding:12,marginTop:16,maxWidth:680}}>
+    <Text style={{fontSize:13,color:T.bg,lineHeight:1.5}}>Главная новая опасность — автоматизировать хаос быстрее, чем подтверждается ценность.</Text>
   </View>
 </Page>);
 
-const S37 = () => (<Page size={[PW, PH]} style={ps()}><Header num={37} label="Маршрут" /><H>Три шага к продукту</H><Sub>Каждый шаг — фундамент для следующего</Sub>
+const S38 = () => (<Page size={[PW, PH]} style={ps()}><Header num={38} label="Маршрут" /><H>Три шага к коммерческому ИТ-сервису</H><Sub>Каждый шаг создаёт основу для следующего</Sub>
   <View style={{flexDirection:"row",gap:10}}>
-    {[{n:"01",t:"Сформулировать идею",d:"Точно сказать, что вы делаете, для кого и зачем"},{n:"02",t:"Понять проблему пользователя",d:"У кого болит, как болит и почему текущие решения не работают"},{n:"03",t:"Превратить в требования",d:"Перевести потребности в набор функций продукта"}].map((s,i)=>(
+    {[{n:"01",t:"Сформулировать идею",d:"Точно сказать, что вы делаете, для кого и зачем"},{n:"02",t:"Понять проблему пользователя",d:"У кого болит, как болит и почему текущие решения не устраивают"},{n:"03",t:"Превратить в требования",d:"Перевести потребности в набор функций и критериев ценности"}].map((s,i)=>(
       <View key={i} style={{flex:1,backgroundColor:T.card,borderRadius:4,padding:14,borderLeftWidth:3,borderLeftColor:T.fg,borderRightWidth:0.5,borderRightColor:T.border,borderTopWidth:0.5,borderTopColor:T.border,borderBottomWidth:0.5,borderBottomColor:T.border}}>
         <Text style={{fontSize:18,fontWeight:700,color:T.dim,opacity:0.4}}>{s.n}</Text>
         <Text style={{fontSize:15,fontWeight:700,color:T.fg,marginTop:4,marginBottom:6}}>{s.t}</Text>
@@ -265,14 +279,15 @@ const S37 = () => (<Page size={[PW, PH]} style={ps()}><Header num={37} label="М
   </View>
 </Page>);
 
-const S38 = () => (<Page size={[PW, PH]} style={ps()}><Header num={38} label="Шаг 1 · Идея" /><H>Плохая формулировка = плохой результат</H><Sub>Даже если инструмент сильный</Sub>
+const S39 = () => (<Page size={[PW, PH]} style={ps()}><Header num={39} label="Шаг 1 · Идея" /><H>Плохая формулировка = плохой результат</H><Sub>Даже если инструмент сильный</Sub>
   <View style={{flexDirection:"row",gap:12}}>
-    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>СЛИШКОМ ОБЩЕЕ</Text><Text style={{fontSize:14,color:T.dim,marginBottom:4}}>«Хочу сервис для студентов»</Text><Text style={{fontSize:12,color:T.dim,opacity:0.6}}>Непонятно, что делает сервис, для кого именно</Text></Card>
-    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>ДОСТАТОЧНО КОНКРЕТНО</Text><Text style={{fontSize:14,color:T.fg,lineHeight:1.5}}>«Хочу сервис, который помогает студентам готовиться к экзаменам по билетам и автоматически собирать персональный план подготовки»</Text></Card>
+    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>СЛИШКОМ ОБЩЕЕ</Text><Text style={{fontSize:14,color:T.dim,marginBottom:6}}>«Хочу AI-сервис для бизнеса»</Text><Text style={{fontSize:12,color:T.dim,opacity:0.7}}>Непонятно, для кого сервис, какую задачу решает, какой результат должен дать</Text></Card>
+    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>ДОСТАТОЧНО КОНКРЕТНО</Text><Text style={{fontSize:14,color:T.fg,lineHeight:1.5}}>«Хочу сервис для сервисных компаний, который анализирует клиентские звонки, показывает потерянные заявки и типовые ошибки менеджеров»</Text></Card>
   </View>
+  <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Чем точнее сформулирована задача, тем полезнее первая версия продукта.</Text>
 </Page>);
 
-const S39 = () => (<Page size={[PW, PH]} style={ps()}><Header num={39} label="Шаг 2 · Пользователь" /><H>Продукт нужен не потому, что идея интересная</H><Sub>А потому, что у пользователя есть реальная задача</Sub>
+const S40 = () => (<Page size={[PW, PH]} style={ps()}><Header num={40} label="Шаг 2 · Пользователь" /><H>Продукт нужен не потому, что идея интересная</H><Sub>А потому что у клиента есть реальная и желательно оплачиваемая задача</Sub>
   <View style={{flexDirection:"row",gap:8,flexWrap:"wrap"}}>
     {[{n:"01",q:"У кого эта проблема есть?",h:"Целевая аудитория"},{n:"02",q:"В чём она проявляется?",h:"Конкретные ситуации"},{n:"03",q:"Как решают сейчас?",h:"Альтернативы и конкуренты"},{n:"04",q:"Почему не устраивает?",h:"Что можно улучшить"}].map((q,i)=>(
       <View key={i} style={{width:"48%",backgroundColor:T.card,borderRadius:4,padding:12,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}>
@@ -282,11 +297,12 @@ const S39 = () => (<Page size={[PW, PH]} style={ps()}><Header num={39} label="Ш
       </View>
     ))}
   </View>
+  <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>ИИ ускоряет сборку решения, но не создаёт боль там, где её нет.</Text>
 </Page>);
 
-const S40 = () => (<Page size={[PW, PH]} style={ps()}><Header num={40} label="Шаг 2 · Рынок" /><H>Проверь не только проблему, но и силу спроса</H><Sub>Если продукт не решает важную и понятную задачу — он не нужен</Sub>
+const S41 = () => (<Page size={[PW, PH]} style={ps()}><Header num={41} label="Шаг 2 · Рынок" /><H>Проверь не только проблему, но и силу спроса</H><Sub>Если продукт не решает важную и понятную задачу — он не нужен</Sub>
   <View style={{gap:6}}>
-    {[{n:"01",q:"Сколько людей с этим сталкиваются?"},{n:"02",q:"Насколько это болезненно?"},{n:"03",q:"Готовы ли они платить за решение?"},{n:"04",q:"Как часто будут возвращаться?"},{n:"05",q:"Разовая покупка или долгий сценарий?"}].map((c,i)=>(
+    {[{n:"01",q:"Сколько людей с этим сталкиваются?"},{n:"02",q:"Насколько это болезненно?"},{n:"03",q:"Готовы ли они платить за решение?"},{n:"04",q:"Как часто будут возвращаться?"},{n:"05",q:"Разовый сценарий или длинное использование?"}].map((c,i)=>(
       <View key={i} style={{flexDirection:"row",alignItems:"center",gap:10,backgroundColor:T.card,borderRadius:4,padding:"8 14",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}>
         <Text style={{fontSize:14,fontWeight:700,color:T.dim,opacity:0.4,width:24}}>{c.n}</Text>
         <Text style={{fontSize:14,color:T.fg,flex:1}}>{c.q}</Text>
@@ -295,64 +311,76 @@ const S40 = () => (<Page size={[PW, PH]} style={ps()}><Header num={40} label="Ш
   </View>
 </Page>);
 
-const S41 = () => (<Page size={[PW, PH]} style={ps()}><Header num={41} label="Шаг 3 · Требования" /><H>Требования нельзя придумывать в отрыве от пользователя</H><Sub>Конкретный пример: от боли к ценности</Sub>
+const S42 = () => (<Page size={[PW, PH]} style={ps()}><Header num={42} label="Шаг 3 · Требования" /><H>Требования нельзя придумывать в отрыве от пользователя</H><Sub>Конкретный пример: от боли к ценности</Sub>
   <View style={{flexDirection:"row",gap:8,alignItems:"center"}}>
-    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:6}}>БОЛЬ</Text><Text style={{fontSize:13,color:T.fg2}}>Студент не понимает, что учить в первую очередь</Text></Card>
+    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:6}}>БОЛЬ</Text><Text style={{fontSize:13,color:T.fg2}}>Руководитель сервисной компании не понимает, где именно теряются заявки в звонках</Text></Card>
     <Text style={{fontSize:16,color:T.fg,fontWeight:700}}>→</Text>
-    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:6}}>ФУНКЦИЯ</Text><Text style={{fontSize:13,color:T.fg2}}>Персональный план подготовки на основе билетов</Text></Card>
+    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:6}}>ФУНКЦИЯ</Text><Text style={{fontSize:13,color:T.fg2}}>AI-анализ звонков с выявлением потерянных лидов, ошибок менеджеров и причин отказа</Text></Card>
     <Text style={{fontSize:16,color:T.fg,fontWeight:700}}>→</Text>
-    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:6}}>ЦЕННОСТЬ</Text><Text style={{fontSize:13,color:T.fg}}>Меньше хаоса, выше шанс сдать вовремя</Text></Card>
+    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:6}}>ЦЕННОСТЬ</Text><Text style={{fontSize:13,color:T.fg}}>Меньше потерь, лучше контроль качества, выше конверсия в продажу</Text></Card>
   </View>
 </Page>);
 
-const S42 = () => (
+const S43 = () => (
   <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, justifyContent: "center", alignItems: "center", padding: 40 }}>
-    <Text style={{ fontSize: 32, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 600, lineHeight: 1.25 }}>Emergent — это цифровая команда</Text>
-    <Text style={{ fontSize: 16, color: T.muted, textAlign: "center", maxWidth: 500, marginTop: 14, lineHeight: 1.5 }}>Не просто чат с ИИ. Система, которая помогает довести идею до рабочего продукта.</Text>
+    <Text style={{ fontSize: 30, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 640, lineHeight: 1.25 }}>Emergent — это цифровая продуктовая команда</Text>
+    <Text style={{ fontSize: 15, color: T.muted, textAlign: "center", maxWidth: 540, marginTop: 14, lineHeight: 1.5 }}>Не просто чат с ИИ. Среда, которая снижает барьер между гипотезой и рабочим сервисом.</Text>
     <View style={{ width: 50, height: 1, backgroundColor: T.dim, marginTop: 22, opacity: 0.4 }} />
-    <Text style={{ fontSize: 13, color: T.dim, marginTop: 14 }}>У вас в руках остаётся главное — постановка задачи и направление</Text>
+    <Text style={{ fontSize: 13, color: T.fg2, marginTop: 14, textAlign: "center", maxWidth: 560, lineHeight: 1.55 }}>У вас в руках остаётся главное: постановка задачи, понимание ценности для клиента и выбор того, что считать хорошим результатом.</Text>
   </Page>
 );
 
-const S43 = () => (<Page size={[PW, PH]} style={ps()}><Header num={43} label="Emergent · Команда" /><H>Кто входит в цифровую команду</H><Sub>Каждая роль закрывает свой участок работы</Sub>
+const S44 = () => (<Page size={[PW, PH]} style={ps()}><Header num={44} label="Emergent · Команда" /><H>Кто входит в цифровую команду</H>
   <View style={{flexDirection:"row",gap:8,flexWrap:"wrap"}}>
-    {[{n:"01",t:"Бизнес-аналитик",d:"Переводит задачу на язык разработки"},{n:"02",t:"Дизайнер",d:"Создаёт интерфейс и отвечает за удобство"},{n:"03",t:"Full-stack разработчик",d:"Пишет код, связывает серверную и клиентскую части"},{n:"04",t:"Тестировщик",d:"Проверяет сценарии, ищет ошибки"},{n:"05",t:"Project-менеджер",d:"Ваш основной собеседник, распределяет задачи"}].map((r,i)=>(
+    {[{n:"01",t:"Бизнес-аналитик, архитектор",d:"Переводит задачу на язык реализации"},{n:"02",t:"Дизайнер",d:"Продумывает интерфейс и пользовательский путь"},{n:"03",t:"Full-stack разработчик",d:"Собирает рабочий сервис"},{n:"04",t:"Тестировщик",d:"Проверяет сценарии и ошибки"},{n:"05",t:"Project-менеджер",d:"Остаётся основным собеседником и координирует работу"}].map((r,i)=>(
       <View key={i} style={{width:"31%",backgroundColor:T.card,borderRadius:4,padding:10,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}>
         <Text style={{fontSize:16,fontWeight:700,color:T.dim,opacity:0.4}}>{r.n}</Text>
-        <Text style={{fontSize:14,fontWeight:700,color:T.fg,marginTop:2,marginBottom:4}}>{r.t}</Text>
-        <Text style={{fontSize:12,color:T.fg2,lineHeight:1.4}}>{r.d}</Text>
+        <Text style={{fontSize:13,fontWeight:700,color:T.fg,marginTop:2,marginBottom:4}}>{r.t}</Text>
+        <Text style={{fontSize:11,color:T.fg2,lineHeight:1.4}}>{r.d}</Text>
       </View>
     ))}
   </View>
+  <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Для трекера это важно, потому что первая версия продукта может появиться без классической команды разработки.</Text>
 </Page>);
 
-const S44 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={44} label="Результат" /><H>Что получилось за 40 минут</H><Sub>От PRD-документа к первому рабочему продукту</Sub>
+const S45 = () => (<Page size={[PW, PH]} style={ps()}><Header num={45} label="Диагностика" /><H>Какие вопросы трекер задаёт команде, работающей через Emergent</H>
+  <View style={{gap:6,marginTop:6,maxWidth:720}}>
+    <Li>Какую гипотезу вы проверяете этой сборкой</Li>
+    <Li>Что клиент должен сделать после первой демонстрации</Li>
+    <Li>Какая часть ценности создаётся продуктом, а какая пока ручной работой команды</Li>
+    <Li>Что уже можно показать клиенту, а что пока существует только в dev</Li>
+    <Li>Какой факт вы хотите получить на этой неделе</Li>
+  </View>
+</Page>);
+
+const S46 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={46} label="Результат" /><H>Что это меняет для трекера</H><Sub>От PRD к первому рабочему прототипу за один короткий цикл</Sub>
   <View style={{flexDirection:"row",gap:14}}>
-    <View style={{width:380,borderRadius:4,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,overflow:"hidden"}}><Image src={`${ib}/images/emergent/vc-dashboard.png`} style={{width:380,height:260,objectFit:"contain"}} /></View>
+    <View style={{width:380,borderRadius:4,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,overflow:"hidden"}}><Image src={`${ib}/images/emergent/vc-dashboard.png`} style={{width:380,height:240,objectFit:"contain"}} /></View>
     <View style={{flex:1,gap:8,justifyContent:"center"}}>
       <View style={{backgroundColor:T.card,borderRadius:4,padding:12,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}><Text style={{fontSize:24,fontWeight:700,color:T.fg}}>17:43</Text><Text style={{fontSize:11,color:T.dim}}>PRD.md передан платформе</Text></View>
-      <View style={{borderRadius:4,padding:12,borderTopWidth:2,borderBottomWidth:2,borderLeftWidth:2,borderRightWidth:2,borderColor:T.fg}}><Text style={{fontSize:24,fontWeight:700,color:T.fg}}>18:23</Text><Text style={{fontSize:11,color:T.fg2}}>Рабочий прототип SaaS-продукта</Text></View>
+      <View style={{borderRadius:4,padding:12,borderTopWidth:2,borderBottomWidth:2,borderLeftWidth:2,borderRightWidth:2,borderColor:T.fg}}><Text style={{fontSize:24,fontWeight:700,color:T.fg}}>18:23</Text><Text style={{fontSize:11,color:T.fg2}}>Первый рабочий прототип отраслевого SaaS-продукта</Text></View>
     </View>
   </View>
+  <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Если первую версию можно собрать за один вечер, главное ограничение чаще находится уже не в коде, а в ясности гипотезы и требований.</Text>
 </Page>);
 
-const S45 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={45} label="Демонстрация" /><H>Это уже не идея, а рабочая система</H><Sub>Полноценный цифровой продукт</Sub>
+const S47 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={47} label="Демонстрация" /><H>Это уже не просто идея, а объект для проверки</H><Sub>Такой прототип можно показывать клиенту, обсуждать и дорабатывать</Sub>
   <View style={{flexDirection:"row",gap:14}}>
-    <Image src={`${ib}/images/emergent/vc-analytics.png`} style={{width:380,height:260,objectFit:"contain",borderRadius:4,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}} />
-    <View style={{flex:1,gap:8}}>
-      {[{t:"Учёт животных",d:"Карточки, группы, площадки"},{t:"Мероприятия",d:"Вакцинации, обработки, осмотры"},{t:"Заболевания",d:"Симптомы, диагнозы, лечение"},{t:"Аналитика",d:"Графики, сводки, экспорт"}].map((f,i)=>(
-        <View key={i} style={{backgroundColor:T.card,borderRadius:4,padding:10,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}>
-          <Text style={{fontSize:14,fontWeight:700,color:T.fg,marginBottom:2}}>{f.t}</Text>
-          <Text style={{fontSize:12,color:T.fg2}}>{f.d}</Text>
-        </View>
-      ))}
+    <Image src={`${ib}/images/emergent/vc-analytics.png`} style={{width:380,height:240,objectFit:"contain",borderRadius:4,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}} />
+    <View style={{flex:1,gap:4,justifyContent:"center"}}>
+      <Li>Роли и сценарии работы</Li>
+      <Li>Сущности и карточки</Li>
+      <Li>Базовая аналитика</Li>
+      <Li>Административная часть</Li>
+      <Li>Данные для предметного разговора с клиентом</Li>
     </View>
   </View>
+  <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Трекер здесь спрашивает не «красиво ли получилось», а «что именно теперь можно проверить на клиенте».</Text>
 </Page>);
 
-const S46 = () => (<Page size={[PW, PH]} style={ps()}><Header num={46} label="Процесс" /><H>Как проходит одна доработка</H><Sub>Вы ставите задачу и проверяете результат</Sub>
+const S48 = () => (<Page size={[PW, PH]} style={ps()}><Header num={48} label="Процесс" /><H>Как проходит одна продуктовая итерация</H><Sub>Вы ставите задачу и проверяете, уменьшила ли итерация неопределённость</Sub>
   <View style={{flexDirection:"row",gap:6}}>
-    {[{n:"01",r:"Вы",t:"Формулируете изменение",h:"«Нужно редактирование»"},{n:"02",r:"PM",t:"Интерпретирует задачу",h:"Анализирует структуру"},{n:"03",r:"Dev",t:"Вносят изменения",h:"UI + backend"},{n:"04",r:"QA",t:"Проверяет результат",h:"Тесты"},{n:"05",r:"Вы",t:"Проверка",h:"Соответствует ожиданиям?"}].map((s,i)=>(
+    {[{n:"01",r:"Вы",t:"Формулируете изменение",h:"«Нужно редактирование»"},{n:"02",r:"PM",t:"Интерпретирует задачу",h:"Анализирует структуру"},{n:"03",r:"Dev",t:"Вносят изменения",h:"UI + backend"},{n:"04",r:"QA",t:"Проверяет результат",h:"Тесты"},{n:"05",r:"Вы",t:"Ближе к ценности?",h:"Оцениваете результат"}].map((s,i)=>(
       <View key={i} style={{flex:1,backgroundColor:s.r==="Вы"?T.badge:T.card,borderRadius:4,padding:10,borderTopWidth:s.r==="Вы"?0:0.5,borderBottomWidth:s.r==="Вы"?0:0.5,borderLeftWidth:s.r==="Вы"?0:0.5,borderRightWidth:s.r==="Вы"?0:0.5,borderColor:T.border}}>
         <Text style={{fontSize:9,color:s.r==="Вы"?T.badgeFg:T.dim,letterSpacing:1.5,textTransform:"uppercase"}}>{s.r}</Text>
         <Text style={{fontSize:12,fontWeight:700,color:s.r==="Вы"?T.badgeFg:T.fg,marginTop:4}}>{s.t}</Text>
@@ -362,59 +390,75 @@ const S46 = () => (<Page size={[PW, PH]} style={ps()}><Header num={46} label="П
   </View>
 </Page>);
 
-const S47 = () => (<Page size={[PW, PH]} style={ps()}><Header num={47} label="Развитие" /><H>После первого релиза работа только начинается</H><Sub>Первый рабочий вариант — это отправная точка</Sub>
+const S49 = () => (<Page size={[PW, PH]} style={ps()}><Header num={49} label="Развитие" /><H>После первого релиза работа только начинается</H><Sub>Первый рабочий вариант — это отправная точка</Sub>
   <View style={{flexDirection:"row",gap:10}}>
-    {[{n:"01",t:"Исправлять пробелы",items:["Нет редактирования","Не хватает фильтрации","Нужна валидация"]},{n:"02",t:"Углублять область",items:["Расширить карточку","Добавить протоколы","Связать симптомы и диагнозы"]},{n:"03",t:"Повышать ценность",items:["Расчёт дозировки","Уведомления","Экспорт отчётов"]}].map((d,i)=>(
+    {[{n:"01",t:"Исправлять пробелы",items:["Нет редактирования","Не хватает фильтрации","Нужна валидация"]},{n:"02",t:"Углублять предметную область",items:["Расширить карточку","Добавить правила","Связать сущности между собой"]},{n:"03",t:"Повышать ценность",items:["Автоматические расчёты","Уведомления","Экспорт отчётов"]}].map((d,i)=>(
       <View key={i} style={{flex:1,backgroundColor:T.card,borderRadius:4,padding:12,borderTopWidth:3,borderTopColor:T.fg,borderBottomWidth:0.5,borderBottomColor:T.border,borderLeftWidth:0.5,borderLeftColor:T.border,borderRightWidth:0.5,borderRightColor:T.border}}>
         <Text style={{fontSize:18,fontWeight:700,color:T.dim,opacity:0.4}}>{d.n}</Text>
-        <Text style={{fontSize:14,fontWeight:700,color:T.fg,marginTop:2,marginBottom:6}}>{d.t}</Text>
+        <Text style={{fontSize:13,fontWeight:700,color:T.fg,marginTop:2,marginBottom:6}}>{d.t}</Text>
         {d.items.map((it,j)=><Li key={j}>{it}</Li>)}
       </View>
     ))}
   </View>
+  <Text style={{fontSize:11,color:T.fg2,marginTop:8,fontWeight:700}}>Вопрос трекера: какая из этих доработок реально приближает продукт к оплате, retention или повторяемому использованию?</Text>
 </Page>);
 
-const S48 = () => (<Page size={[PW, PH]} style={ps()}><Header num={48} label="Ценность" /><H>Ценность растёт с погружением в предметную область</H><Sub>Чем глубже система понимает контекст — тем больше пользы</Sub>
+const S50 = () => (<Page size={[PW, PH]} style={ps()}><Header num={50} label="Ценность" /><H>Ценность растёт с погружением в предметную область</H><Sub>Польза появляется не от количества полей, а от понимания рабочего контекста клиента</Sub>
   <View style={{flexDirection:"row",gap:12,alignItems:"stretch"}}>
-    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>БЫЛО</Text><Text style={{fontSize:14,fontWeight:700,color:T.fg,marginBottom:6}}>Карточка препарата</Text><Li>Название</Li><Li>Краткое описание</Li></Card>
+    <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>БЫЛО</Text><Text style={{fontSize:14,fontWeight:700,color:T.fg,marginBottom:6}}>Карточка лида</Text><Li>Имя</Li><Li>Телефон</Li><Li>Статус</Li></Card>
     <View style={{justifyContent:"center"}}><Text style={{fontSize:16,color:T.fg,fontWeight:700}}>→</Text></View>
-    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>СТАЛО</Text><Text style={{fontSize:14,fontWeight:700,color:T.fg,marginBottom:6}}>Карточка препарата</Text><Li>Название и вещество</Li><Li>Состав и форма выпуска</Li><Li>Показания</Li><Li>Дозировка по типу</Li><Li>Расчёт дозы</Li></Card>
+    <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>СТАЛО</Text><Text style={{fontSize:14,fontWeight:700,color:T.fg,marginBottom:6}}>Карточка лида</Text><Li>Источник обращения</Li><Li>Причина отказа</Li><Li>Тип ошибки менеджера</Li><Li>Следующий шаг</Li><Li>Прогноз конверсии</Li><Li>Рекомендации по действию</Li></Card>
   </View>
+  <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Чем глубже команда понимает предметную область, тем выше шанс, что сервис станет покупаемым.</Text>
 </Page>);
 
-const S49 = () => (<Page size={[PW, PH]} style={ps()}><Header num={49} label="Инфраструктура" /><H>Разработка и рабочий продукт — это не одно и то же</H><Sub>У любого продукта минимум две среды</Sub>
+const S51 = () => (<Page size={[PW, PH]} style={ps()}><Header num={51} label="Инфраструктура" /><H>Рабочий прототип и коммерческий продукт — это не одно и то же</H><Sub>У любого цифрового сервиса минимум две среды</Sub>
   <View style={{flexDirection:"row",gap:12}}>
-    <Card><Text style={{fontSize:18,fontWeight:700,color:T.fg,marginBottom:6}}>Development</Text><Text style={{fontSize:11,color:T.dim,marginBottom:8}}>Сервер разработки</Text><Li>Тестируют новые функции</Li><Li>Можно ломать</Li><Li>Промежуточные решения</Li></Card>
-    <Card accent><Text style={{fontSize:18,fontWeight:700,color:T.fg,marginBottom:6}}>Production</Text><Text style={{fontSize:11,color:T.dim,marginBottom:8}}>Сервер для пользователей</Text><Li>Реальные пользователи</Li><Li>Только проверенное</Li><Li>Критична стабильность</Li></Card>
+    <Card><Text style={{fontSize:18,fontWeight:700,color:T.fg,marginBottom:4}}>Development</Text><Text style={{fontSize:11,color:T.dim,marginBottom:8}}>Сервер разработки</Text><Li>Тестируют новые функции</Li><Li>Можно ломать</Li><Li>Промежуточные решения</Li></Card>
+    <Card accent><Text style={{fontSize:18,fontWeight:700,color:T.fg,marginBottom:4}}>Production</Text><Text style={{fontSize:11,color:T.dim,marginBottom:8}}>Сервер для пользователей</Text><Li>Реальные пользователи</Li><Li>Только проверенное</Li><Li>Критична стабильность</Li></Card>
   </View>
+  <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Если команда называет dev-сборку «запуском», трекеру стоит уточнить, что именно уже готово для пользователя, а что пока только в среде разработки.</Text>
 </Page>);
 
-const S50 = () => (<Page size={[PW, PH]} style={ps()}><Header num={50} label="Деплой" /><H>Как код выходит в вашу инфраструктуру</H><Sub>Простой путь от среды разработки до рабочего продукта</Sub>
+const S52 = () => (<Page size={[PW, PH]} style={ps()}><Header num={52} label="Деплой" /><H>Как код выходит в инфраструктуру проекта</H><Sub>Простой путь от среды разработки до рабочего продукта</Sub>
   <View style={{flexDirection:"row",gap:8,alignItems:"center",marginBottom:14}}>
     {["Emergent","GitHub","Ваш сервер"].map((n,i)=>(<View key={i} style={{flexDirection:"row",alignItems:"center",gap:8}}>
       <View style={{borderRadius:4,padding:"10 20",borderTopWidth:i===2?2:0.5,borderBottomWidth:i===2?2:0.5,borderLeftWidth:i===2?2:0.5,borderRightWidth:i===2?2:0.5,borderColor:i===2?T.fg:T.border}}><Text style={{fontSize:16,fontWeight:700,color:T.fg}}>{n}</Text></View>
       {i<2&&<Text style={{fontSize:14,color:T.fg}}>→</Text>}
     </View>))}
   </View>
-  <View style={{backgroundColor:T.card,borderRadius:4,padding:12,borderLeftWidth:3,borderLeftColor:T.fg,borderRightWidth:0.5,borderRightColor:T.border,borderTopWidth:0.5,borderTopColor:T.border,borderBottomWidth:0.5,borderBottomColor:T.border}}>
-    <Text style={{fontSize:14,color:T.fg2,lineHeight:1.5}}><Text style={{fontWeight:700,color:T.fg}}>GitHub</Text> — слой хранения, версионирования и переноса кода между средами.</Text>
+  <View style={{backgroundColor:T.card,borderRadius:4,padding:12,borderLeftWidth:3,borderLeftColor:T.fg,borderRightWidth:0.5,borderRightColor:T.border,borderTopWidth:0.5,borderTopColor:T.border,borderBottomWidth:0.5,borderBottomColor:T.border,maxWidth:680}}>
+    <Text style={{fontSize:13,color:T.fg2,lineHeight:1.5}}><Text style={{fontWeight:700,color:T.fg}}>GitHub</Text> — это не просто хранилище кода. Для трекера это ещё и маркер того, что у команды есть управляемый процесс разработки и переноса изменений между средами.</Text>
   </View>
 </Page>);
 
-const S51 = ({ ib }) => (
+const S53 = () => (<Page size={[PW, PH]} style={ps()}><Header num={53} label="Новые риски" /><H>Новые риски AI-разработки</H>
+  <View style={{gap:6,marginTop:6,maxWidth:720}}>
+    <Li>Красивый прототип не равен готовности платить</Li>
+    <Li>Команда может ускорять код быстрее, чем discovery</Li>
+    <Li>Снаружи это может выглядеть как SaaS, а внутри быть ручным трудом</Li>
+    <Li>Без документации теряется память проекта</Li>
+    <Li>Без production и deployment «запуск» остаётся условным</Li>
+  </View>
+  <View style={{backgroundColor:T.fg,borderRadius:4,padding:12,marginTop:16,maxWidth:720}}>
+    <Text style={{fontSize:13,color:T.bg,lineHeight:1.5}}>Для трекера это не технические детали, а часть общей диагностики зрелости продукта.</Text>
+  </View>
+</Page>);
+
+const S54 = ({ ib }) => (
   <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, justifyContent: "center", alignItems: "center", padding: 40 }}>
-    <Text style={{ fontSize: 30, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 600, lineHeight: 1.25 }}>ИИ ускоряет разработку. Роль человека не исчезает.</Text>
-    <View style={{ width: 50, height: 1, backgroundColor: T.dim, marginTop: 20, opacity: 0.4 }} />
-    <View style={{ gap: 8, marginTop: 20, maxWidth: 500 }}>
-      {[{n:"01",t:"Человек формулирует задачу"},{n:"02",t:"Человек определяет ценность для пользователя"},{n:"03",t:"Человек решает, что считать хорошим результатом"}].map((r,i)=>(
+    <Text style={{ fontSize: 28, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 640, lineHeight: 1.25 }}>ИИ ускоряет разработку. Роль трекера не исчезает.</Text>
+    <View style={{ width: 50, height: 1, backgroundColor: T.dim, marginTop: 18, opacity: 0.4 }} />
+    <View style={{ gap: 8, marginTop: 18, maxWidth: 540 }}>
+      {[{n:"01",t:"Трекер возвращает команду к стадии"},{n:"02",t:"Трекер отделяет скорость сборки от реального спроса"},{n:"03",t:"Трекер помогает выбрать следующий проверяемый шаг"}].map((r,i)=>(
         <View key={i} style={{flexDirection:"row",alignItems:"center",gap:12,backgroundColor:T.card,borderRadius:4,padding:"10 16",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}>
           <Text style={{fontSize:18,fontWeight:700,color:T.dim,opacity:0.4}}>{r.n}</Text>
-          <Text style={{fontSize:14,color:T.fg2,lineHeight:1.4}}>{r.t}</Text>
+          <Text style={{fontSize:13,color:T.fg2,lineHeight:1.4}}>{r.t}</Text>
         </View>
       ))}
     </View>
-    <Text style={{ fontSize: 13, color: T.dim, textAlign: "center", maxWidth: 500, marginTop: 18, lineHeight: 1.5 }}>Не обязательно делать всё руками. Но по-прежнему необходимо понимать — что, для кого и зачем.</Text>
-    <View style={{ flexDirection: "row", alignItems: "center", gap: 10, marginTop: 18 }}>
+    <Text style={{ fontSize: 12, color: T.dim, textAlign: "center", maxWidth: 540, marginTop: 16, lineHeight: 1.5 }}>Когда делать стало проще, особенно важно понимать, что именно стоит делать сейчас, для кого и ради какого проверяемого результата.</Text>
+    <View style={{ flexDirection: "row", alignItems: "center", gap: 10, marginTop: 16 }}>
       <Image src={`${ib}/images/trackers/speaker.png`} style={{ width: 32, height: 32, borderRadius: 16, objectFit: "cover" }} />
       <Text style={{ fontSize: 12, color: T.dim }}>Дмитрий Бондарев</Text>
     </View>
@@ -424,7 +468,7 @@ const S51 = ({ ib }) => (
 const TADoc = ({ ib }) => (
   <Document title="Введение в стартапы — Аттестация трекеров" author="Дмитрий Бондарев">
     <S01 ib={ib}/><S02/><S03/><S04 ib={ib}/><S05/><S06/><S07/><S08/><S09/><S10/><S11/><S12/><S13/><S14/><S15/><S16/><S17/><S18/><S19/><S20/><S21/><S22/><S23/><S24/><S25/><S26/><S27/><S28/><S29/><S30/><S31/><S32 ib={ib}/>
-    <S33/><S34/><S35/><S36/><S37/><S38/><S39/><S40/><S41/><S42/><S43/><S44 ib={ib}/><S45 ib={ib}/><S46/><S47/><S48/><S49/><S50/><S51 ib={ib}/>
+    <S33/><S34/><S35/><S36/><S37/><S38/><S39/><S40/><S41/><S42/><S43/><S44/><S45/><S46 ib={ib}/><S47 ib={ib}/><S48/><S49/><S50/><S51/><S52/><S53/><S54 ib={ib}/>
   </Document>
 );
 
