@@ -16,7 +16,7 @@
 | AX10 One Pager | `/ax10-onepager` | 1 page | DONE |
 | Noteall Product | `/product` | 14 | DONE |
 | Noteall Product (Short) | `/product-short` | 13 | DONE |
-| Trackers Academy | `/trackers` | 54 | DONE |
+| Trackers Academy | `/trackers` | 59 | DONE |
 | Perviy Bit | `/perviy-bit` | 13 | DONE |
 | MakeUsBeautiful Light | `/makeusbeautiful-light` | 14 | DONE |
 
@@ -35,6 +35,7 @@
 
 ## Завершённые задачи
 - [x] **2026-02 · Trackers Academy v2 (54 слайда)**: Блок Emergent (34-54) переписан под трекерскую оптику; 3 новых слайда (37 «Что меняется для трекера», 45 «Вопросы трекера команде Emergent», 53 «Новые риски AI-разработки»); B2B-примеры вместо студенческих (анализ звонков сервисных компаний, карточка лида); финал теперь «Роль трекера не исчезает»; PDF Light/Dark обновлены; testing_agent_v3_fork 100% PASS
+- [x] **2026-02 · Trackers Academy v3 (59 слайдов)**: Добавлено 5 новых слайдов под полный текст лекции — 35 «Границы применимости AI», 40 «ИИ для анализа интервью», 49 «6 плоскостей диагностики AI-продукта», 57 «Главный вопрос трекинговой встречи», 58 «7 правил трекера». Все файлы блока 33-59 переименованы под актуальные номера (drift устранён). testing_agent_v3_fork iteration_13: 100% PASS, 21/21 проверок, 0 console-ошибок.
 - [x] **2026-02 · Trackers Academy: реорганизация порядка слайдов 34-54 под текст лекции** (Trackers_Speech_2.txt). Перестановки: Path/TrackerShift вынесены в начало блока (34-35), Known/Focus сдвинуты на 36-37; Result/System перенесены на 45-46 сразу после Emergent/Team; NewRisks сдвинут на 47 (раздел «Новые ошибки команд»); TrackerQs перенесён на 53 ближе к финалу. testing_agent_v3_fork: 15/15 spec-позиций + 6/6 sanity-позиций PASS, 0 console-ошибок.
 - [x] Создана презентация AX10 — 16 слайдов
 - [x] PDF-генератор AX10 (A4 Landscape, 16 страниц)
