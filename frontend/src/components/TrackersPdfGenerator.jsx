@@ -226,7 +226,7 @@ const S33 = () => (
   </Page>
 );
 
-const S34 = () => (<Page size={[PW, PH]} style={ps()}><Header num={34} label="Контекст" /><H>Вы уже знаете ИИ как отдельные сервисы</H><Sub>Сегодня посмотрим на ИИ как на среду сборки продукта</Sub>
+const S34 = () => (<Page size={[PW, PH]} style={ps()}><Header num={36} label="Контекст" /><H>Вы уже знаете ИИ как отдельные сервисы</H><Sub>Сегодня посмотрим на ИИ как на среду сборки продукта</Sub>
   <View style={{ flexDirection: "row", gap: 10 }}>
     {[{t:"Чат и поиск",items:["GigaChat","ChatGPT","Perplexity","Алиса"]},{t:"Генерация",items:["Midjourney","DALL-E","Suno","NotebookLM"]},{t:"Инструменты для кода",items:["Cursor","Claude Code","Codex"]}].map((c,i)=>(
       <Card key={i}><Badge>{c.t}</Badge><View style={{marginTop:8,gap:4}}>{c.items.map((it,j)=>(<View key={j} style={{backgroundColor:T.bg,borderRadius:3,padding:"4 8",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}><Text style={{fontSize:12,color:T.fg2}}>{it}</Text></View>))}</View></Card>
@@ -235,7 +235,7 @@ const S34 = () => (<Page size={[PW, PH]} style={ps()}><Header num={34} label="К
   <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Для трекера важно различать: отдельный ИИ-сервис помогает на одном шаге, агентская среда помогает пройти путь до рабочего сервиса.</Text>
 </Page>);
 
-const S35 = () => (<Page size={[PW, PH]} style={ps()}><Header num={35} label="Фокус" /><H>Не отдельный ответ, а путь до рабочего сервиса</H><Sub>Разница между инструментом и средой разработки</Sub>
+const S35 = () => (<Page size={[PW, PH]} style={ps()}><Header num={37} label="Фокус" /><H>Не отдельный ответ, а путь до рабочего сервиса</H><Sub>Разница между инструментом и средой разработки</Sub>
   <View style={{ flexDirection: "row", gap: 12 }}>
     <Card><Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>ОБЫЧНЫЙ ИИ-ИНСТРУМЕНТ</Text><Li>Ответить на вопрос</Li><Li>Сгенерировать текст</Li><Li>Подсказать решение</Li></Card>
     <Card accent><Text style={{fontSize:10,color:T.fg,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>ПЛАТФОРМА С ИИ-АГЕНТАМИ</Text><Li>Спроектировать архитектуру</Li><Li>Собрать рабочий продукт</Li><Li>Доработать и протестировать</Li></Card>
@@ -243,7 +243,7 @@ const S35 = () => (<Page size={[PW, PH]} style={ps()}><Header num={35} label="Ф
   <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Для трекера это критично: в одном случае ускоряется операция, в другом — весь цикл проверки продуктовой гипотезы.</Text>
 </Page>);
 
-const S36 = () => (<Page size={[PW, PH]} style={ps()}><Header num={36} label="Сдвиг" /><H>Для многих ИТ-сервисов путь стал короче в разы</H><Sub>Барьер между идеей и первым рабочим прототипом стал ниже</Sub>
+const S36 = () => (<Page size={[PW, PH]} style={ps()}><Header num={34} label="Сдвиг" /><H>Для многих ИТ-сервисов путь стал короче в разы</H><Sub>Барьер между идеей и первым рабочим прототипом стал ниже</Sub>
   <View style={{backgroundColor:T.card,borderRadius:4,padding:14,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,marginBottom:10}}>
     <Text style={{fontSize:10,color:T.dim,letterSpacing:1.5,textTransform:"uppercase",marginBottom:8}}>РАНЬШЕ · МЕСЯЦЫ</Text>
     <View style={{flexDirection:"row",gap:6,alignItems:"center"}}>{["Идея","Команда","Разработка","Тесты","Запуск"].map((s,i)=>(<View key={i} style={{flexDirection:"row",alignItems:"center",gap:6}}><View style={{backgroundColor:T.bg,borderRadius:3,padding:"4 10",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}><Text style={{fontSize:12,color:T.dim}}>{s}</Text></View>{i<4&&<Text style={{fontSize:12,color:T.dim}}>→</Text>}</View>))}</View>
@@ -255,7 +255,7 @@ const S36 = () => (<Page size={[PW, PH]} style={ps()}><Header num={36} label="С
   <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Это не отменяет проверку спроса. Это снижает стоимость первой проверки.</Text>
 </Page>);
 
-const S37 = () => (<Page size={[PW, PH]} style={ps()}><Header num={37} label="Новая реальность" /><H>Что именно меняется для трекера</H>
+const S37 = () => (<Page size={[PW, PH]} style={ps()}><Header num={35} label="Новая реальность" /><H>Что именно меняется для трекера</H>
   <View style={{gap:6,marginTop:6,maxWidth:680}}>
     <Li>Первую версию сервиса можно собрать быстрее</Li>
     <Li>Технический прогресс всё чаще обгоняет рыночную проверку</Li>
@@ -343,7 +343,7 @@ const S44 = () => (<Page size={[PW, PH]} style={ps()}><Header num={44} label="Em
   <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Для трекера это важно, потому что первая версия продукта может появиться без классической команды разработки.</Text>
 </Page>);
 
-const S45 = () => (<Page size={[PW, PH]} style={ps()}><Header num={45} label="Диагностика" /><H>Какие вопросы трекер задаёт команде, работающей через Emergent</H>
+const S45 = () => (<Page size={[PW, PH]} style={ps()}><Header num={53} label="Диагностика" /><H>Какие вопросы трекер задаёт команде, работающей через Emergent</H>
   <View style={{gap:6,marginTop:6,maxWidth:720}}>
     <Li>Какую гипотезу вы проверяете этой сборкой</Li>
     <Li>Что клиент должен сделать после первой демонстрации</Li>
@@ -353,7 +353,7 @@ const S45 = () => (<Page size={[PW, PH]} style={ps()}><Header num={45} label="Д
   </View>
 </Page>);
 
-const S46 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={46} label="Результат" /><H>Что это меняет для трекера</H><Sub>От PRD к первому рабочему прототипу за один короткий цикл</Sub>
+const S46 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={45} label="Результат" /><H>Что это меняет для трекера</H><Sub>От PRD к первому рабочему прототипу за один короткий цикл</Sub>
   <View style={{flexDirection:"row",gap:14}}>
     <View style={{width:380,borderRadius:4,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,overflow:"hidden"}}><Image src={`${ib}/images/emergent/vc-dashboard.png`} style={{width:380,height:240,objectFit:"contain"}} /></View>
     <View style={{flex:1,gap:8,justifyContent:"center"}}>
@@ -364,7 +364,7 @@ const S46 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={46} lab
   <Text style={{fontSize:12,color:T.fg2,marginTop:10,fontWeight:700}}>Если первую версию можно собрать за один вечер, главное ограничение чаще находится уже не в коде, а в ясности гипотезы и требований.</Text>
 </Page>);
 
-const S47 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={47} label="Демонстрация" /><H>Это уже не просто идея, а объект для проверки</H><Sub>Такой прототип можно показывать клиенту, обсуждать и дорабатывать</Sub>
+const S47 = ({ ib }) => (<Page size={[PW, PH]} style={ps()}><Header num={46} label="Демонстрация" /><H>Это уже не просто идея, а объект для проверки</H><Sub>Такой прототип можно показывать клиенту, обсуждать и дорабатывать</Sub>
   <View style={{flexDirection:"row",gap:14}}>
     <Image src={`${ib}/images/emergent/vc-analytics.png`} style={{width:380,height:240,objectFit:"contain",borderRadius:4,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}} />
     <View style={{flex:1,gap:4,justifyContent:"center"}}>
@@ -432,7 +432,7 @@ const S52 = () => (<Page size={[PW, PH]} style={ps()}><Header num={52} label="Д
   </View>
 </Page>);
 
-const S53 = () => (<Page size={[PW, PH]} style={ps()}><Header num={53} label="Новые риски" /><H>Новые риски AI-разработки</H>
+const S53 = () => (<Page size={[PW, PH]} style={ps()}><Header num={47} label="Новые риски" /><H>Новые риски AI-разработки</H>
   <View style={{gap:6,marginTop:6,maxWidth:720}}>
     <Li>Красивый прототип не равен готовности платить</Li>
     <Li>Команда может ускорять код быстрее, чем discovery</Li>
@@ -468,7 +468,7 @@ const S54 = ({ ib }) => (
 const TADoc = ({ ib }) => (
   <Document title="Введение в стартапы — Аттестация трекеров" author="Дмитрий Бондарев">
     <S01 ib={ib}/><S02/><S03/><S04 ib={ib}/><S05/><S06/><S07/><S08/><S09/><S10/><S11/><S12/><S13/><S14/><S15/><S16/><S17/><S18/><S19/><S20/><S21/><S22/><S23/><S24/><S25/><S26/><S27/><S28/><S29/><S30/><S31/><S32 ib={ib}/>
-    <S33/><S34/><S35/><S36/><S37/><S38/><S39/><S40/><S41/><S42/><S43/><S44/><S45/><S46 ib={ib}/><S47 ib={ib}/><S48/><S49/><S50/><S51/><S52/><S53/><S54 ib={ib}/>
+    <S33/><S36/><S37/><S34/><S35/><S38/><S39/><S40/><S41/><S42/><S43/><S44/><S46 ib={ib}/><S47 ib={ib}/><S53/><S48/><S49/><S50/><S51/><S52/><S45/><S54 ib={ib}/>
   </Document>
 );
 

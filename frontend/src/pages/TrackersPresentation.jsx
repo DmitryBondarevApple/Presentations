@@ -64,12 +64,12 @@ const slides = [
   TASlide21Success, TASlide22HowToLook, TASlide23NegCases, TASlide24Failures,
   TASlide25Mistakes, TASlide26Exercise, TASlide27Questions, TASlide28Debrief,
   TASlide29Conclusion, TASlide30Finals, TASlide31Formula, TASlide32Last,
-  TASlide33EmCover, TASlide34Known, TASlide35Focus, TASlide36Path,
-  TASlide37TrackerShift, TASlide37Map, TASlide38Idea, TASlide39Problem,
+  TASlide33EmCover, TASlide36Path, TASlide37TrackerShift, TASlide34Known,
+  TASlide35Focus, TASlide37Map, TASlide38Idea, TASlide39Problem,
   TASlide40Market, TASlide41Req, TASlide42Emergent, TASlide43Team,
-  TASlide45TrackerQs, TASlide44Result, TASlide45System, TASlide46Iteration,
+  TASlide44Result, TASlide45System, TASlide53NewRisks, TASlide46Iteration,
   TASlide47Evolution, TASlide48DomainValue, TASlide49Environments, TASlide50Pipeline,
-  TASlide53NewRisks, TASlide51HumanRole,
+  TASlide45TrackerQs, TASlide51HumanRole,
 ];
 const TOTAL = slides.length;
 

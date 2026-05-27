@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub } from './TASlideContainer';
 const TASlide46Result = () => (
-  <TASlideContainer number={46} label="Результат">
+  <TASlideContainer number={45} label="Результат">
     <TAH>Что это меняет для трекера</TAH>
     <TASub>От PRD к первому рабочему прототипу за один короткий цикл</TASub>
     <div className="flex flex-col lg:flex-row gap-4 md:gap-6">

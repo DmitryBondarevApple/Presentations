@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub } from './TASlideContainer';
 const TASlide35Focus = () => (
-  <TASlideContainer number={35} label="Фокус">
+  <TASlideContainer number={37} label="Фокус">
     <TAH>Не отдельный ответ, а путь до рабочего сервиса</TAH>
     <TASub>Разница между инструментом и средой разработки</TASub>
     <div className="flex flex-col md:flex-row gap-3 md:gap-6">

@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TALi } from './TASlideContainer';
 const TASlide53NewRisks = () => (
-  <TASlideContainer number={53} label="Новые риски">
+  <TASlideContainer number={47} label="Новые риски">
     <TAH>Новые риски AI-разработки</TAH>
     <div className="space-y-1 md:space-y-2 mt-2 md:mt-4 max-w-4xl">
       <TALi>Красивый прототип не равен готовности платить</TALi>

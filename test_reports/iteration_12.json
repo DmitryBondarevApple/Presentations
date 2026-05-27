@@ -1,0 +1,60 @@
+{
+  "summary": "Verified the Trackers Academy slide reorder (positions 34-54) on /trackers. All 15 spec-required positions match expected title/label/counter, 6 sanity positions verified, PDF pre-generation succeeds (button enabled, Light & Dark blob URLs created), no console errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "File naming drifts from displayed slide numbers (e.g. TASlide36Path.jsx renders number=34, TASlide45TrackerQs.jsx renders number=53). Accepted per prior agent context but adds onboarding friction; consider renaming files in a future cleanup pass.",
+    "Both TASlide37Map and TASlide45System exist as separate components alongside the unrelated TASlide37TrackerShift / TASlide45TrackerQs — filename collisions resolved only by suffix. A logical-name scheme (e.g. TAPath.jsx, TATrackerShift.jsx) would prevent confusion.",
+    "TrackersPdfGenerator.jsx is 483 lines and packs all 54 slide bodies into a single file — splitting by sections (intro / emergent / closing) would improve maintainability, per <code_review_gudielines> on file size."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only)", "frontend": "100%"},
+  "test_credentials": "N/A",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Slides counter format uses non-breaking spaces (`&nbsp;/&nbsp;`); when asserting against document.body.innerText use a regex like /\\d{2}\\s*\\/\\s*54/ rather than a plain '34 / 54' substring. Slides at positions 43 (TASlide42Emergent) and 54 (TASlide51HumanRole) are cover-style centered slides with NO counter header — that's intentional. The slide array in /app/frontend/src/pages/TrackersPresentation.jsx and the TADoc render order in /app/frontend/src/components/TrackersPdfGenerator.jsx (line 470-471) are aligned. When clicking dots in isolation right after initial load, give the page ~1s wait before the first click; sequential clicks work fine with 180ms between them.",
+  "verification_details": {
+    "total_dots": 54,
+    "positions_verified": {
+      "34": "title='Для многих ИТ-сервисов путь стал короче в разы', label='СДВИГ', counter='34 / 54' — PASS",
+      "35": "title='Что именно меняется для трекера', label='НОВАЯ РЕАЛЬНОСТЬ', counter='35 / 54' — PASS",
+      "36": "title='Вы уже знаете ИИ как отдельные сервисы', label='КОНТЕКСТ', counter='36 / 54' — PASS",
+      "37": "title='Не отдельный ответ, а путь до рабочего сервиса', label='ФОКУС', counter='37 / 54' — PASS",
+      "38": "title='Три шага к коммерческому ИТ-сервису', label='МАРШРУТ', counter='38 / 54' — PASS",
+      "42": "title contains 'Требования нельзя придумывать в отрыве от пользователя', label='ШАГ 3 · ТРЕБОВАНИЯ', counter='42 / 54' — PASS",
+      "43": "Emergent cover slide present with title 'Emergent — это цифровая продуктовая команда', NO counter (correct) — PASS",
+      "44": "title='Кто входит в цифровую команду', label='EMERGENT · КОМАНДА', counter='44 / 54' — PASS",
+      "45": "title='Что это меняет для трекера', label='РЕЗУЛЬТАТ', counter='45 / 54', timestamps 17:43 and 18:23 present — PASS",
+      "46": "title='Это уже не просто идея, а объект для проверки', label='ДЕМОНСТРАЦИЯ', counter='46 / 54' — PASS",
+      "47": "title='Новые риски AI-разработки', label='НОВЫЕ РИСКИ', counter='47 / 54' — PASS",
+      "48": "title='Как проходит одна продуктовая итерация', label='ПРОЦЕСС', counter='48 / 54' — PASS",
+      "52": "title='Как код выходит в инфраструктуру проекта', label='ДЕПЛОЙ', counter='52 / 54' — PASS",
+      "53": "title='Какие вопросы трекер задаёт команде, работающей через Emergent', label='ДИАГНОСТИКА', counter='53 / 54' — PASS",
+      "54": "HumanRole closing slide present (title 'ИИ ускоряет разработку. Роль человека не исчезает.'), NO counter (correct) — PASS"
+    },
+    "sanity_positions": {
+      "39": "counter 39/54 + 'Шаг 1' OK",
+      "40": "counter 40/54 + 'Шаг 2' OK",
+      "41": "counter 41/54 + 'Шаг 2' OK",
+      "49": "counter 49/54 + 'Развитие' OK",
+      "50": "counter 50/54 + 'Ценность' OK",
+      "51": "counter 51/54 + 'Инфраструктура' OK"
+    },
+    "pdf_generation": {
+      "ta_pdf_btn_disabled_after_pregen": false,
+      "ta_pdf_btn_text": "PDF (no spinner)",
+      "light_anchor_href_blob": true,
+      "dark_anchor_href_blob": true,
+      "react_pdf_console_errors": 0,
+      "total_console_errors": 0,
+      "pdf_render_order_in_TADoc_matches_web": "Confirmed via code inspection: S33, S36, S37, S34, S35, S38, S39, S40, S41, S42, S43, S44, S46, S47, S53, S48, S49, S50, S51, S52, S45, S54 — matches slides[] in TrackersPresentation.jsx exactly."
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub, TACard, TABadge } from './TASlideContainer';
 const TASlide34Known = () => (
-  <TASlideContainer number={34} label="Контекст">
+  <TASlideContainer number={36} label="Контекст">
     <TAH>Вы уже знаете ИИ как отдельные сервисы</TAH>
     <TASub>Сегодня посмотрим на ИИ как на среду сборки продукта</TASub>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5">

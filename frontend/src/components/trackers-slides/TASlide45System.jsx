@@ -1,6 +1,6 @@
 import { TASlideContainer, TAH, TASub, TALi } from './TASlideContainer';
 const TASlide47System = () => (
-  <TASlideContainer number={47} label="Демонстрация">
+  <TASlideContainer number={46} label="Демонстрация">
     <TAH>Это уже не просто идея, а объект для проверки</TAH>
     <TASub>Такой прототип можно показывать клиенту, обсуждать и дорабатывать</TASub>
     <div className="flex flex-col lg:flex-row gap-4 md:gap-6">

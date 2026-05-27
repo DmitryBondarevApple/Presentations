@@ -2,7 +2,7 @@ import { TASlideContainer, TAH, TASub } from './TASlideContainer';
 const before = ["Идея","Команда","Разработка","Тесты","Запуск"];
 const after = ["Идея","ИИ-агенты","Продукт"];
 const TASlide36Path = () => (
-  <TASlideContainer number={36} label="Сдвиг">
+  <TASlideContainer number={34} label="Сдвиг">
     <TAH>Для многих ИТ-сервисов путь стал короче в разы</TAH>
     <TASub>Барьер между идеей и первым рабочим прототипом стал ниже</TASub>
     <div className="space-y-3 md:space-y-5 max-w-4xl">
