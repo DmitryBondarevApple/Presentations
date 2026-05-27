@@ -405,11 +405,11 @@ const S51 = ({ ib }) => (
   <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, justifyContent: "center", alignItems: "center", padding: 40 }}>
     <Text style={{ fontSize: 30, fontWeight: 700, color: T.fg, textAlign: "center", maxWidth: 600, lineHeight: 1.25 }}>ИИ ускоряет разработку. Роль человека не исчезает.</Text>
     <View style={{ width: 50, height: 1, backgroundColor: T.dim, marginTop: 20, opacity: 0.4 }} />
-    <View style={{ flexDirection: "row", gap: 10, marginTop: 20 }}>
-      {[{n:"01",t:"Человек формулирует задачу"},{n:"02",t:"Человек определяет ценность"},{n:"03",t:"Человек решает, что считать результатом"}].map((r,i)=>(
-        <View key={i} style={{flex:1,backgroundColor:T.card,borderRadius:4,padding:12,borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border,alignItems:"center"}}>
-          <Text style={{fontSize:18,fontWeight:700,color:T.dim,opacity:0.4,marginBottom:4}}>{r.n}</Text>
-          <Text style={{fontSize:13,color:T.fg2,textAlign:"center",lineHeight:1.4}}>{r.t}</Text>
+    <View style={{ gap: 8, marginTop: 20, maxWidth: 500 }}>
+      {[{n:"01",t:"Человек формулирует задачу"},{n:"02",t:"Человек определяет ценность для пользователя"},{n:"03",t:"Человек решает, что считать хорошим результатом"}].map((r,i)=>(
+        <View key={i} style={{flexDirection:"row",alignItems:"center",gap:12,backgroundColor:T.card,borderRadius:4,padding:"10 16",borderTopWidth:0.5,borderBottomWidth:0.5,borderLeftWidth:0.5,borderRightWidth:0.5,borderColor:T.border}}>
+          <Text style={{fontSize:18,fontWeight:700,color:T.dim,opacity:0.4}}>{r.n}</Text>
+          <Text style={{fontSize:14,color:T.fg2,lineHeight:1.4}}>{r.t}</Text>
         </View>
       ))}
     </View>
