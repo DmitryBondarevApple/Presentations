@@ -390,7 +390,7 @@ const S49 = () => (<Page size={[PW, PH]} style={ps()}><Header num={49} label="И
 </Page>);
 
 const S50 = () => (<Page size={[PW, PH]} style={ps()}><Header num={50} label="Деплой" /><H>Как код выходит в вашу инфраструктуру</H><Sub>Простой путь от среды разработки до рабочего продукта</Sub>
-  <View style={{flexDirection:"row",gap:8,alignItems:"center",justifyContent:"center",marginBottom:14}}>
+  <View style={{flexDirection:"row",gap:8,alignItems:"center",marginBottom:14}}>
     {["Emergent","GitHub","Ваш сервер"].map((n,i)=>(<View key={i} style={{flexDirection:"row",alignItems:"center",gap:8}}>
       <View style={{borderRadius:4,padding:"10 20",borderTopWidth:i===2?2:0.5,borderBottomWidth:i===2?2:0.5,borderLeftWidth:i===2?2:0.5,borderRightWidth:i===2?2:0.5,borderColor:i===2?T.fg:T.border}}><Text style={{fontSize:16,fontWeight:700,color:T.fg}}>{n}</Text></View>
       {i<2&&<Text style={{fontSize:14,color:T.fg}}>→</Text>}
