@@ -29,6 +29,7 @@ const IMG = (process.env.PUBLIC_URL || "");
 /* ── Container ── */
 export const SMSlideContainer = ({ children, number, label, className }) => (
   <div className={cn("w-full h-full flex flex-col relative", className)}
+    data-testid={`sm-slide-${number}`}
     style={{ backgroundColor: SM.bg, color: SM.ink, fontFamily: TEXT }}>
     <div className="flex items-center justify-between px-5 sm:px-8 md:px-14 lg:px-20 pt-3 md:pt-5 shrink-0">
       {label ? (
