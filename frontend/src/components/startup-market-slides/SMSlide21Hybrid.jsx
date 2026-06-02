@@ -1,24 +1,21 @@
-import { SMSlideContainer, SMKicker, SMTitle, SMCard, SMCardTitle, SMLi, SM } from "./SMSlideContainer";
+import { SMSlideContainer, SMKicker, SMTitle, SMP, SM } from "./SMSlideContainer";
 
 const SMSlide21Hybrid = () => (
   <SMSlideContainer number={21} label="Гибридные направления">
-    <SMKicker color={SM.green}>HealthTech, MedTech и EdTech</SMKicker>
-    <SMTitle>Интерес инвесторов, корпораций и институтов</SMTitle>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mt-1">
-      <SMCard accent={SM.green}>
-        <SMCardTitle>HealthTech, MedTech</SMCardTitle>
-        <SMLi accent={SM.green}>Регуляторика и доказательная база</SMLi>
-        <SMLi accent={SM.green}>Клиническая или технологическая проверка</SMLi>
-        <SMLi accent={SM.green}>Права на технологию</SMLi>
-        <SMLi accent={SM.green}>Доступ к медицинской инфраструктуре</SMLi>
-      </SMCard>
-      <SMCard accent={SM.navy}>
-        <SMCardTitle>EdTech</SMCardTitle>
-        <SMLi>Не сводится к потребительскому онлайн-образованию</SMLi>
-        <SMLi>Корпоративное обучение и HR</SMLi>
-        <SMLi>Переподготовка и развитие персонала</SMLi>
-      </SMCard>
-    </div>
+    <SMKicker color={SM.green}>HealthTech, MedTech и EdTech: гибридные направления</SMKicker>
+    <SMTitle>HealthTech, MedTech и EdTech: гибридные направления</SMTitle>
+    <SMP className="text-base md:text-lg">
+      HealthTech, MedTech и EdTech входят в группу направлений, где сочетаются интерес инвесторов, корпоративная
+      применимость и институциональная значимость.
+    </SMP>
+    <SMP className="text-base md:text-lg">
+      HealthTech, MedTech требует специализированной оценки: регуляторики, доказательной базы, клинической
+      или технологической проверки, прав на технологию и доступа к медицинской инфраструктуре.
+    </SMP>
+    <SMP className="text-base md:text-lg mb-0">
+      EdTech нельзя сводить только к потребительскому онлайн-образованию. Значимая часть спроса связана
+      с корпоративным обучением, HR, переподготовкой и развитием персонала.
+    </SMP>
   </SMSlideContainer>
 );
 export default SMSlide21Hybrid;

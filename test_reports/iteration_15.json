@@ -1,0 +1,48 @@
+{
+  "summary": "Verified the new text-dense, two-column chart layout across all 27 slides of /startup-market. Iterated through each slide via dot navigation and inspected DOM for text length, vertical overflow (clipping), and embedded chart images. All slides render correctly with no clipping, no blank slides, substantial body text (>=360 chars), and chart slides (6,7,8,9,10,11,19,24) display the expected VIS-XX.svg side-by-side with explanatory text. Cover, final dark slide, navigation disabled states, and PDF generation (27-page light/dark blobs with %PDF signature) all pass.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Benign console warning 'Buffer is not defined' repeats many times during PDF pre-generation (jsPDF/pdf-lib polyfill). Not functional, but worth suppressing or polyfilling Buffer to clean up console."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (skipped)", "frontend": "100%"},
+  "test_credentials": "none",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Per-slide data-testid 'sm-slide-{N}' is only attached to slides 1 and 27 (cover & final). Other 25 slides have no per-slide testid; iterate via sm-dot-{0..26} and read the active slide from inside [data-testid=sm-presentation]. Validation results per slide (text length, overflow, chart imgs) recorded below.",
+  "validation_details": {
+    "slides": {
+      "1_cover": {"title": "Рынок стартапов present", "author": "Дмитрий Бондарев present", "photo": "/images/startup-market/speaker.png", "textLen": 642, "overflow": 0},
+      "chart_slides": {
+        "6": {"img": "VIS-01.svg", "textLen": 477, "overflow": 0},
+        "7": {"img": "VIS-02.svg (1026x537)", "textLen": 470, "overflow": 0, "text_keyword": "интегральн ✓"},
+        "8": {"img": "VIS-03.svg", "textLen": 448, "overflow": 0},
+        "9": {"img": "VIS-04.svg", "textLen": 360, "overflow": 0},
+        "10": {"img": "VIS-05.svg", "textLen": 635, "overflow": 0},
+        "11": {"img": "VIS-06.svg", "textLen": 640, "overflow": 0},
+        "19": {"img": "VIS-08.svg", "textLen": 584, "overflow": 0},
+        "24": {"img": "VIS-07.svg (850x537)", "textLen": 546, "overflow": 0, "text_keyword": "Перед пилотом ✓"}
+      },
+      "27_final": {"prev_disabled": false, "next_disabled": true, "has_glavnoe_box": true, "textLen": 497}
+    },
+    "navigation": {"slide1_prev_disabled": true, "slide1_next_disabled": false, "slide27_prev_disabled": false, "slide27_next_disabled": true},
+    "pdf": {
+      "btn_enabled_within_30s": true,
+      "light_href_blob": true,
+      "dark_href_blob": true,
+      "light_signature": "%PDF-",
+      "light_size_bytes": 4802418,
+      "light_page_type_matches": 27,
+      "light_pdf_count_field": "27"
+    }
+  },
+  "rca of the issue": "No issues to RCA. All acceptance criteria pass: text-dense slides without clipping, two-column chart slides display both text and chart, and 27-page light/dark PDFs are valid."
+}

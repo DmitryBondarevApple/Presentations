@@ -1,24 +1,25 @@
-import { SMSlideContainer, SMKicker, SMTitle, SMLi, SMTakeaway, SM } from "./SMSlideContainer";
+import { SMSlideContainer, SMKicker, SMTitle, SMP, SMLi, SMTakeaway, SM } from "./SMSlideContainer";
 
 const SMSlide18AIML = () => (
   <SMSlideContainer number={18} label="Технологический домен">
-    <SMKicker>AI, ML: домен, а не обычная отрасль</SMKicker>
-    <SMTitle>Корпорация покупает прикладной результат</SMTitle>
-    <p className="text-sm sm:text-base md:text-lg leading-relaxed max-w-4xl mb-4 md:mb-5" style={{ color: SM.body }}>
-      AI, ML лидирует по спросу инвесторов, но слабее как самостоятельная корпоративная категория — заказчик
-      покупает не технологию, а измеримый эффект.
-    </p>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 md:gap-x-12 max-w-4xl mb-2">
+    <SMKicker>AI, ML: технологический домен, а не обычная отрасль</SMKicker>
+    <SMTitle>AI, ML: технологический домен, а не обычная отрасль</SMTitle>
+    <SMP>
+      AI, ML лидирует по спросу со стороны инвесторов, но слабее выглядит в корпоративной шкале как
+      самостоятельная категория. Причина в том, что корпоративный заказчик покупает не AI, ML как технологию,
+      а прикладной результат:
+    </SMP>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 md:gap-x-12 max-w-4xl mb-1">
       <div>
-        <SMLi>Снижение затрат</SMLi>
-        <SMLi>Ускорение процесса</SMLi>
-        <SMLi>Повышение точности</SMLi>
-        <SMLi>Автоматизация ручного труда</SMLi>
+        <SMLi>Снижение затрат;</SMLi>
+        <SMLi>Ускорение процесса;</SMLi>
+        <SMLi>Повышение точности;</SMLi>
+        <SMLi>Автоматизацию ручного труда;</SMLi>
       </div>
       <div>
-        <SMLi>Безопасность</SMLi>
-        <SMLi>Аналитика</SMLi>
-        <SMLi>Рост выручки</SMLi>
+        <SMLi>Безопасность;</SMLi>
+        <SMLi>Аналитику;</SMLi>
+        <SMLi>Рост выручки.</SMLi>
       </div>
     </div>
     <SMTakeaway>

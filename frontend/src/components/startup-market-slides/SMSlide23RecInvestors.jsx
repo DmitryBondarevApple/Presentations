@@ -1,4 +1,4 @@
-import { SMSlideContainer, SMKicker, SMTitle, SMCard, SMCardTitle, SMTakeaway, SM, FONTS } from "./SMSlideContainer";
+import { SMSlideContainer, SMKicker, SMTitle, SMP, SMCard, SMCardTitle, SMTakeaway, SM, FONTS } from "./SMSlideContainer";
 
 const Step = ({ n, title, text, accent }) => (
   <SMCard accent={accent}>
@@ -14,14 +14,15 @@ const SMSlide23RecInvestors = () => (
   <SMSlideContainer number={23} label="Рекомендации · Инвесторы">
     <SMKicker>Рекомендации для инвесторов</SMKicker>
     <SMTitle>Общий рейтинг — только первый фильтр</SMTitle>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mt-1">
-      <Step n="1" title="Рыночный фильтр" text="Есть ли у направления достаточный спрос" accent={SM.navy} />
-      <Step n="2" title="Фильтр зрелости" text="Готов ли стартап к сделке" accent={SM.green} />
-      <Step n="3" title="Фильтр выхода" text="Как инвестор вернёт капитал" accent={SM.terra} />
+    <SMP>Инвесторам следует использовать общий рейтинг только как первый фильтр. Далее нужны три проверочных шага:</SMP>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+      <Step n="1" title="Рыночный фильтр" text="есть ли у направления достаточный спрос" accent={SM.navy} />
+      <Step n="2" title="Фильтр зрелости" text="готов ли стартап к сделке" accent={SM.green} />
+      <Step n="3" title="Фильтр выхода" text="как инвестор вернёт капитал" accent={SM.terra} />
     </div>
     <SMTakeaway>
-      Особое внимание — корпоративно-стратегическим сегментам: Cybersecurity, Industrial, Manufacturing,
-      Energy, CleanTech и части Enterprise SaaS.
+      Особое внимание стоит уделять корпоративно-стратегическим сегментам: Cybersecurity, Industrial,
+      Manufacturing, Energy, CleanTech и части Enterprise SaaS.
     </SMTakeaway>
   </SMSlideContainer>
 );

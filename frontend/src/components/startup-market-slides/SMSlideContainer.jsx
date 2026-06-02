@@ -174,12 +174,47 @@ export const SMRank = ({ items, accent = SM.navy }) => (
   </div>
 );
 
-/* ── Chart image (web uses SVG) ── */
+/* ── Verbatim paragraph ── */
+export const SMP = ({ children, className }) => (
+  <p className={cn("text-sm sm:text-[0.95rem] md:text-base leading-relaxed mb-2.5 md:mb-3.5", className)}
+    style={{ color: SM.body, fontFamily: TEXT }}>{children}</p>
+);
+
+/* ── Definition: bold lead + rest ── */
+export const SMDefn = ({ label, children, accent = SM.navy }) => (
+  <p className="text-sm sm:text-[0.95rem] md:text-base leading-relaxed mb-2.5 md:mb-3" style={{ color: SM.body, fontFamily: TEXT }}>
+    <span className="font-bold" style={{ color: accent, fontFamily: DISP }}>{label}</span>
+    {children ? <> {children}</> : null}
+  </p>
+);
+
+/* ── Chart image (web uses SVG) — full width hero ── */
 export const SMChart = ({ src, alt }) => (
   <div className="w-full flex-1 min-h-0 flex items-center justify-center rounded-md overflow-hidden"
     style={{ border: `1px solid ${SM.line}` }}>
     <img src={`${IMG}/images/startup-market/light/${src}`} alt={alt}
       className="w-full h-full" style={{ objectFit: "contain", display: "block" }} />
+  </div>
+);
+
+/* ── Chart box (fills its column) ── */
+export const SMChartBox = ({ src, alt }) => (
+  <div className="w-full h-full min-h-[200px] flex items-center justify-center rounded-md overflow-hidden"
+    style={{ border: `1px solid ${SM.line}`, backgroundColor: SM.bg }}>
+    <img src={`${IMG}/images/startup-market/light/${src}`} alt={alt}
+      className="w-full h-full" style={{ objectFit: "contain", display: "block" }} />
+  </div>
+);
+
+/* ── Split layout: text column + chart column ── */
+export const SMSplit = ({ children, src, alt, wide }) => (
+  <div className="flex-1 min-h-0 flex flex-col md:flex-row gap-4 md:gap-7">
+    <div className={cn("w-full md:shrink-0 md:overflow-y-auto md:pr-1", wide ? "md:w-1/2" : "md:w-2/5")}>
+      {children}
+    </div>
+    <div className="flex-1 min-h-[220px] md:min-h-0 flex">
+      <SMChartBox src={src} alt={alt} />
+    </div>
   </div>
 );
 
