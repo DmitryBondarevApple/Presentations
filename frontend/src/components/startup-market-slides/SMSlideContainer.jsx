@@ -70,14 +70,14 @@ export const SMTitle = ({ children, className }) => (
 );
 
 export const SMLead = ({ children, className }) => (
-  <p className={cn("text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl mb-5 md:mb-7", className)}
+  <p className={cn("text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl mb-5 md:mb-7 text-justify", className)}
     style={{ color: SM.body, fontFamily: TEXT }}>
     {children}
   </p>
 );
 
 export const SMBody = ({ children, className }) => (
-  <p className={cn("text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl", className)}
+  <p className={cn("text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl text-justify", className)}
     style={{ color: SM.body, fontFamily: TEXT }}>
     {children}
   </p>
@@ -177,13 +177,13 @@ export const SMRank = ({ items, accent = SM.navy }) => (
 
 /* ── Verbatim paragraph ── */
 export const SMP = ({ children, className }) => (
-  <p className={cn("text-sm sm:text-[0.95rem] md:text-base leading-relaxed mb-2.5 md:mb-3.5", className)}
+  <p className={cn("text-sm sm:text-[0.95rem] md:text-base leading-relaxed mb-2.5 md:mb-3.5 text-justify", className)}
     style={{ color: SM.body, fontFamily: TEXT }}>{children}</p>
 );
 
 /* ── Definition: bold lead + rest ── */
 export const SMDefn = ({ label, children, accent = SM.navy }) => (
-  <p className="text-sm sm:text-[0.95rem] md:text-base leading-relaxed mb-2.5 md:mb-3" style={{ color: SM.body, fontFamily: TEXT }}>
+  <p className="text-sm sm:text-[0.95rem] md:text-base leading-relaxed mb-2.5 md:mb-3 text-justify" style={{ color: SM.body, fontFamily: TEXT }}>
     <span className="font-bold" style={{ color: accent, fontFamily: DISP }}>{label}</span>
     {children ? <> {children}</> : null}
   </p>
@@ -191,19 +191,17 @@ export const SMDefn = ({ label, children, accent = SM.navy }) => (
 
 /* ── Chart image (web uses SVG) — full width hero ── */
 export const SMChart = ({ src, alt }) => (
-  <div className="w-full flex-1 min-h-0 flex items-center justify-center rounded-md overflow-hidden"
-    style={{ border: `1px solid ${SM.line}` }}>
+  <div className="w-full flex-1 min-h-0 flex items-start justify-center overflow-hidden">
     <img src={`${IMG}/images/startup-market/light/${src}`} alt={alt}
-      className="w-full h-full" style={{ objectFit: "contain", display: "block" }} />
+      className="w-full h-full" style={{ objectFit: "contain", objectPosition: "top", display: "block" }} />
   </div>
 );
 
-/* ── Chart box (fills its column) ── */
+/* ── Chart box (fills its column, top-aligned, borderless) ── */
 export const SMChartBox = ({ src, alt }) => (
-  <div className="w-full h-full min-h-[200px] flex items-center justify-center rounded-md overflow-hidden"
-    style={{ border: `1px solid ${SM.line}`, backgroundColor: SM.bg }}>
+  <div className="w-full h-full min-h-[200px] flex items-start justify-center overflow-hidden">
     <img src={`${IMG}/images/startup-market/light/${src}`} alt={alt}
-      className="w-full h-full" style={{ objectFit: "contain", display: "block" }} />
+      className="w-full h-full" style={{ objectFit: "contain", objectPosition: "top", display: "block" }} />
   </div>
 );
 

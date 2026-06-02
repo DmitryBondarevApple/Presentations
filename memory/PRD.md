@@ -42,6 +42,10 @@
 - Добавлен `data-testid="sm-slide-{N}"` на все слайды.
 - Проверено тестовым агентом (iteration_16.json): 100%, 0px переполнения на всех 27 слайдах, таблицы/графики/текст корректны, PDF Light+Dark = ровно 27 стр., валидные (~4.8 МБ).
 
+### Обновление 2026-06-02 (вёрстка)
+- Текстовые абзацы выровнены по ширине (justify) в вебе и PDF; таблицы не затронуты.
+- У иллюстраций убраны рамки и верхний letterbox; графики выровнены по верху текстового блока (web: object-position top; PDF: justifyContent flex-start). PDF остаётся 27 стр.
+
 ## Технологии
 - React + Tailwind CSS + Framer Motion
 - @react-pdf/renderer (A4 Landscape PDF)

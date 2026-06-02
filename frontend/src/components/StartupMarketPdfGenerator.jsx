@@ -48,7 +48,7 @@ const Header = ({ num, label, color }) => (
 );
 
 const H = ({ children, size = 22 }) => <Text style={{ fontSize: size, fontWeight: 700, color: T.fg, marginBottom: 9, lineHeight: 1.12 }}>{children}</Text>;
-const P = ({ children, size = 11, mb = 7 }) => <Text style={{ fontSize: size, color: T.body, lineHeight: 1.45, marginBottom: mb }}>{children}</Text>;
+const P = ({ children, size = 11, mb = 7 }) => <Text style={{ fontSize: size, color: T.body, lineHeight: 1.45, marginBottom: mb, textAlign: "justify" }}>{children}</Text>;
 const Label = ({ children }) => <Text style={{ fontSize: 10.5, fontWeight: 700, color: T.fg, marginBottom: 5 }}>{children}</Text>;
 
 const Li = ({ children, accent, size = 10.5 }) => (
@@ -122,10 +122,8 @@ const ChartText = ({ ib, num, label, accent, vis, title, children, footer }) => 
     <H size={20}>{title}</H>
     <View style={{ flexDirection: "row", gap: 18, flex: 1 }}>
       <View style={{ width: 300 }}>{children}</View>
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <View style={{ borderWidth: 1, borderColor: T.line, borderRadius: 5, overflow: "hidden" }}>
-          <Image src={`${ib}/images/startup-market/${T.png}/${vis}.png`} style={{ width: 445, height: 258 }} />
-        </View>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "flex-start" }}>
+        <Image src={`${ib}/images/startup-market/${T.png}/${vis}.png`} style={{ width: 445, height: 258 }} />
       </View>
     </View>
     {footer}
