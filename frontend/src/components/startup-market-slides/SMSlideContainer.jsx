@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export const TOTAL = 41;
+export const TOTAL = 38;
 
 /* ── Palette (matches the embedded SVG charts) ── */
 export const SM = {

@@ -6,8 +6,8 @@ const Note = ({ children }) => (
   </p>
 );
 
-const SMSlide28RecInvestors1 = () => (
-  <SMSlideContainer number={28} label="Рекомендации · Инвесторы">
+const SMSlide24RecInvestors1 = () => (
+  <SMSlideContainer number={24} label="Рекомендации · Инвесторы">
     <SMKicker color={SM.navy}>Рекомендации для инвесторов</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Разделить направления и применять три фильтра</SMTitle>
     <SMNumHead n="1">Разделить направления по сценарию развития и коммерциализации</SMNumHead>
@@ -42,4 +42,4 @@ const SMSlide28RecInvestors1 = () => (
     />
   </SMSlideContainer>
 );
-export default SMSlide28RecInvestors1;
+export default SMSlide24RecInvestors1;

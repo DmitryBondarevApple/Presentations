@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMP, SMNumHead, SMTableC, SM } from "./SMSlideContainer";
 
-const SMSlide31RecCorp2 = () => (
-  <SMSlideContainer number={31} label="Рекомендации · Корпорации">
+const SMSlide28RecCorp2 = () => (
+  <SMSlideContainer number={28} label="Рекомендации · Корпорации">
     <SMKicker color={SM.terra}>Рекомендации для корпораций</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Ввести стандартный паспорт пилота</SMTitle>
     <SMNumHead n="3" accent={SM.terra}>Единый паспорт пилота снижает неопределённость для всех сторон</SMNumHead>
@@ -26,4 +26,4 @@ const SMSlide31RecCorp2 = () => (
     />
   </SMSlideContainer>
 );
-export default SMSlide31RecCorp2;
+export default SMSlide28RecCorp2;

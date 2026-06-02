@@ -8,8 +8,8 @@ const Col = ({ n, title, intro, items }) => (
   </div>
 );
 
-const SMSlide29RecInvestors2 = () => (
-  <SMSlideContainer number={29} label="Рекомендации · Инвесторы">
+const SMSlide25RecInvestors2 = () => (
+  <SMSlideContainer number={25} label="Рекомендации · Инвесторы">
     <SMKicker color={SM.navy}>Рекомендации для инвесторов</SMKicker>
     <SMTitle className="!mb-3 md:!mb-4">Проверять отраслевую привязку, стратегию и юридическую структуру</SMTitle>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 md:gap-x-10 gap-y-5">
@@ -55,4 +55,4 @@ const SMSlide29RecInvestors2 = () => (
     </div>
   </SMSlideContainer>
 );
-export default SMSlide29RecInvestors2;
+export default SMSlide25RecInvestors2;

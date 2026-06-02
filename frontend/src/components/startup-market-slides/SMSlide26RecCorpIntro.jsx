@@ -1,9 +1,9 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMSplit, SMP, SMLi, SM } from "./SMSlideContainer";
 
-const SMSlide24RecCorporate = () => (
-  <SMSlideContainer number={24} label="Рекомендации · Корпорации">
+const SMSlide26RecCorpIntro = () => (
+  <SMSlideContainer number={26} label="Рекомендации · Корпорации">
     <SMKicker color={SM.terra}>Рекомендации для корпораций</SMKicker>
-    <SMTitle className="!mb-2 md:!mb-3">Рекомендации для корпораций</SMTitle>
+    <SMTitle className="!mb-2 md:!mb-3">Путь корпоративного пилота: от бизнес-задачи к внедрению</SMTitle>
     <SMSplit src="VIS-07.svg" alt="Процесс корпоративного пилота: от бизнес-задачи к внедрению" wide>
       <SMP className="!mb-2">
         Корпорациям следует смотреть прежде всего на шкалу корпоративного спроса. Она показывает направления,
@@ -23,4 +23,4 @@ const SMSlide24RecCorporate = () => (
     </SMSplit>
   </SMSlideContainer>
 );
-export default SMSlide24RecCorporate;
+export default SMSlide26RecCorpIntro;

@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMNumHead, SMLi, SM } from "./SMSlideContainer";
 
-const SMSlide34RecInst2 = () => (
-  <SMSlideContainer number={34} label="Рекомендации · Институты развития">
+const SMSlide31RecInst2 = () => (
+  <SMSlideContainer number={31} label="Рекомендации · Институты развития">
     <SMKicker color={SM.green}>Рекомендации для институтов развития</SMKicker>
     <SMTitle className="!mb-3 md:!mb-4">Программы пилотов и юридико-технологическая готовность</SMTitle>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-16 gap-y-5 items-start">
@@ -36,4 +36,4 @@ const SMSlide34RecInst2 = () => (
     </div>
   </SMSlideContainer>
 );
-export default SMSlide34RecInst2;
+export default SMSlide31RecInst2;

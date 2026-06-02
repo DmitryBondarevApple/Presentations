@@ -21,25 +21,22 @@ import SMSlide19Typology from "@/components/startup-market-slides/SMSlide19Typol
 import SMSlide20EnterpriseSaaS from "@/components/startup-market-slides/SMSlide20EnterpriseSaaS";
 import SMSlide21Hybrid from "@/components/startup-market-slides/SMSlide21Hybrid";
 import SMSlide22Industrial from "@/components/startup-market-slides/SMSlide22Industrial";
-import SMSlide23RecInvestors from "@/components/startup-market-slides/SMSlide23RecInvestors";
-import SMSlide24RecCorporate from "@/components/startup-market-slides/SMSlide24RecCorporate";
-import SMSlide25RecInstitutions from "@/components/startup-market-slides/SMSlide25RecInstitutions";
-import SMSlide26RecStartups from "@/components/startup-market-slides/SMSlide26RecStartups";
-import SMSlide27RecPurpose from "@/components/startup-market-slides/SMSlide27RecPurpose";
-import SMSlide28RecInvestors1 from "@/components/startup-market-slides/SMSlide28RecInvestors1";
-import SMSlide29RecInvestors2 from "@/components/startup-market-slides/SMSlide29RecInvestors2";
-import SMSlide30RecCorp1 from "@/components/startup-market-slides/SMSlide30RecCorp1";
-import SMSlide31RecCorp2 from "@/components/startup-market-slides/SMSlide31RecCorp2";
-import SMSlide32RecCorp3 from "@/components/startup-market-slides/SMSlide32RecCorp3";
-import SMSlide33RecInst1 from "@/components/startup-market-slides/SMSlide33RecInst1";
-import SMSlide34RecInst2 from "@/components/startup-market-slides/SMSlide34RecInst2";
-import SMSlide35RecInst3 from "@/components/startup-market-slides/SMSlide35RecInst3";
-import SMSlide36RecStartups1 from "@/components/startup-market-slides/SMSlide36RecStartups1";
-import SMSlide37RecStartups2 from "@/components/startup-market-slides/SMSlide37RecStartups2";
-import SMSlide38RecStartups3 from "@/components/startup-market-slides/SMSlide38RecStartups3";
-import SMSlide39PriorityActions from "@/components/startup-market-slides/SMSlide39PriorityActions";
-import SMSlide40Mistakes from "@/components/startup-market-slides/SMSlide40Mistakes";
-import SMSlide41Final from "@/components/startup-market-slides/SMSlide41Final";
+import SMSlide23RecPurpose from "@/components/startup-market-slides/SMSlide23RecPurpose";
+import SMSlide24RecInvestors1 from "@/components/startup-market-slides/SMSlide24RecInvestors1";
+import SMSlide25RecInvestors2 from "@/components/startup-market-slides/SMSlide25RecInvestors2";
+import SMSlide26RecCorpIntro from "@/components/startup-market-slides/SMSlide26RecCorpIntro";
+import SMSlide27RecCorp1 from "@/components/startup-market-slides/SMSlide27RecCorp1";
+import SMSlide28RecCorp2 from "@/components/startup-market-slides/SMSlide28RecCorp2";
+import SMSlide29RecCorp3 from "@/components/startup-market-slides/SMSlide29RecCorp3";
+import SMSlide30RecInst1 from "@/components/startup-market-slides/SMSlide30RecInst1";
+import SMSlide31RecInst2 from "@/components/startup-market-slides/SMSlide31RecInst2";
+import SMSlide32RecInst3 from "@/components/startup-market-slides/SMSlide32RecInst3";
+import SMSlide33RecStartups1 from "@/components/startup-market-slides/SMSlide33RecStartups1";
+import SMSlide34RecStartups2 from "@/components/startup-market-slides/SMSlide34RecStartups2";
+import SMSlide35RecStartups3 from "@/components/startup-market-slides/SMSlide35RecStartups3";
+import SMSlide36PriorityActions from "@/components/startup-market-slides/SMSlide36PriorityActions";
+import SMSlide37Mistakes from "@/components/startup-market-slides/SMSlide37Mistakes";
+import SMSlide38Final from "@/components/startup-market-slides/SMSlide38Final";
 import { preGenerateStartupMarketPdfs } from "@/components/StartupMarketPdfGenerator";
 
 const slides = [
@@ -48,12 +45,11 @@ const slides = [
   SMSlide09Corporate, SMSlide10Comparison, SMSlide11Cybersecurity, SMSlide12Qualitative,
   SMSlide13Maturity, SMSlide14CheckInvestors, SMSlide15CheckCorporate, SMSlide16CheckInstitutions,
   SMSlide17CorpExit, SMSlide18AIML, SMSlide19Typology, SMSlide20EnterpriseSaaS,
-  SMSlide21Hybrid, SMSlide22Industrial, SMSlide23RecInvestors, SMSlide24RecCorporate,
-  SMSlide25RecInstitutions, SMSlide26RecStartups,
-  SMSlide27RecPurpose, SMSlide28RecInvestors1, SMSlide29RecInvestors2, SMSlide30RecCorp1,
-  SMSlide31RecCorp2, SMSlide32RecCorp3, SMSlide33RecInst1, SMSlide34RecInst2,
-  SMSlide35RecInst3, SMSlide36RecStartups1, SMSlide37RecStartups2, SMSlide38RecStartups3,
-  SMSlide39PriorityActions, SMSlide40Mistakes, SMSlide41Final,
+  SMSlide21Hybrid, SMSlide22Industrial,
+  SMSlide23RecPurpose, SMSlide24RecInvestors1, SMSlide25RecInvestors2, SMSlide26RecCorpIntro,
+  SMSlide27RecCorp1, SMSlide28RecCorp2, SMSlide29RecCorp3, SMSlide30RecInst1,
+  SMSlide31RecInst2, SMSlide32RecInst3, SMSlide33RecStartups1, SMSlide34RecStartups2,
+  SMSlide35RecStartups3, SMSlide36PriorityActions, SMSlide37Mistakes, SMSlide38Final,
 ];
 const TOTAL = slides.length;
 

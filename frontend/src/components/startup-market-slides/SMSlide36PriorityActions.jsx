@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMP, SMTableC, SM } from "./SMSlideContainer";
 
-const SMSlide39PriorityActions = () => (
-  <SMSlideContainer number={39} label="Рекомендации · Сводка">
+const SMSlide36PriorityActions = () => (
+  <SMSlideContainer number={36} label="Рекомендации · Сводка">
     <SMKicker>Сводка по разделу</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Приоритетные действия по аудиториям</SMTitle>
     <SMP className="!mb-4">
@@ -20,4 +20,4 @@ const SMSlide39PriorityActions = () => (
     />
   </SMSlideContainer>
 );
-export default SMSlide39PriorityActions;
+export default SMSlide36PriorityActions;
