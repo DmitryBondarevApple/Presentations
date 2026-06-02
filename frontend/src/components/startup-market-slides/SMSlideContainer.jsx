@@ -208,7 +208,7 @@ export const SMChartBox = ({ src, alt }) => (
 /* ── Split layout: text column + chart column ── */
 export const SMSplit = ({ children, src, alt, wide }) => (
   <div className="flex-1 min-h-0 flex flex-col md:flex-row gap-4 md:gap-7">
-    <div className={cn("w-full md:shrink-0 md:overflow-y-auto md:pr-1", wide ? "md:w-1/2" : "md:w-2/5")}>
+    <div className={cn("w-full md:shrink-0 md:overflow-y-auto md:pr-1 md:pt-[2.4%]", wide ? "md:w-1/2" : "md:w-2/5")}>
       {children}
     </div>
     <div className="flex-1 min-h-[220px] md:min-h-0 flex">

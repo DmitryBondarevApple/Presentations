@@ -121,7 +121,7 @@ const ChartText = ({ ib, num, label, accent, vis, title, children, footer }) => 
     <Header num={num} label={label} color={accent} />
     <H size={20}>{title}</H>
     <View style={{ flexDirection: "row", gap: 18, flex: 1 }}>
-      <View style={{ width: 300 }}>{children}</View>
+      <View style={{ width: 300, paddingTop: 21 }}>{children}</View>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "flex-start" }}>
         <Image src={`${ib}/images/startup-market/${T.png}/${vis}.png`} style={{ width: 445, height: 258 }} />
       </View>
