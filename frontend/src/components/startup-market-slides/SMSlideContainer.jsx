@@ -229,7 +229,7 @@ export const SMTakeaway = ({ children, label = "Главный вывод", acce
 
 /* ── Two-column paragraph wrapper ── */
 export const SMCols = ({ children, className }) => (
-  <div className={cn("grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 max-w-6xl", className)}>{children}</div>
+  <div className={cn("grid grid-cols-1 md:grid-cols-2 gap-x-16 md:gap-x-24 max-w-6xl", className)}>{children}</div>
 );
 
 /* ── Compact 3-column data table (long-text cells, top-aligned) ── */

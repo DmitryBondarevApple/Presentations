@@ -65,7 +65,7 @@ const Defn = ({ label, children, accent, size = 10 }) => (
   </Text>
 );
 
-const Cols = ({ children, gap = 22 }) => <View style={{ flexDirection: "row", gap }}>{children}</View>;
+const Cols = ({ children, gap = 44 }) => <View style={{ flexDirection: "row", gap }}>{children}</View>;
 const Col = ({ children }) => <View style={{ flex: 1 }}>{children}</View>;
 
 const Card = ({ children, accent }) => (
