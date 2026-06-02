@@ -2,8 +2,8 @@ import { SMSlideContainer, SMKicker, SMTitle, SMP, SMLi, SMTakeaway, SM } from "
 
 const SMSlide18AIML = () => (
   <SMSlideContainer number={18} label="Технологический домен">
-    <SMKicker>AI, ML: технологический домен, а не обычная отрасль</SMKicker>
-    <SMTitle className="!mb-2 md:!mb-3">AI, ML: технологический домен, а не обычная отрасль</SMTitle>
+    <SMKicker>AI/ML: технологический домен, а не обычная отрасль</SMKicker>
+    <SMTitle className="!mb-2 md:!mb-3">AI/ML: технологический домен, а не обычная отрасль</SMTitle>
     <SMP>
       AI/ML лидирует по спросу со стороны инвесторов, но слабее выглядит в корпоративной шкале как
       самостоятельная категория. Причина в том, что корпоративный заказчик покупает не AI/ML как технологию,

@@ -363,7 +363,7 @@ const S17 = () => (
 
 const S18 = () => (
   <Page size={[PW, PH]} style={ps()}><Header num={18} label="Технологический домен" />
-    <H>AI, ML: технологический домен, а не обычная отрасль</H>
+    <H>AI/ML: технологический домен, а не обычная отрасль</H>
     <P>AI/ML лидирует по спросу со стороны инвесторов, но слабее выглядит в корпоративной шкале как самостоятельная категория. Причина в том, что корпоративный заказчик покупает не AI/ML как технологию, а прикладной результат: снижение затрат, ускорение процесса, повышение точности, автоматизацию ручного труда, безопасность, аналитику или повышение выручки.</P>
     <P mb={0}>Поэтому AI/ML нужно анализировать с учётом отраслей применения. Один AI-стартап может быть частью Enterprise SaaS, другой — промышленной автоматизацией, третий — медицинской диагностикой, четвёртый — инструментом для ритейла, строительства, энергетики или безопасности. Для отчёта это означает, что AI/ML является не только отраслевой строкой рейтинга, но и сквозным технологическим доменом.</P>
   </Page>
@@ -492,7 +492,7 @@ const S27 = () => (
       <Text style={{ fontSize: 9, fontWeight: 700, color: T.muted, letterSpacing: 2, textTransform: "uppercase" }}>Финальный вывод</Text>
       <Text style={{ fontSize: 9, color: T.muted, letterSpacing: 1 }}>27 / 27</Text>
     </View>
-    <View style={{ flex: 1, justifyContent: "center", maxWidth: 680 }}>
+    <View style={{ flex: 1, justifyContent: "flex-start", maxWidth: 680, paddingTop: 30 }}>
       <View style={{ flexDirection: "row", alignItems: "flex-end", gap: 6, marginBottom: 18 }}>
         <View style={{ width: 9, height: 18, borderRadius: 2, backgroundColor: T.navy }} />
         <View style={{ width: 9, height: 28, borderRadius: 2, backgroundColor: T.green }} />

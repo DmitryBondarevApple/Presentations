@@ -10,7 +10,7 @@ const SMSlide27Final = () => (
       <span className="text-[10px] md:text-xs tracking-[0.15em]" style={{ color: SM.muted, fontFamily: FONTS.DISP }}>27 / 27</span>
     </div>
 
-    <div className="flex-1 flex flex-col justify-center min-h-0 max-w-5xl">
+    <div className="flex-1 flex flex-col justify-start min-h-0 max-w-5xl pt-6 md:pt-10">
       <div className="flex items-end gap-2 mb-5 md:mb-7">
         <span className="w-2.5 h-5 md:h-7 rounded-sm" style={{ backgroundColor: SM.navy }} />
         <span className="w-2.5 h-8 md:h-11 rounded-sm" style={{ backgroundColor: SM.green }} />
