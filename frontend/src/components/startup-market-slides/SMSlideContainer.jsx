@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export const TOTAL = 27;
+export const TOTAL = 41;
 
 /* ── Palette (matches the embedded SVG charts) ── */
 export const SM = {
@@ -173,6 +173,19 @@ export const SMRank = ({ items, accent = SM.navy }) => (
       </div>
     ))}
   </div>
+);
+
+/* ── Numbered subheading (N. Title) ── */
+export const SMNumHead = ({ n, children, accent = SM.navy, className }) => (
+  <div className={cn("flex items-baseline gap-2 mb-1.5", className)}>
+    <span className="font-bold text-base md:text-lg leading-none shrink-0" style={{ color: accent, fontFamily: DISP }}>{n}.</span>
+    <span className="font-bold text-sm md:text-base leading-snug" style={{ color: SM.ink, fontFamily: DISP }}>{children}</span>
+  </div>
+);
+
+/* ── Section subhead (no number) ── */
+export const SMSubhead = ({ children, accent = SM.navy, className }) => (
+  <p className={cn("font-bold text-sm md:text-base mb-2", className)} style={{ color: SM.ink, fontFamily: DISP, borderLeft: `3px solid ${accent}`, paddingLeft: "0.6rem" }}>{children}</p>
 );
 
 /* ── Verbatim paragraph ── */

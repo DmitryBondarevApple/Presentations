@@ -1,13 +1,13 @@
 import { SM, FONTS } from "./SMSlideContainer";
 
-const SMSlide27Final = () => (
+const SMSlide41Final = () => (
   <div className="w-full h-full flex flex-col relative px-6 sm:px-10 md:px-16 lg:px-24 py-5 md:py-8"
-    style={{ backgroundColor: SM.bg, color: SM.ink, fontFamily: FONTS.TEXT }} data-testid="sm-slide-27">
+    style={{ backgroundColor: SM.bg, color: SM.ink, fontFamily: FONTS.TEXT }} data-testid="sm-slide-41">
     <div className="flex items-center justify-between shrink-0">
       <span className="text-[10px] md:text-xs tracking-[0.26em] uppercase font-semibold" style={{ color: SM.muted }}>
         Финальный вывод
       </span>
-      <span className="text-[10px] md:text-xs tracking-[0.15em]" style={{ color: SM.muted, fontFamily: FONTS.DISP }}>27 / 27</span>
+      <span className="text-[10px] md:text-xs tracking-[0.15em]" style={{ color: SM.muted, fontFamily: FONTS.DISP }}>41 / 41</span>
     </div>
 
     <div className="flex-1 flex flex-col justify-start min-h-0 max-w-5xl pt-6 md:pt-10">
@@ -39,4 +39,4 @@ const SMSlide27Final = () => (
     </div>
   </div>
 );
-export default SMSlide27Final;
+export default SMSlide41Final;
