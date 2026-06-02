@@ -1,30 +1,36 @@
-import { SMSlideContainer, SMKicker, SMTitle, SMP, SMLi, SMTakeaway, SM } from "./SMSlideContainer";
+import { SMSlideContainer, SMKicker, SMTitle, SMP, SMCols, SM } from "./SMSlideContainer";
 
 const SMSlide22Industrial = () => (
   <SMSlideContainer number={22} label="Корпоративно-стратегические">
     <SMKicker color={SM.terra}>Industrial, Manufacturing и Energy, CleanTech</SMKicker>
-    <SMTitle>Industrial, Manufacturing и Energy, CleanTech</SMTitle>
-    <SMP>
-      Industrial, Manufacturing и Energy, CleanTech требуют анализа с учётом корпоративного спроса.
-      Для этих направлений важны:
-    </SMP>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 md:gap-x-12 max-w-4xl mb-1">
+    <SMTitle className="!mb-3 md:!mb-4">Направления с преимущественно корпоративным спросом</SMTitle>
+    <SMCols>
       <div>
-        <SMLi accent={SM.terra}>Доступ к крупным заказчикам;</SMLi>
-        <SMLi accent={SM.terra}>Проверка технологии в реальных условиях;</SMLi>
-        <SMLi accent={SM.terra}>Промышленные пилоты;</SMLi>
-        <SMLi accent={SM.terra}>Локализация;</SMLi>
+        <SMP>
+          Industrial, Manufacturing занимает 5-е место по интегральному показателю и относится к направлениям
+          с преимущественно корпоративным спросом. Практика участников рынка показывает, что промышленные
+          технологии требуют доступа к крупным заказчикам, технологической зрелости, длительного финансирования,
+          защиты прав, проверки в реальных условиях и способности пройти промышленное внедрение.
+        </SMP>
+        <SMP className="mb-0">
+          Для этого сегмента особенно важны корпоративные партнёрства и отраслевые заказчики. Без доступа
+          к промышленным компаниям даже сильная технология может не перейти в коммерческое применение.
+        </SMP>
       </div>
       <div>
-        <SMLi accent={SM.terra}>Права на технологию;</SMLi>
-        <SMLi accent={SM.terra}>Длинный горизонт финансирования;</SMLi>
-        <SMLi accent={SM.terra}>Подтверждённый экономический эффект.</SMLi>
+        <SMP>
+          Energy, CleanTech занимает 6-е место по интегральному показателю, 6-е место по спросу со стороны
+          инвесторов и 8-е место по корпоративному спросу. Это направление имеет смешанную природу: с одной
+          стороны, оно связано с технологической и инфраструктурной повесткой, с другой — часто требует крупных
+          заказчиков, длинного горизонта внедрения и понятной экономики проекта.
+        </SMP>
+        <SMP className="mb-0">
+          Практика участников рынка показывает, что в таких направлениях особенно важны промышленная
+          применимость, локализация, снижение издержек, энергоэффективность и способность показать эффект
+          в конкретной инфраструктурной задаче.
+        </SMP>
       </div>
-    </div>
-    <SMTakeaway accent={SM.terra}>
-      Без отраслевых заказчиков и пилотных площадок даже сильная технология может не перейти в коммерческое
-      применение.
-    </SMTakeaway>
+    </SMCols>
   </SMSlideContainer>
 );
 export default SMSlide22Industrial;

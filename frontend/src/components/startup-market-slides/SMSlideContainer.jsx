@@ -226,3 +226,32 @@ export const SMTakeaway = ({ children, label = "Главный вывод", acce
     <p className="text-sm md:text-base leading-snug" style={{ color: SM.body }}>{children}</p>
   </div>
 );
+
+
+/* ── Two-column paragraph wrapper ── */
+export const SMCols = ({ children, className }) => (
+  <div className={cn("grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 max-w-6xl", className)}>{children}</div>
+);
+
+/* ── Compact 3-column data table (long-text cells, top-aligned) ── */
+export const SMTableC = ({ headers, rows, weights, accent = SM.navy }) => {
+  const w = weights || [1.1, 1.5, 1.5];
+  const tmpl = w.map((x) => `${x}fr`).join(" ");
+  return (
+    <div className="w-full overflow-hidden rounded-md" style={{ border: `1px solid ${SM.line}` }}>
+      <div className="grid px-3 md:px-4 py-2 md:py-2.5" style={{ gridTemplateColumns: tmpl, backgroundColor: accent }}>
+        {headers.map((h, i) => (
+          <span key={i} className="text-[8.5px] md:text-[10px] font-bold tracking-[0.08em] uppercase pr-2" style={{ color: "#EAF0F5" }}>{h}</span>
+        ))}
+      </div>
+      {rows.map((cells, i) => (
+        <div key={i} className="grid px-3 md:px-4 py-1.5 md:py-2.5" style={{ gridTemplateColumns: tmpl, backgroundColor: i % 2 ? SM.panel : SM.bg, borderTop: `1px solid ${SM.line}` }}>
+          {cells.map((c, j) => (
+            <span key={j} className={cn("text-[10px] md:text-[12.5px] leading-snug pr-2.5", j === 0 && "font-semibold")}
+              style={{ color: j === 0 ? SM.ink : SM.body, fontFamily: j === 0 ? '"Unbounded", sans-serif' : '"Golos Text", sans-serif' }}>{c}</span>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};

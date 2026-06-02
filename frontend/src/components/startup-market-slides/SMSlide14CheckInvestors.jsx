@@ -1,29 +1,23 @@
-import { SMSlideContainer, SMKicker, SMTitle, SMP, SMLi, SMTakeaway, SM } from "./SMSlideContainer";
+import { SMSlideContainer, SMKicker, SMTitle, SMP, SMTableC } from "./SMSlideContainer";
 
 const SMSlide14CheckInvestors = () => (
   <SMSlideContainer number={14} label="Критерии · Инвесторы">
     <SMKicker>Что проверяют инвесторы</SMKicker>
-    <SMTitle>Что проверяют инвесторы</SMTitle>
-    <SMP>
+    <SMTitle className="!mb-2 md:!mb-3">Критерии инвестиционной привлекательности</SMTitle>
+    <SMP className="!mb-3">
       Инвесторы оценивают не только отрасль, но и способность стартапа превратить отраслевой интерес в рост
-      выручки, капитализации и вероятность выхода. Ключевые критерии:
+      выручки, капитализации и вероятность выхода.
     </SMP>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 md:gap-x-12 max-w-4xl mb-1">
-      <div>
-        <SMLi>Размер и доступность рынка;</SMLi>
-        <SMLi>Traction и выручка;</SMLi>
-        <SMLi>Команда и фокус основателей;</SMLi>
-      </div>
-      <div>
-        <SMLi>Юридическая структура и права;</SMLi>
-        <SMLi>Понятный сценарий выхода;</SMLi>
-        <SMLi>Возможность следующего раунда.</SMLi>
-      </div>
-    </div>
-    <SMTakeaway>
-      Спрос со стороны инвесторов показывает сегменты, где капитал готов рассматривать проекты, но итоговая
-      оценка зависит от конкретной компании.
-    </SMTakeaway>
+    <SMTableC
+      headers={["Критерий", "Как он влияет на оценку", "Где особенно важен"]}
+      rows={[
+        ["Размер и доступность рынка", "Определяет, может ли проект вырасти до масштаба, интересного инвестору", "AI/ML, HealthTech, MedTech, Enterprise SaaS, FinTech, EdTech"],
+        ["Traction и выручка", "Снижает риск того, что спрос существует только на уровне гипотезы", "Consumer, B2B SaaS, маркетплейсы, Media for Equity, корпоративные продукты"],
+        ["Команда и фокус основателей", "Показывает способность пройти длинный цикл разработки, продаж и финансирования", "Почти все направления, особенно deep tech и B2B"],
+        ["Юридическая структура и права", "Влияют на возможность сделки, следующего раунда, соинвестирования или стратегического входа", "Deep tech, AI/ML, Industrial, Biotech, MedTech, Cybersecurity"],
+        ["Понятный сценарий выхода", "Объясняет, как инвестор сможет выйти из сделки или зафиксировать результат", "Венчурные фонды, бизнес-ангелы, CVC, частные инвесторы"],
+      ]}
+    />
   </SMSlideContainer>
 );
 export default SMSlide14CheckInvestors;
