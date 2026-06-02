@@ -19,6 +19,15 @@
 | Trackers Academy | `/trackers` | 59 | DONE |
 | Perviy Bit | `/perviy-bit` | 13 | DONE |
 | MakeUsBeautiful Light | `/makeusbeautiful-light` | 14 | DONE |
+| Рынок стартапов в России | `/startup-market` | 27 | DONE |
+
+## Рынок стартапов в России (`/startup-market`) — добавлено 2026-06-02
+- Совместный проект **Hop.Agency × Startup Drive**, рук. исследования — Дмитрий Бондарев.
+- Стиль Big4-консалтинга: премиальная палитра (кремовый `#F7F5EF`, графит `#20242B`, акценты navy `#1B3A5B` / green `#2E6E5A` / terra `#B5612A`), шрифты Unbounded + Golos Text. Плотные слайды.
+- 27 слайдов: компоненты `SMSlide01..27` + `SMSlideContainer.jsx` (палитра + примитивы: Kicker, Title, Card, Stat, Table, Rank, Takeaway, Chart).
+- 8 диаграмм из отчёта (VIS-01..08): веб — оригинальные SVG (`/images/startup-market/light/`), PDF — PNG 2x, отрисованные через Playwright (`/png-light`, `/png-dark` с перекраской под тёмную тему). Маппинг: слайд 6→VIS-01, 7→02, 8→03, 9→04, 10→05, 11→06, 19→08, 24→07.
+- PDF Light+Dark пре-генерируется на загрузке (`StartupMarketPdfGenerator.jsx`); проверено: 27 страниц, графики встроены, ~4.8 МБ. Тест iteration_14.json — 100%.
+- Примечание: фото спикера переиспользовано из `/images/trackers/speaker.png` (можно заменить новым фото).
 
 ## Технологии
 - React + Tailwind CSS + Framer Motion
