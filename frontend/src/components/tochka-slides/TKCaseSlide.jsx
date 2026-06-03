@@ -4,7 +4,7 @@ import { TKSlideContainer, TKH2, TKCard, TKBullet, TKCallout } from "./TKSlideCo
  * Reusable use-case slide (Кейс N).
  * props: number, label, title, situation, problem (string|array), does (array), benefit, products
  */
-const TKCaseSlide = ({ number, label, title, situation, problem, does, benefit, products }) => (
+const TKCaseSlide = ({ number, label, title, situation, problem, does, benefit, products, doesTitle = "Что делает Noteall" }) => (
   <TKSlideContainer number={number} label={label}>
     <TKH2 className="!mb-1.5 sm:!mb-2 md:!mb-3">{title}</TKH2>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3 md:gap-5 items-start mb-2 sm:mb-3 md:mb-4">
@@ -25,7 +25,7 @@ const TKCaseSlide = ({ number, label, title, situation, problem, does, benefit, 
         </div>
       </div>
       <TKCard accent>
-        <p className="font-heading text-sm sm:text-base md:text-lg font-bold text-foreground mb-1.5 md:mb-2">Что помогает делать встроенный сервис Noteall</p>
+        <p className="font-heading text-sm sm:text-base md:text-lg font-bold text-foreground mb-1.5 md:mb-2">{doesTitle}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-0.5 sm:gap-y-1.5">
           {does.map((d, i) => <TKBullet key={i}>{d}</TKBullet>)}
         </div>

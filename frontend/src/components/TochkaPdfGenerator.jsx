@@ -231,7 +231,7 @@ const S08 = ({ total }) => (
   </Page>
 );
 
-const Case = ({ num, label, title, situation, problem, does, benefit, products, total }) => (
+const Case = ({ num, label, title, situation, problem, does, benefit, products, total, doesTitle = "Что делает Noteall" }) => (
   <Page size={[PW, PH]} style={ps()}>
     <Header num={num} label={label} total={total} />
     <H size={21}>{title}</H>
@@ -245,7 +245,7 @@ const Case = ({ num, label, title, situation, problem, does, benefit, products, 
           : <Text style={{ fontSize: 11, color: T.muted, lineHeight: 1.35 }}>{problem}</Text>}
       </View>
       <Card accent style={{ width: "48.7%", flex: undefined }}>
-        <CardTitle>Что помогает делать встроенный сервис Noteall</CardTitle>
+        <CardTitle>{doesTitle}</CardTitle>
         <View style={{ flexDirection: "row", flexWrap: "wrap" }}>{does.map((d, i) => <Li key={i} small>{d}</Li>)}</View>
       </Card>
     </View>
@@ -281,7 +281,7 @@ const cases = [
     does: ["карта потребностей клиента", "список функциональных требований", "черновик ТЗ", "основа для КП", "оценка трудозатрат", "открытые вопросы", "риски проекта", "следующие шаги и задачи команды"],
     benefit: "Переход от встречи к предложению ускоряется в 5–8 раз, трудозатраты менеджера снижаются в 8–10 раз, информация передаётся команде точно.",
     products: "CRM, РКО, онлайн-бухгалтерия, зарплатный проект, документооборот, сервисы для малого бизнеса." },
-  { num: 13, label: "Кейс 5 · Customer Discovery", title: "Customer discovery для малого бизнеса",
+  { num: 13, label: "Кейс 5 · Customer Discovery", title: "Customer discovery для малого бизнеса", doesTitle: "Что помогает делать встроенный сервис Noteall",
     situation: "Предприниматель запускает новый продукт, услугу, онлайн-школу или направление и проводит интервью с клиентами.",
     problem: "Интервью остаются в виде записей и разрозненных выводов. Сложно увидеть повторяющиеся боли, сегменты, критерии выбора и причины отказа.",
     does: ["рекрутировать респондентов", "вести список респондентов", "контролировать статусы интервью", "анализировать каждое интервью", "применять JTBD, VPC и др.", "комплексный анализ интервью", "сводный аналитический документ", "готовое техзадание"],
