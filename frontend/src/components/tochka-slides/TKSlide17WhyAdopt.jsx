@@ -11,7 +11,7 @@ const rows = [
 
 const TKSlide17WhyAdopt = () => (
   <TKSlideContainer number={17} label="Аргументы для заказчика">
-    <TKH2>Почему бизнес-заказчик Точки <span className="text-accent">стоит взять Noteall в работу</span></TKH2>
+    <TKH2>Почему бизнес-заказчику Точки <span className="text-accent">стоит взять Noteall в работу</span></TKH2>
     <TKKVTable headers={["Требование", "Как отвечает Noteall"]} rows={rows} className="mb-2 sm:mb-3 md:mb-4" />
     <TKCallout title="Ключевой аргумент">
       Noteall помогает Точке дать предпринимателю не очередной AI-ответ, а прикладной инструмент для ежедневной работы.

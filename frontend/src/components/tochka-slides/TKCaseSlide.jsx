@@ -25,7 +25,7 @@ const TKCaseSlide = ({ number, label, title, situation, problem, does, benefit, 
         </div>
       </div>
       <TKCard accent>
-        <p className="font-heading text-sm sm:text-base md:text-lg font-bold text-foreground mb-1.5 md:mb-2">Что делает Noteall</p>
+        <p className="font-heading text-sm sm:text-base md:text-lg font-bold text-foreground mb-1.5 md:mb-2">Что помогает делать встроенный сервис Noteall</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-0.5 sm:gap-y-1.5">
           {does.map((d, i) => <TKBullet key={i}>{d}</TKBullet>)}
         </div>

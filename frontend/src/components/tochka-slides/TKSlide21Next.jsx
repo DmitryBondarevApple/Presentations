@@ -33,8 +33,12 @@ const TKSlide21Next = () => (
           <div>
             <p className="font-heading text-sm sm:text-base md:text-lg font-bold text-foreground leading-tight" data-testid="tk-speaker-name">Дмитрий Бондарев</p>
             <a href="https://t.me/dmitrybondarev" target="_blank" rel="noreferrer"
-              className="font-body text-xs sm:text-sm md:text-base text-accent hover:text-accent/80 transition-colors no-underline" data-testid="tk-speaker-telegram">
+              className="block font-body text-xs sm:text-sm md:text-base text-accent hover:text-accent/80 transition-colors no-underline" data-testid="tk-speaker-telegram">
               t.me/dmitrybondarev
+            </a>
+            <a href="mailto:dmitry.bondarev@gmail.com"
+              className="block font-body text-xs sm:text-sm md:text-base text-muted-foreground hover:text-foreground transition-colors no-underline" data-testid="tk-speaker-email">
+              dmitry.bondarev@gmail.com
             </a>
           </div>
           <div className="bg-white rounded-lg p-1.5 sm:p-2 shrink-0 ml-1 sm:ml-2">

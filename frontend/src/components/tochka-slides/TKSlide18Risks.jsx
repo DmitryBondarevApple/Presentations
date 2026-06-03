@@ -12,7 +12,7 @@ const rows = [
 const TKSlide18Risks = () => (
   <TKSlideContainer number={18} label="Риски">
     <TKH2>Риски <span className="text-accent">и способы их закрытия</span></TKH2>
-    <TKLead className="!mb-2 sm:!mb-3">Каждый риск имеет понятный способ снятия уже на этапе пилота.</TKLead>
+    <TKLead className="!mb-2 sm:!mb-3">Каждый риск имеет понятный способ закрытия уже на этапе пилота.</TKLead>
     <TKKVTable headers={["Риск", "Как закрываем"]} rows={rows} labelClass="!text-muted-foreground" />
   </TKSlideContainer>
 );

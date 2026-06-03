@@ -171,8 +171,8 @@ const S05 = ({ total }) => (
     <View style={{ flexDirection: "row", gap: 8 }}>
       {[
         { n: "01", t: "Обработка записи", items: ["Транскрибация аудио и видео", "Разметка спикеров", "Сборка фрагментов речи", "Коррекция по контексту", "Авто-исправление ошибок"] },
-        { n: "02", t: "Анализ содержания", items: ["Разбивка на темы и блоки", "Извлечение решений, задач, выводов", "Учёт файлов и контекста", "AI-сценарии анализа"] },
-        { n: "03", t: "Рабочий результат", items: ["Структурированный документ", "Материалы для CRM, КП, ТЗ", "Выводы и задачи по исполнителям", "Экспорт в DOCX / PDF, шаринг"] },
+        { n: "02", t: "Анализ содержания", items: ["Разбивка на темы и блоки", "Извлечение решений, задач, выводов", "Учёт внешних данных и общего контекста", "AI-сценарии анализа"] },
+        { n: "03", t: "Рабочий результат", items: ["Структурированный документ", "Готовые КП, ТЗ, материалы для CRM", "Выводы и задачи по исполнителям", "Экспорт в DOCX / PDF, шеринг"] },
       ].map((s, i) => (
         <Card key={i} accent>
           <Text style={{ fontSize: 16, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{s.n}</Text>
@@ -188,7 +188,7 @@ const S06 = ({ total }) => (
   <Page size={[PW, PH]} style={ps()}>
     <Header num={6} label="Результат для клиента" total={total} />
     <H>На выходе — не транскрипт, <HA>а документ для работы</HA></H>
-    <Sub>В зависимости от сценария клиент Точки может получить:</Sub>
+    <Sub>В зависимости от применяемого сценария анализа клиент Точки может получить:</Sub>
     <KV headers={["Сценарий", "Результат"]} fs={9.5} rows={[
       ["Продажа или пресейл", "Summary встречи, потребности клиента, следующие шаги, готовое КП, оценка трудозатрат, проект сметы"],
       ["Клиентская консультация", "Итоги, рекомендации, внутренние отчётные документы, задачи специалисту"],
@@ -197,7 +197,7 @@ const S06 = ({ total }) => (
       ["Обучение, наставничество", "Конспект, домашнее задание, индивидуальная траектория обучения, план шагов"],
       ["Найм", "Summary интервью, оценка кандидата, вопросы для проверки"],
     ]} />
-    <Callout title="Ключевая польза" style={{ marginTop: 8 }}>Предприниматель быстрее фиксирует смысл разговора и переводит его в действие.</Callout>
+    <Callout title="Ключевая польза" style={{ marginTop: 8 }}>Предприниматель в разы быстрее фиксирует содержание и смысл встречи и переводит их в практические действия.</Callout>
   </Page>
 );
 
@@ -235,8 +235,8 @@ const Case = ({ num, label, title, situation, problem, does, benefit, products, 
   <Page size={[PW, PH]} style={ps()}>
     <Header num={num} label={label} total={total} />
     <H size={21}>{title}</H>
-    <View style={{ flexDirection: "row", gap: 10, marginBottom: 8 }}>
-      <View style={{ flex: 1 }}>
+    <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 8 }}>
+      <View style={{ width: "48.7%" }}>
         <Eyebrow>Ситуация</Eyebrow>
         <Text style={{ fontSize: 11, color: T.fg2, lineHeight: 1.35, marginBottom: 7 }}>{situation}</Text>
         <Eyebrow>Проблема</Eyebrow>
@@ -244,20 +244,20 @@ const Case = ({ num, label, title, situation, problem, does, benefit, products, 
           ? <View style={{ flexDirection: "row", flexWrap: "wrap" }}>{problem.map((p, i) => <Li key={i} small>{p}</Li>)}</View>
           : <Text style={{ fontSize: 11, color: T.muted, lineHeight: 1.35 }}>{problem}</Text>}
       </View>
-      <Card accent style={{ flex: 1 }}>
-        <CardTitle>Что делает Noteall</CardTitle>
+      <Card accent style={{ width: "48.7%", flex: undefined }}>
+        <CardTitle>Что помогает делать встроенный сервис Noteall</CardTitle>
         <View style={{ flexDirection: "row", flexWrap: "wrap" }}>{does.map((d, i) => <Li key={i} small>{d}</Li>)}</View>
       </Card>
     </View>
-    <View style={{ flexDirection: "row", gap: 10 }}>
-      <Callout title="Польза для клиента Точки" style={{ flex: 1 }}>{benefit}</Callout>
-      <Callout title="Связь с продуктами Точки" style={{ flex: 1 }}>{products}</Callout>
+    <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+      <Callout title="Польза для клиента Точки" style={{ width: "48.7%", flex: undefined }}>{benefit}</Callout>
+      <Callout title="Связь с продуктами Точки" style={{ width: "48.7%", flex: undefined }}>{products}</Callout>
     </View>
   </Page>
 );
 
 const cases = [
-  { num: 9, label: "Кейс 1 · Селлеры", title: "Селлер маркетплейсов с командой",
+  { num: 9, label: "Кейс 1 · Селлеры", title: "Маркетплейс-селлер",
     situation: "Селлер обсуждает с подрядчиками и сотрудниками закупки, поставки, производство и финансы, карточки товаров, рекламу, логистику, возвраты, фулфилмент, упаковку.",
     problem: "Решения остаются в чатах, созвонах и памяти участников. Теряются договорённости, свойства товаров, сроки, задачи и ответственность.",
     does: ["задачи по закупкам", "свойства товаров", "договорённости с подрядчиками", "решения по карточкам", "вопросы по рекламе", "риски по поставкам", "действия для команды", "follow-up"],
@@ -307,14 +307,16 @@ const S15 = ({ total }) => (
         { n: "Вариант 3", t: "Интеграция с продуктами Точки", d: "В результаты встреч встраиваются ссылки на продукты Точки: бухгалтерия, ЭДО, 1С, CRM, сервисы для селлеров, платежи.", tag: "Кросс-продажи" },
         { n: "Вариант 4", t: "Пилотный лендинг для сегментов", d: "Отдельные сценарии и офферы для разных типов предпринимателей.", tag: "Быстрый запуск" },
       ].map((v, i) => (
-        <Card key={i} accent={i === 0} style={{ width: "48.5%", flex: undefined }}>
+        <View key={i} style={{ width: "48.5%", backgroundColor: T.card, borderRadius: 4, padding: 11,
+          borderTopWidth: 2.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 0.5,
+          borderTopColor: T.accent, borderRightColor: T.border, borderBottomColor: T.border, borderLeftColor: T.border }}>
           <Text style={{ fontSize: 9.5, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 0.6 }}>{v.n}</Text>
           <Text style={{ fontSize: 13, fontWeight: 700, color: T.fg, marginTop: 2, marginBottom: 4 }}>{v.t}</Text>
           <Text style={{ fontSize: 10.5, color: T.muted, lineHeight: 1.35, marginBottom: 6 }}>{v.d}</Text>
           <View style={{ alignSelf: "flex-start", backgroundColor: T.accentBg, borderRadius: 8, paddingHorizontal: 7, paddingVertical: 2 }}>
             <Text style={{ fontSize: 9, color: T.accent, fontWeight: 600 }}>{v.tag}</Text>
           </View>
-        </Card>
+        </View>
       ))}
     </View>
   </Page>
@@ -341,7 +343,7 @@ const S16 = ({ total }) => (
 const S17 = ({ total }) => (
   <Page size={[PW, PH]} style={ps()}>
     <Header num={17} label="Аргументы для заказчика" total={total} />
-    <H size={20}>Почему бизнес-заказчик Точки <HA>стоит взять Noteall в работу</HA></H>
+    <H size={20}>Почему бизнес-заказчику Точки <HA>стоит взять Noteall в работу</HA></H>
     <KV headers={["Требование", "Как отвечает Noteall"]} fs={9} lw="26%" rows={[
       ["Конкретный юзкейс", "Обработка встреч предпринимателей и СМБ в рабочие документы и задачи"],
       ["Измеримый результат", "Экономия времени, снижение трудозатрат, рост метрик компаний (конверсия, цикл сделок, LTV), рост качества обслуживания"],
@@ -358,7 +360,7 @@ const S18 = ({ total }) => (
   <Page size={[PW, PH]} style={ps()}>
     <Header num={18} label="Риски" total={total} />
     <H>Риски <HA>и способы их закрытия</HA></H>
-    <Sub>Каждый риск имеет понятный способ снятия уже на этапе пилота.</Sub>
+    <Sub>Каждый риск имеет понятный способ закрытия уже на этапе пилота.</Sub>
     <KV headers={["Риск", "Как закрываем"]} fs={9.5} lw="42%" rows={[
       ["Не все клиенты Точки регулярно используют ВКС", "Запускать пилот на сегментах с высокой частотой встреч"],
       ["У клиентов уже есть Zoom, Телемост, CRM и мессенджеры", "Позиционировать Noteall как инструмент обработки записей, а не замену ВКС"],
@@ -447,6 +449,7 @@ const S21 = ({ imgBase, total }) => (
         <View>
           <Text style={{ fontSize: 13, fontWeight: 700, color: T.fg }}>Дмитрий Бондарев</Text>
           <Text style={{ fontSize: 11, color: T.accent, marginTop: 2 }}>t.me/dmitrybondarev</Text>
+          <Text style={{ fontSize: 11, color: T.muted, marginTop: 1.5 }}>dmitry.bondarev@gmail.com</Text>
         </View>
         <View style={{ backgroundColor: "#ffffff", borderRadius: 5, padding: 4, marginLeft: 6 }}>
           <Image src={`${imgBase}/images/tochka/qr-telegram.png`} style={{ width: 52, height: 52 }} />
