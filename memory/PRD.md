@@ -20,6 +20,15 @@
 | Perviy Bit | `/perviy-bit` | 13 | DONE |
 | MakeUsBeautiful Light | `/makeusbeautiful-light` | 14 | DONE |
 | Рынок стартапов в России | `/startup-market` | 38 | DONE |
+| Noteall для Точка Банка | `/tochka` | 21 | DONE |
+
+## Noteall для Точка Банка (`/tochka`) — добавлено 2026-06-03
+- Презентация Noteall (B2B-предложение) для банка Точка (tochka.com) на стилистической основе `/product/`: глубоко-синий фон (дизайн-токены `bg-background`/`bg-card`), шрифты heading/body.
+- **Акцент — фирменный teal Noteall** (по запросу заказчика), реализован изолированной темой `.theme-tochka { --accent: 172 66% 50% }` в `index.css` (не затрагивает другие презентации, у которых глобальный `--accent` оранжевый). Корень страницы обёрнут в `theme-tochka`.
+- 21 слайд: `TKSlide01..21` + `TKSlideContainer.jsx` (примитивы: TKH2/TKLead/TKCard/TKBullet/TKCallout/TKKVTable) + `TKCaseSlide.jsx` (6 кейсов, слайды 9–14). Co-branding Noteall × Точка (логотипы Точки в `/images/tochka/`: white для тёмного фона/PDF-dark, dark для PDF-light).
+- Контент дословно из `Презентация NoteAll для Точка Банка.docx` (бренд везде пишется «Noteall»). Слайд 20 — таблица экономики (7 строк) с итогами 37,51 млн ₽/мес и 450,1 млн ₽/год (50% revenue share).
+- PDF Light+Dark пре-генерируется на загрузке (`TochkaPdfGenerator.jsx`, teal-тема, Inter); проверено: 21 страница в обеих темах, логотипы корректны по темам, без обрезки, ~0.66 МБ. Web: 0px переполнения на всех слайдах, акцент teal подтверждён.
+
 
 ## Рынок стартапов в России (`/startup-market`) — добавлено 2026-06-02
 - Совместный проект **Hop.Agency × Startup Drive**, рук. исследования — Дмитрий Бондарев.

@@ -33,6 +33,12 @@
         --chart-4: 45 90% 60%;
         --chart-5: 280 60% 60%;
     }
+
+    /* Scoped teal accent theme for Tochka deck (Noteall brand teal) */
+    .theme-tochka {
+        --accent: 172 66% 50%;
+        --accent-foreground: 0 0% 100%;
+    }
 }
 
 body {

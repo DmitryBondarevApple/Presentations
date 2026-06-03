@@ -12,6 +12,7 @@ import NoteAllProductPresentation from "@/pages/NoteAllProductPresentation";
 import PerviyBitPresentation from "@/pages/PerviyBitPresentation";
 import TrackersPresentation from "@/pages/TrackersPresentation";
 import StartupMarketPresentation from "@/pages/StartupMarketPresentation";
+import TochkaPresentation from "@/pages/TochkaPresentation";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/perviy-bit" element={<PerviyBitPresentation />} />
         <Route path="/trackers" element={<TrackersPresentation />} />
         <Route path="/startup-market" element={<StartupMarketPresentation />} />
+        <Route path="/tochka" element={<TochkaPresentation />} />
       </Routes>
     </BrowserRouter>
   );
