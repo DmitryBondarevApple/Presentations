@@ -2,8 +2,8 @@ import TKCaseSlide from "./TKCaseSlide";
 
 const TKSlide14Case6 = () => (
   <TKCaseSlide
-    number={14}
-    label="Кейс 6 · Customer Discovery"
+    number={13}
+    label="Кейс 5 · Customer Discovery"
     title="Customer discovery для малого бизнеса"
     situation="Предприниматель запускает новый продукт, услугу, онлайн-школу, сервис или направление бизнеса и проводит интервью с клиентами."
     problem="Интервью остаются в виде записей, заметок и разрозненных выводов. Сложно увидеть повторяющиеся боли, сегменты, критерии выбора и причины отказа клиентов."

@@ -9,7 +9,7 @@ const outputs = [
 
 const TKSlide02WhyTochka = () => (
   <TKSlideContainer number={2} label="Контекст">
-    <TKH2>Почему это важно <span className="text-accent">для Точки</span></TKH2>
+    <TKH2>Почему это подходит <span className="text-accent">для Точки</span></TKH2>
     <TKLead>
       Точка развивает AI-ассистента для предпринимателей. Его задача — помогать получать практический навык,
       принимать решения и пользоваться продуктами экосистемы Точки в реальных рабочих сценариях.

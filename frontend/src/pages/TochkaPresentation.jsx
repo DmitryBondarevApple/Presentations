@@ -26,8 +26,8 @@ import { TKTotal } from "@/components/tochka-slides/TKSlideContainer";
 const slides = [
   TKSlide01Cover, TKSlide02WhyTochka, TKSlide03Problem, TKSlide04NotEnough,
   TKSlide05Solution, TKSlide06Output, TKSlide07NotWrapper, TKSlide08Segments,
-  TKSlide09Case1, TKSlide10Case2, TKSlide11Case3, TKSlide12Case4,
-  TKSlide13Case5, TKSlide14Case6, TKSlide15Ecosystem, TKSlide16Metrics,
+  TKSlide12Case4, TKSlide13Case5, TKSlide09Case1, TKSlide10Case2,
+  TKSlide14Case6, TKSlide11Case3, TKSlide15Ecosystem, TKSlide16Metrics,
   TKSlide17WhyAdopt, TKSlide18Risks, TKSlide19Pilot, TKSlide20Economics,
   TKSlide21Next,
 ];

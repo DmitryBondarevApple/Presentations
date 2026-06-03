@@ -2,8 +2,8 @@ import TKCaseSlide from "./TKCaseSlide";
 
 const TKSlide10Case2 = () => (
   <TKCaseSlide
-    number={10}
-    label="Кейс 2 · Digital / ИТ"
+    number={12}
+    label="Кейс 4 · Digital / ИТ"
     title="Digital-агентство или ИТ-аутсорсинг"
     situation="Команда проводит discovery-встречу с клиентом: обсуждает цели, проблемы, бюджет, требования, ограничения, сроки и критерии успеха."
     problem="После встречи менеджер или аналитик вручную собирает материалы для команды и коммерческого предложения."

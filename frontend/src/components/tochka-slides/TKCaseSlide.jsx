@@ -31,7 +31,7 @@ const TKCaseSlide = ({ number, label, title, situation, problem, does, benefit, 
         </div>
       </TKCard>
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3 md:gap-4 items-stretch">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3 md:gap-5 items-stretch">
       <TKCallout title="Польза для клиента Точки">{benefit}</TKCallout>
       <div className="bg-card rounded-lg border border-border p-2.5 sm:p-4 md:p-5">
         <p className="font-heading text-[11px] sm:text-xs md:text-sm font-bold text-accent uppercase tracking-wider mb-1">Связь с продуктами Точки</p>

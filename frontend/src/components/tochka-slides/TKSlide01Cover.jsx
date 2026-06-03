@@ -7,7 +7,6 @@ const TKSlide01Cover = () => (
     <div className="flex-1 overflow-y-auto flex flex-col items-center justify-center px-5 sm:px-6 py-6 md:py-10 relative z-10">
       <div className="animate-item stagger-1 flex items-center gap-4 sm:gap-6 md:gap-9 mb-5 md:mb-12">
         <img src={`${PUB}/images/noteall/logo-noteall.png`} alt="Noteall" className="h-9 sm:h-12 md:h-[4.5rem] w-auto object-contain" data-testid="tk-logo-noteall" />
-        <span className="text-muted-foreground/40 text-2xl md:text-4xl font-light">×</span>
         <img src={`${PUB}/images/tochka/tochka-white.png`} alt="Точка Банк" className="h-5 sm:h-7 md:h-10 w-auto object-contain" data-testid="tk-logo-tochka" />
       </div>
 
