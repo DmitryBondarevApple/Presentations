@@ -234,6 +234,50 @@ const Formula = ({ text }) => (
   </div>
 );
 
+const QDot = ({ i, hl, plot }) => (
+  <span className={cn(
+    "flex items-center justify-center rounded-full font-bold shrink-0",
+    plot ? "w-5 h-5 sm:w-6 sm:h-6 text-[10px] sm:text-xs" : "w-5 h-5 text-[10px] mt-0.5",
+    hl ? "bg-accent text-background ring-2 ring-accent/25" : "bg-card border border-border text-foreground/70")}>
+    {i + 1}
+  </span>
+);
+
+const Quadrant = ({ x, y, points, zone, insight }) => (
+  <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-4 sm:gap-6 items-center">
+    <div className="relative w-full aspect-[16/10] rounded-lg border border-border bg-card/40" data-testid="aic-quadrant-plot">
+      {zone && (
+        <div className="absolute rounded-md bg-accent/10 border border-dashed border-accent/40"
+          style={{ left: `${zone.x * 100}%`, top: `${(1 - zone.y - zone.h) * 100}%`, width: `${zone.w * 100}%`, height: `${zone.h * 100}%` }} />
+      )}
+      <div className="absolute left-1/2 top-3 bottom-3 w-px bg-border -translate-x-1/2" />
+      <div className="absolute top-1/2 left-3 right-3 h-px bg-border -translate-y-1/2" />
+      <span className="absolute top-1.5 left-1/2 -translate-x-1/2 font-heading text-[10px] sm:text-xs font-semibold text-accent whitespace-nowrap">{y.top}</span>
+      <span className="absolute bottom-1.5 left-1/2 -translate-x-1/2 font-heading text-[10px] sm:text-xs font-semibold text-accent whitespace-nowrap">{y.bottom}</span>
+      <span className="absolute left-1.5 top-1/2 -translate-y-1/2 font-heading text-[10px] sm:text-xs font-semibold text-accent leading-tight max-w-[24%]">{x.left}</span>
+      <span className="absolute right-1.5 top-1/2 -translate-y-1/2 text-right font-heading text-[10px] sm:text-xs font-semibold text-accent leading-tight max-w-[24%]">{x.right}</span>
+      {points.map((p, i) => (
+        <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${p.x * 100}%`, top: `${(1 - p.y) * 100}%` }}>
+          <QDot i={i} hl={p.hl} plot />
+        </div>
+      ))}
+    </div>
+    <div className="space-y-1.5 sm:space-y-2">
+      {points.map((p, i) => (
+        <div key={i} className="flex items-start gap-2">
+          <QDot i={i} hl={p.hl} />
+          <p className={cn("font-body leading-snug text-sm sm:text-base", p.hl ? "text-accent font-semibold" : "text-foreground/85")}>{p.label}</p>
+        </div>
+      ))}
+      {insight && (
+        <div className="bg-card rounded-lg border border-border border-l-4 border-l-accent p-2.5 sm:p-3 mt-2 sm:mt-3">
+          <p className="font-body text-foreground/85 leading-snug text-sm sm:text-base">{insight}</p>
+        </div>
+      )}
+    </div>
+  </div>
+);
+
 const Block = ({ b }) => {
   switch (b.k) {
     case "lead": return <Lead>{b.text}</Lead>;
@@ -246,6 +290,7 @@ const Block = ({ b }) => {
     case "prompt": return <Prompt intro={b.intro} paras={b.paras} />;
     case "swot": return <Swot {...b} />;
     case "map": return <MapAxes {...b} />;
+    case "quadrant": return <Quadrant {...b} />;
     case "actions": return <Actions items={b.items} />;
     case "groups": return <Groups items={b.items} />;
     case "formula": return <Formula text={b.text} />;
@@ -265,12 +310,12 @@ export const Lecturer = ({ className }) => (
 );
 
 /* ── Standard content slide ── */
-export const AICStandardSlide = ({ slide }) => {
+export const AICStandardSlide = ({ slide, num }) => {
   const dense = isDense(slide);
   const sp = dense ? "space-y-2 sm:space-y-3 md:space-y-4" : "space-y-3 sm:space-y-4 md:space-y-6";
   return (
     <DenseCtx.Provider value={dense}>
-      <AICShell number={slide.n} label={slide.label}>
+      <AICShell number={num} label={slide.label}>
         <H2 t={slide.t} a={slide.a} />
         <div className={cn(sp, "flex-1 flex flex-col")}>
           {slide.blocks.map((b, i) => <Block key={i} b={b} />)}

@@ -66,7 +66,7 @@ const Bullet = ({ children, w, bs = BP }) => (
   </View>
 );
 
-const colW = (cols) => (cols === 4 ? "23.5%" : cols === 3 ? "32%" : cols === 2 ? "48.5%" : "100%");
+const colW = (cols) => (cols === 4 ? "23%" : cols === 3 ? "31%" : cols === 2 ? "48%" : "100%");
 const liW = (cols) => (cols === 3 ? "33.33%" : cols === 2 ? "50%" : "100%");
 
 const Bullets = ({ eyebrow, items, cols, bs = BP }) => (
@@ -79,7 +79,7 @@ const Bullets = ({ eyebrow, items, cols, bs = BP }) => (
 );
 
 const Cards = ({ items, cols }) => (
-  <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", marginBottom: 9 }}>
+  <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "flex-start", columnGap: 14, marginBottom: 9 }}>
     {items.map((c, i) => (
       <View key={i} style={{ width: colW(cols), marginBottom: 9, backgroundColor: T.card, borderRadius: 4, padding: 10,
         borderTopWidth: 2.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 0.5,
@@ -175,6 +175,52 @@ const MapAxes = ({ x, y, points, hypothesis }) => (
   </View>
 );
 
+const QMarker = ({ n, hl, plot }) => {
+  const sz = plot ? 17 : 16;
+  return (
+    <View style={{ width: sz, height: sz, borderRadius: sz / 2, backgroundColor: hl ? T.accent : T.card,
+      ...(hl ? {} : { borderWidth: 0.5, borderColor: T.border }), alignItems: "center", justifyContent: "center" }}>
+      <Text style={{ fontSize: 8.5, fontWeight: 700, color: hl ? T.bg : T.muted }}>{n}</Text>
+    </View>
+  );
+};
+
+const Quadrant = ({ x, y, points, zone, insight }) => {
+  const W = 458, Hh = 286;
+  return (
+    <View style={{ flexDirection: "row", gap: 18, marginBottom: 9 }}>
+      <View style={{ width: W, height: Hh, position: "relative", borderWidth: 0.5, borderColor: T.border, borderRadius: 4 }}>
+        {zone && <View style={{ position: "absolute", left: zone.x * W, top: (1 - zone.y - zone.h) * Hh,
+          width: zone.w * W, height: zone.h * Hh, backgroundColor: T.accentBg, borderWidth: 0.5, borderColor: T.accent, borderRadius: 4 }} />}
+        <View style={{ position: "absolute", left: W / 2 - 0.25, top: 10, width: 0.5, height: Hh - 20, backgroundColor: T.border }} />
+        <View style={{ position: "absolute", top: Hh / 2 - 0.25, left: 10, width: W - 20, height: 0.5, backgroundColor: T.border }} />
+        <Text style={{ position: "absolute", top: 5, left: 0, width: W, textAlign: "center", fontSize: 8.5, fontWeight: 700, color: T.accent }}>{y.top}</Text>
+        <Text style={{ position: "absolute", bottom: 5, left: 0, width: W, textAlign: "center", fontSize: 8.5, fontWeight: 700, color: T.accent }}>{y.bottom}</Text>
+        <Text style={{ position: "absolute", left: 5, top: Hh / 2 - 6, width: 95, fontSize: 8.5, fontWeight: 700, color: T.accent }}>{x.left}</Text>
+        <Text style={{ position: "absolute", right: 5, top: Hh / 2 - 6, width: 95, textAlign: "right", fontSize: 8.5, fontWeight: 700, color: T.accent }}>{x.right}</Text>
+        {points.map((p, i) => (
+          <View key={i} style={{ position: "absolute", left: p.x * W - 8.5, top: (1 - p.y) * Hh - 8.5 }}>
+            <QMarker n={i + 1} hl={p.hl} plot />
+          </View>
+        ))}
+      </View>
+      <View style={{ flex: 1 }}>
+        {points.map((p, i) => (
+          <View key={i} style={{ flexDirection: "row", gap: 6, alignItems: "flex-start", marginBottom: 6 }}>
+            <QMarker n={i + 1} hl={p.hl} />
+            <Text style={{ fontSize: BS, color: p.hl ? T.accent : T.fg2, fontWeight: p.hl ? 700 : 400, lineHeight: 1.3, flex: 1, marginTop: 1.5 }}>{p.label}</Text>
+          </View>
+        ))}
+        {insight && (
+          <View style={{ backgroundColor: T.card, borderRadius: 4, padding: 9, borderTopWidth: 0.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 3, borderTopColor: T.border, borderRightColor: T.border, borderBottomColor: T.border, borderLeftColor: T.accent, marginTop: 6 }}>
+            <Text style={{ fontSize: BS, color: T.fg2, lineHeight: 1.34 }}>{insight}</Text>
+          </View>
+        )}
+      </View>
+    </View>
+  );
+};
+
 const Actions = ({ items }) => (
   <View style={{ marginBottom: 9 }}>
     {items.map((a, i) => (
@@ -223,6 +269,7 @@ const renderBlock = (b, i, bs) => {
     case "prompt": return <Prompt key={i} intro={b.intro} paras={b.paras} />;
     case "swot": return <Swot key={i} {...b} />;
     case "map": return <MapAxes key={i} {...b} />;
+    case "quadrant": return <Quadrant key={i} {...b} />;
     case "actions": return <Actions key={i} items={b.items} />;
     case "groups": return <Groups key={i} items={b.items} />;
     case "formula": return <Formula key={i} text={b.text} />;
@@ -251,11 +298,11 @@ const Cover = ({ imgBase }) => (
   </Page>
 );
 
-const ContentPage = ({ slide, imgBase }) => {
+const ContentPage = ({ slide, num, imgBase }) => {
   const bs = isDense(slide) ? BS : BP;
   return (
     <Page size={[PW, PH]} style={ps()}>
-      <Header num={slide.n} label={slide.label} />
+      <Header num={num} label={slide.label} />
       <H t={slide.t} a={slide.a} />
       {slide.blocks.map((b, i) => renderBlock(b, i, bs))}
       {slide.final && <LecturerRow imgBase={imgBase} top />}
@@ -266,7 +313,7 @@ const ContentPage = ({ slide, imgBase }) => {
 const Deck = ({ imgBase }) => (
   <Document>
     <Cover imgBase={imgBase} />
-    {SLIDES.map((s) => <ContentPage key={s.n} slide={s} imgBase={imgBase} />)}
+    {SLIDES.map((s, idx) => <ContentPage key={idx} slide={s} num={idx + 2} imgBase={imgBase} />)}
   </Document>
 );
 

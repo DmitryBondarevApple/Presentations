@@ -79,7 +79,7 @@ export default function AICompetitorsPresentation() {
       <div className="theme-tochka h-[100dvh] w-full flex flex-col bg-background" data-testid="aic-presentation">
         <div className="flex-1 overflow-hidden relative">
           <div className="absolute inset-0">
-            {current === 0 ? <CoverSlide /> : <AICStandardSlide slide={SLIDES[current - 1]} />}
+            {current === 0 ? <CoverSlide /> : <AICStandardSlide slide={SLIDES[current - 1]} num={current + 1} />}
           </div>
         </div>
 
