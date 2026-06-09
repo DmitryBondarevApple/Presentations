@@ -31,56 +31,56 @@ const Header = ({ num, label }) => (
     <Text style={{ fontSize: 9.5, color: T.dim }}>Анализ конкурентов · ИИ   ·   {String(num).padStart(2, "0")} / {TOTAL}</Text>
   </View>
 );
-const H = ({ t, a, size = 22 }) => (
-  <Text style={{ fontSize: size, fontWeight: 700, color: T.fg, marginBottom: 9, lineHeight: 1.18 }}>
+const H = ({ t, a, size = 22, m = 1 }) => (
+  <Text style={{ fontSize: size * m, fontWeight: 700, color: T.fg, marginBottom: 9, lineHeight: 1.18 }}>
     {t} {a ? <Text style={{ color: T.accent }}>{a}</Text> : null}
   </Text>
 );
-const Lead = ({ children }) => (
-  <Text style={{ fontSize: 11.5, color: T.muted, lineHeight: 1.4, marginBottom: 8, maxWidth: 700 }}>{children}</Text>
+const Lead = ({ children, m = 1 }) => (
+  <Text style={{ fontSize: 11.5 * m, color: T.muted, lineHeight: 1.4, marginBottom: 8, maxWidth: 700 }}>{children}</Text>
 );
 const Eyebrow = ({ children }) => (
   <Text style={{ fontSize: 9.5, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>{children}</Text>
 );
-const Note = ({ children }) => (
+const Note = ({ children, m = 1 }) => (
   <View style={{ backgroundColor: T.card, borderRadius: 4, padding: 10, borderTopWidth: 0.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 3, borderTopColor: T.border, borderRightColor: T.border, borderBottomColor: T.border, borderLeftColor: T.accent, marginBottom: 8 }}>
-    <Text style={{ fontSize: 11, color: T.fg2, lineHeight: 1.4 }}>{children}</Text>
+    <Text style={{ fontSize: 11 * m, color: T.fg2, lineHeight: 1.4 }}>{children}</Text>
   </View>
 );
-const Callout = ({ title, children }) => (
+const Callout = ({ title, children, m = 1 }) => (
   <View style={{ backgroundColor: T.card, borderRadius: 4, padding: 10, borderTopWidth: 0.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 3, borderTopColor: T.border, borderRightColor: T.border, borderBottomColor: T.border, borderLeftColor: T.accent, marginBottom: 8 }}>
     {title && <Text style={{ fontSize: 9.5, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 0.6, marginBottom: 3 }}>{title}</Text>}
-    <Text style={{ fontSize: 11.5, color: T.fg2, lineHeight: 1.4 }}>{children}</Text>
+    <Text style={{ fontSize: 11.5 * m, color: T.fg2, lineHeight: 1.4 }}>{children}</Text>
   </View>
 );
-const Bullet = ({ children, w }) => (
-  <View style={{ flexDirection: "row", gap: 5, alignItems: "flex-start", marginBottom: 3, width: w, paddingRight: 10 }}>
-    <View style={{ width: 4, height: 4, borderRadius: 2, backgroundColor: T.accent, marginTop: 4 }} />
-    <Text style={{ fontSize: 10.5, color: T.fg2, lineHeight: 1.32, flex: 1 }}>{children}</Text>
+const Bullet = ({ children, w, m = 1 }) => (
+  <View style={{ flexDirection: "row", gap: 5, alignItems: "flex-start", marginBottom: 3 * m, width: w, paddingRight: 10 }}>
+    <View style={{ width: 4, height: 4, borderRadius: 2, backgroundColor: T.accent, marginTop: 4 * m }} />
+    <Text style={{ fontSize: 10.5 * m, color: T.fg2, lineHeight: 1.32, flex: 1 }}>{children}</Text>
   </View>
 );
 
 const colW = (cols) => (cols === 4 ? "23.5%" : cols === 3 ? "32%" : cols === 2 ? "48.5%" : "100%");
 const liW = (cols) => (cols === 3 ? "33.33%" : cols === 2 ? "50%" : "100%");
 
-const Bullets = ({ eyebrow, items, cols }) => (
+const Bullets = ({ eyebrow, items, cols, m = 1 }) => (
   <View style={{ marginBottom: 8 }}>
     {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
     <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-      {fmtList(items).map((it, i) => <Bullet key={i} w={liW(cols)}>{it}</Bullet>)}
+      {fmtList(items).map((it, i) => <Bullet key={i} w={liW(cols)} m={m}>{it}</Bullet>)}
     </View>
   </View>
 );
 
-const Cards = ({ items, cols }) => (
+const Cards = ({ items, cols, m = 1 }) => (
   <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", marginBottom: 8 }}>
     {items.map((c, i) => (
       <View key={i} style={{ width: colW(cols), marginBottom: 8, backgroundColor: T.card, borderRadius: 4, padding: 9,
         borderTopWidth: 2.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 0.5,
         borderTopColor: T.accent, borderRightColor: T.border, borderBottomColor: T.border, borderLeftColor: T.border }}>
         {c.n && <Text style={{ fontSize: 13, fontWeight: 700, color: T.accent, marginBottom: 2 }}>{c.n}</Text>}
-        {c.title && <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg, lineHeight: 1.2, marginBottom: c.desc ? 3 : 0 }}>{c.title}</Text>}
-        {c.desc && <Text style={{ fontSize: 10, color: T.muted, lineHeight: 1.32 }}>{c.desc}</Text>}
+        {c.title && <Text style={{ fontSize: 12 * m, fontWeight: 700, color: T.fg, lineHeight: 1.2, marginBottom: c.desc ? 3 : 0 }}>{c.title}</Text>}
+        {c.desc && <Text style={{ fontSize: 10 * m, color: T.muted, lineHeight: 1.32 }}>{c.desc}</Text>}
       </View>
     ))}
   </View>
@@ -100,30 +100,30 @@ const Compare = ({ items }) => (
   </View>
 );
 
-const Pairs = ({ items }) => (
+const Pairs = ({ items, m = 1 }) => (
   <View style={{ marginBottom: 8 }}>
     {items.map((p, i) => (
       <View key={i} style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 8 }}>
         <View style={{ width: "48.5%", backgroundColor: T.card, borderRadius: 4, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
           <Text style={{ fontSize: 8.5, fontWeight: 700, color: T.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 3 }}>Слабо</Text>
-          <Text style={{ fontSize: 11, color: T.muted, lineHeight: 1.38 }}>{p.weak}</Text>
+          <Text style={{ fontSize: 11 * m, color: T.muted, lineHeight: 1.38 }}>{p.weak}</Text>
         </View>
         <View style={{ width: "48.5%", backgroundColor: T.card, borderRadius: 4, padding: 10, borderTopWidth: 0.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 3, borderTopColor: T.border, borderRightColor: T.border, borderBottomColor: T.border, borderLeftColor: T.accent }}>
           <Text style={{ fontSize: 8.5, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 3 }}>Сильнее</Text>
-          <Text style={{ fontSize: 11, color: T.fg2, lineHeight: 1.38 }}>{p.strong}</Text>
+          <Text style={{ fontSize: 11 * m, color: T.fg2, lineHeight: 1.38 }}>{p.strong}</Text>
         </View>
       </View>
     ))}
   </View>
 );
 
-const Prompt = ({ intro, paras }) => (
+const Prompt = ({ intro, paras, m = 1 }) => (
   <View style={{ backgroundColor: T.card, borderRadius: 4, padding: 14, borderTopWidth: 0.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 3, borderTopColor: T.border, borderRightColor: T.border, borderBottomColor: T.border, borderLeftColor: T.accent, marginBottom: 8 }}>
     {intro && <Text style={{ fontSize: 10, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 8 }}>{intro}</Text>}
     {paras.map((p, i) => (
       <View key={i} style={{ flexDirection: "row", gap: 8, alignItems: "flex-start", marginBottom: 6 }}>
-        <Text style={{ fontSize: 11, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{String(i + 1).padStart(2, "0")}</Text>
-        <Text style={{ fontSize: 11, color: T.fg2, lineHeight: 1.4, flex: 1 }}>{p}</Text>
+        <Text style={{ fontSize: 11 * m, fontWeight: 700, color: T.accent, opacity: 0.7 }}>{String(i + 1).padStart(2, "0")}</Text>
+        <Text style={{ fontSize: 11 * m, color: T.fg2, lineHeight: 1.4, flex: 1 }}>{p}</Text>
       </View>
     ))}
   </View>
@@ -169,13 +169,13 @@ const MapAxes = ({ x, y, points, hypothesis }) => (
   </View>
 );
 
-const Actions = ({ items }) => (
+const Actions = ({ items, m = 1 }) => (
   <View style={{ marginBottom: 8 }}>
     {items.map((a, i) => (
       <View key={i} style={{ flexDirection: "row", alignItems: "center", gap: 10, marginBottom: 7, backgroundColor: T.card, borderRadius: 4, padding: 10, borderWidth: 0.5, borderColor: T.border }}>
-        <Text style={{ flex: 1, fontSize: 10.5, color: T.muted, lineHeight: 1.32 }}>{a.factor}</Text>
+        <Text style={{ flex: 1, fontSize: 10.5 * m, color: T.muted, lineHeight: 1.32 }}>{a.factor}</Text>
         <Text style={{ fontSize: 14, color: T.accent, fontWeight: 700 }}>→</Text>
-        <Text style={{ flex: 1.15, fontSize: 10.5, color: T.fg2, fontWeight: 600, lineHeight: 1.32 }}>{a.action}</Text>
+        <Text style={{ flex: 1.15, fontSize: 10.5 * m, color: T.fg2, fontWeight: 600, lineHeight: 1.32 }}>{a.action}</Text>
       </View>
     ))}
   </View>
@@ -199,27 +199,27 @@ const Groups = ({ items }) => (
   </View>
 );
 
-const Formula = ({ text }) => (
+const Formula = ({ text, m = 1 }) => (
   <View style={{ backgroundColor: T.accentBg, borderWidth: 0.5, borderColor: T.accent, borderRadius: 6, paddingVertical: 16, paddingHorizontal: 14, alignItems: "center", marginBottom: 8 }}>
-    <Text style={{ fontSize: 16, fontWeight: 700, color: T.accent, textAlign: "center", lineHeight: 1.3 }}>{text}</Text>
+    <Text style={{ fontSize: 16 * m, fontWeight: 700, color: T.accent, textAlign: "center", lineHeight: 1.3 }}>{text}</Text>
   </View>
 );
 
-const renderBlock = (b, i) => {
+const renderBlock = (b, i, m = 1) => {
   switch (b.k) {
-    case "lead": return <Lead key={i}>{b.text}</Lead>;
-    case "note": return <Note key={i}>{b.text}</Note>;
-    case "callout": return <Callout key={i} title={b.title}>{b.text}</Callout>;
-    case "bul": return <Bullets key={i} eyebrow={b.eyebrow} items={b.items} cols={b.cols} />;
-    case "cards": return <Cards key={i} items={b.items} cols={b.cols} />;
+    case "lead": return <Lead key={i} m={m}>{b.text}</Lead>;
+    case "note": return <Note key={i} m={m}>{b.text}</Note>;
+    case "callout": return <Callout key={i} title={b.title} m={m}>{b.text}</Callout>;
+    case "bul": return <Bullets key={i} eyebrow={b.eyebrow} items={b.items} cols={b.cols} m={m} />;
+    case "cards": return <Cards key={i} items={b.items} cols={b.cols} m={m} />;
     case "compare": return <Compare key={i} items={b.items} />;
-    case "pairs": return <Pairs key={i} items={b.items} />;
-    case "prompt": return <Prompt key={i} intro={b.intro} paras={b.paras} />;
+    case "pairs": return <Pairs key={i} items={b.items} m={m} />;
+    case "prompt": return <Prompt key={i} intro={b.intro} paras={b.paras} m={m} />;
     case "swot": return <Swot key={i} {...b} />;
     case "map": return <MapAxes key={i} {...b} />;
-    case "actions": return <Actions key={i} items={b.items} />;
+    case "actions": return <Actions key={i} items={b.items} m={m} />;
     case "groups": return <Groups key={i} items={b.items} />;
-    case "formula": return <Formula key={i} text={b.text} />;
+    case "formula": return <Formula key={i} text={b.text} m={m} />;
     default: return null;
   }
 };
@@ -245,14 +245,17 @@ const Cover = ({ imgBase }) => (
   </Page>
 );
 
-const ContentPage = ({ slide, imgBase }) => (
-  <Page size={[PW, PH]} style={ps()}>
-    <Header num={slide.n} label={slide.label} />
-    <H t={slide.t} a={slide.a} />
-    {slide.blocks.map((b, i) => renderBlock(b, i))}
-    {slide.final && <LecturerRow imgBase={imgBase} top />}
-  </Page>
-);
+const ContentPage = ({ slide, imgBase }) => {
+  const m = slide.lvl === 3 ? 1.9 : slide.lvl === 2 ? 1.3 : 1;
+  return (
+    <Page size={[PW, PH]} style={ps()}>
+      <Header num={slide.n} label={slide.label} />
+      <H t={slide.t} a={slide.a} m={m} />
+      {slide.blocks.map((b, i) => renderBlock(b, i, m))}
+      {slide.final && <LecturerRow imgBase={imgBase} top />}
+    </Page>
+  );
+};
 
 const Deck = ({ imgBase }) => (
   <Document>

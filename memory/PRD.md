@@ -10,6 +10,7 @@
 - Data-driven: `data/aiCompetitorsSlides.js` (блочная схема) → web `components/ai-slides/AICContainer.jsx` + `pages/AICompetitorsPresentation.jsx`; PDF `components/AICompetitorsPdfGenerator.jsx` (Light + Dark).
 - Типы блоков: lead, note, callout, bullets, cards, compare, pairs, prompt, swot (4 квадранта с цвет-кодом), map (оси+точки+гипотеза), actions, groups, formula.
 - Правило булитов в `fmtList`: каждый пункт с заглавной + «;», последний — «.».
+- Размерные уровни `lvl` (2026-06-09): разреженные слайды получают увеличенный шрифт — `lvl:3` (≈2×: слайды 2, 35), `lvl:2` (≈1.3×: 3, 11, 12, 13, 25, 26, 27, 28, 34). Реализовано через `SizeCtx` (web) и множитель `m` в PDF-примитивах. Для слайдов с малым объёмом текста многоколоночные списки переведены в одну колонку (2, 3, 4, 7, 22-правило, 26, 31, 34, 35).
 - Проверено рендером pdf.js: 35 стр., Light/Dark, все типы блоков; lint чистый. Роут добавлен в App.js.
 
 
