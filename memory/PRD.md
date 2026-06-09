@@ -24,6 +24,14 @@
 ### Документация-шаблон (2026-06-09)
 - `/app/docs/DATA_DRIVEN_PRESENTATION_GUIDE.md` — полный гайд по data-driven архитектуре `/ai-competitors` как ЭТАЛОН для новых презентаций: схема блоков, правило булитов, типографика (`isDense`+`dense`), Web/PDF рендереры, грабли react-pdf, индексная нумерация, пошаговый чек-лист создания новой презентации, способ проверки PDF рендером в Node + PyMuPDF.
 
+### Презентация `/customer-development` (2026-06-09)
+- Новая лекция «Customer Development: как перестать угадывать и начать проверять», **50 слайдов** (титул + 49). Собрана по шаблону data-driven, teal-акцент (`theme-tochka`), PDF Light/Dark. Лектор — Дмитрий Бондарев (то же фото).
+- Файлы: `data/customerDevSlides.js`, `components/cd-slides/CDContainer.jsx`, `components/CustomerDevPdfGenerator.jsx`, `pages/CustomerDevPresentation.jsx`; роут `/customer-development` в `App.js`.
+- Новые типы блоков (в дополнение к шаблону): `steps` (нумерованный список), `quote` (выделенное определение), `dialog` (диалог Основатель/Клиент, чат-стиль), `contrast` (парные противопоставления с настраиваемыми лейблами). Слайд может иметь `aside:{book,title}` — обложка книги сбоку (слайды 5 «4 шага к озарению» и 6 «Бизнес с нуля»).
+- Обложки книг: `/public/images/customer-development/book-4steps.jpg`, `book-leanstartup.jpg` (webp сконвертирован в jpg для совместимости с react-pdf).
+- `fmtList` доработан: пункты-вопросы (оканчивающиеся на `?`/`!`) сохраняют знак вместо `;`/`.`. Добавлен `fmtSteps` (заглавная + точка).
+- Проверено: web (скриншоты) + PDF Light/Dark рендером PyMuPDF (50 стр., ~308 КБ; книги, steps, quote, dialog, contrast, cards корректны, без обрезки).
+
 
 ## Презентации
 | Название | Роут | Слайдов | Статус |
