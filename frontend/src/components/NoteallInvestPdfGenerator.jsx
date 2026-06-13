@@ -230,12 +230,22 @@ const Contacts = ({ items, imgBase }) => (
   </View>
 );
 
+const Shot = ({ src, alt, ratio = 1.899, imgBase }) => {
+  const h = 252, w = Math.round(h * ratio);
+  return (
+    <View style={{ alignItems: "center", marginBottom: 8 }}>
+      <Image src={`${imgBase}${src}`} style={{ width: w, height: h, borderWidth: 0.5, borderColor: T.border, borderRadius: 6 }} />
+    </View>
+  );
+};
+
 const renderBlock = (b, i, bs, imgBase) => {
   switch (b.k) {
     case "lead": return <Lead key={i} bs={bs}>{b.text}</Lead>;
     case "note": return <Note key={i} bs={bs}>{b.text}</Note>;
     case "callout": return <Callout key={i} title={b.title} bs={bs}>{b.text}</Callout>;
     case "quote": return <Quote key={i}>{b.text}</Quote>;
+    case "shot": return <Shot key={i} src={b.src} alt={b.alt} ratio={b.ratio} imgBase={imgBase} />;
     case "bul": return <Bullets key={i} eyebrow={b.eyebrow} items={b.items} cols={b.cols} bs={bs} />;
     case "cards": return <Cards key={i} items={b.items} cols={b.cols} />;
     case "columns": return <Columns key={i} items={b.items} bs={bs} />;
@@ -263,7 +273,7 @@ const Cover = ({ imgBase }) => (
 const ContentPage = ({ slide, num, imgBase }) => {
   const bs = isDense(slide) ? BS : BP;
   return (
-    <Page size={[PW, PH]} style={ps()}>
+    <Page size={[PW, PH]} wrap={false} style={ps()}>
       <Header num={num} label={slide.label} />
       <H t={slide.t} a={slide.a} />
       {slide.blocks.map((b, i) => renderBlock(b, i, bs, imgBase))}

@@ -238,12 +238,20 @@ const Contacts = ({ items }) => (
   </div>
 );
 
+const Shot = ({ src, alt }) => (
+  <div className="flex justify-center shrink-0">
+    <img src={`${PUB}${src}`} alt={alt}
+      className="max-w-full max-h-[48vh] object-contain rounded-xl border border-border shadow-2xl" data-testid="ni-shot" />
+  </div>
+);
+
 const Block = ({ b }) => {
   switch (b.k) {
     case "lead": return <Lead>{b.text}</Lead>;
     case "note": return <Note>{b.text}</Note>;
     case "callout": return <Callout title={b.title} text={b.text} />;
     case "quote": return <Quote text={b.text} />;
+    case "shot": return <Shot src={b.src} alt={b.alt} />;
     case "bul": return <Bullets eyebrow={b.eyebrow} items={b.items} cols={b.cols} />;
     case "cards": return <Cards items={b.items} cols={b.cols} />;
     case "columns": return <Columns items={b.items} />;
