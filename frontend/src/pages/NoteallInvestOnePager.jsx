@@ -7,7 +7,7 @@ const PUB = process.env.PUBLIC_URL || "";
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 const Sec = ({ s, children }) => (
-  <div className="bg-card rounded-lg border border-border border-l-[3px] border-l-accent p-2 sm:p-2.5 min-w-0">
+  <div className="bg-card rounded-lg border border-border border-l-[3px] border-l-accent p-2.5 sm:p-3 min-w-0">
     <p className="font-heading text-[9px] sm:text-[10px] font-bold tracking-[0.14em] text-accent uppercase">{s.label}</p>
     {s.title && <h3 className="font-heading text-[12px] sm:text-sm font-bold text-foreground leading-tight mt-0.5 mb-1.5">{s.title}</h3>}
     {children}
@@ -16,7 +16,7 @@ const Sec = ({ s, children }) => (
 
 const Bul = ({ children }) => (
   <div className="flex items-start gap-1.5">
-    <div className="w-1 h-1 rounded-full bg-accent mt-[5px] shrink-0" />
+    <div className="w-1 h-1 rounded-full bg-accent mt-[6px] shrink-0" />
     <span className="font-body text-[10px] sm:text-[11px] text-foreground/85 leading-snug">{children}</span>
   </div>
 );
@@ -25,17 +25,12 @@ const Para = ({ children, className = "" }) => (
   <p className={`font-body text-[10px] sm:text-[11px] text-muted-foreground leading-snug ${className}`}>{children}</p>
 );
 
-const Mini = ({ b, inline = false }) => (
+const Mini = ({ b }) => (
   <div className="rounded-md border border-border border-l-2 border-l-accent bg-background/40 p-1.5">
-    <p className="font-heading text-[10px] font-bold text-accent uppercase tracking-wide leading-tight">{b.name}</p>
-    {b.desc && <Para className="mt-0.5 mb-1">{b.desc}</Para>}
-    {inline ? (
-      <p className="font-body text-[10px] text-foreground/85 leading-snug mt-1">{b.items.map(cap).join(" · ")}</p>
-    ) : (
-      <div className="space-y-0.5 mt-1">
-        {b.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}
-      </div>
-    )}
+    <p className="font-heading text-[10px] font-bold text-accent uppercase tracking-wide leading-tight mb-1">{b.name}</p>
+    <div className="space-y-0.5">
+      {b.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}
+    </div>
   </div>
 );
 
@@ -83,9 +78,9 @@ export default function NoteallInvestOnePager() {
       </div>
 
       {/* GRID */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-2 p-2 sm:p-3 items-start">
-        {/* COL 1 */}
-        <div className="flex flex-col gap-2">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-2.5 p-2.5 sm:p-3 items-start">
+        {/* COL 1 — Проблема · Решение · Стадия */}
+        <div className="flex flex-col gap-2.5">
           <Sec s={problem}>
             <div className="space-y-1">
               {problem.paras.map((p, i) => <Para key={i}>{p}</Para>)}
@@ -94,23 +89,34 @@ export default function NoteallInvestOnePager() {
           </Sec>
           <Sec s={solution}>
             <Para className="mb-1.5">{solution.intro}</Para>
-            <div className="grid grid-cols-1 gap-0.5">
+            <div className="grid grid-cols-2 gap-x-2 gap-y-0.5">
               {solution.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}
             </div>
             <p className="font-body text-[10px] text-foreground/80 leading-snug mt-1.5 pt-1.5 border-t border-border">{solution.artifact}</p>
           </Sec>
-          <Sec s={stage}>
-            <Para className="mb-1.5">{stage.intro}</Para>
-            <p className="font-heading text-[9px] font-bold text-accent uppercase tracking-wide mb-1">Ближайшее развитие</p>
-            <div className="space-y-0.5">{stage.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
+          <Sec s={round}>
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="font-heading text-xl sm:text-2xl font-bold text-accent leading-none">{round.amount}</span>
+              <span className="font-body text-[10px] text-muted-foreground">{round.burn}</span>
+            </div>
+            <div className="grid grid-cols-1 gap-1">
+              {round.funds.map((b, i) => (
+                <div key={i} className="rounded-md border border-border border-l-2 border-l-accent bg-background/40 px-1.5 py-1">
+                  <p className="font-heading text-[10px] font-bold text-accent uppercase tracking-wide">{b.name}</p>
+                  <p className="font-body text-[10px] text-foreground/80 leading-snug">{b.items.map(cap).join(" · ")}</p>
+                </div>
+              ))}
+            </div>
+            <p className="font-heading text-[9px] font-bold text-accent uppercase tracking-wide mt-1.5 mb-0.5">Цели на 6 месяцев</p>
+            <div className="grid grid-cols-2 gap-x-2 gap-y-0.5">{round.goals.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
           </Sec>
         </div>
 
-        {/* COL 2 */}
-        <div className="flex flex-col gap-2">
+        {/* COL 2 — Продукт · Рынок · Бизнес-модель */}
+        <div className="flex flex-col gap-2.5">
           <Sec s={product}>
             <Para className="mb-1.5">{product.intro}</Para>
-            <div className="space-y-0.5">{product.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
+            <div className="grid grid-cols-2 gap-x-2 gap-y-0.5">{product.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
           </Sec>
           <Sec s={market}>
             <Para className="mb-1.5">{market.intro}</Para>
@@ -130,34 +136,20 @@ export default function NoteallInvestOnePager() {
                 </div>
               ))}
             </div>
-            <Para className="mt-1.5">{market.note}</Para>
           </Sec>
           <Sec s={model}>
-            <div className="space-y-1.5">{model.blocks.map((b, i) => <Mini key={i} b={b} inline />)}</div>
+            <div className="space-y-1.5">{model.blocks.map((b, i) => <Mini key={i} b={b} />)}</div>
           </Sec>
         </div>
 
-        {/* COL 3 */}
-        <div className="flex flex-col gap-2">
+        {/* COL 3 — Go-to-market · Раунд · Команда */}
+        <div className="flex flex-col gap-2.5">
           <Sec s={gtm}>
-            <div className="space-y-1.5">{gtm.blocks.map((b, i) => <Mini key={i} b={b} inline />)}</div>
-            <Para className="mt-1.5">{gtm.note}</Para>
+            <div className="space-y-1.5">{gtm.blocks.map((b, i) => <Mini key={i} b={b} />)}</div>
           </Sec>
-          <Sec s={round}>
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="font-heading text-xl sm:text-2xl font-bold text-accent leading-none">{round.amount}</span>
-              <span className="font-body text-[10px] text-muted-foreground">{round.burn}</span>
-            </div>
-            <div className="grid grid-cols-1 gap-1">
-              {round.funds.map((b, i) => (
-                <div key={i} className="rounded-md border border-border border-l-2 border-l-accent bg-background/40 px-1.5 py-1">
-                  <p className="font-heading text-[10px] font-bold text-accent uppercase tracking-wide">{b.name}</p>
-                  <p className="font-body text-[10px] text-foreground/80 leading-snug">{b.items.map(cap).join(" · ")}</p>
-                </div>
-              ))}
-            </div>
-            <p className="font-heading text-[9px] font-bold text-accent uppercase tracking-wide mt-1.5 mb-0.5">Цели на 6 месяцев</p>
-            <div className="grid grid-cols-1 gap-0.5">{round.goals.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
+          <Sec s={stage}>
+            <Para className="mb-1.5">{stage.intro}</Para>
+            <div className="space-y-0.5">{stage.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
           </Sec>
           <Sec s={team}>
             <div className="flex gap-2.5">
