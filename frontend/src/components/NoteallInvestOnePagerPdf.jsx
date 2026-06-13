@@ -34,7 +34,7 @@ const STitle = ({ t, children }) => (
   <Text style={{ fontSize: 13, fontWeight: 700, color: t.fg, marginBottom: 4, lineHeight: 1.14 }}>{children}</Text>
 );
 const Body = ({ t, children, style }) => (
-  <Text style={{ fontSize: 10, color: t.muted, lineHeight: 1.4, ...style }}>{children}</Text>
+  <Text style={{ fontSize: 10, color: t.fg2, lineHeight: 1.4, ...style }}>{children}</Text>
 );
 const Dot = ({ t, children }) => (
   <View style={{ flexDirection: "row", gap: 5, alignItems: "flex-start", marginBottom: 4.5 }}>
@@ -204,7 +204,7 @@ const OnePagerDoc = ({ imgBase, t }) => {
                   <Text style={{ fontSize: 8.5, color: t.fg2, marginTop: 2 }}>{cap(s0b)}</Text>
                 </MiniCard>
                 <MiniCard t={t} style={{ flex: 1.4, justifyContent: "center" }}>
-                  <Text style={{ fontSize: 9.5, color: t.muted, lineHeight: 1.35 }}>{s1[0]} — <Text style={{ color: t.accent, fontWeight: 600 }}>{s1[1]}</Text></Text>
+                  <Text style={{ fontSize: 9.5, color: t.fg2, lineHeight: 1.35 }}>{s1[0]} — <Text style={{ color: t.accent, fontWeight: 600 }}>{s1[1]}</Text></Text>
                 </MiniCard>
               </View>
               <View style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 1 }}>

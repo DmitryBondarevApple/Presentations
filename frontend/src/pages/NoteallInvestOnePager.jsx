@@ -100,7 +100,7 @@ export default function NoteallInvestOnePager() {
         {/* ROW 1 */}
         <div className="rounded-md p-3 md:p-4 overflow-hidden" style={cellStyle}>
           <Sec label={problem.label} title={problem.title}>
-            <p className="text-[10px] sm:text-xs md:text-sm leading-snug" style={{ color: C.muted }}>{problem.paras[0]}</p>
+            <p className="text-[10px] sm:text-xs md:text-sm leading-snug" style={{ color: C.fg2 }}>{problem.paras[0]}</p>
             <p className="text-[10px] md:text-xs font-semibold leading-snug mt-2" style={{ color: C.accent }}>{problem.loss}</p>
           </Sec>
         </div>
@@ -203,7 +203,7 @@ export default function NoteallInvestOnePager() {
                 <p className="text-[9px] md:text-xs mt-1" style={{ color: C.fg2 }}>{s0b}</p>
               </div>
               <div className="rounded p-2 flex-[1.4] flex items-center" style={{ background: C.inner, border: `0.5px solid ${C.border}` }}>
-                <p className="text-[10px] md:text-xs leading-snug" style={{ color: C.muted }}>{s1[0]} — <span className="font-semibold" style={{ color: C.accent }}>{s1[1]}</span></p>
+                <p className="text-[10px] md:text-xs leading-snug" style={{ color: C.fg2 }}>{s1[0]} — <span className="font-semibold" style={{ color: C.accent }}>{s1[1]}</span></p>
               </div>
             </div>
             <div className="flex items-center gap-2 mt-1">
