@@ -34,6 +34,12 @@ const Mini = ({ b }) => (
   </div>
 );
 
+const ChipRow = ({ name }) => (
+  <div className="rounded-md border border-border border-l-2 border-l-accent bg-background/40 px-2 py-1.5">
+    <p className="font-heading text-[10px] sm:text-[11px] font-bold text-accent uppercase tracking-wide leading-tight">{name}</p>
+  </div>
+);
+
 export default function NoteallInvestOnePager() {
   const [pdfLoading, setPdfLoading] = useState(false);
   useEffect(() => {
@@ -79,7 +85,7 @@ export default function NoteallInvestOnePager() {
 
       {/* GRID */}
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-2.5 p-2.5 sm:p-3 items-start">
-        {/* COL 1 — Проблема · Решение · Стадия */}
+        {/* COL 1 — Проблема · Решение · Текущая стадия */}
         <div className="flex flex-col gap-2.5">
           <Sec s={problem}>
             <div className="space-y-1">
@@ -94,25 +100,12 @@ export default function NoteallInvestOnePager() {
             </div>
             <p className="font-body text-[10px] text-foreground/80 leading-snug mt-1.5 pt-1.5 border-t border-border">{solution.artifact}</p>
           </Sec>
-          <Sec s={round}>
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="font-heading text-xl sm:text-2xl font-bold text-accent leading-none">{round.amount}</span>
-              <span className="font-body text-[10px] text-muted-foreground">{round.burn}</span>
-            </div>
-            <div className="grid grid-cols-1 gap-1">
-              {round.funds.map((b, i) => (
-                <div key={i} className="rounded-md border border-border border-l-2 border-l-accent bg-background/40 px-1.5 py-1">
-                  <p className="font-heading text-[10px] font-bold text-accent uppercase tracking-wide">{b.name}</p>
-                  <p className="font-body text-[10px] text-foreground/80 leading-snug">{b.items.map(cap).join(" · ")}</p>
-                </div>
-              ))}
-            </div>
-            <p className="font-heading text-[9px] font-bold text-accent uppercase tracking-wide mt-1.5 mb-0.5">Цели на 6 месяцев</p>
-            <div className="grid grid-cols-2 gap-x-2 gap-y-0.5">{round.goals.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
+          <Sec s={stage}>
+            <div className="space-y-1">{stage.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
           </Sec>
         </div>
 
-        {/* COL 2 — Продукт · Рынок · Бизнес-модель */}
+        {/* COL 2 — Продукт · Рынок · Команда */}
         <div className="flex flex-col gap-2.5">
           <Sec s={product}>
             <Para className="mb-1.5">{product.intro}</Para>
@@ -137,20 +130,6 @@ export default function NoteallInvestOnePager() {
               ))}
             </div>
           </Sec>
-          <Sec s={model}>
-            <div className="space-y-1.5">{model.blocks.map((b, i) => <Mini key={i} b={b} />)}</div>
-          </Sec>
-        </div>
-
-        {/* COL 3 — Go-to-market · Раунд · Команда */}
-        <div className="flex flex-col gap-2.5">
-          <Sec s={gtm}>
-            <div className="space-y-1.5">{gtm.blocks.map((b, i) => <Mini key={i} b={b} />)}</div>
-          </Sec>
-          <Sec s={stage}>
-            <Para className="mb-1.5">{stage.intro}</Para>
-            <div className="space-y-0.5">{stage.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
-          </Sec>
           <Sec s={team}>
             <div className="flex gap-2.5">
               <img src={`${PUB}${FOUNDER_PHOTO}`} alt={team.name}
@@ -166,6 +145,27 @@ export default function NoteallInvestOnePager() {
             </div>
             <div className="grid grid-cols-1 gap-0.5 mt-1.5">{team.exp.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
             <Para className="mt-1.5 pt-1.5 border-t border-border">{team.note}</Para>
+          </Sec>
+        </div>
+
+        {/* COL 3 — Бизнес-модель · Go-to-market · Раунд */}
+        <div className="flex flex-col gap-2.5">
+          <Sec s={model}>
+            <div className="space-y-1.5">{model.blocks.map((b, i) => <Mini key={i} b={b} />)}</div>
+          </Sec>
+          <Sec s={gtm}>
+            <div className="space-y-1.5">{gtm.blocks.map((b, i) => <ChipRow key={i} name={b.name} />)}</div>
+          </Sec>
+          <Sec s={round}>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="font-heading text-xl sm:text-2xl font-bold text-accent leading-none">{round.amount}</span>
+              <span className="font-body text-[10px] text-muted-foreground">{round.burn}</span>
+            </div>
+            <div className="space-y-1.5">
+              {round.funds.map((b, i) => <ChipRow key={i} name={b.name} />)}
+            </div>
+            <p className="font-heading text-[9px] font-bold text-accent uppercase tracking-wide mt-2 mb-0.5">Цели на 6 месяцев</p>
+            <div className="grid grid-cols-2 gap-x-2 gap-y-0.5">{round.goals.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
           </Sec>
         </div>
       </div>
