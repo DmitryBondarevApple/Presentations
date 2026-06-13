@@ -228,7 +228,7 @@ const Contacts = ({ items }) => (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 sm:gap-y-1.5 flex-1">
       {items.map((c, i) => (
         <div key={i} className="flex items-baseline gap-2">
-          <span className="font-heading text-[10px] sm:text-xs font-bold text-accent uppercase tracking-wider w-16 shrink-0">{c.label}</span>
+          <span className="font-heading text-[10px] sm:text-xs font-bold text-accent uppercase tracking-wider w-20 shrink-0">{c.label}</span>
           <span className="font-body text-xs sm:text-sm text-foreground/90">{c.value}</span>
         </div>
       ))}

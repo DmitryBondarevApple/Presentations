@@ -221,8 +221,8 @@ const Contacts = ({ items, imgBase }) => (
     <View style={{ flex: 1, flexDirection: "row", flexWrap: "wrap" }}>
       {items.map((c, i) => (
         <View key={i} style={{ width: "50%", flexDirection: "row", marginBottom: 4, paddingRight: 8 }}>
-          <Text style={{ fontSize: 9, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 0.5, width: 54 }}>{c.label}</Text>
-          <Text style={{ fontSize: 11, color: T.fg2 }}>{c.value}</Text>
+          <Text style={{ fontSize: 9, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 0.4, width: 72 }}>{c.label}</Text>
+          <Text style={{ fontSize: 11, color: T.fg2, flex: 1 }}>{c.value}</Text>
         </View>
       ))}
     </View>
