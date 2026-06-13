@@ -39,6 +39,12 @@
         --accent: 172 66% 50%;
         --accent-foreground: 0 0% 100%;
     }
+
+    /* Noteall brand teal — investment deck */
+    .theme-noteall {
+        --accent: 174 80% 42%;
+        --accent-foreground: 0 0% 100%;
+    }
 }
 
 body {

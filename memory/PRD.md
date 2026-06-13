@@ -32,6 +32,12 @@
 - `fmtList` доработан: пункты-вопросы (оканчивающиеся на `?`/`!`) сохраняют знак вместо `;`/`.`. Добавлен `fmtSteps` (заглавная + точка).
 - Проверено: web (скриншоты) + PDF Light/Dark рендером PyMuPDF (50 стр., ~308 КБ; книги, steps, quote, dialog, contrast, cards корректны, без обрезки).
 
+### Презентация `/noteall-invest` (2026-06-13)
+- Новая инвестиционная презентация Noteall, **16 слайдов** (титул + 15). Тексты из docx без переписывания. Data-driven шаблон, фирменный teal Noteall (`.theme-noteall`, `--accent: 174 80% 42%`), PDF Light/Dark. Лектор/контакты — Дмитрий Бондарев (то же фото).
+- Файлы: `data/noteallInvestSlides.js`, `components/ni-slides/NIContainer.jsx`, `components/NoteallInvestPdfGenerator.jsx`, `pages/NoteallInvestPresentation.jsx`; роут `/noteall-invest` в `App.js`; тема в `index.css`.
+- Новые типы блоков: `columns` (2–3 колонки списков с акцентной колонкой и опц. `desc`), `funnel` (воронка TAM/SAM/SOM + ARPPU + примечание, слайд 8), `timeline` (две фазы roadmap с датами и секциями Тех/Коммерч, слайд 14), `stats` (большие цифры), `person` (фото + статистика команды, слайд 15), `contacts` (фото + контакты, слайд 16).
+- Проверено: web (скриншоты воронки) + PDF Light/Dark рендером PyMuPDF (16 стр., ~173 КБ; columns/funnel/timeline/person/contacts корректны, без обрезки).
+
 
 ## Презентации
 | Название | Роут | Слайдов | Статус |

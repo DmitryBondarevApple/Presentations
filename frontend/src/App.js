@@ -15,6 +15,7 @@ import StartupMarketPresentation from "@/pages/StartupMarketPresentation";
 import TochkaPresentation from "@/pages/TochkaPresentation";
 import AICompetitorsPresentation from "@/pages/AICompetitorsPresentation";
 import CustomerDevPresentation from "@/pages/CustomerDevPresentation";
+import NoteallInvestPresentation from "@/pages/NoteallInvestPresentation";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/tochka" element={<TochkaPresentation />} />
         <Route path="/ai-competitors" element={<AICompetitorsPresentation />} />
         <Route path="/customer-development" element={<CustomerDevPresentation />} />
+        <Route path="/noteall-invest" element={<NoteallInvestPresentation />} />
       </Routes>
     </BrowserRouter>
   );
