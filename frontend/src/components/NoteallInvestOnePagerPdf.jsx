@@ -37,13 +37,13 @@ const Body = ({ t, children, style }) => (
   <Text style={{ fontSize: 10, color: t.muted, lineHeight: 1.4, ...style }}>{children}</Text>
 );
 const Dot = ({ t, children }) => (
-  <View style={{ flexDirection: "row", gap: 5, alignItems: "flex-start", marginBottom: 3 }}>
-    <View style={{ width: 3.5, height: 3.5, borderRadius: 2, backgroundColor: t.accent, marginTop: 3.5 }} />
-    <Text style={{ fontSize: 10, color: t.fg2, lineHeight: 1.38, flex: 1 }}>{children}</Text>
+  <View style={{ flexDirection: "row", gap: 5, alignItems: "flex-start", marginBottom: 4.5 }}>
+    <View style={{ width: 3.5, height: 3.5, borderRadius: 2, backgroundColor: t.accent, marginTop: 4 }} />
+    <Text style={{ fontSize: 10, color: t.fg2, lineHeight: 1.48, flex: 1 }}>{children}</Text>
   </View>
 );
 const Cell = ({ t, children, flex = 1 }) => (
-  <View style={{ flex, backgroundColor: t.bg2, borderRadius: 5, padding: 10, borderWidth: 0.5, borderColor: t.border }}>{children}</View>
+  <View style={{ flex, backgroundColor: t.bg2, borderRadius: 5, padding: 8, borderWidth: 0.5, borderColor: t.border }}>{children}</View>
 );
 const MiniCard = ({ t, children, accent, style }) => (
   <View style={{ backgroundColor: t.inner, borderRadius: 4, borderWidth: 0.5, borderLeftWidth: accent ? 2 : 0.5, borderColor: accent ? t.accent : t.border, borderLeftColor: accent ? t.accent : t.border, padding: 7, ...style }}>
@@ -87,10 +87,10 @@ const OnePagerDoc = ({ imgBase, t }) => {
         </View>
 
         {/* ═══ GRID ═══ */}
-        <View style={{ flex: 1, padding: 8, gap: 5 }}>
+        <View style={{ padding: 8, gap: 4 }}>
 
           {/* ROW 1: Проблема | Решение | Рынок */}
-          <View style={{ flexDirection: "row", gap: 5, flex: 1 }}>
+          <View style={{ flexDirection: "row", gap: 5 }}>
             <Cell t={t}>
               <SLabel t={t}>{problem.label}</SLabel>
               <STitle t={t}>{problem.title}</STitle>
@@ -129,7 +129,7 @@ const OnePagerDoc = ({ imgBase, t }) => {
           </View>
 
           {/* ROW 2: Бизнес-модель | Go-to-Market | Раунд */}
-          <View style={{ flexDirection: "row", gap: 5, flex: 1 }}>
+          <View style={{ flexDirection: "row", gap: 5 }}>
             <Cell t={t}>
               <SLabel t={t}>{model.label}</SLabel>
               <STitle t={t}>{model.title}</STitle>
@@ -145,12 +145,13 @@ const OnePagerDoc = ({ imgBase, t }) => {
             <Cell t={t}>
               <SLabel t={t}>{gtm.label}</SLabel>
               <STitle t={t}>{gtm.title}</STitle>
-              <View style={{ gap: 6 }}>
+              <View style={{ marginTop: 3 }}>
                 {gtm.blocks.map((b, i) => (
-                  <MiniCard key={i} t={t} style={{ flexDirection: "row", alignItems: "center", gap: 7 }}>
-                    <Text style={{ fontSize: 12, fontWeight: 700, color: t.accent }}>{`0${i + 1}`}</Text>
-                    <Text style={{ fontSize: 10.5, fontWeight: 700, color: t.fg, flex: 1 }}>{b.name}</Text>
-                  </MiniCard>
+                  <View key={i} style={{ flexDirection: "row", alignItems: "center", gap: 10, paddingVertical: 8,
+                    borderBottomWidth: i < gtm.blocks.length - 1 ? 0.5 : 0, borderBottomColor: t.border }}>
+                    <Text style={{ fontSize: 14, fontWeight: 700, color: t.accent }}>{`0${i + 1}`}</Text>
+                    <Text style={{ fontSize: 11.5, fontWeight: 700, color: t.fg, flex: 1 }}>{b.name}</Text>
+                  </View>
                 ))}
               </View>
             </Cell>
@@ -175,7 +176,7 @@ const OnePagerDoc = ({ imgBase, t }) => {
           </View>
 
           {/* ROW 3: Команда (2/3) | Текущая стадия (1/3) */}
-          <View style={{ flexDirection: "row", gap: 5, flex: 1.18 }}>
+          <View style={{ flexDirection: "row", gap: 5 }}>
             <Cell t={t} flex={2}>
               <SLabel t={t}>{team.label}</SLabel>
               <View style={{ flexDirection: "row", gap: 12 }}>

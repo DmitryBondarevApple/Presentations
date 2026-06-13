@@ -27,8 +27,8 @@ const Sec = ({ label, title, children }) => (
 
 const Dot = ({ children }) => (
   <div className="flex items-start gap-1.5">
-    <div className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full mt-[5px] md:mt-1.5 shrink-0" style={{ background: C.accent }} />
-    <span className="text-[10px] sm:text-xs md:text-sm leading-snug" style={{ color: C.fg2 }}>{children}</span>
+    <div className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full mt-[6px] md:mt-2 shrink-0" style={{ background: C.accent }} />
+    <span className="text-[10px] sm:text-xs md:text-sm leading-relaxed" style={{ color: C.fg2 }}>{children}</span>
   </div>
 );
 
@@ -107,7 +107,7 @@ export default function NoteallInvestOnePager() {
 
         <div className="rounded-md p-3 md:p-4 overflow-hidden" style={cellStyle}>
           <Sec label={solution.label} title={solution.title}>
-            <div className="space-y-1 md:space-y-1.5">
+            <div className="space-y-1.5 md:space-y-2">
               {solution.items.slice(0, 5).map((it, i) => <Dot key={i}>{cap(it)}</Dot>)}
             </div>
             <p className="text-[10px] md:text-xs font-semibold mt-2 leading-snug" style={{ color: C.accent }}>{artifactShort}</p>
@@ -147,9 +147,10 @@ export default function NoteallInvestOnePager() {
 
         <div className="rounded-md p-3 md:p-4 overflow-hidden" style={cellStyle}>
           <Sec label={gtm.label} title={gtm.title}>
-            <div className="space-y-2">
+            <div>
               {gtm.blocks.map((b, i) => (
-                <div key={i} className="rounded p-2.5 flex items-center gap-2.5" style={{ background: C.inner, border: `0.5px solid ${C.border}` }}>
+                <div key={i} className="flex items-center gap-3 py-2"
+                  style={{ borderBottom: i < gtm.blocks.length - 1 ? `0.5px solid ${C.border}` : "none" }}>
                   <span className="text-base md:text-lg font-bold" style={{ color: C.accent }}>{`0${i + 1}`}</span>
                   <span className="text-[11px] md:text-sm font-bold" style={{ color: C.fg }}>{b.name}</span>
                 </div>
