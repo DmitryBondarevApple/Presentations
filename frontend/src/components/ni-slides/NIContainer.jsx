@@ -115,10 +115,8 @@ const Columns = ({ items }) => {
   return (
     <div className={cn("grid grid-cols-1 gap-2.5 sm:gap-4", cols)}>
       {items.map((c, i) => (
-        <div key={i} className={cn("rounded-lg border p-2.5 sm:p-4",
-          c.accent ? "bg-accent/[0.07] border-accent/40 border-l-4 border-l-accent" : "bg-card/60 border-border")}>
-          <p className={cn("font-heading text-xs sm:text-sm font-bold uppercase tracking-wider mb-1.5",
-            c.accent ? "text-accent" : "text-foreground/70")}>{c.title}</p>
+        <div key={i} className="rounded-lg border border-border border-l-4 border-l-accent bg-card p-2.5 sm:p-4">
+          <p className="font-heading text-xs sm:text-sm font-bold uppercase tracking-wider mb-1.5 text-accent">{c.title}</p>
           {c.desc && <p className={cn("font-body text-muted-foreground leading-snug mb-2", SB)}>{c.desc}</p>}
           <div className={cn(dense ? "space-y-1 sm:space-y-1.5" : "space-y-1.5 sm:space-y-2")}>
             {fmtList(c.list).map((it, j) => (

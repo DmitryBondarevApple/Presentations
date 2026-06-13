@@ -99,11 +99,10 @@ const Columns = ({ items, bs = BP }) => {
     <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "flex-start", columnGap: 14, marginBottom: 9 }}>
       {items.map((c, i) => (
         <View key={i} style={{ width: w, marginBottom: 9, borderRadius: 4, padding: 10,
-          backgroundColor: c.accent ? T.accentBg : T.card,
-          borderTopWidth: 0.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: c.accent ? 3 : 0.5,
-          borderTopColor: c.accent ? T.accent : T.border, borderRightColor: c.accent ? T.accent : T.border,
-          borderBottomColor: c.accent ? T.accent : T.border, borderLeftColor: c.accent ? T.accent : T.border }}>
-          <Text style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: c.desc ? 4 : 6, color: c.accent ? T.accent : T.fg2 }}>{c.title}</Text>
+          backgroundColor: T.card,
+          borderTopWidth: 0.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 3,
+          borderTopColor: T.border, borderRightColor: T.border, borderBottomColor: T.border, borderLeftColor: T.accent }}>
+          <Text style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: c.desc ? 4 : 6, color: T.accent }}>{c.title}</Text>
           {c.desc && <Text style={{ fontSize: BS, color: T.muted, lineHeight: 1.34, marginBottom: 5 }}>{c.desc}</Text>}
           {fmtList(c.list).map((it, j) => (
             <View key={j} style={{ flexDirection: "row", gap: 5, alignItems: "flex-start", marginBottom: 3 }}>
@@ -273,7 +272,7 @@ const Cover = ({ imgBase }) => (
 const ContentPage = ({ slide, num, imgBase }) => {
   const bs = isDense(slide) ? BS : BP;
   return (
-    <Page size={[PW, PH]} wrap={false} style={ps()}>
+    <Page size={[PW, PH]} style={ps()}>
       <Header num={num} label={slide.label} />
       <H t={slide.t} a={slide.a} />
       {slide.blocks.map((b, i) => renderBlock(b, i, bs, imgBase))}
