@@ -25,13 +25,17 @@ const Para = ({ children, className = "" }) => (
   <p className={`font-body text-[10px] sm:text-[11px] text-muted-foreground leading-snug ${className}`}>{children}</p>
 );
 
-const Mini = ({ b }) => (
+const Mini = ({ b, inline = false }) => (
   <div className="rounded-md border border-border border-l-2 border-l-accent bg-background/40 p-1.5">
     <p className="font-heading text-[10px] font-bold text-accent uppercase tracking-wide leading-tight">{b.name}</p>
     {b.desc && <Para className="mt-0.5 mb-1">{b.desc}</Para>}
-    <div className="space-y-0.5 mt-1">
-      {b.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}
-    </div>
+    {inline ? (
+      <p className="font-body text-[10px] text-foreground/85 leading-snug mt-1">{b.items.map(cap).join(" · ")}</p>
+    ) : (
+      <div className="space-y-0.5 mt-1">
+        {b.items.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}
+      </div>
+    )}
   </div>
 );
 
@@ -128,31 +132,15 @@ export default function NoteallInvestOnePager() {
             </div>
             <Para className="mt-1.5">{market.note}</Para>
           </Sec>
-          <Sec s={team}>
-            <div className="flex gap-2.5">
-              <img src={`${PUB}${FOUNDER_PHOTO}`} alt={team.name}
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg object-cover border border-accent/30 shrink-0" data-testid="niop-founder" />
-              <div className="min-w-0">
-                <p className="font-heading text-[11px] font-bold text-foreground leading-tight mb-1">{team.name}</p>
-                <div className="flex flex-wrap gap-1">
-                  {team.stats.map((s, i) => (
-                    <span key={i} className="px-1.5 py-0.5 rounded bg-accent/10 text-accent text-[9px] font-bold whitespace-nowrap">{s.v} {s.l}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 gap-0.5 mt-1.5">{team.exp.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
-            <Para className="mt-1.5 pt-1.5 border-t border-border">{team.note}</Para>
+          <Sec s={model}>
+            <div className="space-y-1.5">{model.blocks.map((b, i) => <Mini key={i} b={b} inline />)}</div>
           </Sec>
         </div>
 
         {/* COL 3 */}
         <div className="flex flex-col gap-2">
-          <Sec s={model}>
-            <div className="space-y-1.5">{model.blocks.map((b, i) => <Mini key={i} b={b} />)}</div>
-          </Sec>
           <Sec s={gtm}>
-            <div className="space-y-1.5">{gtm.blocks.map((b, i) => <Mini key={i} b={b} />)}</div>
+            <div className="space-y-1.5">{gtm.blocks.map((b, i) => <Mini key={i} b={b} inline />)}</div>
             <Para className="mt-1.5">{gtm.note}</Para>
           </Sec>
           <Sec s={round}>
@@ -170,6 +158,22 @@ export default function NoteallInvestOnePager() {
             </div>
             <p className="font-heading text-[9px] font-bold text-accent uppercase tracking-wide mt-1.5 mb-0.5">Цели на 6 месяцев</p>
             <div className="grid grid-cols-1 gap-0.5">{round.goals.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
+          </Sec>
+          <Sec s={team}>
+            <div className="flex gap-2.5">
+              <img src={`${PUB}${FOUNDER_PHOTO}`} alt={team.name}
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg object-cover border border-accent/30 shrink-0" data-testid="niop-founder" />
+              <div className="min-w-0">
+                <p className="font-heading text-[11px] font-bold text-foreground leading-tight mb-1">{team.name}</p>
+                <div className="flex flex-wrap gap-1">
+                  {team.stats.map((s, i) => (
+                    <span key={i} className="px-1.5 py-0.5 rounded bg-accent/10 text-accent text-[9px] font-bold whitespace-nowrap">{s.v} {s.l}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-0.5 mt-1.5">{team.exp.map((it, i) => <Bul key={i}>{cap(it)}</Bul>)}</div>
+            <Para className="mt-1.5 pt-1.5 border-t border-border">{team.note}</Para>
           </Sec>
         </div>
       </div>

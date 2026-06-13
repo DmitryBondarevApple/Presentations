@@ -16,6 +16,7 @@ import TochkaPresentation from "@/pages/TochkaPresentation";
 import AICompetitorsPresentation from "@/pages/AICompetitorsPresentation";
 import CustomerDevPresentation from "@/pages/CustomerDevPresentation";
 import NoteallInvestPresentation from "@/pages/NoteallInvestPresentation";
+import NoteallInvestOnePager from "@/pages/NoteallInvestOnePager";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/ai-competitors" element={<AICompetitorsPresentation />} />
         <Route path="/customer-development" element={<CustomerDevPresentation />} />
         <Route path="/noteall-invest" element={<NoteallInvestPresentation />} />
+        <Route path="/ig-onepager" element={<NoteallInvestOnePager />} />
       </Routes>
     </BrowserRouter>
   );
