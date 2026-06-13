@@ -1,13 +1,10 @@
 /**
  * Noteall — Инвест One Pager (PDF). Один лист A4 Landscape (841.89 x 595.28).
- * Светлая тема, фирменный teal Noteall. Редакция: минимум текста, читаемый шрифт.
- * Исходная расстановка колонок:
- *   COL1: Проблема · Решение · Текущая стадия
- *   COL2: Продукт · Рынок · Команда
- *   COL3: Бизнес-модель · Go-to-market · Раунд
+ * Вёрстка 3×3 (как исходный /onepager). Две темы: тёмная и светлая.
+ * Контент — из data/noteallInvestOnePager.js.
  */
 import React from "react";
-import { Document, Page, View, Text, Image, pdf } from "@react-pdf/renderer";
+import { Document, Page, View, Text, Image, Link, pdf } from "@react-pdf/renderer";
 import { registerInterFont, getImageBase } from "./pdf-shared/PdfComponents";
 import { HEAD, SECTIONS, FOUNDER_PHOTO } from "@/data/noteallInvestOnePager";
 
@@ -16,157 +13,204 @@ registerInterFont();
 const PW = 841.89;
 const PH = 595.28;
 
-const T = {
-  bg: "#ffffff", card: "#f8fafc", fg: "#0f172a", fg2: "#1e293b",
-  muted: "#475569", dim: "#94a3b8", accent: "#0e9c8c", border: "#e2e8f0",
-  accentBg: "rgba(14,156,140,0.10)",
+const THEMES = {
+  dark: {
+    bg: "#0a1118", bg2: "#111c26", inner: "#0a1118", fg: "#f0f4f8", fg2: "#c0ccd8",
+    muted: "#8a9aab", dim: "#5a6d7e", accent: "#15b89b", accentBg: "rgba(21,184,155,0.14)", border: "#1c2a3a",
+  },
+  light: {
+    bg: "#ffffff", bg2: "#f6f9fb", inner: "#ffffff", fg: "#0f172a", fg2: "#334155",
+    muted: "#64748b", dim: "#94a3b8", accent: "#0e9c8c", accentBg: "rgba(14,156,140,0.10)", border: "#e2e8f0",
+  },
 };
+
 const f = { fontFamily: "Inter" };
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
-const Sec = ({ s, children }) => (
-  <View style={{ backgroundColor: T.card, borderRadius: 4, padding: 6, marginBottom: 6,
-    borderTopWidth: 0.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 2.5,
-    borderTopColor: T.border, borderRightColor: T.border, borderBottomColor: T.border, borderLeftColor: T.accent }}>
-    <Text style={{ fontSize: 7.5, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 1 }}>{s.label}</Text>
-    {s.title && <Text style={{ fontSize: 9.5, fontWeight: 700, color: T.fg, lineHeight: 1.15, marginTop: 1.5, marginBottom: 4 }}>{s.title}</Text>}
+const SLabel = ({ t, children }) => (
+  <Text style={{ fontSize: 9, fontWeight: 700, color: t.accent, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 3 }}>{children}</Text>
+);
+const STitle = ({ t, children }) => (
+  <Text style={{ fontSize: 13, fontWeight: 700, color: t.fg, marginBottom: 4, lineHeight: 1.14 }}>{children}</Text>
+);
+const Body = ({ t, children, style }) => (
+  <Text style={{ fontSize: 10, color: t.muted, lineHeight: 1.4, ...style }}>{children}</Text>
+);
+const Dot = ({ t, children }) => (
+  <View style={{ flexDirection: "row", gap: 5, alignItems: "flex-start", marginBottom: 3 }}>
+    <View style={{ width: 3.5, height: 3.5, borderRadius: 2, backgroundColor: t.accent, marginTop: 3.5 }} />
+    <Text style={{ fontSize: 10, color: t.fg2, lineHeight: 1.38, flex: 1 }}>{children}</Text>
+  </View>
+);
+const Cell = ({ t, children, flex = 1 }) => (
+  <View style={{ flex, backgroundColor: t.bg2, borderRadius: 5, padding: 10, borderWidth: 0.5, borderColor: t.border }}>{children}</View>
+);
+const MiniCard = ({ t, children, accent, style }) => (
+  <View style={{ backgroundColor: t.inner, borderRadius: 4, borderWidth: 0.5, borderLeftWidth: accent ? 2 : 0.5, borderColor: accent ? t.accent : t.border, borderLeftColor: accent ? t.accent : t.border, padding: 7, ...style }}>
     {children}
   </View>
 );
 
-const Para = ({ children, style }) => (
-  <Text style={{ fontSize: 8.3, color: T.muted, lineHeight: 1.3, marginBottom: 3, ...style }}>{children}</Text>
-);
-
-const Bul = ({ children, w }) => (
-  <View style={{ flexDirection: "row", gap: 4, alignItems: "flex-start", marginBottom: 2, width: w, paddingRight: 6 }}>
-    <View style={{ width: 2.5, height: 2.5, borderRadius: 1.25, backgroundColor: T.accent, marginTop: 3.4 }} />
-    <Text style={{ fontSize: 8.3, color: T.fg2, lineHeight: 1.25, flex: 1 }}>{children}</Text>
-  </View>
-);
-const Buls = ({ items, cols = 1 }) => (
-  <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-    {items.map((it, i) => <Bul key={i} w={cols === 2 ? "50%" : "100%"}>{cap(it)}</Bul>)}
-  </View>
-);
-
-/* Карточка-заголовок (teal-чип) — для GTM и фокусов раунда (только названия) */
-const ChipRow = ({ name }) => (
-  <View style={{ backgroundColor: T.bg, borderRadius: 3, paddingVertical: 5, paddingHorizontal: 7, marginBottom: 5,
-    borderLeftWidth: 2, borderLeftColor: T.accent,
-    borderTopWidth: 0.5, borderRightWidth: 0.5, borderBottomWidth: 0.5,
-    borderTopColor: T.border, borderRightColor: T.border, borderBottomColor: T.border }}>
-    <Text style={{ fontSize: 8.5, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 0.5 }}>{name}</Text>
-  </View>
-);
-
-const Mini = ({ b, cols = 1 }) => (
-  <View style={{ backgroundColor: T.bg, borderRadius: 3, padding: 5, marginBottom: 4,
-    borderTopWidth: 0.5, borderRightWidth: 0.5, borderBottomWidth: 0.5, borderLeftWidth: 2,
-    borderTopColor: T.border, borderRightColor: T.border, borderBottomColor: T.border, borderLeftColor: T.accent }}>
-    <Text style={{ fontSize: 8, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 0.4, marginBottom: 2 }}>{b.name}</Text>
-    <Buls items={b.items} cols={cols} />
-  </View>
-);
-
-const OnePagerDoc = ({ imgBase }) => {
+const OnePagerDoc = ({ imgBase, t }) => {
   const { problem, solution, product, market, model, gtm, stage, round, team } = SECTIONS;
+  const arppuM = (market.arppu.find((a) => a.k.includes("ARPPU") && a.k.includes("мес")) || {}).v;
+  const arppuY = (market.arppu.find((a) => a.k.includes("ARPPU") && a.k.includes("год")) || {}).v;
+  const artifactShort = solution.artifact.split(":")[0];
+  // stage parsing
+  const s0 = stage.items[0];
+  const s0a = s0.split(" ")[0];
+  const s0b = s0.slice(s0.indexOf(" ") + 1);
+  const s1 = stage.items[1].split(" — ");
+  const s2 = stage.items[2];
+  const s2a = s2.split(" ")[0];
+  const s2b = cap(s2.slice(s2.indexOf(" ") + 1));
+
   return (
-    <Document>
-      <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, color: T.fg, paddingHorizontal: 22, paddingVertical: 16 }}>
-        {/* HEADER */}
-        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8, paddingBottom: 7, borderBottomWidth: 0.5, borderBottomColor: T.border }}>
-          <View style={{ flexDirection: "row", flex: 1, paddingRight: 18, gap: 10, alignItems: "flex-start" }}>
-            <Image src={`${imgBase}/images/noteall/logo-noteall.png`} style={{ height: 18, width: 74, objectFit: "contain" }} />
+    <Document title="Noteall — Инвест One Pager" author="Noteall">
+      <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: t.bg, color: t.fg, padding: 0 }}>
+
+        {/* ═══ HEADER ═══ */}
+        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, paddingVertical: 9, borderBottomWidth: 0.5, borderBottomColor: t.border }}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 9, flex: 1, paddingRight: 16 }}>
+            <Image src={`${imgBase}/images/noteall/logo-noteall.png`} style={{ width: 78, height: 22, objectFit: "contain" }} />
+            <View style={{ width: 0.5, height: 24, backgroundColor: t.border }} />
             <View style={{ flex: 1 }}>
-              <Text style={{ fontSize: 11.5, fontWeight: 700, color: T.fg, lineHeight: 1.18 }}>{HEAD.title}</Text>
-              <Text style={{ fontSize: 8.5, color: T.muted, lineHeight: 1.3, marginTop: 3 }}>{HEAD.subtitle}</Text>
+              <Text style={{ fontSize: 10.5, fontWeight: 700, color: t.fg, lineHeight: 1.2 }}>{HEAD.title}</Text>
+              <View style={{ flexDirection: "row", gap: 12, marginTop: 2.5 }}>
+                <Link src={`https://t.me/${HEAD.tg.replace("@", "")}`} style={{ fontSize: 8, color: t.muted, textDecoration: "none" }}>{HEAD.tg}</Link>
+                <Link src={`mailto:${HEAD.email}`} style={{ fontSize: 8, color: t.muted, textDecoration: "none" }}>{HEAD.email}</Link>
+                <Text style={{ fontSize: 8, color: t.muted }}>{HEAD.phone}</Text>
+              </View>
             </View>
           </View>
-          <View style={{ alignItems: "flex-end" }}>
-            <Text style={{ fontSize: 8, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4 }}>One Pager</Text>
-            <Text style={{ fontSize: 10.5, fontWeight: 700, color: T.accent }}>{HEAD.site}</Text>
-            <Text style={{ fontSize: 8, color: T.muted, marginTop: 3 }}>{HEAD.tg}</Text>
-            <Text style={{ fontSize: 8, color: T.muted, marginTop: 1.5 }}>{HEAD.email}</Text>
-            <Text style={{ fontSize: 8, color: T.muted, marginTop: 1.5 }}>{HEAD.phone}</Text>
-          </View>
+          <Text style={{ fontSize: 8, fontWeight: 700, color: t.accent, letterSpacing: 1.5 }}>ONE PAGER</Text>
         </View>
 
-        {/* 3 COLUMNS */}
-        <View style={{ flexDirection: "row", gap: 10, flex: 1 }}>
-          {/* COL 1 — Проблема · Решение · Текущая стадия */}
-          <View style={{ flex: 1 }}>
-            <Sec s={problem}>
-              {problem.paras.map((p, i) => <Para key={i}>{p}</Para>)}
-              <Text style={{ fontSize: 8.3, fontWeight: 600, color: T.accent, lineHeight: 1.3 }}>{problem.loss}</Text>
-            </Sec>
-            <Sec s={solution}>
-              <Para>{solution.intro}</Para>
-              <Buls items={solution.items} cols={2} />
-              <Text style={{ fontSize: 8, color: T.fg2, lineHeight: 1.3, marginTop: 4, paddingTop: 4, borderTopWidth: 0.5, borderTopColor: T.border }}>{solution.artifact}</Text>
-            </Sec>
-            <Sec s={stage}>
-              <Buls items={stage.items} cols={1} />
-            </Sec>
+        {/* ═══ GRID ═══ */}
+        <View style={{ flex: 1, padding: 8, gap: 5 }}>
+
+          {/* ROW 1: Проблема | Решение | Рынок */}
+          <View style={{ flexDirection: "row", gap: 5, flex: 1 }}>
+            <Cell t={t}>
+              <SLabel t={t}>{problem.label}</SLabel>
+              <STitle t={t}>{problem.title}</STitle>
+              <Body t={t}>{problem.paras[0]}</Body>
+              <Text style={{ fontSize: 9.5, color: t.accent, fontWeight: 600, lineHeight: 1.4, marginTop: 6 }}>{problem.loss}</Text>
+            </Cell>
+
+            <Cell t={t}>
+              <SLabel t={t}>{solution.label}</SLabel>
+              <STitle t={t}>{solution.title}</STitle>
+              <View style={{ marginBottom: 6 }}>
+                {solution.items.slice(0, 5).map((it, i) => <Dot key={i} t={t}>{cap(it)}</Dot>)}
+              </View>
+              <Text style={{ fontSize: 10, color: t.accent, fontWeight: 600, lineHeight: 1.35 }}>{artifactShort}</Text>
+            </Cell>
+
+            <Cell t={t}>
+              <SLabel t={t}>{market.label}</SLabel>
+              <STitle t={t}>{market.title}</STitle>
+              <View style={{ gap: 5, marginBottom: 8 }}>
+                {market.tiers.map((tr, i) => {
+                  const hi = tr.name === "SOM";
+                  return (
+                    <View key={i} style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", backgroundColor: hi ? t.accentBg : "transparent", borderRadius: 3, paddingVertical: hi ? 3 : 0, paddingHorizontal: hi ? 4 : 0 }}>
+                      <Text style={{ fontSize: 10, color: hi ? t.fg : t.muted, fontWeight: hi ? 600 : 400 }}>{tr.name} {tr.co}</Text>
+                      <Text style={{ fontSize: 11, fontWeight: 700, color: t.accent }}>{tr.val.replace(" / год", "")}</Text>
+                    </View>
+                  );
+                })}
+              </View>
+              <View style={{ borderTopWidth: 0.5, borderTopColor: t.border, paddingTop: 6, flexDirection: "row", gap: 18 }}>
+                <View><Text style={{ fontSize: 9, color: t.muted }}>ARPPU/мес.</Text><Text style={{ fontSize: 14, fontWeight: 700, color: t.accent }}>{arppuM}</Text></View>
+                <View><Text style={{ fontSize: 9, color: t.muted }}>ARPPU/год</Text><Text style={{ fontSize: 14, fontWeight: 700, color: t.accent }}>{arppuY}</Text></View>
+              </View>
+            </Cell>
           </View>
 
-          {/* COL 2 — Продукт · Рынок · Команда */}
-          <View style={{ flex: 1 }}>
-            <Sec s={product}>
-              <Para>{product.intro}</Para>
-              <Buls items={product.items} cols={2} />
-            </Sec>
-            <Sec s={market}>
-              <Para>{market.intro}</Para>
-              {market.tiers.map((t, i) => (
-                <View key={i} style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", backgroundColor: T.bg, borderRadius: 3, borderWidth: 0.5, borderColor: T.border, paddingVertical: 3, paddingHorizontal: 6, marginBottom: 3 }}>
-                  <Text style={{ fontSize: 9.5, fontWeight: 700, color: T.fg }}>{t.name}<Text style={{ fontSize: 7, fontWeight: 400, color: T.muted }}>  {t.co}</Text></Text>
-                  <Text style={{ fontSize: 9.5, fontWeight: 700, color: T.accent }}>{t.val}</Text>
+          {/* ROW 2: Бизнес-модель | Go-to-Market | Раунд */}
+          <View style={{ flexDirection: "row", gap: 5, flex: 1 }}>
+            <Cell t={t}>
+              <SLabel t={t}>{model.label}</SLabel>
+              <STitle t={t}>{model.title}</STitle>
+              <Text style={{ fontSize: 11, fontWeight: 700, color: t.accent, marginBottom: 5 }}>{model.blocks[0].name}</Text>
+              {model.blocks[0].items.map((it, i) => (
+                <View key={i} style={{ flexDirection: "row", gap: 5, alignItems: "flex-start", marginBottom: 4 }}>
+                  <View style={{ width: 3.5, height: 3.5, borderRadius: 2, backgroundColor: t.accent, marginTop: 3.5 }} />
+                  <Text style={{ fontSize: 10.5, color: t.fg2, lineHeight: 1.4, flex: 1 }}>{cap(it)}</Text>
                 </View>
               ))}
-              <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 2, paddingTop: 3, borderTopWidth: 0.5, borderTopColor: T.border }}>
-                {market.arppu.map((a, i) => (
-                  <View key={i} style={{ width: "50%", flexDirection: "row", justifyContent: "space-between", paddingRight: 8, marginBottom: 2 }}>
-                    <Text style={{ fontSize: 7.5, color: T.muted }}>{a.k}</Text>
-                    <Text style={{ fontSize: 8.5, fontWeight: 700, color: T.accent }}>{a.v}</Text>
+            </Cell>
+
+            <Cell t={t}>
+              <SLabel t={t}>{gtm.label}</SLabel>
+              <STitle t={t}>{gtm.title}</STitle>
+              <View style={{ gap: 6 }}>
+                {gtm.blocks.map((b, i) => (
+                  <MiniCard key={i} t={t} style={{ flexDirection: "row", alignItems: "center", gap: 7 }}>
+                    <Text style={{ fontSize: 12, fontWeight: 700, color: t.accent }}>{`0${i + 1}`}</Text>
+                    <Text style={{ fontSize: 10.5, fontWeight: 700, color: t.fg, flex: 1 }}>{b.name}</Text>
+                  </MiniCard>
+                ))}
+              </View>
+            </Cell>
+
+            <Cell t={t}>
+              <SLabel t={t}>{round.label}</SLabel>
+              <Text style={{ fontSize: 26, fontWeight: 700, color: t.accent, marginBottom: 3 }}>{round.amount}</Text>
+              <Text style={{ fontSize: 10, color: t.muted, marginBottom: 7 }}>{round.burn}</Text>
+              <Text style={{ fontSize: 9, fontWeight: 700, color: t.accent, marginBottom: 5 }}>Цели на 6 месяцев</Text>
+              <View style={{ flexDirection: "row", gap: 6, marginBottom: 8 }}>
+                {round.metrics.map((m, i) => (
+                  <View key={i} style={{ flex: 1, alignItems: "center" }}>
+                    <Text style={{ fontSize: 15, fontWeight: 700, color: t.accent }}>{m.n}</Text>
+                    <Text style={{ fontSize: 8, color: t.muted, marginTop: 2 }}>{m.l}</Text>
                   </View>
                 ))}
               </View>
-            </Sec>
-            <Sec s={team}>
-              <View style={{ flexDirection: "row", gap: 8, marginBottom: 4 }}>
-                <Image src={`${imgBase}${FOUNDER_PHOTO}`} style={{ width: 44, height: 44, borderRadius: 6, objectFit: "cover" }} />
-                <View style={{ flex: 1 }}>
-                  <Text style={{ fontSize: 9, fontWeight: 700, color: T.fg, lineHeight: 1.2, marginBottom: 3 }}>{team.name}</Text>
-                  <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 3 }}>
-                    {team.stats.map((s, i) => (
-                      <Text key={i} style={{ fontSize: 7, fontWeight: 700, color: T.accent, backgroundColor: T.accentBg, borderRadius: 3, paddingVertical: 1.5, paddingHorizontal: 4 }}>{s.v} {s.l}</Text>
-                    ))}
-                  </View>
-                </View>
+              <View style={{ borderTopWidth: 0.5, borderTopColor: t.border, paddingTop: 6 }}>
+                <Text style={{ fontSize: 9, color: t.fg2, letterSpacing: 0.3 }}>{round.funds.map((b) => b.name).join("  ·  ")}</Text>
               </View>
-              <Buls items={team.exp} cols={1} />
-              <Text style={{ fontSize: 8, color: T.muted, lineHeight: 1.3, marginTop: 3, paddingTop: 3, borderTopWidth: 0.5, borderTopColor: T.border }}>{team.note}</Text>
-            </Sec>
+            </Cell>
           </View>
 
-          {/* COL 3 — Бизнес-модель · Go-to-market · Раунд */}
-          <View style={{ flex: 1 }}>
-            <Sec s={model}>
-              {model.blocks.map((b, i) => <Mini key={i} b={b} cols={1} />)}
-            </Sec>
-            <Sec s={gtm}>
-              {gtm.blocks.map((b, i) => <ChipRow key={i} name={b.name} />)}
-            </Sec>
-            <Sec s={round}>
-              <View style={{ flexDirection: "row", alignItems: "baseline", gap: 6, marginBottom: 5 }}>
-                <Text style={{ fontSize: 18, fontWeight: 700, color: T.accent }}>{round.amount}</Text>
-                <Text style={{ fontSize: 8, color: T.muted }}>{round.burn}</Text>
+          {/* ROW 3: Команда (2/3) | Текущая стадия (1/3) */}
+          <View style={{ flexDirection: "row", gap: 5, flex: 1.18 }}>
+            <Cell t={t} flex={2}>
+              <SLabel t={t}>{team.label}</SLabel>
+              <View style={{ flexDirection: "row", gap: 12 }}>
+                <Image src={`${imgBase}${FOUNDER_PHOTO}`} style={{ width: 58, height: 58, borderRadius: 6, objectFit: "cover" }} />
+                <View style={{ flex: 1 }}>
+                  <Text style={{ fontSize: 12.5, fontWeight: 700, color: t.fg, marginBottom: 5 }}>{team.name}</Text>
+                  <View style={{ flexDirection: "row", gap: 4, flexWrap: "wrap", marginBottom: 5 }}>
+                    {team.stats.map((s, i) => (
+                      <View key={i} style={{ backgroundColor: t.accentBg, borderRadius: 2, paddingHorizontal: 5, paddingVertical: 2 }}>
+                        <Text style={{ fontSize: 7.5, fontWeight: 700, color: t.accent, textTransform: "uppercase" }}>{s.v} {s.l}</Text>
+                      </View>
+                    ))}
+                  </View>
+                  <Body t={t} style={{ fontSize: 11.5, lineHeight: 1.4 }}>{team.note}</Body>
+                </View>
               </View>
-              {round.funds.map((b, i) => <ChipRow key={i} name={b.name} />)}
-              <Text style={{ fontSize: 7.5, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 0.6, marginTop: 2, marginBottom: 3 }}>Цели на 6 месяцев</Text>
-              <Buls items={round.goals} cols={2} />
-            </Sec>
+            </Cell>
+
+            <Cell t={t} flex={1}>
+              <SLabel t={t}>{stage.label}</SLabel>
+              <STitle t={t}>{stage.title}</STitle>
+              <View style={{ flexDirection: "row", gap: 6, marginBottom: 5 }}>
+                <MiniCard t={t} accent style={{ flex: 1, alignItems: "center" }}>
+                  <Text style={{ fontSize: 13, fontWeight: 700, color: t.accent }}>{s0a}</Text>
+                  <Text style={{ fontSize: 8.5, color: t.fg2, marginTop: 2 }}>{cap(s0b)}</Text>
+                </MiniCard>
+                <MiniCard t={t} style={{ flex: 1.4, justifyContent: "center" }}>
+                  <Text style={{ fontSize: 9.5, color: t.muted, lineHeight: 1.35 }}>{s1[0]} — <Text style={{ color: t.accent, fontWeight: 600 }}>{s1[1]}</Text></Text>
+                </MiniCard>
+              </View>
+              <View style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 1 }}>
+                <Text style={{ fontSize: 20, fontWeight: 700, color: t.accent }}>{s2a}</Text>
+                <Text style={{ fontSize: 10, fontWeight: 600, color: t.accent, flex: 1, lineHeight: 1.25 }}>{s2b}</Text>
+              </View>
+            </Cell>
           </View>
         </View>
       </Page>
@@ -174,13 +218,14 @@ const OnePagerDoc = ({ imgBase }) => {
   );
 };
 
-export async function generateNoteallInvestOnePagerPdf() {
+export async function generateNoteallInvestOnePagerPdf(theme = "dark") {
   const imgBase = getImageBase();
-  const blob = await pdf(<OnePagerDoc imgBase={imgBase} />).toBlob();
+  const t = THEMES[theme] || THEMES.dark;
+  const blob = await pdf(<OnePagerDoc imgBase={imgBase} t={t} />).toBlob();
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "Noteall_Invest_OnePager.pdf";
+  a.download = `Noteall_Invest_OnePager_${theme === "light" ? "Light" : "Dark"}.pdf`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
