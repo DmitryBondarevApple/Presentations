@@ -17,6 +17,7 @@ import AICompetitorsPresentation from "@/pages/AICompetitorsPresentation";
 import CustomerDevPresentation from "@/pages/CustomerDevPresentation";
 import NoteallInvestPresentation from "@/pages/NoteallInvestPresentation";
 import NoteallInvestOnePager from "@/pages/NoteallInvestOnePager";
+import RmaatFlyer from "@/pages/RmaatFlyer";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/customer-development" element={<CustomerDevPresentation />} />
         <Route path="/noteall-invest" element={<NoteallInvestPresentation />} />
         <Route path="/ig-onepager" element={<NoteallInvestOnePager />} />
+        <Route path="/rmaat-flyer" element={<RmaatFlyer />} />
       </Routes>
     </BrowserRouter>
   );
