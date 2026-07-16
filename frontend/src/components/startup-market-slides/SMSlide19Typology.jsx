@@ -6,7 +6,7 @@ const SMSlide19Typology = () => (
     <SMTitle className="!mb-2 md:!mb-3">Типология отраслевых направлений</SMTitle>
     <SMSplit src="VIS-08.svg" alt="Типология отраслевых направлений" wide>
       <SMP className="!mb-2">По результатам исследования направления можно разделить на несколько групп.</SMP>
-      <SMDefn label="Универсальные лидеры:" accent={SM.navy}>Enterprise SaaS, HealthTech, MedTech, EdTech.</SMDefn>
+      <SMDefn label="Универсальные лидеры:" accent={SM.navy}>Enterprise Solution, HealthTech, MedTech, EdTech.</SMDefn>
       <SMDefn label="Технологические домены:" accent={SM.navy}>AI, ML.</SMDefn>
       <SMDefn label="Корпоративно-стратегические:" accent={SM.terra}>Cybersecurity, Industrial, Manufacturing, Energy, CleanTech, PropTech, ConstructionTech.</SMDefn>
       <SMDefn label="Зрелые конкурентные рынки:" accent={SM.green}>FinTech, E-commerce, RetailTech.</SMDefn>

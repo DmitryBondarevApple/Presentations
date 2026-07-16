@@ -29,7 +29,7 @@ const SMSlide25RecInvestors2 = () => (
       <Col
         n="4"
         title="Учитывать корпоративно-стратегические сегменты"
-        intro="Cybersecurity, Industrial, Manufacturing, Energy, CleanTech и часть Enterprise SaaS привлекательны не только за счёт роста оценки, но и за счёт внедрений, договоров, партнёрств и M&A. Стоит оценивать:"
+        intro="Cybersecurity, Industrial, Manufacturing, Energy, CleanTech и часть Enterprise Solution привлекательны не только за счёт роста оценки, но и за счёт внедрений, договоров, партнёрств и M&A. Стоит оценивать:"
         items={[
           "Наличие крупных заказчиков или пилотов;",
           "Готовность продукта к безопасности, интеграциям и промышленной эксплуатации;",

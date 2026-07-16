@@ -2,12 +2,12 @@ import { SMSlideContainer, SMKicker, SMTitle, SMP, SMCols } from "./SMSlideConta
 
 const SMSlide20EnterpriseSaaS = () => (
   <SMSlideContainer number={20} label="Универсальный лидер">
-    <SMKicker>Enterprise SaaS: универсальный лидер</SMKicker>
-    <SMTitle className="!mb-3 md:!mb-4">Enterprise SaaS: наиболее сильное и сбалансированное направление</SMTitle>
+    <SMKicker>Enterprise Solution: универсальный лидер</SMKicker>
+    <SMTitle className="!mb-3 md:!mb-4">Enterprise Solution: наиболее сильное и сбалансированное направление</SMTitle>
     <SMCols>
       <div>
         <SMP className="mb-0">
-          Enterprise SaaS является наиболее сильным и сбалансированным направлением рынка. Его лидерство
+          Enterprise Solution является наиболее сильным и сбалансированным направлением рынка. Его лидерство
           объясняется тем, что корпоративные цифровые решения одновременно интересны инвесторам, крупным
           заказчикам и институтам развития. В качественном анализе этот вывод подтверждается повторяющимся
           интересом к B2B-решениям, корпоративному ПО, ERP, промышленному ПО, API, интеграциям, платформам

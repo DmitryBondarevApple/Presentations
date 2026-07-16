@@ -261,3 +261,10 @@
 - Hero с большим фото-оверлеем и со-брендом, eyebrow-лейблы с оранжевой чертой, нумерованные пункты исследования, карточки фич с иконками lucide, крупный оранжевый CTA с QR, audience-грид 6 карточек с иконками, футер-слоган.
 - PDF: иконка часов нарисована SVG (убран emoji, который рендерился как «ñ»), плотная вёрстка — 1 страница A4 (контент до y≈799).
 - Протестировано testing_agent (iteration_17): 100% frontend — скролл работает, PDF скачивается (валидный %PDF, RMAAT_AX10_Flyer.pdf), QR-ссылка точная, Cyrillic корректен. 0 ошибок консоли.
+
+
+### Рынок стартапов — переименование «Enterprise SaaS» → «Enterprise Solution» (16.07.2026)
+- Замена выполнена ВЕЗДЕ: 10 SVG-иллюстраций (light+dark: VIS-02,03,04,05,08 — 12 вхождений) и 21 файл кода презентации (слайды + `StartupMarketPdfGenerator.jsx`, 39 вхождений). Идентификаторы/имена файлов (напр. `SMSlide20EnterpriseSaaS.jsx`) не тронуты — только видимый текст.
+- PNG 2× (2480×1440) для 5 затронутых иллюстраций перерисованы из обновлённых SVG через Playwright/Chromium (шрифты встроены в SVG как base64 woff2), обе темы. Визуально проверено: текст «Enterprise Solution», без глюков, фон корректен (light=кремовый, dark=тёмный).
+- Веб `/startup-market` рендерит «Enterprise Solution», «Enterprise SaaS» отсутствует (проверено inner_text + скриншот слайда 20). Компиляция без ошибок.
+- Архив изменённых иллюстраций (SVG+PNG, обе темы, 20 файлов): `/app/frontend/public/downloads/Enterprise_Solution_illustrations.zip` → доступен по `/downloads/Enterprise_Solution_illustrations.zip` (HTTP 200, 3.1 МБ).

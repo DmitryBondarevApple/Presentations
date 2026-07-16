@@ -8,7 +8,7 @@ const SMSlide26RecCorpIntro = () => (
       <SMP className="!mb-2">
         Корпорациям следует смотреть прежде всего на шкалу корпоративного спроса. Она показывает направления,
         где выше вероятность найти решения для пилотов, внедрений, закупок и стратегических партнёрств. Наиболее
-        сильные направления — Enterprise SaaS, EdTech, HealthTech, MedTech, Cybersecurity, FinTech, E-commerce,
+        сильные направления — Enterprise Solution, EdTech, HealthTech, MedTech, Cybersecurity, FinTech, E-commerce,
         RetailTech, Industrial, Manufacturing, Energy, CleanTech.
       </SMP>
       <SMP className="!mb-2">
