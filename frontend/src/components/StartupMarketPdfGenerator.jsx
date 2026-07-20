@@ -91,17 +91,17 @@ const STeam = ({ ib }) => (
     <View style={{ flexDirection: "row", gap: 44, flex: 1 }}>
       <View style={{ flex: 1 }}>
         <GroupHead accent={T.terra}>Газпромнефть  |  Startup Drive</GroupHead>
-        <TeamMember ib={ib} photo="onishchenko.png" name="Максим Онищенко" role="Руководитель корпоративного акселератора StartupDrive" accent={T.terra} />
-        <TeamMember ib={ib} photo="kateneva.png" name="Кристина Катенева" role="Аналитик" accent={T.terra} />
-        <TeamMember ib={ib} photo="kopytova.png" name="Елизавета Копытова" role="Дизайнер" accent={T.terra} />
+        <TeamMember ib={ib} photo="onishchenko.jpg" name="Максим Онищенко" role="Руководитель корпоративного акселератора StartupDrive" accent={T.terra} />
+        <TeamMember ib={ib} photo="kateneva.jpg" name="Кристина Катенева" role="Аналитик" accent={T.terra} />
+        <TeamMember ib={ib} photo="kopytova.jpg" name="Елизавета Копытова" role="Дизайнер" accent={T.terra} />
       </View>
       <View style={{ flex: 1 }}>
         <GroupHead accent={T.navy}>Команда Hop.Agency</GroupHead>
-        <TeamMember ib={ib} photo="bondarev.png" name="Дмитрий Бондарев" role="Руководитель проекта исследования" accent={T.navy} />
-        <TeamMember ib={ib} photo="tyrkba.png" initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" accent={T.navy} />
+        <TeamMember ib={ib} photo="bondarev.jpg" name="Дмитрий Бондарев" role="Руководитель проекта исследования" accent={T.navy} />
+        <TeamMember ib={ib} photo="tyrkba.jpg" initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" accent={T.navy} />
         <TeamMember ib={ib} photo="starostina.jpg" initials="НС" name="Наталья Старостина" role="Аналитик-интервьюер" accent={T.navy} />
-        <TeamMember ib={ib} photo="bondarenko.png" name="Сергей Бондаренко" role="Аналитик-интервьюер" accent={T.navy} />
-        <TeamMember ib={ib} photo="bataeva.png" initials="ЕБ" name="Екатерина Батаева" role="Координатор проекта" accent={T.navy} />
+        <TeamMember ib={ib} photo="bondarenko.jpg" name="Сергей Бондаренко" role="Аналитик-интервьюер" accent={T.navy} />
+        <TeamMember ib={ib} photo="bataeva.jpg" initials="ЕБ" name="Екатерина Батаева" role="Координатор проекта" accent={T.navy} />
       </View>
     </View>
   </Page>

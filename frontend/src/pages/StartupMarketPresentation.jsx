@@ -57,33 +57,26 @@ const TOTAL = slides.length;
 export default function StartupMarketPresentation() {
   const [current, setCurrent] = useState(0);
   const [pdfUrls, setPdfUrls] = useState(null);
-  const [pdfLoading, setPdfLoading] = useState(true);
+  const [pdfLoading, setPdfLoading] = useState(false);
   const [showThemeMenu, setShowThemeMenu] = useState(false);
   const menuRef = useRef(null);
+  const genStartedRef = useRef(false);
 
   useEffect(() => {
     document.title = "Рынок стартапов в России — Hop.Agency × Startup Drive";
     return () => { document.title = "Презентации — Hop.Agency"; };
   }, []);
 
-  useEffect(() => {
-    let cancelled = false;
-    const urls = { light: null, dark: null };
+  const ensurePdfs = useCallback(() => {
+    if (genStartedRef.current) return;
+    genStartedRef.current = true;
     setPdfLoading(true);
     preGenerateStartupMarketPdfs()
       .then(blobs => {
-        if (cancelled) return;
-        urls.light = URL.createObjectURL(blobs.light);
-        urls.dark = URL.createObjectURL(blobs.dark);
-        setPdfUrls(urls);
-        setPdfLoading(false);
+        setPdfUrls({ light: URL.createObjectURL(blobs.light), dark: URL.createObjectURL(blobs.dark) });
       })
-      .catch(e => { console.error("PDF pre-gen failed:", e); if (!cancelled) setPdfLoading(false); });
-    return () => {
-      cancelled = true;
-      if (urls.light) URL.revokeObjectURL(urls.light);
-      if (urls.dark) URL.revokeObjectURL(urls.dark);
-    };
+      .catch(e => { console.error("PDF gen failed:", e); genStartedRef.current = false; })
+      .finally(() => setPdfLoading(false));
   }, []);
 
   const go = useCallback((dir) => {
@@ -130,9 +123,8 @@ export default function StartupMarketPresentation() {
         </div>
         <div className="flex items-center gap-2">
           <div className="relative" ref={menuRef}>
-            <button onClick={() => { if (pdfUrls) setShowThemeMenu(v => !v); }}
-              disabled={pdfLoading}
-              className="px-2 py-1 sm:px-3 sm:py-1.5 rounded text-xs sm:text-sm font-medium disabled:opacity-40 transition-opacity"
+            <button onClick={() => { ensurePdfs(); setShowThemeMenu(v => !v); }}
+              className="px-2 py-1 sm:px-3 sm:py-1.5 rounded text-xs sm:text-sm font-medium transition-opacity"
               style={{ color: "#20242B", border: "1px solid #D8D2C4" }} data-testid="sm-pdf-btn">
               {pdfLoading ? (
                 <span className="flex items-center gap-1.5">
@@ -141,9 +133,15 @@ export default function StartupMarketPresentation() {
                 </span>
               ) : "PDF"}
             </button>
-            {showThemeMenu && pdfUrls && (
-              <div className="absolute bottom-full right-0 mb-2 rounded-lg shadow-xl overflow-hidden min-w-[170px] z-50"
+            {showThemeMenu && (
+              <div className="absolute bottom-full right-0 mb-2 rounded-lg shadow-xl overflow-hidden min-w-[190px] z-50"
                 style={{ backgroundColor: "#ffffff", border: "1px solid #D8D2C4" }}>
+                {!pdfUrls ? (
+                  <div className="flex items-center gap-2.5 px-4 py-3 text-sm font-medium" style={{ color: "#6B6256" }} data-testid="sm-pdf-loading">
+                    <svg className="animate-spin h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                    Генерируется PDF…
+                  </div>
+                ) : (<>
                 <a href={pdfUrls.light} download="Рынок_стартапов_Light.pdf"
                   onClick={() => setTimeout(() => setShowThemeMenu(false), 800)}
                   className="block w-full px-4 py-2.5 text-left text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2.5 no-underline"
@@ -158,6 +156,7 @@ export default function StartupMarketPresentation() {
                   <svg className="w-4 h-4 shrink-0" style={{ color: "#1B3A5B" }} fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /></svg>
                   Тёмная тема
                 </a>
+                </>)}
               </div>
             )}
           </div>

@@ -38,10 +38,10 @@ const SMSlideTeam = () => (
       <div>
         <GroupHeader accent={SM.terra}>Газпромнефть&nbsp;<span style={{ color: SM.line }}>|</span>&nbsp;Startup Drive</GroupHeader>
         <div className="flex flex-col gap-4 md:gap-5">
-          <Member photo="onishchenko.png" initials="МО" name="Максим Онищенко"
+          <Member photo="onishchenko.jpg" initials="МО" name="Максим Онищенко"
             role="Руководитель корпоративного акселератора StartupDrive" accent={SM.terra} />
-          <Member photo="kateneva.png" initials="КК" name="Кристина Катенева" role="Аналитик" accent={SM.terra} />
-          <Member photo="kopytova.png" initials="ЕК" name="Елизавета Копытова" role="Дизайнер" accent={SM.terra} />
+          <Member photo="kateneva.jpg" initials="КК" name="Кристина Катенева" role="Аналитик" accent={SM.terra} />
+          <Member photo="kopytova.jpg" initials="ЕК" name="Елизавета Копытова" role="Дизайнер" accent={SM.terra} />
         </div>
       </div>
 
@@ -49,11 +49,11 @@ const SMSlideTeam = () => (
       <div>
         <GroupHeader accent={SM.navy}>Команда Hop.Agency</GroupHeader>
         <div className="flex flex-col gap-3.5 md:gap-4">
-          <Member photo="bondarev.png" initials="ДБ" name="Дмитрий Бондарев" role="Руководитель проекта исследования" />
-          <Member photo="tyrkba.png" initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" />
+          <Member photo="bondarev.jpg" initials="ДБ" name="Дмитрий Бондарев" role="Руководитель проекта исследования" />
+          <Member photo="tyrkba.jpg" initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" />
           <Member photo="starostina.jpg" initials="НС" name="Наталья Старостина" role="Аналитик-интервьюер" />
-          <Member photo="bondarenko.png" initials="СБ" name="Сергей Бондаренко" role="Аналитик-интервьюер" />
-          <Member photo="bataeva.png" initials="ЕБ" name="Екатерина Батаева" role="Координатор проекта" />
+          <Member photo="bondarenko.jpg" initials="СБ" name="Сергей Бондаренко" role="Аналитик-интервьюер" />
+          <Member photo="bataeva.jpg" initials="ЕБ" name="Екатерина Батаева" role="Координатор проекта" />
         </div>
       </div>
     </div>
