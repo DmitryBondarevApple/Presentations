@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMP, SMLi, SMTakeaway, SM } from "./SMSlideContainer";
 
 const SMSlide18AIML = () => (
-  <SMSlideContainer number={18} label="Технологический домен">
+  <SMSlideContainer number={19} label="Технологический домен">
     <SMKicker>AI/ML: технологический домен, а не обычная отрасль</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">AI/ML: технологический домен, а не обычная отрасль</SMTitle>
     <SMP>

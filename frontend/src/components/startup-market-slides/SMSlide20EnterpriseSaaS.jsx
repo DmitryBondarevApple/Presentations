@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMP, SMCols } from "./SMSlideContainer";
 
 const SMSlide20EnterpriseSaaS = () => (
-  <SMSlideContainer number={20} label="Универсальный лидер">
+  <SMSlideContainer number={21} label="Универсальный лидер">
     <SMKicker>Enterprise Solution: универсальный лидер</SMKicker>
     <SMTitle className="!mb-3 md:!mb-4">Enterprise Solution: наиболее сильное и сбалансированное направление</SMTitle>
     <SMCols>

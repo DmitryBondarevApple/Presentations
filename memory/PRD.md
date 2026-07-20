@@ -268,3 +268,10 @@
 - PNG 2× (2480×1440) для 5 затронутых иллюстраций перерисованы из обновлённых SVG через Playwright/Chromium (шрифты встроены в SVG как base64 woff2), обе темы. Визуально проверено: текст «Enterprise Solution», без глюков, фон корректен (light=кремовый, dark=тёмный).
 - Веб `/startup-market` рендерит «Enterprise Solution», «Enterprise SaaS» отсутствует (проверено inner_text + скриншот слайда 20). Компиляция без ошибок.
 - Архив изменённых иллюстраций (SVG+PNG, обе темы, 20 файлов): `/app/frontend/public/downloads/Enterprise_Solution_illustrations.zip` → доступен по `/downloads/Enterprise_Solution_illustrations.zip` (HTTP 200, 3.1 МБ).
+
+
+### Рынок стартапов — QR-CTA + слайд «Рабочая группа» (20.07.2026)
+- Презентация выросла с 38 до **39 слайдов**. `TOTAL` обновлён в `SMSlideContainer.jsx` (web) и `StartupMarketPdfGenerator.jsx` (PDF); номера слайдов 02→37 инкрементированы +1 (web props `number`, PDF `Header num`), финал → «39 / 39».
+- **QR-CTA** на титуле (слайд 1) и финале (слайд 39): QR на `https://startupscoring.ru/research` + CTA «Скачайте полную версию исследования». Компонент `SMDownloadCTA` (web) и `DownloadCTA` (PDF). QR — статичный PNG `public/images/startup-market/qr-research.png` (модули #20242B, прозрачный фон, на белом боксе).
+- **Новый слайд 2 «Рабочая группа исследования»**: 2 группы — Газпромнефть | Startup Drive (Онищенко, Катенева, Копытова) и Hop.Agency (Бондарев, Тыркба, Старостина, Бондаренко, Батаева). Web: `SMSlideTeam.jsx`; PDF: компонент `STeam`. Фото в `public/images/startup-market/team/` (onishchenko, kateneva, kopytova, bondarev, bondarenko). Для Тыркба/Старостина/Батаева — плейсхолдеры-инициалы (ХТ/НС/ЕБ), ЖДЁМ ФОТО от пользователя в след. сообщении.
+- Проверено: web (титул/команда/финал скриншоты) + PDF Light (39 стр., PyMuPDF: нумерация, QR-ссылка, содержимое команды, CTA; визуально — фото круглые, без переполнений). Dark-тема использует тот же код.

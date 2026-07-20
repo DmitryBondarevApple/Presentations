@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export const TOTAL = 38;
+export const TOTAL = 39;
 
 /* ── Palette (matches the embedded SVG charts) ── */
 export const SM = {
@@ -49,6 +49,31 @@ export const SMSlideContainer = ({ children, number, label, className }) => (
     </div>
     <div className="flex-1 overflow-y-auto flex flex-col justify-start px-5 sm:px-8 md:px-14 lg:px-20 pt-3 sm:pt-5 md:pt-7 pb-8 lg:pb-10">
       {children}
+    </div>
+  </div>
+);
+
+/* ── Download CTA (QR + link to full research) ── */
+export const RESEARCH_URL = "https://startupscoring.ru/research";
+export const SMDownloadCTA = ({ className }) => (
+  <div className={cn("flex items-center gap-4 md:gap-5 rounded-md p-3 md:p-4", className)}
+    style={{ backgroundColor: SM.navy }} data-testid="sm-download-cta">
+    <div className="shrink-0 rounded-md bg-white p-1.5 md:p-2">
+      <img src={`${IMG}/images/startup-market/qr-research.png`} alt="QR-код: startupscoring.ru/research"
+        className="w-16 h-16 md:w-[88px] md:h-[88px] block" data-testid="sm-qr" />
+    </div>
+    <div className="min-w-0">
+      <div className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase mb-1" style={{ color: SM.terra }}>
+        Полное исследование
+      </div>
+      <div className="text-sm sm:text-base md:text-xl font-bold leading-snug" style={{ color: "#F7F5EF", fontFamily: DISP }}>
+        Скачайте полную версию исследования
+      </div>
+      <a href={RESEARCH_URL} target="_blank" rel="noopener noreferrer"
+        className="inline-block mt-1.5 text-xs md:text-sm font-semibold no-underline tracking-wide"
+        style={{ color: "#EAF0F5" }} data-testid="sm-research-link">
+        startupscoring.ru/research&nbsp;→
+      </a>
     </div>
   </div>
 );

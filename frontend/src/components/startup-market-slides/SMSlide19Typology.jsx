@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMSplit, SMP, SMDefn, SMTakeaway, SM } from "./SMSlideContainer";
 
 const SMSlide19Typology = () => (
-  <SMSlideContainer number={19} label="Типология">
+  <SMSlideContainer number={20} label="Типология">
     <SMKicker>Типология отраслевых направлений</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Типология отраслевых направлений</SMTitle>
     <SMSplit src="VIS-08.svg" alt="Типология отраслевых направлений" wide>

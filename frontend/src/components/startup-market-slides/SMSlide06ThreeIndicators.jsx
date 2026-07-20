@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMSplit, SMP } from "./SMSlideContainer";
 
 const SMSlide06ThreeIndicators = () => (
-  <SMSlideContainer number={6} label="Показатели спроса">
+  <SMSlideContainer number={7} label="Показатели спроса">
     <SMKicker>Три показателя спроса</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Три показателя спроса</SMTitle>
     <SMSplit src="VIS-01.svg" alt="Три показателя спроса" wide>

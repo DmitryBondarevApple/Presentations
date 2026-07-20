@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMP, SMTableC, SM } from "./SMSlideContainer";
 
 const SMSlide17CorpExit = () => (
-  <SMSlideContainer number={17} label="Сценарий коммерциализации">
+  <SMSlideContainer number={18} label="Сценарий коммерциализации">
     <SMKicker color={SM.terra}>Корпоративный выход как отдельный сценарий</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Корпоративный выход как самостоятельный сценарий</SMTitle>
     <SMP className="!mb-3">

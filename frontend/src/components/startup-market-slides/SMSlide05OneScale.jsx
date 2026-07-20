@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMP, SMCols, SM } from "./SMSlideContainer";
 
 const SMSlide05OneScale = () => (
-  <SMSlideContainer number={5} label="Логика исследования">
+  <SMSlideContainer number={6} label="Логика исследования">
     <SMKicker>Почему одной шкалы недостаточно</SMKicker>
     <SMTitle className="!mb-3 md:!mb-4">Три вида спроса точнее описывают рынок, чем одна шкала</SMTitle>
     <SMP>

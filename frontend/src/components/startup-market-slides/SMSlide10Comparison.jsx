@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMSplit, SMP } from "./SMSlideContainer";
 
 const SMSlide10Comparison = () => (
-  <SMSlideContainer number={10} label="Сравнение шкал">
+  <SMSlideContainer number={11} label="Сравнение шкал">
     <SMKicker>Что показывает сравнение трёх шкал</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Что показывает сравнение трёх шкал</SMTitle>
     <SMSplit src="VIS-05.svg" alt="Сравнение трёх шкал спроса по направлениям" wide>

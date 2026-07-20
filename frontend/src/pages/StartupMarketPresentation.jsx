@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import SMSlide01Cover from "@/components/startup-market-slides/SMSlide01Cover";
+import SMSlideTeam from "@/components/startup-market-slides/SMSlideTeam";
 import SMSlide02Conclusion from "@/components/startup-market-slides/SMSlide02Conclusion";
 import SMSlide03Method from "@/components/startup-market-slides/SMSlide03Method";
 import SMSlide04Analysis from "@/components/startup-market-slides/SMSlide04Analysis";
@@ -40,7 +41,7 @@ import SMSlide38Final from "@/components/startup-market-slides/SMSlide38Final";
 import { preGenerateStartupMarketPdfs } from "@/components/StartupMarketPdfGenerator";
 
 const slides = [
-  SMSlide01Cover, SMSlide02Conclusion, SMSlide03Method, SMSlide04Analysis,
+  SMSlide01Cover, SMSlideTeam, SMSlide02Conclusion, SMSlide03Method, SMSlide04Analysis,
   SMSlide05OneScale, SMSlide06ThreeIndicators, SMSlide07Integral, SMSlide08Investors,
   SMSlide09Corporate, SMSlide10Comparison, SMSlide11Cybersecurity, SMSlide12Qualitative,
   SMSlide13Maturity, SMSlide14CheckInvestors, SMSlide15CheckCorporate, SMSlide16CheckInstitutions,

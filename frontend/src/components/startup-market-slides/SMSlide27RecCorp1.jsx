@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMP, SMNumHead, SMLi, SMTableC, SM } from "./SMSlideContainer";
 
 const SMSlide27RecCorp1 = () => (
-  <SMSlideContainer number={27} label="Рекомендации · Корпорации">
+  <SMSlideContainer number={28} label="Рекомендации · Корпорации">
     <SMKicker color={SM.terra}>Рекомендации для корпораций</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Начать с карты бизнес-задач и владельца процесса</SMTitle>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-16 gap-y-4 items-start">

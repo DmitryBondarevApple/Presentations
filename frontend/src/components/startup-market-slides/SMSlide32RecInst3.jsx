@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMP, SMNumHead, SMTableC, SM } from "./SMSlideContainer";
 
 const SMSlide32RecInst3 = () => (
-  <SMSlideContainer number={32} label="Рекомендации · Институты развития">
+  <SMSlideContainer number={33} label="Рекомендации · Институты развития">
     <SMKicker color={SM.green}>Рекомендации для институтов развития</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Использовать разрывы между шкалами как карту вмешательства</SMTitle>
     <SMNumHead n="5" accent={SM.green}>Разрывы между шкалами спроса подсказывают тип поддержки</SMNumHead>

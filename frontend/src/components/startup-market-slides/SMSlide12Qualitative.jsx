@@ -5,7 +5,7 @@ const Label = ({ children }) => (
 );
 
 const SMSlide12Qualitative = () => (
-  <SMSlideContainer number={12} label="Качественная часть">
+  <SMSlideContainer number={13} label="Качественная часть">
     <SMKicker>Качественная часть исследования</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Интервью объясняют, почему количественные шкалы расходятся</SMTitle>
     <Label>В исследовании использованы 12 интервью с тремя группами участников:</Label>

@@ -7,7 +7,7 @@ const Note = ({ children }) => (
 );
 
 const SMSlide24RecInvestors1 = () => (
-  <SMSlideContainer number={24} label="Рекомендации · Инвесторы">
+  <SMSlideContainer number={25} label="Рекомендации · Инвесторы">
     <SMKicker color={SM.navy}>Рекомендации для инвесторов</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Разделить направления и применять три фильтра</SMTitle>
     <SMNumHead n="1">Разделить направления по сценарию развития и коммерциализации</SMNumHead>

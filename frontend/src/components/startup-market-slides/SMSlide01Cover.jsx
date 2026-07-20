@@ -1,4 +1,4 @@
-import { SM, FONTS } from "./SMSlideContainer";
+import { SM, FONTS, SMDownloadCTA } from "./SMSlideContainer";
 
 const IMG = (process.env.PUBLIC_URL || "");
 
@@ -38,21 +38,24 @@ const SMSlide01Cover = () => (
       </div>
     </div>
 
-    <div className="shrink-0 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 pt-4 md:pt-5"
+    <div className="shrink-0 flex flex-col lg:flex-row lg:items-end gap-4 lg:gap-8 pt-4 md:pt-5"
       style={{ borderTop: `1px solid ${SM.line}` }}>
-      <div className="flex items-center gap-3.5">
-        <img src={`${IMG}/images/startup-market/speaker.png`} alt="Дмитрий Бондарев"
-          className="w-11 h-11 md:w-14 md:h-14 rounded-full object-cover" style={{ border: `1px solid ${SM.line}` }} />
-        <div>
-          <div className="text-sm md:text-base font-bold" style={{ color: SM.ink, fontFamily: FONTS.DISP }}>Дмитрий Бондарев</div>
-          <div className="text-[11px] md:text-xs leading-snug" style={{ color: SM.muted }}>
-            Руководитель исследования · аналитический департамент Hop.Agency
+      <div className="flex-1 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+        <div className="flex items-center gap-3.5">
+          <img src={`${IMG}/images/startup-market/speaker.png`} alt="Дмитрий Бондарев"
+            className="w-11 h-11 md:w-14 md:h-14 rounded-full object-cover" style={{ border: `1px solid ${SM.line}` }} />
+          <div>
+            <div className="text-sm md:text-base font-bold" style={{ color: SM.ink, fontFamily: FONTS.DISP }}>Дмитрий Бондарев</div>
+            <div className="text-[11px] md:text-xs leading-snug" style={{ color: SM.muted }}>
+              Руководитель исследования · аналитический департамент Hop.Agency
+            </div>
           </div>
         </div>
+        <div className="text-[11px] md:text-xs leading-relaxed sm:text-right self-end" style={{ color: SM.muted }}>
+          <span style={{ color: SM.ink, fontWeight: 600 }}>hop.agency</span> · <span style={{ color: SM.ink, fontWeight: 600 }}>startupdrive.ru</span>
+        </div>
       </div>
-      <div className="text-[11px] md:text-xs leading-relaxed sm:text-right" style={{ color: SM.muted }}>
-        <span style={{ color: SM.ink, fontWeight: 600 }}>hop.agency</span> · <span style={{ color: SM.ink, fontWeight: 600 }}>startupdrive.ru</span>
-      </div>
+      <SMDownloadCTA className="lg:max-w-md w-full" />
     </div>
   </div>
 );

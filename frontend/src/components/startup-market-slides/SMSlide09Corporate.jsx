@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMSplit, SMP, SM } from "./SMSlideContainer";
 
 const SMSlide09Corporate = () => (
-  <SMSlideContainer number={9} label="Корпоративный спрос">
+  <SMSlideContainer number={10} label="Корпоративный спрос">
     <SMKicker color={SM.terra}>Спрос со стороны корпоративного сектора</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Спрос со стороны корпоративного сектора</SMTitle>
     <SMSplit src="VIS-04.svg" alt="Топ-10 направлений по корпоративному спросу" wide>

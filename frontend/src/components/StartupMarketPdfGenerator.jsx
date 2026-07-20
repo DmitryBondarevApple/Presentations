@@ -4,14 +4,14 @@
  * Pre-generates Light and Dark themes. Charts are pre-rendered PNGs.
  */
 import React from "react";
-import { Document, Page, View, Text, Image, pdf } from "@react-pdf/renderer";
+import { Document, Page, View, Text, Image, Link, pdf } from "@react-pdf/renderer";
 import { registerInterFont, getImageBase } from "./pdf-shared/PdfComponents";
 
 registerInterFont();
 
 const PW = 841.89;
 const PH = 595.28;
-const TOTAL = 38;
+const TOTAL = 39;
 
 const THEMES = {
   light: {
@@ -46,6 +46,67 @@ const Header = ({ num, label, color }) => (
     )}
   </View>
 );
+
+const RESEARCH_URL = "https://startupscoring.ru/research";
+const DownloadCTA = ({ ib, w }) => (
+  <View style={{ flexDirection: "row", alignItems: "center", gap: 11, backgroundColor: "#1B3A5B", borderRadius: 6, padding: 10, width: w }}>
+    <View style={{ backgroundColor: "#ffffff", borderRadius: 5, padding: 4.5 }}>
+      <Image src={`${ib}/images/startup-market/qr-research.png`} style={{ width: 58, height: 58 }} />
+    </View>
+    <View style={{ flex: 1 }}>
+      <Text style={{ fontSize: 7.5, fontWeight: 700, color: "#E8A66A", letterSpacing: 1.4, textTransform: "uppercase", marginBottom: 3 }}>Полное исследование</Text>
+      <Text style={{ fontSize: 12.5, fontWeight: 700, color: "#F7F5EF", lineHeight: 1.2 }}>Скачайте полную версию исследования</Text>
+      <Link src={RESEARCH_URL} style={{ fontSize: 9, fontWeight: 700, color: "#EAF0F5", marginTop: 4, textDecoration: "none" }}>startupscoring.ru/research →</Link>
+    </View>
+  </View>
+);
+
+const GroupHead = ({ children, accent }) => (
+  <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginBottom: 14 }}>
+    <View style={{ width: 5, height: 16, borderRadius: 2, backgroundColor: accent }} />
+    <Text style={{ fontSize: 13, fontWeight: 700, color: T.fg }}>{children}</Text>
+  </View>
+);
+
+const TeamMember = ({ ib, photo, initials, name, role, accent }) => (
+  <View style={{ flexDirection: "row", alignItems: "center", gap: 10, marginBottom: 11 }}>
+    {photo ? (
+      <Image src={`${ib}/images/startup-market/team/${photo}`} style={{ width: 46, height: 46, borderRadius: 23, objectFit: "cover" }} />
+    ) : (
+      <View style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: T.navySoft, alignItems: "center", justifyContent: "center" }}>
+        <Text style={{ fontSize: 12.5, fontWeight: 700, color: accent }}>{initials}</Text>
+      </View>
+    )}
+    <View style={{ flex: 1 }}>
+      <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg }}>{name}</Text>
+      <Text style={{ fontSize: 9, color: T.muted, marginTop: 2 }}>{role}</Text>
+    </View>
+  </View>
+);
+
+const STeam = ({ ib }) => (
+  <Page size={[PW, PH]} style={ps()}><Header num={2} label="Рабочая группа исследования" />
+    <H size={22}>Рабочая группа исследования</H>
+    <View style={{ height: 6 }} />
+    <View style={{ flexDirection: "row", gap: 44, flex: 1 }}>
+      <View style={{ flex: 1 }}>
+        <GroupHead accent={T.terra}>Газпромнефть  |  Startup Drive</GroupHead>
+        <TeamMember ib={ib} photo="onishchenko.png" name="Максим Онищенко" role="Руководитель корпоративного акселератора StartupDrive" accent={T.terra} />
+        <TeamMember ib={ib} photo="kateneva.png" name="Кристина Катенева" role="Аналитик" accent={T.terra} />
+        <TeamMember ib={ib} photo="kopytova.png" name="Елизавета Копытова" role="Дизайнер" accent={T.terra} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <GroupHead accent={T.navy}>Команда Hop.Agency</GroupHead>
+        <TeamMember ib={ib} photo="bondarev.png" name="Дмитрий Бондарев" role="Руководитель проекта исследования" accent={T.navy} />
+        <TeamMember ib={ib} initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" accent={T.navy} />
+        <TeamMember ib={ib} initials="НС" name="Наталья Старостина" role="Аналитик-интервьюер" accent={T.navy} />
+        <TeamMember ib={ib} photo="bondarenko.png" name="Сергей Бондаренко" role="Аналитик-интервьюер" accent={T.navy} />
+        <TeamMember ib={ib} initials="ЕБ" name="Екатерина Батаева" role="Координатор проекта" accent={T.navy} />
+      </View>
+    </View>
+  </Page>
+);
+
 
 const H = ({ children, size = 22 }) => <Text style={{ fontSize: size, fontWeight: 700, color: T.fg, marginBottom: 9, lineHeight: 1.12 }}>{children}</Text>;
 const P = ({ children, size = 11, mb = 7 }) => <Text style={{ fontSize: size, color: T.body, lineHeight: 1.45, marginBottom: mb, textAlign: "justify" }}>{children}</Text>;
@@ -169,20 +230,23 @@ const S01 = ({ ib }) => (
       </View>
     </View>
     <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end", borderTopWidth: 1, borderTopColor: T.line, paddingTop: 11 }}>
-      <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-        <Image src={`${ib}/images/startup-market/speaker.png`} style={{ width: 36, height: 36, borderRadius: 18, objectFit: "cover" }} />
-        <View>
-          <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg }}>Дмитрий Бондарев</Text>
-          <Text style={{ fontSize: 9, color: T.muted, marginTop: 2 }}>Руководитель исследования · аналитический департамент Hop.Agency</Text>
+      <View style={{ flexDirection: "column", gap: 8 }}>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+          <Image src={`${ib}/images/startup-market/speaker.png`} style={{ width: 36, height: 36, borderRadius: 18, objectFit: "cover" }} />
+          <View>
+            <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg }}>Дмитрий Бондарев</Text>
+            <Text style={{ fontSize: 9, color: T.muted, marginTop: 2 }}>Руководитель исследования · аналитический департамент Hop.Agency</Text>
+          </View>
         </View>
+        <Text style={{ fontSize: 9, color: T.muted }}>hop.agency · startupdrive.ru</Text>
       </View>
-      <Text style={{ fontSize: 9, color: T.muted }}>hop.agency · startupdrive.ru</Text>
+      <DownloadCTA ib={ib} w={320} />
     </View>
   </Page>
 );
 
 const S02 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={2} label="Главный вывод" />
+  <Page size={[PW, PH]} style={ps()}><Header num={3} label="Главный вывод" />
     <H>Рынок как система нескольких видов спроса</H>
     <Cols>
       <Col><P size={12} mb={0}>Исследование описывает российский рынок стартапов как систему нескольких видов спроса: рыночного, инвесторского и корпоративного. Такой подход позволяет одновременно оценить масштаб отраслевых направлений и основные сценарии развития и коммерциализации стартапов: привлечение венчурного капитала и последующие раунды, корпоративные пилоты и внедрения, стратегические партнёрства, закупки, долгосрочные договоры, M&A и гибридные сценарии. Поэтому в отчёте сопоставляются три вида спроса: со стороны рынка в целом, со стороны инвесторов и со стороны корпоративного сектора.</P></Col>
@@ -192,7 +256,7 @@ const S02 = () => (
 );
 
 const S03 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={3} label="Методология" />
+  <Page size={[PW, PH]} style={ps()}><Header num={4} label="Методология" />
     <H>Комбинированный анализ количественных и качественных данных</H>
     <P>Исследование построено как комбинированный анализ количественных и качественных данных. Количественная часть показывает структуру предложения стартапов и относительную силу спроса со стороны инвесторов и корпоративного сектора. Качественная часть объясняет, какие критерии фактически используют инвесторы, корпорации и институты развития при отборе стартапов.</P>
     <Cols gap={10}>
@@ -207,7 +271,7 @@ const S03 = () => (
 );
 
 const S04 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={4} label="Методология" />
+  <Page size={[PW, PH]} style={ps()}><Header num={5} label="Методология" />
     <H>Поиск и проверка публичных подтверждений интереса</H>
     <Cols>
       <Col>
@@ -223,7 +287,7 @@ const S04 = () => (
 );
 
 const S05 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={5} label="Логика исследования" />
+  <Page size={[PW, PH]} style={ps()}><Header num={6} label="Логика исследования" />
     <H>Три вида спроса точнее описывают рынок, чем одна шкала</H>
     <P>Три вида спроса дают более точное описание российского рынка стартапов, чем одна универсальная шкала. Количество компаний в направлении показывает размер предложения, интерес инвесторов показывает вероятность финансирования, а корпоративный спрос показывает вероятность пилотов, внедрений, закупок и стратегических сделок. Эти три типа спроса пересекаются, но не заменяют друг друга.</P>
     <Cols>
@@ -234,14 +298,14 @@ const S05 = () => (
 );
 
 const S06 = ({ ib }) => (
-  <ChartText ib={ib} num={6} label="Показатели спроса" vis="VIS-01" title="Три показателя спроса">
+  <ChartText ib={ib} num={7} label="Показатели спроса" vis="VIS-01" title="Три показателя спроса">
     <P size={9.5}>Интегральный показатель спроса объединяет в одной оценке качество стартапов, уровень интереса со стороны инвесторов и уровень интереса со стороны корпоративного сектора. Он показывает, в каких направлениях одновременно присутствуют стартапы с сильными сигналами, инвесторы с релевантным интересом и корпорации, для которых решения применимы.</P>
     <P size={9.5} mb={0}>Интегральный показатель задаёт общую карту привлекательности, а различия между сценариями развития становятся видны при сопоставлении его с инвесторской и корпоративной шкалами. В одном направлении стартап растёт за счёт венчурного финансирования, в другом — за счёт корпоративных пилотов, контрактов и стратегической сделки. Поэтому используются три взаимодополняющих показателя.</P>
   </ChartText>
 );
 
 const S07 = ({ ib }) => (
-  <ChartText ib={ib} num={7} label="Интегральный показатель" vis="VIS-02" title="Лидеры по интегральному показателю">
+  <ChartText ib={ib} num={8} label="Интегральный показатель" vis="VIS-02" title="Лидеры по интегральному показателю">
     <P size={9.5}>Интегральный показатель отмечает направления, где одновременно есть значимое число стартапов, компании с сильными рыночными сигналами и релевантные инвесторы и корпоративные заказчики. Он показывает не единственного лидера, а зоны максимальной плотности предложения и спроса.</P>
     <P size={9.5}>Enterprise Solution лидирует за счёт базовой роли корпоративного ПО. AI/ML рядом, но это горизонтальный технологический домен, понятный только в привязке к отраслевым задачам. HealthTech, MedTech и EdTech — верхняя группа сбалансированных направлений.</P>
     <P size={9.5} mb={0}>Industrial, Manufacturing, Energy, CleanTech, PropTech, ConstructionTech, FinTech, Cybersecurity и E-commerce, RetailTech входят в топ-10, но различаются основным сценарием. Поэтому топ-10 — стартовая карта, а не итоговый рейтинг привлекательности каждой компании.</P>
@@ -249,7 +313,7 @@ const S07 = ({ ib }) => (
 );
 
 const S08 = ({ ib }) => (
-  <ChartText ib={ib} num={8} label="Спрос инвесторов" accent={T.green} vis="VIS-03" title="Спрос со стороны инвесторов">
+  <ChartText ib={ib} num={9} label="Спрос инвесторов" accent={T.green} vis="VIS-03" title="Спрос со стороны инвесторов">
     <P size={9.5}>Спрос со стороны инвесторов показывает концентрацию релевантного капитала вокруг направления и вероятность финансирования. Важны число инвесторов, глубина совпадений со стартапами и наличие компаний, достаточно зрелых для финансирования.</P>
     <P size={9.5}>AI/ML — явный лидер, но это не отменяет требований к стартапу: нужны задача, данные, преимущество, эффект и сценарий выхода. HealthTech, MedTech, Enterprise Solution и EdTech сильны по разным причинам.</P>
     <P size={9.5} mb={0}>FinTech, Energy, CleanTech, E-commerce, RetailTech и Cybersecurity — в верхней части шкалы, но не равнозначны: одни конкурентны и требуют проверки экономики, другие — длинного цикла продаж и отраслевой экспертизы. Отраслевой интерес дополняется проверкой стадии, команды, структуры и сценария возврата капитала.</P>
@@ -257,7 +321,7 @@ const S08 = ({ ib }) => (
 );
 
 const S09 = ({ ib }) => (
-  <ChartText ib={ib} num={9} label="Корпоративный спрос" accent={T.terra} vis="VIS-04" title="Спрос со стороны корпоративного сектора">
+  <ChartText ib={ib} num={10} label="Корпоративный спрос" accent={T.terra} vis="VIS-04" title="Спрос со стороны корпоративного сектора">
     <P size={9.5}>Корпоративная шкала показывает, где стартап востребован как решение конкретной бизнес-задачи, в том числе без инвестиций корпорации. Важны применимость, наличие заказчиков, готовность к пилоту, интеграциям, безопасности и переходу к промышленному использованию.</P>
     <P size={9.5}>Enterprise Solution на первом месте, но требует работы с инфраструктурой, безопасностью, SLA и согласованиями. Высокие позиции EdTech и HealthTech, MedTech показывают, что корпоративный спрос не ограничен промышленностью.</P>
     <P size={9.5} mb={0}>Cybersecurity — 4-е место: безопасность, данные, локализация и доверие — условия допуска. AI/ML ниже как самостоятельная категория: корпорации покупают результат в процессе, поэтому AI/ML-продажа начинается с задачи бизнеса.</P>
@@ -265,7 +329,7 @@ const S09 = ({ ib }) => (
 );
 
 const S10 = ({ ib }) => (
-  <ChartText ib={ib} num={10} label="Сравнение шкал" vis="VIS-05" title="Что показывает сравнение трёх шкал">
+  <ChartText ib={ib} num={11} label="Сравнение шкал" vis="VIS-05" title="Что показывает сравнение трёх шкал">
     <P size={9.5}>Сравнение трёх шкал превращает набор рейтингов в карту рынка для управленческих решений: одинаковое место в общем рейтинге может скрывать разные траектории развития стартапа.</P>
     <P size={9.5}>Enterprise Solution, HealthTech, MedTech и EdTech — гибридные направления. AI/ML — другой тип: сила в инвесторском спросе, но для выручки нужна привязка к отрасли, данным и эффекту; это сквозной домен, а не вертикаль.</P>
     <P size={9.5} mb={0}>Industrial, Manufacturing и Cybersecurity держатся на корпоративном спросе — венчурный взгляд недооценивает их без учёта пилотов, договоров и сделок. Институтам развития сравнение показывает, какие инструменты нужны разным сегментам.</P>
@@ -273,14 +337,14 @@ const S10 = ({ ib }) => (
 );
 
 const S11 = ({ ib }) => (
-  <ChartText ib={ib} num={11} label="Кейс направления" accent={T.green} vis="VIS-06" title="Почему Cybersecurity выделен отдельно">
+  <ChartText ib={ib} num={12} label="Кейс направления" accent={T.green} vis="VIS-06" title="Почему Cybersecurity выделен отдельно">
     <P size={10}>Cybersecurity выделен отдельно, потому что этот сегмент хорошо показывает ограниченность анализа рынка по одной шкале. В общем интегральном рейтинге направление занимает 9-е место, но при переходе к корпоративной шкале поднимается на 4-е место и получает высокий уровень релевантности для корпоративного выхода.</P>
     <P size={10} mb={0}>Для инвесторов Cybersecurity привлекателен не только за счёт роста выручки и раундов, но и за счёт стратегического интереса крупных покупателей. Для корпораций это зона закупок, пилотов, внедрений и приобретения компетенций. Для институтов развития — элемент технологической устойчивости и доверия к цифровой инфраструктуре.</P>
   </ChartText>
 );
 
 const S12 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={12} label="Качественная часть" />
+  <Page size={[PW, PH]} style={ps()}><Header num={13} label="Качественная часть" />
     <H>Интервью объясняют, почему количественные шкалы расходятся</H>
     <Label>В исследовании использованы 12 интервью с тремя группами участников:</Label>
     <Li>Фонды, частные инвесторы и клубы;</Li>
@@ -293,7 +357,7 @@ const S12 = () => (
 );
 
 const S13 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={13} label="Общий тренд" />
+  <Page size={[PW, PH]} style={ps()}><Header num={14} label="Общий тренд" />
     <H>От интереса к теме — к проверке зрелости</H>
     <P>Идея или сырой MVP редко являются достаточным основанием для финансирования, пилота или стратегического интереса. Участники рынка всё чаще требуют доказательств зрелости:</P>
     <TableC
@@ -310,7 +374,7 @@ const S13 = () => (
 );
 
 const S14 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={14} label="Критерии · Инвесторы" />
+  <Page size={[PW, PH]} style={ps()}><Header num={15} label="Критерии · Инвесторы" />
     <H>Критерии инвестиционной привлекательности</H>
     <P>Инвесторы оценивают не только отрасль, но и способность стартапа превратить отраслевой интерес в рост выручки, капитализации и вероятность выхода.</P>
     <TableC
@@ -327,7 +391,7 @@ const S14 = () => (
 );
 
 const S15 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={15} label="Критерии · Корпорации" color={T.terra} />
+  <Page size={[PW, PH]} style={ps()}><Header num={16} label="Критерии · Корпорации" color={T.terra} />
     <H>Критерии готовности к корпоративному пилоту</H>
     <P>Корпоративные участники оценивают стартап по применимости к задаче бизнеса и готовности перейти от тестирования к промышленному использованию.</P>
     <TableC accent={T.terra}
@@ -345,7 +409,7 @@ const S15 = () => (
 );
 
 const S16 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={16} label="Критерии · Институты развития" color={T.green} />
+  <Page size={[PW, PH]} style={ps()}><Header num={17} label="Критерии · Институты развития" color={T.green} />
     <H>Институциональные критерии значимости</H>
     <P>Институты развития добавляют к оценке стартапа критерии технологической и институциональной значимости.</P>
     <TableC accent={T.green}
@@ -361,7 +425,7 @@ const S16 = () => (
 );
 
 const S17 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={17} label="Сценарий коммерциализации" color={T.terra} />
+  <Page size={[PW, PH]} style={ps()}><Header num={18} label="Сценарий коммерциализации" color={T.terra} />
     <H>Корпоративный выход как самостоятельный сценарий</H>
     <P>Для части российских стартапов корпоративный выход становится самостоятельным сценарием коммерциализации и может принимать разные форматы.</P>
     <TableC accent={T.terra}
@@ -379,7 +443,7 @@ const S17 = () => (
 );
 
 const S18 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={18} label="Технологический домен" />
+  <Page size={[PW, PH]} style={ps()}><Header num={19} label="Технологический домен" />
     <H>AI/ML: технологический домен, а не обычная отрасль</H>
     <P>AI/ML лидирует по спросу со стороны инвесторов, но слабее выглядит в корпоративной шкале как самостоятельная категория. Причина в том, что корпоративный заказчик покупает не AI/ML как технологию, а прикладной результат: снижение затрат, ускорение процесса, повышение точности, автоматизацию ручного труда, безопасность, аналитику или повышение выручки.</P>
     <P mb={0}>Поэтому AI/ML нужно анализировать с учётом отраслей применения. Один AI-стартап может быть частью Enterprise Solution, другой — промышленной автоматизацией, третий — медицинской диагностикой, четвёртый — инструментом для ритейла, строительства, энергетики или безопасности. Для отчёта это означает, что AI/ML является не только отраслевой строкой рейтинга, но и сквозным технологическим доменом.</P>
@@ -387,7 +451,7 @@ const S18 = () => (
 );
 
 const S19 = ({ ib }) => (
-  <ChartText ib={ib} num={19} label="Типология" vis="VIS-08" title="Типология отраслевых направлений"
+  <ChartText ib={ib} num={20} label="Типология" vis="VIS-08" title="Типология отраслевых направлений"
     footer={<Takeaway>Рынок нельзя описать одним списком отраслей. Одно и то же направление может выглядеть средним в интегральном рейтинге, но быть сильным в корпоративной шкале. Обратная ситуация также возможна.</Takeaway>}>
     <P size={9.5} mb={5}>По результатам исследования направления можно разделить на несколько групп.</P>
     <Defn label="Универсальные лидеры:" accent={T.navy}>Enterprise Solution, HealthTech, MedTech, EdTech.</Defn>
@@ -399,7 +463,7 @@ const S19 = ({ ib }) => (
 );
 
 const S20 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={20} label="Универсальный лидер" />
+  <Page size={[PW, PH]} style={ps()}><Header num={21} label="Универсальный лидер" />
     <H>Enterprise Solution: наиболее сильное и сбалансированное направление</H>
     <Cols>
       <Col><P size={12} mb={0}>Enterprise Solution является наиболее сильным и сбалансированным направлением рынка. Его лидерство объясняется тем, что корпоративные цифровые решения одновременно интересны инвесторам, крупным заказчикам и институтам развития. В качественном анализе этот вывод подтверждается повторяющимся интересом к B2B-решениям, корпоративному ПО, ERP, промышленному ПО, API, интеграциям, платформам и продуктам с измеримым экономическим эффектом.</P></Col>
@@ -409,7 +473,7 @@ const S20 = () => (
 );
 
 const S21 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={21} label="Гибридные направления" color={T.green} />
+  <Page size={[PW, PH]} style={ps()}><Header num={22} label="Гибридные направления" color={T.green} />
     <H>HealthTech, MedTech и EdTech: гибридные направления</H>
     <Cols>
       <Col>
@@ -425,7 +489,7 @@ const S21 = () => (
 );
 
 const S22 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={22} label="Корпоративно-стратегические" color={T.terra} />
+  <Page size={[PW, PH]} style={ps()}><Header num={23} label="Корпоративно-стратегические" color={T.terra} />
     <H>Направления с преимущественно корпоративным спросом</H>
     <Cols>
       <Col>
@@ -441,7 +505,7 @@ const S22 = () => (
 );
 
 const S24 = ({ ib }) => (
-  <ChartText ib={ib} num={26} label="Рекомендации · Корпорации" accent={T.terra} vis="VIS-07" title="Путь корпоративного пилота: от бизнес-задачи к внедрению">
+  <ChartText ib={ib} num={27} label="Рекомендации · Корпорации" accent={T.terra} vis="VIS-07" title="Путь корпоративного пилота: от бизнес-задачи к внедрению">
     <P size={9.5}>Корпорациям следует смотреть прежде всего на шкалу корпоративного спроса. Она показывает направления, где выше вероятность найти решения для пилотов, внедрений, закупок и стратегических партнёрств. Наиболее сильные — Enterprise Solution, EdTech, HealthTech, MedTech, Cybersecurity, FinTech, E-commerce, RetailTech, Industrial, Manufacturing, Energy, CleanTech.</P>
     <P size={9.5}>Работу следует начинать не с поиска стартапов, а с карты бизнес-задач. Перед пилотом нужно определить бизнес-заказчика; процесс, который должен измениться; метрики успеха; данные и системы; ответственных за IT, безопасность, закупки и юридические вопросы; решение после успешного пилота.</P>
     <P size={9.5} mb={0}>Без владельца процесса даже хороший стартап часто не доходит до внедрения.</P>
@@ -449,7 +513,7 @@ const S24 = ({ ib }) => (
 );
 
 const S27 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={23} label="Рекомендации · Назначение раздела" />
+  <Page size={[PW, PH]} style={ps()}><Header num={24} label="Рекомендации · Назначение раздела" />
     <H size={20}>От анализа — к решениям для четырёх аудиторий</H>
     <P size={10}>Результаты анализа переводятся в практические действия для четырёх групп участников рынка: инвесторов, корпораций, институтов развития и стартапов. Рекомендации основаны на трёх источниках: статистических показателях спроса, отраслевых профилях и интервью с участниками рынка. Главная задача раздела — показать, как использовать результаты исследования для принятия решений, а не только для описания состояния рынка.</P>
     <Cols gap={22}>
@@ -472,7 +536,7 @@ const S27 = () => (
 );
 
 const S28 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={24} label="Рекомендации · Инвесторы" />
+  <Page size={[PW, PH]} style={ps()}><Header num={25} label="Рекомендации · Инвесторы" />
     <H size={20}>Разделить направления и применять три фильтра</H>
     <NumHead n={1}>Разделить направления по сценарию развития и коммерциализации</NumHead>
     <P size={9}>Инвесторам следует оценивать направления по размеру рынка, числу стартапов и наиболее вероятному сценарию возврата капитала: следующему раунду, росту капитализации, вторичной продаже доли, M&A или сделке со стратегическим покупателем.</P>
@@ -505,7 +569,7 @@ const Bcol = ({ n, accent, title, intro, items }) => (
 );
 
 const S29 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={25} label="Рекомендации · Инвесторы" />
+  <Page size={[PW, PH]} style={ps()}><Header num={26} label="Рекомендации · Инвесторы" />
     <H size={20}>Проверять отраслевую привязку, стратегию и юридическую структуру</H>
     <View style={{ flexDirection: "row", gap: 16, flex: 1 }}>
       <Bcol n={3} title="Оценивать AI/ML с учётом отраслевой привязки"
@@ -525,7 +589,7 @@ const S29 = () => (
 );
 
 const S30 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={27} label="Рекомендации · Корпорации" color={T.terra} />
+  <Page size={[PW, PH]} style={ps()}><Header num={28} label="Рекомендации · Корпорации" color={T.terra} />
     <H size={20}>Начать с карты бизнес-задач и владельца процесса</H>
     <Cols gap={22}>
       <Col>
@@ -557,7 +621,7 @@ const S30 = () => (
 );
 
 const S31 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={28} label="Рекомендации · Корпорации" color={T.terra} />
+  <Page size={[PW, PH]} style={ps()}><Header num={29} label="Рекомендации · Корпорации" color={T.terra} />
     <H size={20}>Ввести стандартный паспорт пилота</H>
     <NumHead n={3} accent={T.terra}>Единый паспорт пилота снижает неопределённость для всех сторон</NumHead>
     <P size={10}>Для ускорения работы со стартапами корпорациям нужен единый паспорт пилота. Он снижает неопределённость для всех сторон и помогает отделить эксперимент от будущего внедрения. Паспорт пилота должен включать:</P>
@@ -577,7 +641,7 @@ const S31 = () => (
 );
 
 const S32 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={29} label="Рекомендации · Корпорации" color={T.terra} />
+  <Page size={[PW, PH]} style={ps()}><Header num={30} label="Рекомендации · Корпорации" color={T.terra} />
     <H size={20}>Разделять сценарии и приоритизировать направления</H>
     <Cols gap={22}>
       <Col>
@@ -612,7 +676,7 @@ const S32 = () => (
 );
 
 const S33 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={30} label="Рекомендации · Институты развития" color={T.green} />
+  <Page size={[PW, PH]} style={ps()}><Header num={31} label="Рекомендации · Институты развития" color={T.green} />
     <H size={20}>Поддерживать связку «стартап — заказчик — пилот — внедрение»</H>
     <NumHead n={1} accent={T.green}>Поддерживать стартапы и доступ к спросу</NumHead>
     <P size={10}>Для многих стартапов ключевыми дефицитами становятся финансирование, доступ к заказчику, пилотная площадка, данные, отраслевая экспертиза, юридическая подготовка и понятный маршрут от пилота к договору. Институтам развития следует смещать акцент с абстрактной поддержки стартапов на поддержку связки «стартап — заказчик — пилот — внедрение».</P>
@@ -630,7 +694,7 @@ const S33 = () => (
 );
 
 const S34 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={31} label="Рекомендации · Институты развития" color={T.green} />
+  <Page size={[PW, PH]} style={ps()}><Header num={32} label="Рекомендации · Институты развития" color={T.green} />
     <H size={20}>Программы пилотов и юридико-технологическая готовность</H>
     <View style={{ flexDirection: "row", gap: 22, flex: 1 }}>
       <Bcol n={3} accent={T.green} title="Создать программы корпоративных пилотов с чёткими задачами"
@@ -646,7 +710,7 @@ const S34 = () => (
 );
 
 const S35 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={32} label="Рекомендации · Институты развития" color={T.green} />
+  <Page size={[PW, PH]} style={ps()}><Header num={33} label="Рекомендации · Институты развития" color={T.green} />
     <H size={20}>Использовать разрывы между шкалами как карту вмешательства</H>
     <NumHead n={5} accent={T.green}>Разрывы между шкалами спроса подсказывают тип поддержки</NumHead>
     <P size={10}>Если направление сильно в корпоративной шкале, но слабее по спросу со стороны инвесторов, это сигнал, что стартапам нужен доступ к заказчикам и пилотам. Если направление сильно по спросу со стороны инвесторов, но слабее в корпоративной шкале, ему нужны коммерциализация и проверка прикладного спроса.</P>
@@ -662,7 +726,7 @@ const S35 = () => (
 );
 
 const S36 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={33} label="Рекомендации · Стартапы" />
+  <Page size={[PW, PH]} style={ps()}><Header num={34} label="Рекомендации · Стартапы" />
     <H size={20}>Определить тип спроса и подготовить материалы под аудиторию</H>
     <Cols gap={22}>
       <Col>
@@ -696,7 +760,7 @@ const S36 = () => (
 );
 
 const S37 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={34} label="Рекомендации · Стартапы" />
+  <Page size={[PW, PH]} style={ps()}><Header num={35} label="Рекомендации · Стартапы" />
     <H size={20}>Готовность к пилоту и к сделке — до переговоров</H>
     <View style={{ flexDirection: "row", gap: 22, flex: 1 }}>
       <Bcol n={3} title="Не выходить к корпорации без готовности к пилоту"
@@ -712,7 +776,7 @@ const S37 = () => (
 );
 
 const S38 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={35} label="Рекомендации · Стартапы" />
+  <Page size={[PW, PH]} style={ps()}><Header num={36} label="Рекомендации · Стартапы" />
     <H size={20}>Оценивать привлекательность направления вместе со зрелостью</H>
     <NumHead n={5}>Приоритетное направление само по себе не гарантирует интереса</NumHead>
     <P size={10}>Приоритетное направление само по себе не гарантирует интереса к конкретной компании. Стартап должен сопоставить позицию направления с собственной готовностью.</P>
@@ -731,7 +795,7 @@ const S38 = () => (
 );
 
 const S39 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={36} label="Рекомендации · Сводка" />
+  <Page size={[PW, PH]} style={ps()}><Header num={37} label="Рекомендации · Сводка" />
     <H size={20}>Приоритетные действия по аудиториям</H>
     <P size={10.5}>Ниже собраны действия для каждой группы участников рынка в ближайший период — переход от результатов исследования к конкретным шагам.</P>
     <View style={{ height: 6 }} />
@@ -747,7 +811,7 @@ const S39 = () => (
 );
 
 const S40 = () => (
-  <Page size={[PW, PH]} style={ps()}><Header num={37} label="Рекомендации · Сводка" color={T.terra} />
+  <Page size={[PW, PH]} style={ps()}><Header num={38} label="Рекомендации · Сводка" color={T.terra} />
     <H size={20}>Ошибки, которых следует избегать</H>
     <P size={10.5}>Типичные ошибки участников рынка и их последствия — карта рисков, которая помогает не потерять сделку и не перегрузить воронку нерелевантными проектами.</P>
     <View style={{ height: 6 }} />
@@ -766,11 +830,11 @@ const S40 = () => (
   </Page>
 );
 
-const S41 = () => (
+const S41 = ({ ib }) => (
   <Page size={[PW, PH]} style={{ ...f, width: PW, height: PH, backgroundColor: T.bg, padding: "28 44", color: T.fg }}>
     <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
       <Text style={{ fontSize: 9, fontWeight: 700, color: T.muted, letterSpacing: 2, textTransform: "uppercase" }}>Финальный вывод</Text>
-      <Text style={{ fontSize: 9, color: T.muted, letterSpacing: 1 }}>38 / 38</Text>
+      <Text style={{ fontSize: 9, color: T.muted, letterSpacing: 1 }}>39 / 39</Text>
     </View>
     <View style={{ flex: 1, justifyContent: "flex-start", maxWidth: 680, paddingTop: 30 }}>
       <View style={{ flexDirection: "row", alignItems: "flex-end", gap: 6, marginBottom: 18 }}>
@@ -784,6 +848,9 @@ const S41 = () => (
         <Text style={{ fontSize: 12, color: T.body, lineHeight: 1.45, flex: 1 }}>Рынок нужно анализировать не как единый рейтинг отраслей, а как сочетание трёх видов спроса — со стороны инвесторов, корпораций и институтов развития.</Text>
       </View>
     </View>
+    <View style={{ marginBottom: 11 }}>
+      <DownloadCTA ib={ib} w={360} />
+    </View>
     <View style={{ flexDirection: "row", justifyContent: "space-between", borderTopWidth: 1, borderTopColor: T.line, paddingTop: 11 }}>
       <Text style={{ fontSize: 9, fontWeight: 700, color: T.muted, letterSpacing: 2, textTransform: "uppercase" }}>Hop.Agency × Startup Drive</Text>
       <Text style={{ fontSize: 9, color: T.muted }}>hop.agency · startupdrive.ru</Text>
@@ -793,10 +860,10 @@ const S41 = () => (
 
 const SMDoc = ({ ib }) => (
   <Document title="Рынок стартапов в России — Hop.Agency × Startup Drive" author="Дмитрий Бондарев">
-    <S01 ib={ib} /><S02 /><S03 /><S04 /><S05 /><S06 ib={ib} /><S07 ib={ib} /><S08 ib={ib} /><S09 ib={ib} /><S10 ib={ib} />
+    <S01 ib={ib} /><STeam ib={ib} /><S02 /><S03 /><S04 /><S05 /><S06 ib={ib} /><S07 ib={ib} /><S08 ib={ib} /><S09 ib={ib} /><S10 ib={ib} />
     <S11 ib={ib} /><S12 /><S13 /><S14 /><S15 /><S16 /><S17 /><S18 /><S19 ib={ib} /><S20 />
     <S21 /><S22 />
-    <S27 /><S28 /><S29 /><S24 ib={ib} /><S30 /><S31 /><S32 /><S33 /><S34 /><S35 /><S36 /><S37 /><S38 /><S39 /><S40 /><S41 />
+    <S27 /><S28 /><S29 /><S24 ib={ib} /><S30 /><S31 /><S32 /><S33 /><S34 /><S35 /><S36 /><S37 /><S38 /><S39 /><S40 /><S41 ib={ib} />
   </Document>
 );
 

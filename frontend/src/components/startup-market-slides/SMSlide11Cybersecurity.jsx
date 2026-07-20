@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMSplit, SMP, SM } from "./SMSlideContainer";
 
 const SMSlide11Cybersecurity = () => (
-  <SMSlideContainer number={11} label="Кейс направления">
+  <SMSlideContainer number={12} label="Кейс направления">
     <SMKicker color={SM.green}>Почему Cybersecurity выделен отдельно</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Почему Cybersecurity выделен отдельно</SMTitle>
     <SMSplit src="VIS-06.svg" alt="Разрыв Cybersecurity между интегральным и корпоративным рейтингом" wide>

@@ -1,13 +1,13 @@
-import { SM, FONTS } from "./SMSlideContainer";
+import { SM, FONTS, SMDownloadCTA } from "./SMSlideContainer";
 
 const SMSlide38Final = () => (
   <div className="w-full h-full flex flex-col relative px-6 sm:px-10 md:px-16 lg:px-24 py-5 md:py-8"
-    style={{ backgroundColor: SM.bg, color: SM.ink, fontFamily: FONTS.TEXT }} data-testid="sm-slide-38">
+    style={{ backgroundColor: SM.bg, color: SM.ink, fontFamily: FONTS.TEXT }} data-testid="sm-slide-39">
     <div className="flex items-center justify-between shrink-0">
       <span className="text-[10px] md:text-xs tracking-[0.26em] uppercase font-semibold" style={{ color: SM.muted }}>
         Финальный вывод
       </span>
-      <span className="text-[10px] md:text-xs tracking-[0.15em]" style={{ color: SM.muted, fontFamily: FONTS.DISP }}>38 / 38</span>
+      <span className="text-[10px] md:text-xs tracking-[0.15em]" style={{ color: SM.muted, fontFamily: FONTS.DISP }}>39 / 39</span>
     </div>
 
     <div className="flex-1 flex flex-col justify-start min-h-0 max-w-5xl pt-6 md:pt-10">
@@ -29,6 +29,10 @@ const SMSlide38Final = () => (
           со стороны инвесторов, корпораций и институтов развития.
         </p>
       </div>
+    </div>
+
+    <div className="shrink-0 mb-4 md:mb-5">
+      <SMDownloadCTA className="max-w-2xl" />
     </div>
 
     <div className="shrink-0 flex items-center justify-between pt-4 md:pt-5" style={{ borderTop: `1px solid ${SM.line}` }}>

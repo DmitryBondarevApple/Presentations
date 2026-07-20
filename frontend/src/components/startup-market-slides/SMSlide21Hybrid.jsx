@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMP, SMCols, SM } from "./SMSlideContainer";
 
 const SMSlide21Hybrid = () => (
-  <SMSlideContainer number={21} label="Гибридные направления">
+  <SMSlideContainer number={22} label="Гибридные направления">
     <SMKicker color={SM.green}>HealthTech, MedTech и EdTech: гибридные направления</SMKicker>
     <SMTitle className="!mb-3 md:!mb-4">HealthTech, MedTech и EdTech: гибридные направления</SMTitle>
     <SMCols>

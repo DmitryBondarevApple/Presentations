@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMP, SMStat, SM } from "./SMSlideContainer";
 
 const SMSlide03Method = () => (
-  <SMSlideContainer number={3} label="Методология">
+  <SMSlideContainer number={4} label="Методология">
     <SMKicker>Методологическая база</SMKicker>
     <SMTitle className="!mb-3 md:!mb-4">Комбинированный анализ количественных и качественных данных</SMTitle>
     <SMP>

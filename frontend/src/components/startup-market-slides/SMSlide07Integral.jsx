@@ -1,7 +1,7 @@
 import { SMSlideContainer, SMKicker, SMTitle, SMSplit, SMP } from "./SMSlideContainer";
 
 const SMSlide07Integral = () => (
-  <SMSlideContainer number={7} label="Интегральный показатель">
+  <SMSlideContainer number={8} label="Интегральный показатель">
     <SMKicker>Лидеры по интегральному показателю</SMKicker>
     <SMTitle className="!mb-2 md:!mb-3">Лидеры по интегральному показателю</SMTitle>
     <SMSplit src="VIS-02.svg" alt="Топ-10 направлений по интегральному показателю спроса" wide>
