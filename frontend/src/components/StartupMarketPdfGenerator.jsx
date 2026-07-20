@@ -98,7 +98,7 @@ const STeam = ({ ib }) => (
       <View style={{ flex: 1 }}>
         <GroupHead accent={T.navy}>Команда Hop.Agency</GroupHead>
         <TeamMember ib={ib} photo="bondarev.jpg" name="Дмитрий Бондарев" role="Руководитель проекта исследования" accent={T.navy} />
-        <TeamMember ib={ib} photo="tyrkba-v2.jpg" initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" accent={T.navy} />
+        <TeamMember ib={ib} photo="tyrkba-v3.jpg" initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" accent={T.navy} />
         <TeamMember ib={ib} photo="starostina.jpg" initials="НС" name="Наталья Старостина" role="Аналитик-интервьюер" accent={T.navy} />
         <TeamMember ib={ib} photo="bondarenko.jpg" name="Сергей Бондаренко" role="Аналитик-интервьюер" accent={T.navy} />
         <TeamMember ib={ib} photo="bataeva.jpg" initials="ЕБ" name="Екатерина Батаева" role="Координатор проекта" accent={T.navy} />
