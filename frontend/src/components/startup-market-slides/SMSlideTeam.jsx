@@ -40,7 +40,7 @@ const SMSlideTeam = () => (
         <div className="flex flex-col gap-4 md:gap-5">
           <Member photo="onishchenko.jpg" initials="МО" name="Максим Онищенко"
             role="Руководитель корпоративного акселератора StartupDrive" accent={SM.terra} />
-          <Member photo="kateneva.jpg" initials="КК" name="Кристина Катенева" role="Аналитик" accent={SM.terra} />
+          <Member photo="kateneva.jpg" initials="КК" name="Кристина Катенева" role="Менеджер по масштабированию активов" accent={SM.terra} />
           <Member photo="kopytova.jpg" initials="ЕК" name="Елизавета Копытова" role="Дизайнер" accent={SM.terra} />
         </div>
       </div>

@@ -92,7 +92,7 @@ const STeam = ({ ib }) => (
       <View style={{ flex: 1 }}>
         <GroupHead accent={T.terra}>Газпромнефть  |  Startup Drive</GroupHead>
         <TeamMember ib={ib} photo="onishchenko.jpg" name="Максим Онищенко" role="Руководитель корпоративного акселератора StartupDrive" accent={T.terra} />
-        <TeamMember ib={ib} photo="kateneva.jpg" name="Кристина Катенева" role="Аналитик" accent={T.terra} />
+        <TeamMember ib={ib} photo="kateneva.jpg" name="Кристина Катенева" role="Менеджер по масштабированию активов" accent={T.terra} />
         <TeamMember ib={ib} photo="kopytova.jpg" name="Елизавета Копытова" role="Дизайнер" accent={T.terra} />
       </View>
       <View style={{ flex: 1 }}>
