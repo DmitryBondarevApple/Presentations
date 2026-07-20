@@ -98,10 +98,10 @@ const STeam = ({ ib }) => (
       <View style={{ flex: 1 }}>
         <GroupHead accent={T.navy}>Команда Hop.Agency</GroupHead>
         <TeamMember ib={ib} photo="bondarev.png" name="Дмитрий Бондарев" role="Руководитель проекта исследования" accent={T.navy} />
-        <TeamMember ib={ib} initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" accent={T.navy} />
-        <TeamMember ib={ib} initials="НС" name="Наталья Старостина" role="Аналитик-интервьюер" accent={T.navy} />
+        <TeamMember ib={ib} photo="tyrkba.png" initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" accent={T.navy} />
+        <TeamMember ib={ib} photo="starostina.jpg" initials="НС" name="Наталья Старостина" role="Аналитик-интервьюер" accent={T.navy} />
         <TeamMember ib={ib} photo="bondarenko.png" name="Сергей Бондаренко" role="Аналитик-интервьюер" accent={T.navy} />
-        <TeamMember ib={ib} initials="ЕБ" name="Екатерина Батаева" role="Координатор проекта" accent={T.navy} />
+        <TeamMember ib={ib} photo="bataeva.png" initials="ЕБ" name="Екатерина Батаева" role="Координатор проекта" accent={T.navy} />
       </View>
     </View>
   </Page>
@@ -229,18 +229,12 @@ const S01 = ({ ib }) => (
         <View style={{ width: 9, height: 38, borderRadius: 2, backgroundColor: T.terra }} />
       </View>
     </View>
-    <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end", borderTopWidth: 1, borderTopColor: T.line, paddingTop: 11 }}>
-      <View style={{ flexDirection: "column", gap: 8 }}>
-        <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-          <Image src={`${ib}/images/startup-market/speaker.png`} style={{ width: 36, height: 36, borderRadius: 18, objectFit: "cover" }} />
-          <View>
-            <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg }}>Дмитрий Бондарев</Text>
-            <Text style={{ fontSize: 9, color: T.muted, marginTop: 2 }}>Руководитель исследования · аналитический департамент Hop.Agency</Text>
-          </View>
-        </View>
-        <Text style={{ fontSize: 9, color: T.muted }}>hop.agency · startupdrive.ru</Text>
-      </View>
-      <DownloadCTA ib={ib} w={320} />
+    <View style={{ marginBottom: 11 }}>
+      <DownloadCTA ib={ib} w={360} />
+    </View>
+    <View style={{ flexDirection: "row", justifyContent: "space-between", borderTopWidth: 1, borderTopColor: T.line, paddingTop: 11 }}>
+      <Text style={{ fontSize: 9, fontWeight: 700, color: T.muted, letterSpacing: 2, textTransform: "uppercase" }}>Hop.Agency × Startup Drive</Text>
+      <Text style={{ fontSize: 9, color: T.muted }}>hop.agency · startupdrive.ru</Text>
     </View>
   </Page>
 );

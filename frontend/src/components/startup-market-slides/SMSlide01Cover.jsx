@@ -1,7 +1,5 @@
 import { SM, FONTS, SMDownloadCTA } from "./SMSlideContainer";
 
-const IMG = (process.env.PUBLIC_URL || "");
-
 const SMSlide01Cover = () => (
   <div className="w-full h-full flex flex-col relative px-6 sm:px-10 md:px-16 lg:px-24 py-5 md:py-8"
     style={{ backgroundColor: SM.bg, color: SM.ink, fontFamily: FONTS.TEXT }} data-testid="sm-slide-1">
@@ -38,24 +36,15 @@ const SMSlide01Cover = () => (
       </div>
     </div>
 
-    <div className="shrink-0 flex flex-col lg:flex-row lg:items-end gap-4 lg:gap-8 pt-4 md:pt-5"
-      style={{ borderTop: `1px solid ${SM.line}` }}>
-      <div className="flex-1 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
-        <div className="flex items-center gap-3.5">
-          <img src={`${IMG}/images/startup-market/speaker.png`} alt="Дмитрий Бондарев"
-            className="w-11 h-11 md:w-14 md:h-14 rounded-full object-cover" style={{ border: `1px solid ${SM.line}` }} />
-          <div>
-            <div className="text-sm md:text-base font-bold" style={{ color: SM.ink, fontFamily: FONTS.DISP }}>Дмитрий Бондарев</div>
-            <div className="text-[11px] md:text-xs leading-snug" style={{ color: SM.muted }}>
-              Руководитель исследования · аналитический департамент Hop.Agency
-            </div>
-          </div>
-        </div>
-        <div className="text-[11px] md:text-xs leading-relaxed sm:text-right self-end" style={{ color: SM.muted }}>
-          <span style={{ color: SM.ink, fontWeight: 600 }}>hop.agency</span> · <span style={{ color: SM.ink, fontWeight: 600 }}>startupdrive.ru</span>
-        </div>
-      </div>
-      <SMDownloadCTA className="lg:max-w-md w-full" />
+    <div className="shrink-0 mb-4 md:mb-5">
+      <SMDownloadCTA className="max-w-2xl" />
+    </div>
+
+    <div className="shrink-0 flex items-center justify-between pt-4 md:pt-5" style={{ borderTop: `1px solid ${SM.line}` }}>
+      <span className="text-[11px] md:text-xs tracking-[0.2em] uppercase font-semibold" style={{ color: SM.muted }}>
+        Hop.Agency <span style={{ color: SM.line }}>×</span> Startup Drive
+      </span>
+      <span className="text-[11px] md:text-xs" style={{ color: SM.muted }}>hop.agency · startupdrive.ru</span>
     </div>
   </div>
 );

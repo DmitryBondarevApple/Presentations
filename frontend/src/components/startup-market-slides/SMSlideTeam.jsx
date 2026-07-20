@@ -51,10 +51,10 @@ const SMSlideTeam = () => (
         <GroupHeader accent={SM.navy}>Команда Hop.Agency</GroupHeader>
         <div className="flex flex-col gap-3.5 md:gap-4">
           <Member photo="bondarev.png" initials="ДБ" name="Дмитрий Бондарев" role="Руководитель проекта исследования" />
-          <Member initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" />
-          <Member initials="НС" name="Наталья Старостина" role="Аналитик-интервьюер" />
+          <Member photo="tyrkba.png" initials="ХТ" name="Ханифа Тыркба" role="Аналитик, выпускающий редактор" />
+          <Member photo="starostina.jpg" initials="НС" name="Наталья Старостина" role="Аналитик-интервьюер" />
           <Member photo="bondarenko.png" initials="СБ" name="Сергей Бондаренко" role="Аналитик-интервьюер" />
-          <Member initials="ЕБ" name="Екатерина Батаева" role="Координатор проекта" />
+          <Member photo="bataeva.png" initials="ЕБ" name="Екатерина Батаева" role="Координатор проекта" />
         </div>
       </div>
     </div>
