@@ -63,23 +63,23 @@ const DownloadCTA = ({ ib, w }) => (
 
 const GroupHead = ({ children, accent }) => (
   <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginBottom: 14 }}>
-    <View style={{ width: 5, height: 16, borderRadius: 2, backgroundColor: accent }} />
-    <Text style={{ fontSize: 13, fontWeight: 700, color: T.fg }}>{children}</Text>
+    <View style={{ width: 5, height: 20, borderRadius: 2, backgroundColor: accent }} />
+    <Text style={{ fontSize: 16, fontWeight: 700, color: T.fg }}>{children}</Text>
   </View>
 );
 
 const TeamMember = ({ ib, photo, initials, name, role, accent }) => (
-  <View style={{ flexDirection: "row", alignItems: "center", gap: 10, marginBottom: 11 }}>
+  <View style={{ flexDirection: "row", alignItems: "center", gap: 12, marginBottom: 13 }}>
     {photo ? (
-      <Image src={`${ib}/images/startup-market/team/${photo}`} style={{ width: 46, height: 46, borderRadius: 23, objectFit: "cover" }} />
+      <Image src={`${ib}/images/startup-market/team/${photo}`} style={{ width: 58, height: 58, borderRadius: 29, objectFit: "cover" }} />
     ) : (
-      <View style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: T.navySoft, alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 12.5, fontWeight: 700, color: accent }}>{initials}</Text>
+      <View style={{ width: 58, height: 58, borderRadius: 29, backgroundColor: T.navySoft, alignItems: "center", justifyContent: "center" }}>
+        <Text style={{ fontSize: 15.5, fontWeight: 700, color: accent }}>{initials}</Text>
       </View>
     )}
     <View style={{ flex: 1 }}>
-      <Text style={{ fontSize: 12, fontWeight: 700, color: T.fg }}>{name}</Text>
-      <Text style={{ fontSize: 9, color: T.muted, marginTop: 2 }}>{role}</Text>
+      <Text style={{ fontSize: 15, fontWeight: 700, color: T.fg }}>{name}</Text>
+      <Text style={{ fontSize: 11, color: T.muted, marginTop: 2 }}>{role}</Text>
     </View>
   </View>
 );
